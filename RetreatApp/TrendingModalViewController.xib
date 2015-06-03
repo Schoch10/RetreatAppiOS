@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TrendingModalViewController">
+            <connections>
+                <outlet property="navigationBar" destination="lF5-hE-kuj" id="qCD-v0-qRo"/>
+                <outlet property="trendingInformationTab" destination="T8Z-l2-3yN" id="R5v-Op-yeC"/>
+                <outlet property="trendingTableView" destination="5UG-t0-WZ9" id="pVx-dX-INK"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5UG-t0-WZ9">
+                    <rect key="frame" x="0.0" y="44" width="600" height="600"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="lMk-fZ-9bx"/>
+                        <outlet property="delegate" destination="-1" id="Lmb-Iu-ubm"/>
+                    </connections>
+                </tableView>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lF5-hE-kuj">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                    <items>
+                        <navigationItem title="Location Name" id="thI-bu-WhH">
+                            <barButtonItem key="rightBarButtonItem" title="Close" id="W4Q-by-oKt">
+                                <connections>
+                                    <action selector="closeModalSelected:" destination="-1" id="hBR-Ak-LrV"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+                <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T8Z-l2-3yN">
+                    <rect key="frame" x="0.0" y="551" width="600" height="49"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <items>
+                        <tabBarItem title="Posts" id="AlS-sB-YCr"/>
+                        <tabBarItem tag="1" title="Checked In" id="l8S-wv-C7m"/>
+                    </items>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="vOo-QI-GHo"/>
+                    </connections>
+                </tabBar>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="lF5-hE-kuj" secondAttribute="trailing" id="7Ci-PP-D0B"/>
+                <constraint firstItem="T8Z-l2-3yN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="CT2-V8-heI"/>
+                <constraint firstAttribute="bottom" secondItem="T8Z-l2-3yN" secondAttribute="bottom" id="T0Y-rf-fxK"/>
+                <constraint firstAttribute="trailing" secondItem="T8Z-l2-3yN" secondAttribute="trailing" id="ZgZ-Qm-0mi"/>
+                <constraint firstItem="lF5-hE-kuj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="dos-EY-2zY"/>
+                <constraint firstItem="lF5-hE-kuj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="jTO-6t-UR7"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+        </view>
+    </objects>
+</document>

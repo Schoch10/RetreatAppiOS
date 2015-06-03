@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PostModalViewController">
+            <connections>
+                <outlet property="commentTextView" destination="8E5-CZ-0TM" id="me7-FO-kJe"/>
+                <outlet property="imageToPostImageView" destination="MIC-iB-OhP" id="YMq-IQ-jvS"/>
+                <outlet property="postButton" destination="RqY-1a-dZn" id="jDy-bZ-aBa"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yyS-ba-2ln">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                    <items>
+                        <navigationItem title="Post" id="E4b-B0-dGe">
+                            <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="mUg-N1-qfK">
+                                <connections>
+                                    <action selector="cancelPostSelected:" destination="-1" id="BbC-rI-xQ0"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MIC-iB-OhP">
+                    <rect key="frame" x="8" y="56" width="584" height="195"/>
+                </imageView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Comment" translatesAutoresizingMaskIntoConstraints="NO" id="8E5-CZ-0TM">
+                    <rect key="frame" x="8" y="267" width="584" height="151"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="151" id="mev-0F-Nx9"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RqY-1a-dZn">
+                    <rect key="frame" x="18" y="562" width="574" height="30"/>
+                    <state key="normal" title="Post">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="postButtonSelected:" destination="-1" eventType="touchUpInside" id="0gc-ui-ZQ9"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6bY-5q-XKS">
+                    <rect key="frame" x="18" y="504" width="574" height="30"/>
+                    <state key="normal" title="Select Image">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="selectImageButtonSelected:" destination="-1" eventType="touchUpInside" id="VAT-Oc-icu"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="yyS-ba-2ln" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2KD-Fr-I0m"/>
+                <constraint firstItem="yyS-ba-2ln" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4eD-VH-w08"/>
+                <constraint firstAttribute="bottom" secondItem="RqY-1a-dZn" secondAttribute="bottom" constant="8" id="7or-Az-ITl"/>
+                <constraint firstAttribute="trailing" secondItem="yyS-ba-2ln" secondAttribute="trailing" id="Acz-n3-qdI"/>
+                <constraint firstItem="RqY-1a-dZn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="18" id="IEy-XT-BUz"/>
+                <constraint firstItem="6bY-5q-XKS" firstAttribute="top" secondItem="8E5-CZ-0TM" secondAttribute="bottom" constant="86" id="J6B-0T-0zz"/>
+                <constraint firstAttribute="trailing" secondItem="RqY-1a-dZn" secondAttribute="trailing" constant="8" id="JF5-xb-SEY"/>
+                <constraint firstItem="6bY-5q-XKS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="18" id="QDK-yz-f5H"/>
+                <constraint firstAttribute="trailing" secondItem="8E5-CZ-0TM" secondAttribute="trailing" constant="8" id="Yef-US-NaW"/>
+                <constraint firstItem="MIC-iB-OhP" firstAttribute="top" secondItem="yyS-ba-2ln" secondAttribute="bottom" constant="12" id="grG-SG-uIr"/>
+                <constraint firstAttribute="trailing" secondItem="MIC-iB-OhP" secondAttribute="trailing" constant="8" id="kKb-oZ-ZMM"/>
+                <constraint firstItem="6bY-5q-XKS" firstAttribute="trailing" secondItem="8E5-CZ-0TM" secondAttribute="trailing" id="oVN-Vb-TCX"/>
+                <constraint firstItem="MIC-iB-OhP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="qau-Vg-sOO"/>
+                <constraint firstItem="8E5-CZ-0TM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="tp4-sP-EhC"/>
+                <constraint firstItem="RqY-1a-dZn" firstAttribute="top" secondItem="6bY-5q-XKS" secondAttribute="bottom" constant="28" id="uSC-G2-gcA"/>
+                <constraint firstItem="8E5-CZ-0TM" firstAttribute="top" secondItem="MIC-iB-OhP" secondAttribute="bottom" constant="16" id="v42-nb-lth"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

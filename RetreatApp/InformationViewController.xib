@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="InformationViewController">
+            <connections>
+                <outlet property="informationTableView" destination="dmQ-hj-qzk" id="mVY-Ii-LxW"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="omni" translatesAutoresizingMaskIntoConstraints="NO" id="bWN-CM-Gam">
+                    <rect key="frame" x="0.0" y="66" width="600" height="176"/>
+                </imageView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="dmQ-hj-qzk">
+                    <rect key="frame" x="0.0" y="244" width="600" height="356"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Kiq-hI-aqx"/>
+                        <outlet property="delegate" destination="-1" id="1cV-Uy-Tao"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="dmQ-hj-qzk" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2g8-ee-wCM"/>
+                <constraint firstAttribute="bottom" secondItem="dmQ-hj-qzk" secondAttribute="bottom" id="JT0-jw-zqm"/>
+                <constraint firstItem="dmQ-hj-qzk" firstAttribute="top" secondItem="bWN-CM-Gam" secondAttribute="bottom" constant="2" id="OVd-sx-3NN"/>
+                <constraint firstAttribute="trailing" secondItem="bWN-CM-Gam" secondAttribute="trailing" id="PKe-S8-mYq"/>
+                <constraint firstAttribute="trailing" secondItem="dmQ-hj-qzk" secondAttribute="trailing" id="foJ-3f-E2Q"/>
+                <constraint firstItem="bWN-CM-Gam" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="k3g-gS-FR7"/>
+                <constraint firstItem="bWN-CM-Gam" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="66" id="ltv-lE-ZQI"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="omni" width="286" height="176"/>
+    </resources>
+</document>
