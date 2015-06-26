@@ -24,6 +24,10 @@ static  NSString * const SBRINFOTABLEVIEWCELL = @"InfoTableViewCell";
     self.title = @"Information";
     self.informationArray = @[@"310 Mount Washington Hotel Rd, Bretton Woods, NH 03575", @"603-278-1000"];
     [self.informationTableView registerNib:[UINib nibWithNibName:@"InformationTableViewCell" bundle:nil] forCellReuseIdentifier:SBRINFOTABLEVIEWCELL];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.0 green:0.447f blue:0.784f alpha:1.0f];
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+
 }
 
 #pragma mark - Table view data source

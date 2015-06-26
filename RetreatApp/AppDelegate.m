@@ -13,6 +13,7 @@
 #import "CoreDataManager.h"
 #import "SaveQuizQuestionsOperation.h"
 #import "ServiceCoordinator.h"
+#import "CreateAgendaOperation.h"
 
 @interface AppDelegate ()
 @end
@@ -26,6 +27,7 @@
     [coreData setUpManagedObjects];
     
     [self populateQuizQuestions];
+    [self populateAgenda];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
@@ -49,6 +51,12 @@
    SaveQuizQuestionsOperation *saveQuizOperation = [[SaveQuizQuestionsOperation alloc]initGame];
     [ServiceCoordinator addLocalOperation:saveQuizOperation completion:^(void) {
         // do something when it is finished
+    }];
+}
+
+- (void)populateAgenda {
+    CreateAgendaOperation *createAgendaOperation = [[CreateAgendaOperation alloc]initAgendaWithType:@"agenda"];
+    [ServiceCoordinator addLocalOperation:createAgendaOperation completion:^(void){
     }];
 }
 

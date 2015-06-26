@@ -29,21 +29,23 @@
                         </navigationItem>
                     </items>
                 </navigationBar>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MIC-iB-OhP">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="uploadphot" translatesAutoresizingMaskIntoConstraints="NO" id="MIC-iB-OhP">
                     <rect key="frame" x="8" y="56" width="584" height="195"/>
                 </imageView>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Comment" translatesAutoresizingMaskIntoConstraints="NO" id="8E5-CZ-0TM">
-                    <rect key="frame" x="8" y="267" width="584" height="151"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <rect key="frame" x="8" y="267" width="584" height="224"/>
+                    <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="151" id="mev-0F-Nx9"/>
+                        <constraint firstAttribute="height" constant="224" id="mev-0F-Nx9"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RqY-1a-dZn">
                     <rect key="frame" x="18" y="562" width="574" height="30"/>
+                    <color key="backgroundColor" red="0.0" green="0.44705882352941173" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="Post">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -52,7 +54,9 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6bY-5q-XKS">
                     <rect key="frame" x="18" y="504" width="574" height="30"/>
+                    <color key="backgroundColor" red="0.0" green="0.44705882352941173" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="Select Image">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -67,7 +71,7 @@
                 <constraint firstAttribute="bottom" secondItem="RqY-1a-dZn" secondAttribute="bottom" constant="8" id="7or-Az-ITl"/>
                 <constraint firstAttribute="trailing" secondItem="yyS-ba-2ln" secondAttribute="trailing" id="Acz-n3-qdI"/>
                 <constraint firstItem="RqY-1a-dZn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="18" id="IEy-XT-BUz"/>
-                <constraint firstItem="6bY-5q-XKS" firstAttribute="top" secondItem="8E5-CZ-0TM" secondAttribute="bottom" constant="86" id="J6B-0T-0zz"/>
+                <constraint firstItem="6bY-5q-XKS" firstAttribute="top" secondItem="8E5-CZ-0TM" secondAttribute="bottom" constant="13" id="J6B-0T-0zz"/>
                 <constraint firstAttribute="trailing" secondItem="RqY-1a-dZn" secondAttribute="trailing" constant="8" id="JF5-xb-SEY"/>
                 <constraint firstItem="6bY-5q-XKS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="18" id="QDK-yz-f5H"/>
                 <constraint firstAttribute="trailing" secondItem="8E5-CZ-0TM" secondAttribute="trailing" constant="8" id="Yef-US-NaW"/>
@@ -81,4 +85,7 @@
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="uploadphot" width="512" height="512"/>
+    </resources>
 </document>

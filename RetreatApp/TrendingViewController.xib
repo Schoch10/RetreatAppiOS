@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TrendingViewController">
@@ -15,54 +14,85 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47Q-lK-UF9">
-                    <rect key="frame" x="8" y="562" width="268" height="30"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="resort_map_header" translatesAutoresizingMaskIntoConstraints="NO" id="14q-m8-ZZM">
+                    <rect key="frame" x="0.0" y="67" width="600" height="533"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iJU-NC-Usb">
+                    <rect key="frame" x="0.0" y="560" width="600" height="40"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47Q-lK-UF9">
+                            <rect key="frame" x="8" y="5" width="187" height="30"/>
+                            <color key="backgroundColor" red="0.0" green="0.44705882352941173" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="187" id="lIb-0b-Ga7"/>
+                            </constraints>
+                            <state key="normal" title="Check In">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="checkInButtonSelected:" destination="-1" eventType="touchUpInside" id="v38-Sb-sr8"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Yq-Tc-GKp">
+                            <rect key="frame" x="405" y="5" width="187" height="30"/>
+                            <color key="backgroundColor" red="0.0" green="0.44705882352941173" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="187" id="PBe-ZO-sDZ"/>
+                            </constraints>
+                            <state key="normal" title="Post">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="postButtonSelected:" destination="-1" eventType="touchUpInside" id="5BC-vM-HO3"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k54-gJ-6aS">
+                            <rect key="frame" x="210" y="10" width="180" height="20"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="268" id="HPb-ye-cPz"/>
+                        <constraint firstItem="47Q-lK-UF9" firstAttribute="width" secondItem="2Yq-Tc-GKp" secondAttribute="width" id="0Nm-0x-ZiS"/>
+                        <constraint firstAttribute="bottom" secondItem="47Q-lK-UF9" secondAttribute="bottom" constant="5" id="7WG-lS-fsx"/>
+                        <constraint firstItem="47Q-lK-UF9" firstAttribute="top" secondItem="iJU-NC-Usb" secondAttribute="top" constant="5" id="9vR-md-gJa"/>
+                        <constraint firstItem="2Yq-Tc-GKp" firstAttribute="leading" secondItem="k54-gJ-6aS" secondAttribute="trailing" constant="15" id="FGT-hs-jxI"/>
+                        <constraint firstItem="47Q-lK-UF9" firstAttribute="leading" secondItem="iJU-NC-Usb" secondAttribute="leading" constant="8" id="JgF-s0-9Zv"/>
+                        <constraint firstItem="2Yq-Tc-GKp" firstAttribute="leading" secondItem="k54-gJ-6aS" secondAttribute="trailing" constant="15" id="JgU-u6-IaO"/>
+                        <constraint firstAttribute="bottom" secondItem="2Yq-Tc-GKp" secondAttribute="bottom" constant="5" id="Lea-ZW-jmb"/>
+                        <constraint firstItem="2Yq-Tc-GKp" firstAttribute="top" secondItem="iJU-NC-Usb" secondAttribute="top" constant="5" id="NG4-3y-hyx"/>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="47Q-lK-UF9" secondAttribute="bottom" constant="5" id="Q33-jf-dwl"/>
+                        <constraint firstItem="47Q-lK-UF9" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iJU-NC-Usb" secondAttribute="top" constant="5" id="R1b-XU-QfQ"/>
+                        <constraint firstAttribute="trailing" secondItem="2Yq-Tc-GKp" secondAttribute="trailing" constant="8" id="Zd6-CE-nGI"/>
+                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="2Yq-Tc-GKp" secondAttribute="bottom" constant="5" id="Zu5-cg-v3C"/>
+                        <constraint firstItem="k54-gJ-6aS" firstAttribute="leading" secondItem="47Q-lK-UF9" secondAttribute="trailing" constant="15" id="e7l-kN-G2B"/>
+                        <constraint firstAttribute="bottom" secondItem="k54-gJ-6aS" secondAttribute="bottom" constant="10" id="fbQ-4I-9z7"/>
+                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2Yq-Tc-GKp" secondAttribute="trailing" constant="8" id="mgi-ts-Wng"/>
+                        <constraint firstAttribute="height" constant="40" id="nNk-Pe-V0L"/>
+                        <constraint firstItem="k54-gJ-6aS" firstAttribute="top" secondItem="iJU-NC-Usb" secondAttribute="top" constant="10" id="tmN-7t-nCE"/>
+                        <constraint firstItem="2Yq-Tc-GKp" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iJU-NC-Usb" secondAttribute="top" constant="5" id="uIr-Kd-IFx"/>
+                        <constraint firstItem="k54-gJ-6aS" firstAttribute="leading" secondItem="47Q-lK-UF9" secondAttribute="trailing" constant="15" id="xrD-Nt-BwG"/>
+                        <constraint firstItem="47Q-lK-UF9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iJU-NC-Usb" secondAttribute="leading" constant="8" id="zYG-Gh-QpY"/>
                     </constraints>
-                    <state key="normal" title="Check In">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="checkInButtonSelected:" destination="-1" eventType="touchUpInside" id="v38-Sb-sr8"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Yq-Tc-GKp">
-                    <rect key="frame" x="329" y="562" width="263" height="30"/>
-                    <state key="normal" title="Post">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="postButtonSelected:" destination="-1" eventType="touchUpInside" id="5BC-vM-HO3"/>
-                    </connections>
-                </button>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MI7-dS-Dsl">
-                    <rect key="frame" x="284" y="544" width="37" height="56"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yr4-84-xYT">
-                    <rect key="frame" x="8" y="97" width="584" height="30"/>
-                    <state key="normal" title="Trending Area Test">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="trendingAreaSelected:" destination="-1" eventType="touchUpInside" id="blM-Lc-3qJ"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="MI7-dS-Dsl" secondAttribute="trailing" constant="279" id="0No-FN-jya"/>
-                <constraint firstAttribute="bottom" secondItem="2Yq-Tc-GKp" secondAttribute="bottom" constant="8" id="27H-z4-TNq"/>
-                <constraint firstAttribute="bottom" secondItem="MI7-dS-Dsl" secondAttribute="bottom" id="DsN-rq-eah"/>
-                <constraint firstItem="MI7-dS-Dsl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="544" id="Gtr-3Q-OjD"/>
-                <constraint firstItem="MI7-dS-Dsl" firstAttribute="leading" secondItem="47Q-lK-UF9" secondAttribute="trailing" constant="8" id="KT0-gS-CeA"/>
-                <constraint firstItem="2Yq-Tc-GKp" firstAttribute="trailing" secondItem="i5M-Pr-FkT" secondAttribute="trailingMargin" id="Qoc-tW-aXp"/>
-                <constraint firstItem="47Q-lK-UF9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="ZRa-xJ-9ir"/>
-                <constraint firstAttribute="bottom" secondItem="47Q-lK-UF9" secondAttribute="bottom" constant="8" id="fdq-o6-bO2"/>
-                <constraint firstItem="2Yq-Tc-GKp" firstAttribute="leading" secondItem="MI7-dS-Dsl" secondAttribute="trailing" constant="8" id="hh6-F1-Vef"/>
+                <constraint firstItem="iJU-NC-Usb" firstAttribute="leading" secondItem="14q-m8-ZZM" secondAttribute="leading" id="Ei1-7q-AMR"/>
+                <constraint firstItem="iJU-NC-Usb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="MdR-30-qKa"/>
+                <constraint firstItem="14q-m8-ZZM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="YKh-kk-UQz"/>
+                <constraint firstItem="14q-m8-ZZM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="67" id="fBb-MQ-Wfg"/>
+                <constraint firstAttribute="bottom" secondItem="14q-m8-ZZM" secondAttribute="bottom" id="gyV-Vm-3Sf"/>
+                <constraint firstAttribute="bottom" secondItem="iJU-NC-Usb" secondAttribute="bottom" id="o1m-hK-hrj"/>
+                <constraint firstAttribute="trailing" secondItem="iJU-NC-Usb" secondAttribute="trailing" id="qQl-Mg-jYP"/>
+                <constraint firstAttribute="trailing" secondItem="14q-m8-ZZM" secondAttribute="trailing" id="vpB-cU-NWb"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
         </view>
     </objects>
+    <resources>
+        <image name="resort_map_header" width="462" height="551"/>
+    </resources>
 </document>

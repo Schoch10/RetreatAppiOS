@@ -9,6 +9,8 @@
 #import "CreateUserViewController.h"
 #import "SettingsManager.h"
 #import "HomeViewController.h"
+#import "CreateUserOperation.h"
+#import "ServiceCoordinator.h"
 
 @interface CreateUserViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *firstNameTextField;
@@ -26,6 +28,10 @@
     [super viewDidLoad];
     self.title = @"Create User";
     self.saveButton.enabled = NO;
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.0 green:0.447f blue:0.784f alpha:1.0f];
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+
 }
 
 - (IBAction)saveButtonSelected:(id)sender {
@@ -34,6 +40,12 @@
         self.firstNameString = self.firstNameTextField.text;
         SettingsManager *settings = [SettingsManager sharedManager];
         settings.username = self.firstNameString;
+        CreateUserOperation *createUserOperation = [[CreateUserOperation alloc]initUserWithUserName:self.firstNameString];
+        [ServiceCoordinator addLocalOperation:createUserOperation completion:^(void) {
+            // do something when it is finished
+        }];
+    } else {
+        return;
     }
     
     HomeViewController *homeView = [[HomeViewController alloc]initWithNibName:@"HomeViewController" bundle:nil];

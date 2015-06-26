@@ -22,6 +22,10 @@ static  NSString * const SBRAGENDATABLEVIEWCELL = @"AgendaTableViewCell";
     [super viewDidLoad];
     self.title = @"Activities";
     [self.tableView registerNib:[UINib nibWithNibName:@"AgendaTableViewCell" bundle:nil] forCellReuseIdentifier:SBRAGENDATABLEVIEWCELL];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.0 green:0.447f blue:0.784f alpha:1.0f];
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+
 }
 
 #pragma mark - Table view data source
