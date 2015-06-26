@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		561D9AEB1B387E4C00C70C07 /* Agenda.m in Sources */ = {isa = PBXBuildFile; fileRef = 561D9AEA1B387E4C00C70C07 /* Agenda.m */; };
+		561D9AEE1B387E6400C70C07 /* Agenda+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 561D9AED1B387E6400C70C07 /* Agenda+Extensions.m */; };
+		561D9AF11B387FE000C70C07 /* CreateAgendaOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 561D9AF01B387FE000C70C07 /* CreateAgendaOperation.m */; };
+		5631E40F1B21E55900798191 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5631E40E1B21E55900798191 /* User.m */; };
+		5631E4121B21E55900798191 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 5631E4111B21E55900798191 /* Post.m */; };
+		5631E4181B21E69A00798191 /* User+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5631E4171B21E69A00798191 /* User+Extensions.m */; };
+		5631E41B1B21E79B00798191 /* CreateUserOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5631E41A1B21E79B00798191 /* CreateUserOperation.m */; };
+		5631E41E1B21EB9700798191 /* CheckinOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5631E41D1B21EB9700798191 /* CheckinOperation.m */; };
+		5631E4211B21F76500798191 /* Checkin+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5631E4201B21F76500798191 /* Checkin+Extensions.m */; };
+		5631E4241B21F88500798191 /* Checkin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5631E4231B21F88500798191 /* Checkin.m */; };
 		5640A46D1B18B5EA0073D8E2 /* SettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5640A46C1B18B5EA0073D8E2 /* SettingsManager.m */; };
 		5640A47D1B18BBC50073D8E2 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5640A47C1B18BBC50073D8E2 /* libz.dylib */; };
 		5640A47F1B18BBD70073D8E2 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5640A47E1B18BBD70073D8E2 /* libsqlite3.dylib */; };
@@ -39,6 +49,8 @@
 		56B5E9751B1E3A710041C48E /* SaveQuizAnswerOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 56B5E9741B1E3A710041C48E /* SaveQuizAnswerOperation.m */; };
 		56B5E9791B1E90480041C48E /* InformationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 56B5E9771B1E90480041C48E /* InformationTableViewCell.m */; };
 		56B5E97A1B1E90480041C48E /* InformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56B5E9781B1E90480041C48E /* InformationTableViewCell.xib */; };
+		56B7B4BA1B324F4B00615737 /* PostsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 56B7B4B81B324F4B00615737 /* PostsTableViewCell.m */; };
+		56B7B4BB1B324F4B00615737 /* PostsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56B7B4B91B324F4B00615737 /* PostsTableViewCell.xib */; };
 		56DC28041B17AC90009137E7 /* InformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56DC28021B17AC90009137E7 /* InformationViewController.m */; };
 		56DC28051B17AC90009137E7 /* InformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56DC28031B17AC90009137E7 /* InformationViewController.xib */; };
 		56DC28091B17AF58009137E7 /* AgendaTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56DC28071B17AF58009137E7 /* AgendaTableViewController.m */; };
@@ -66,6 +78,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		561D9AE91B387E4C00C70C07 /* Agenda.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Agenda.h; sourceTree = "<group>"; };
+		561D9AEA1B387E4C00C70C07 /* Agenda.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Agenda.m; sourceTree = "<group>"; };
+		561D9AEC1B387E6400C70C07 /* Agenda+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Agenda+Extensions.h"; sourceTree = "<group>"; };
+		561D9AED1B387E6400C70C07 /* Agenda+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Agenda+Extensions.m"; sourceTree = "<group>"; };
+		561D9AEF1B387FE000C70C07 /* CreateAgendaOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateAgendaOperation.h; sourceTree = "<group>"; };
+		561D9AF01B387FE000C70C07 /* CreateAgendaOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateAgendaOperation.m; sourceTree = "<group>"; };
+		5631E40D1B21E55900798191 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		5631E40E1B21E55900798191 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		5631E4101B21E55900798191 /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
+		5631E4111B21E55900798191 /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		5631E4161B21E69A00798191 /* User+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+Extensions.h"; sourceTree = "<group>"; };
+		5631E4171B21E69A00798191 /* User+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+Extensions.m"; sourceTree = "<group>"; };
+		5631E4191B21E79B00798191 /* CreateUserOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateUserOperation.h; sourceTree = "<group>"; };
+		5631E41A1B21E79B00798191 /* CreateUserOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateUserOperation.m; sourceTree = "<group>"; };
+		5631E41C1B21EB9700798191 /* CheckinOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckinOperation.h; sourceTree = "<group>"; };
+		5631E41D1B21EB9700798191 /* CheckinOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckinOperation.m; sourceTree = "<group>"; };
+		5631E41F1B21F76500798191 /* Checkin+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Checkin+Extensions.h"; sourceTree = "<group>"; };
+		5631E4201B21F76500798191 /* Checkin+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Checkin+Extensions.m"; sourceTree = "<group>"; };
+		5631E4221B21F88500798191 /* Checkin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Checkin.h; sourceTree = "<group>"; };
+		5631E4231B21F88500798191 /* Checkin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Checkin.m; sourceTree = "<group>"; };
 		5640A46B1B18B5EA0073D8E2 /* SettingsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsManager.h; sourceTree = "<group>"; };
 		5640A46C1B18B5EA0073D8E2 /* SettingsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsManager.m; sourceTree = "<group>"; };
 		5640A47C1B18BBC50073D8E2 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -118,6 +150,9 @@
 		56B5E9761B1E90480041C48E /* InformationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationTableViewCell.h; sourceTree = "<group>"; };
 		56B5E9771B1E90480041C48E /* InformationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationTableViewCell.m; sourceTree = "<group>"; };
 		56B5E9781B1E90480041C48E /* InformationTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InformationTableViewCell.xib; sourceTree = "<group>"; };
+		56B7B4B71B324F4B00615737 /* PostsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostsTableViewCell.h; sourceTree = "<group>"; };
+		56B7B4B81B324F4B00615737 /* PostsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostsTableViewCell.m; sourceTree = "<group>"; };
+		56B7B4B91B324F4B00615737 /* PostsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostsTableViewCell.xib; sourceTree = "<group>"; };
 		56DC28011B17AC90009137E7 /* InformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationViewController.h; sourceTree = "<group>"; };
 		56DC28021B17AC90009137E7 /* InformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationViewController.m; sourceTree = "<group>"; };
 		56DC28031B17AC90009137E7 /* InformationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InformationViewController.xib; sourceTree = "<group>"; };
@@ -165,6 +200,18 @@
 		5640A46A1B18B5D70073D8E2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				561D9AE91B387E4C00C70C07 /* Agenda.h */,
+				561D9AEA1B387E4C00C70C07 /* Agenda.m */,
+				5631E4221B21F88500798191 /* Checkin.h */,
+				5631E4231B21F88500798191 /* Checkin.m */,
+				5631E41F1B21F76500798191 /* Checkin+Extensions.h */,
+				5631E4201B21F76500798191 /* Checkin+Extensions.m */,
+				5631E4101B21E55900798191 /* Post.h */,
+				5631E4111B21E55900798191 /* Post.m */,
+				5631E40D1B21E55900798191 /* User.h */,
+				5631E40E1B21E55900798191 /* User.m */,
+				5631E4161B21E69A00798191 /* User+Extensions.h */,
+				5631E4171B21E69A00798191 /* User+Extensions.m */,
 				56B5E9681B1E22C90041C48E /* CoreDataManager.h */,
 				56B5E9671B1E22C90041C48E /* CoreDataManager.m */,
 				56B5E96A1B1E28F20041C48E /* Game.h */,
@@ -173,6 +220,8 @@
 				56B5E9651B1E0ED40041C48E /* Game+Extensions.m */,
 				5640A46B1B18B5EA0073D8E2 /* SettingsManager.h */,
 				5640A46C1B18B5EA0073D8E2 /* SettingsManager.m */,
+				561D9AEC1B387E6400C70C07 /* Agenda+Extensions.h */,
+				561D9AED1B387E6400C70C07 /* Agenda+Extensions.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -310,6 +359,8 @@
 				56B5E9711B1E2AC20041C48E /* SaveQuizQuestionsOperation.m */,
 				56B5E9731B1E3A710041C48E /* SaveQuizAnswerOperation.h */,
 				56B5E9741B1E3A710041C48E /* SaveQuizAnswerOperation.m */,
+				561D9AEF1B387FE000C70C07 /* CreateAgendaOperation.h */,
+				561D9AF01B387FE000C70C07 /* CreateAgendaOperation.m */,
 			);
 			name = "Local Operations";
 			sourceTree = "<group>";
@@ -317,6 +368,10 @@
 		56B5E9601B1DF9E80041C48E /* Network Operations */ = {
 			isa = PBXGroup;
 			children = (
+				5631E4191B21E79B00798191 /* CreateUserOperation.h */,
+				5631E41A1B21E79B00798191 /* CreateUserOperation.m */,
+				5631E41C1B21EB9700798191 /* CheckinOperation.h */,
+				5631E41D1B21EB9700798191 /* CheckinOperation.m */,
 			);
 			name = "Network Operations";
 			sourceTree = "<group>";
@@ -333,6 +388,9 @@
 				56B5E9761B1E90480041C48E /* InformationTableViewCell.h */,
 				56B5E9771B1E90480041C48E /* InformationTableViewCell.m */,
 				56B5E9781B1E90480041C48E /* InformationTableViewCell.xib */,
+				56B7B4B71B324F4B00615737 /* PostsTableViewCell.h */,
+				56B7B4B81B324F4B00615737 /* PostsTableViewCell.m */,
+				56B7B4B91B324F4B00615737 /* PostsTableViewCell.xib */,
 			);
 			name = "Custom Table Cells";
 			sourceTree = "<group>";
@@ -436,6 +494,7 @@
 				56B5E94E1B1CCF770041C48E /* CheckedInTableViewCell.xib in Resources */,
 				56DC28191B17B83E009137E7 /* GameViewController.xib in Resources */,
 				56B5E9581B1CE7FD0041C48E /* PostModalViewController.xib in Resources */,
+				56B7B4BB1B324F4B00615737 /* PostsTableViewCell.xib in Resources */,
 				56DC280F1B17B049009137E7 /* ActivitiesTableViewController.xib in Resources */,
 				5640A4871B18DD760073D8E2 /* WelcomeViewController.xib in Resources */,
 				56B5E9531B1CD81B0041C48E /* CheckinViewController.xib in Resources */,
@@ -467,18 +526,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5631E40F1B21E55900798191 /* User.m in Sources */,
 				56B5E95C1B1CFA930041C48E /* GameCollectionViewCell.m in Sources */,
 				56DC28041B17AC90009137E7 /* InformationViewController.m in Sources */,
 				56A6069F1B17543000F95006 /* AppDelegate.m in Sources */,
 				5640A46D1B18B5EA0073D8E2 /* SettingsManager.m in Sources */,
 				56B5E96F1B1E29590041C48E /* ServiceCoordinator.m in Sources */,
 				5640A48B1B18DF370073D8E2 /* CreateUserViewController.m in Sources */,
+				561D9AEB1B387E4C00C70C07 /* Agenda.m in Sources */,
 				56B5E9661B1E0ED40041C48E /* Game+Extensions.m in Sources */,
+				5631E41E1B21EB9700798191 /* CheckinOperation.m in Sources */,
+				56B7B4BA1B324F4B00615737 /* PostsTableViewCell.m in Sources */,
+				5631E41B1B21E79B00798191 /* CreateUserOperation.m in Sources */,
 				56A606A21B17543000F95006 /* RetreatApp.xcdatamodeld in Sources */,
 				56A6069C1B17543000F95006 /* main.m in Sources */,
 				56B5E9521B1CD81B0041C48E /* CheckinViewController.m in Sources */,
 				56DC28181B17B83E009137E7 /* GameViewController.m in Sources */,
 				56B5E9751B1E3A710041C48E /* SaveQuizAnswerOperation.m in Sources */,
+				5631E4121B21E55900798191 /* Post.m in Sources */,
+				561D9AEE1B387E6400C70C07 /* Agenda+Extensions.m in Sources */,
 				5640A4861B18DD760073D8E2 /* WelcomeViewController.m in Sources */,
 				56A606CF1B176CF800F95006 /* HomeViewController.m in Sources */,
 				56B5E96C1B1E28F20041C48E /* Game.m in Sources */,
@@ -487,11 +553,15 @@
 				56B5E9691B1E22C90041C48E /* CoreDataManager.m in Sources */,
 				56E963EB1B1CB46B004F1F2F /* TrendingModalViewController.m in Sources */,
 				56B5E9791B1E90480041C48E /* InformationTableViewCell.m in Sources */,
+				561D9AF11B387FE000C70C07 /* CreateAgendaOperation.m in Sources */,
 				56DC28131B17B6B0009137E7 /* TrendingViewController.m in Sources */,
+				5631E4241B21F88500798191 /* Checkin.m in Sources */,
 				56DC280E1B17B049009137E7 /* ActivitiesTableViewController.m in Sources */,
 				56B5E9721B1E2AC20041C48E /* SaveQuizQuestionsOperation.m in Sources */,
 				56DC28091B17AF58009137E7 /* AgendaTableViewController.m in Sources */,
 				56E963E51B1C9857004F1F2F /* AgendaTableViewCell.m in Sources */,
+				5631E4181B21E69A00798191 /* User+Extensions.m in Sources */,
+				5631E4211B21F76500798191 /* Checkin+Extensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

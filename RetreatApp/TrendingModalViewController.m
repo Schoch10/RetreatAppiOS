@@ -8,14 +8,17 @@
 
 #import "TrendingModalViewController.h"
 #import "CheckedInTableViewCell.h"
+#import "PostsTableViewCell.h"
 
 static  NSString * const SBRCHECKEDINCELL = @"CheckedinTableCell";
+static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
 
 
 @interface TrendingModalViewController ()
 @property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
 @property (weak, nonatomic) IBOutlet UITabBar *trendingInformationTab;
 @property (weak, nonatomic) IBOutlet UITableView *trendingTableView;
+@property (nonatomic) BOOL isCheckedInView;
 
 
 - (IBAction)closeModalSelected:(id)sender;
@@ -26,6 +29,9 @@ static  NSString * const SBRCHECKEDINCELL = @"CheckedinTableCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.trendingTableView registerNib:[UINib nibWithNibName:@"CheckedInTableViewCell" bundle:nil] forCellReuseIdentifier:SBRCHECKEDINCELL];
+    [self.trendingTableView registerNib:[UINib nibWithNibName:@"PostsTableViewCell" bundle:nil] forCellReuseIdentifier:SBRPOSTSCELL];
+    self.isCheckedInView = NO;
+    
 }
 
 - (IBAction)closeModalSelected:(id)sender {
@@ -41,24 +47,37 @@ static  NSString * const SBRCHECKEDINCELL = @"CheckedinTableCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [self.trendingTableView dequeueReusableCellWithIdentifier:SBRCHECKEDINCELL forIndexPath:indexPath];
+    if (self.isCheckedInView) {
+        return [self.trendingTableView dequeueReusableCellWithIdentifier:SBRCHECKEDINCELL forIndexPath:indexPath];
+    } else {
+        return [self.trendingTableView dequeueReusableCellWithIdentifier:SBRPOSTSCELL forIndexPath:indexPath];
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [CheckedInTableViewCell estimatedHeight];
+    if (self.isCheckedInView) {
+        return [CheckedInTableViewCell estimatedHeight];
+    } else {
+        return 250.0f;
+    }
 }
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CheckedInTableViewCell *checkinCell = (CheckedInTableViewCell *)cell;
-    [checkinCell layoutWithWidth:CGRectGetWidth(self.trendingTableView.bounds)];
-    NSString *username = @"Brendan Schoch";
-    NSString *checkinTime = @"20 minutes ago";
-    UIImage *image = [UIImage imageNamed:@"me"];
-    checkinCell.checkinName = username;
-    checkinCell.userImage = image;
-    checkinCell.checkinTime = checkinTime;
+    
+    if(self.isCheckedInView) {
+        CheckedInTableViewCell *checkinCell = (CheckedInTableViewCell *)cell;
+        [checkinCell layoutWithWidth:CGRectGetWidth(self.trendingTableView.bounds)];
+        NSString *username = @"Brendan Schoch";
+        NSString *checkinTime = @"20 minutes ago";
+        UIImage *image = [UIImage imageNamed:@"me"];
+        checkinCell.checkinName = username;
+        checkinCell.userImage = image;
+        checkinCell.checkinTime = checkinTime;
+    } else {
+      //  PostsTableViewCell *postsCell = (PostsTableViewCell *)cell;
+    }
     
 }
 
@@ -68,10 +87,12 @@ static  NSString * const SBRCHECKEDINCELL = @"CheckedinTableCell";
 {
     switch (item.tag) {
         case 0:
-            NSLog(@"Posts");
+            self.isCheckedInView = NO;
+            [self.trendingTableView reloadData];
             break;
         case 1:
-            NSLog(@"Checked In");
+            self.isCheckedInView = YES;
+            [self.trendingTableView reloadData];
             break;
         default:
             break;

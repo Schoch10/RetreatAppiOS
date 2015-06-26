@@ -10,32 +10,51 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5NS-2c-ggx">
-                    <rect key="frame" x="8" y="41" width="584" height="20.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gza-i6-qhw">
-                    <rect key="frame" x="8" y="213" width="584" height="30"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TParty" translatesAutoresizingMaskIntoConstraints="NO" id="OV7-Uk-Dqf">
+                    <rect key="frame" x="0.0" y="63" width="600" height="537"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gza-i6-qhw">
+                    <rect key="frame" x="8" y="550" width="584" height="30"/>
+                    <color key="backgroundColor" red="0.0" green="0.44705882352941173" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="Next">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="nextButtonSelected:" destination="-1" eventType="touchUpInside" id="Ndz-Qp-R6p"/>
                     </connections>
                 </button>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MwD-H4-y9p">
+                    <rect key="frame" x="51" y="141" width="498" height="237"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <string key="text">Welcome to the Slalom Boston retreat.....Add a welcome note here potentially from Norris. We could also add something 1920s or theme related.</string>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="5NS-2c-ggx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="41" id="4Bt-3E-s4f"/>
-                <constraint firstAttribute="trailing" secondItem="5NS-2c-ggx" secondAttribute="trailing" constant="8" id="QcS-Dt-wLV"/>
-                <constraint firstItem="5NS-2c-ggx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="tQm-LP-TE3"/>
+                <constraint firstItem="OV7-Uk-Dqf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2rd-IZ-YOr"/>
+                <constraint firstAttribute="trailing" secondItem="gza-i6-qhw" secondAttribute="trailing" constant="8" id="Ada-m7-eyx"/>
+                <constraint firstAttribute="trailing" secondItem="OV7-Uk-Dqf" secondAttribute="trailing" id="Azz-cV-gXb"/>
+                <constraint firstItem="MwD-H4-y9p" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="51" id="EGy-mS-J1a"/>
+                <constraint firstItem="MwD-H4-y9p" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="141" id="M3g-0h-g5Y"/>
+                <constraint firstAttribute="trailing" secondItem="MwD-H4-y9p" secondAttribute="trailing" constant="51" id="MoY-JD-Eas"/>
+                <constraint firstAttribute="bottom" secondItem="gza-i6-qhw" secondAttribute="bottom" constant="20" id="dXr-5O-11W"/>
+                <constraint firstItem="OV7-Uk-Dqf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="63" id="eXH-3q-jzO"/>
+                <constraint firstItem="gza-i6-qhw" firstAttribute="top" secondItem="MwD-H4-y9p" secondAttribute="bottom" constant="172" id="kkx-Dj-dVv"/>
+                <constraint firstAttribute="bottom" secondItem="OV7-Uk-Dqf" secondAttribute="bottom" id="oFv-Gs-VH0"/>
+                <constraint firstItem="gza-i6-qhw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="sih-Sk-ZF2"/>
             </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
         </view>
     </objects>
+    <resources>
+        <image name="TParty" width="864" height="668"/>
+    </resources>
 </document>

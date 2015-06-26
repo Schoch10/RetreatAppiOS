@@ -18,25 +18,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5UG-t0-WZ9">
-                    <rect key="frame" x="0.0" y="44" width="600" height="600"/>
+                    <rect key="frame" x="0.0" y="52" width="600" height="592"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="lMk-fZ-9bx"/>
                         <outlet property="delegate" destination="-1" id="Lmb-Iu-ubm"/>
                     </connections>
                 </tableView>
-                <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lF5-hE-kuj">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                    <items>
-                        <navigationItem title="Location Name" id="thI-bu-WhH">
-                            <barButtonItem key="rightBarButtonItem" title="Close" id="W4Q-by-oKt">
-                                <connections>
-                                    <action selector="closeModalSelected:" destination="-1" id="hBR-Ak-LrV"/>
-                                </connections>
-                            </barButtonItem>
-                        </navigationItem>
-                    </items>
-                </navigationBar>
                 <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T8Z-l2-3yN">
                     <rect key="frame" x="0.0" y="551" width="600" height="49"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -48,6 +36,22 @@
                         <outlet property="delegate" destination="-1" id="vOo-QI-GHo"/>
                     </connections>
                 </tabBar>
+                <navigationBar contentMode="scaleToFill" placeholderIntrinsicWidth="600" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="lF5-hE-kuj">
+                    <rect key="frame" x="0.0" y="8" width="600" height="44"/>
+                    <color key="barTintColor" red="0.0" green="0.45098039220000002" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                    <textAttributes key="titleTextAttributes">
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
+                    </textAttributes>
+                    <items>
+                        <navigationItem title="Location Name" id="thI-bu-WhH">
+                            <barButtonItem key="rightBarButtonItem" title="Close" id="W4Q-by-oKt">
+                                <connections>
+                                    <action selector="closeModalSelected:" destination="-1" id="hBR-Ak-LrV"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -55,10 +59,11 @@
                 <constraint firstItem="T8Z-l2-3yN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="CT2-V8-heI"/>
                 <constraint firstAttribute="bottom" secondItem="T8Z-l2-3yN" secondAttribute="bottom" id="T0Y-rf-fxK"/>
                 <constraint firstAttribute="trailing" secondItem="T8Z-l2-3yN" secondAttribute="trailing" id="ZgZ-Qm-0mi"/>
-                <constraint firstItem="lF5-hE-kuj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="dos-EY-2zY"/>
+                <constraint firstItem="lF5-hE-kuj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="dos-EY-2zY"/>
                 <constraint firstItem="lF5-hE-kuj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="jTO-6t-UR7"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
+            <point key="canvasLocation" x="290" y="206"/>
         </view>
     </objects>
 </document>

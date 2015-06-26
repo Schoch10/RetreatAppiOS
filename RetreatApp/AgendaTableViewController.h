@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 
-@interface AgendaTableViewController : UITableViewController
+@interface AgendaTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
+
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @end

@@ -37,23 +37,13 @@ int secondsLeft;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIImageView* logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"slalom"]];
+    UIImageView* logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"slalomwhite"]];
     logo.contentMode = UIViewContentModeScaleAspectFit;
     self.navigationItem.titleView = logo;
-    //self.title = @"Slalom T Party";
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.0 green:0.447f blue:0.784f alpha:1.0f];
     SettingsManager *sharedManager = [SettingsManager sharedManager];
     self.userInformationLabel.text = sharedManager.username;
     self.userImageView.image = [UIImage imageWithData:sharedManager.userImage];
-    //extract into separate method
-    NSDateComponents *comps = [[NSDateComponents alloc] init];
-    [comps setDay:28];
-    [comps setMonth:8];
-    [comps setYear:2015];
-    //Add iOS 7 support
-    NSCalendar *gregorian = [[NSCalendar alloc]
-                             initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDate *retreatDate = [gregorian dateFromComponents:comps];
-    secondsLeft = [retreatDate timeIntervalSinceDate:[NSDate date]];
     [self countdownTimer];
 }
 
@@ -65,7 +55,7 @@ int secondsLeft;
         minutes = (secondsLeft % 3600) / 60;
         seconds = (secondsLeft % 3600) % 60;
         self.countdownLabel.text = [NSString stringWithFormat:@"%02d:%02d:%02d:%02.f",days, hours, minutes, seconds];
-        self.gameButton.enabled = NO;
+        self.gameButton.enabled = YES;
         self.gameButton.backgroundColor = [UIColor grayColor];
         self.gameButton.titleLabel.text = @"Top Secret";
     }
@@ -77,6 +67,15 @@ int secondsLeft;
 }
 
 -(void)countdownTimer{
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    [comps setDay:28];
+    [comps setMonth:8];
+    [comps setYear:2015];
+    //Add iOS 7 support
+    NSCalendar *gregorian = [[NSCalendar alloc]
+                             initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDate *retreatDate = [gregorian dateFromComponents:comps];
+    secondsLeft = [retreatDate timeIntervalSinceDate:[NSDate date]];
     
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateCounter:) userInfo:nil repeats:YES];
 }
