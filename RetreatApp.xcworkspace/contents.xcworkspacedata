@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../RetreatApp.xcodeproj">
+      location = "group:RetreatApp/RetreatApp.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:SlalomCommon.xcodeproj">
+      location = "group:SlalomCommon/SlalomCommon.xcodeproj">
    </FileRef>
 </Workspace>

@@ -5,23 +5,23 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>6FC21343-4DD2-4D72-B236-35E2C7DE931A</string>
+	<string>A5C92C6F-1BC3-4630-8306-AA71277F7109</string>
 	<key>IDESourceControlProjectName</key>
-	<string>Retreat</string>
+	<string>RetreatApp</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>4A834C63546C762BDA0A6244A68FA3F240FCB7CA</key>
-		<string>https://github.com/Schoch10/RetreatAppiOS.git</string>
+		<string>github.com:Schoch10/RetreatAppiOS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>RetreatApp/Retreat.xcworkspace</string>
+	<string>RetreatApp.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>4A834C63546C762BDA0A6244A68FA3F240FCB7CA</key>
-		<string>../..</string>
+		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/Schoch10/RetreatAppiOS.git</string>
+	<string>github.com:Schoch10/RetreatAppiOS.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
@@ -34,7 +34,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>4A834C63546C762BDA0A6244A68FA3F240FCB7CA</string>
 			<key>IDESourceControlWCCName</key>
-			<string>RetreatApp</string>
+			<string>RetreatAppiOS</string>
 		</dict>
 	</array>
 </dict>

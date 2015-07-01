@@ -679,10 +679,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				HEADER_SEARCH_PATHS = "../RetreatApp/**";
+				HEADER_SEARCH_PATHS = "../SlalomCommon/**";
 				INFOPLIST_FILE = RetreatApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "../Retreat/App/**";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -691,10 +690,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				HEADER_SEARCH_PATHS = "../RetreatApp/**";
+				HEADER_SEARCH_PATHS = "../SlalomCommon/**";
 				INFOPLIST_FILE = RetreatApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "../Retreat/App/**";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
