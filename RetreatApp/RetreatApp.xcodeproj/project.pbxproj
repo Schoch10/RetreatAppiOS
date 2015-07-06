@@ -65,6 +65,10 @@
 		56E963E61B1C9857004F1F2F /* AgendaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56E963E41B1C9857004F1F2F /* AgendaTableViewCell.xib */; };
 		56E963EB1B1CB46B004F1F2F /* TrendingModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E963E91B1CB46B004F1F2F /* TrendingModalViewController.m */; };
 		56E963EC1B1CB46B004F1F2F /* TrendingModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56E963EA1B1CB46B004F1F2F /* TrendingModalViewController.xib */; };
+		8CB96F6D1B44B11B00845975 /* SCInfiniteCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB96F6B1B44B11B00845975 /* SCInfiniteCollectionView.m */; };
+		8CB96F711B44BC2600845975 /* UIView+Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB96F701B44BC2600845975 /* UIView+Position.m */; };
+		8CB96F751B44C66C00845975 /* TrendingLocationCarouselCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB96F731B44C66C00845975 /* TrendingLocationCarouselCell.m */; };
+		8CB96F761B44C66C00845975 /* TrendingLocationCarouselCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CB96F741B44C66C00845975 /* TrendingLocationCarouselCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -174,6 +178,13 @@
 		56E963E81B1CB46B004F1F2F /* TrendingModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrendingModalViewController.h; sourceTree = "<group>"; };
 		56E963E91B1CB46B004F1F2F /* TrendingModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrendingModalViewController.m; sourceTree = "<group>"; };
 		56E963EA1B1CB46B004F1F2F /* TrendingModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrendingModalViewController.xib; sourceTree = "<group>"; };
+		8CB96F6B1B44B11B00845975 /* SCInfiniteCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCInfiniteCollectionView.m; sourceTree = "<group>"; };
+		8CB96F6C1B44B11B00845975 /* SCInfiniteCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCInfiniteCollectionView.h; sourceTree = "<group>"; };
+		8CB96F6F1B44BC2600845975 /* UIView+Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Position.h"; sourceTree = "<group>"; };
+		8CB96F701B44BC2600845975 /* UIView+Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Position.m"; sourceTree = "<group>"; };
+		8CB96F721B44C66C00845975 /* TrendingLocationCarouselCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrendingLocationCarouselCell.h; sourceTree = "<group>"; };
+		8CB96F731B44C66C00845975 /* TrendingLocationCarouselCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrendingLocationCarouselCell.m; sourceTree = "<group>"; };
+		8CB96F741B44C66C00845975 /* TrendingLocationCarouselCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrendingLocationCarouselCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				56B5E95E1B1DF9D90041C48E /* Operations */,
+				8CB96F6E1B44BC1100845975 /* Categories */,
 				5640A4821B18BEF70073D8E2 /* Frameworks */,
 				5640A46A1B18B5D70073D8E2 /* Model */,
 				56A606D21B176D1F00F95006 /* Views */,
@@ -323,6 +335,8 @@
 		56A606D21B176D1F00F95006 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8CB96F6C1B44B11B00845975 /* SCInfiniteCollectionView.h */,
+				8CB96F6B1B44B11B00845975 /* SCInfiniteCollectionView.m */,
 				56E963E71B1CB44F004F1F2F /* Modals */,
 				56E963E11B1C9831004F1F2F /* Custom Table Cells */,
 				5640A48A1B18DF370073D8E2 /* CreateUserViewController.xib */,
@@ -337,6 +351,9 @@
 				56B5E9591B1CFA930041C48E /* GameCollectionViewCell.h */,
 				56B5E95A1B1CFA930041C48E /* GameCollectionViewCell.m */,
 				56B5E95B1B1CFA930041C48E /* GameCollectionViewCell.xib */,
+				8CB96F721B44C66C00845975 /* TrendingLocationCarouselCell.h */,
+				8CB96F731B44C66C00845975 /* TrendingLocationCarouselCell.m */,
+				8CB96F741B44C66C00845975 /* TrendingLocationCarouselCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -409,6 +426,15 @@
 				56B5E9561B1CE7FD0041C48E /* PostModalViewController.xib */,
 			);
 			name = Modals;
+			sourceTree = "<group>";
+		};
+		8CB96F6E1B44BC1100845975 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				8CB96F6F1B44BC2600845975 /* UIView+Position.h */,
+				8CB96F701B44BC2600845975 /* UIView+Position.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -492,6 +518,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56B5E94E1B1CCF770041C48E /* CheckedInTableViewCell.xib in Resources */,
+				8CB96F761B44C66C00845975 /* TrendingLocationCarouselCell.xib in Resources */,
 				56DC28191B17B83E009137E7 /* GameViewController.xib in Resources */,
 				56B5E9581B1CE7FD0041C48E /* PostModalViewController.xib in Resources */,
 				56B7B4BB1B324F4B00615737 /* PostsTableViewCell.xib in Resources */,
@@ -527,6 +554,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5631E40F1B21E55900798191 /* User.m in Sources */,
+				8CB96F711B44BC2600845975 /* UIView+Position.m in Sources */,
 				56B5E95C1B1CFA930041C48E /* GameCollectionViewCell.m in Sources */,
 				56DC28041B17AC90009137E7 /* InformationViewController.m in Sources */,
 				56A6069F1B17543000F95006 /* AppDelegate.m in Sources */,
@@ -540,6 +568,7 @@
 				5631E41B1B21E79B00798191 /* CreateUserOperation.m in Sources */,
 				56A606A21B17543000F95006 /* RetreatApp.xcdatamodeld in Sources */,
 				56A6069C1B17543000F95006 /* main.m in Sources */,
+				8CB96F751B44C66C00845975 /* TrendingLocationCarouselCell.m in Sources */,
 				56B5E9521B1CD81B0041C48E /* CheckinViewController.m in Sources */,
 				56DC28181B17B83E009137E7 /* GameViewController.m in Sources */,
 				56B5E9751B1E3A710041C48E /* SaveQuizAnswerOperation.m in Sources */,
@@ -552,6 +581,7 @@
 				56B5E9571B1CE7FD0041C48E /* PostModalViewController.m in Sources */,
 				56B5E9691B1E22C90041C48E /* CoreDataManager.m in Sources */,
 				56E963EB1B1CB46B004F1F2F /* TrendingModalViewController.m in Sources */,
+				8CB96F6D1B44B11B00845975 /* SCInfiniteCollectionView.m in Sources */,
 				56B5E9791B1E90480041C48E /* InformationTableViewCell.m in Sources */,
 				561D9AF11B387FE000C70C07 /* CreateAgendaOperation.m in Sources */,
 				56DC28131B17B6B0009137E7 /* TrendingViewController.m in Sources */,
