@@ -8,7 +8,10 @@
 
 #import "PostModalViewController.h"
 
-@interface PostModalViewController ()
+@interface PostModalViewController () <UINavigationBarDelegate>
+@property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topNavigationConstraint;
+
 @property (strong, nonatomic) UIImage *imageToPost;
 @property (weak, nonatomic) IBOutlet UIImageView *imageToPostImageView;
 @property (weak, nonatomic) IBOutlet UIButton *postButton;
@@ -23,8 +26,15 @@
 
 @implementation PostModalViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
+    
+    [self.view removeConstraint:self.topNavigationConstraint];
+    NSLayoutConstraint *newTopConstraint = [NSLayoutConstraint constraintWithItem:self.navigationBar attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.topLayoutGuide attribute:NSLayoutAttributeTop multiplier:1 constant:0];
+    [self.view addConstraint:newTopConstraint];
+
+    
     if (!self.imageToPost) {
         self.postButton.enabled = NO;
     }
@@ -68,6 +78,13 @@
 
 - (IBAction)cancelPostSelected:(id)sender {
     [self.delegate dismissPostModalViewController];
+}
+
+#pragma mark UINavigationBar delegate methods
+
+- (UIBarPosition)positionForBar:(id<UIBarPositioning>)bar
+{
+    return UIBarPositionTopAttached;
 }
 
 @end

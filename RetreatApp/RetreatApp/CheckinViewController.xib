@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -8,6 +8,8 @@
             <connections>
                 <outlet property="checkinButton" destination="2hB-rp-yEa" id="QKB-Gp-Kyj"/>
                 <outlet property="checkinTableView" destination="cZe-3O-ajb" id="5hi-Xe-HcD"/>
+                <outlet property="navigationBar" destination="gEf-H4-2mi" id="bZW-fL-1Fn"/>
+                <outlet property="topNavigationConstraint" destination="Bsp-m3-HbK" id="JRS-75-EhJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -28,7 +30,7 @@
                     </connections>
                 </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cZe-3O-ajb">
-                    <rect key="frame" x="0.0" y="204" width="600" height="311"/>
+                    <rect key="frame" x="0.0" y="223" width="600" height="292"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <color key="sectionIndexColor" red="0.01176470588" green="0.4823529412" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
@@ -37,13 +39,16 @@
                     </connections>
                 </tableView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="golf" translatesAutoresizingMaskIntoConstraints="NO" id="H4d-Qx-ebR">
-                    <rect key="frame" x="0.0" y="52" width="600" height="159"/>
+                    <rect key="frame" x="0.0" y="64" width="600" height="159"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="159" id="vAQ-Me-WV9"/>
                     </constraints>
                 </imageView>
                 <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gEf-H4-2mi">
-                    <rect key="frame" x="0.0" y="8" width="600" height="44"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="rDw-IH-TCH"/>
+                    </constraints>
                     <items>
                         <navigationItem title="Check In" id="0NI-wu-rZj">
                             <barButtonItem key="rightBarButtonItem" title="Cancel" id="MJ4-P5-Tsf">
@@ -53,18 +58,20 @@
                             </barButtonItem>
                         </navigationItem>
                     </items>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="9PJ-Zf-Bqe"/>
+                    </connections>
                 </navigationBar>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="2hB-rp-yEa" firstAttribute="top" secondItem="cZe-3O-ajb" secondAttribute="bottom" constant="29" id="5il-oJ-tFf"/>
-                <constraint firstItem="gEf-H4-2mi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="6RQ-xS-nXY"/>
+                <constraint firstItem="gEf-H4-2mi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Bsp-m3-HbK"/>
                 <constraint firstAttribute="trailing" secondItem="2hB-rp-yEa" secondAttribute="trailing" constant="8" id="HKj-00-7YS"/>
                 <constraint firstItem="H4d-Qx-ebR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="J0t-3k-Y4h"/>
                 <constraint firstItem="2hB-rp-yEa" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="KJW-2v-y4i"/>
-                <constraint firstItem="cZe-3O-ajb" firstAttribute="top" secondItem="H4d-Qx-ebR" secondAttribute="bottom" constant="-7" id="KSe-3s-9Bn"/>
+                <constraint firstItem="cZe-3O-ajb" firstAttribute="top" secondItem="H4d-Qx-ebR" secondAttribute="bottom" id="KSe-3s-9Bn"/>
                 <constraint firstItem="gEf-H4-2mi" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="WAo-eI-Gg2"/>
-                <constraint firstItem="gEf-H4-2mi" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="aIy-gh-is2"/>
                 <constraint firstAttribute="bottom" secondItem="2hB-rp-yEa" secondAttribute="bottom" constant="26" id="ci7-jy-qka"/>
                 <constraint firstItem="cZe-3O-ajb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cw1-JO-lzy"/>
                 <constraint firstItem="H4d-Qx-ebR" firstAttribute="top" secondItem="gEf-H4-2mi" secondAttribute="bottom" id="gKT-tV-mP2"/>
