@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TrendingModalViewController">
             <connections>
                 <outlet property="navigationBar" destination="lF5-hE-kuj" id="qCD-v0-qRo"/>
+                <outlet property="topNavigationConstraint" destination="dos-EY-2zY" id="2dd-d5-5xf"/>
                 <outlet property="trendingInformationTab" destination="T8Z-l2-3yN" id="R5v-Op-yeC"/>
                 <outlet property="trendingTableView" destination="5UG-t0-WZ9" id="pVx-dX-INK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -17,8 +18,8 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5UG-t0-WZ9">
-                    <rect key="frame" x="0.0" y="52" width="600" height="592"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5UG-t0-WZ9">
+                    <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="lMk-fZ-9bx"/>
@@ -37,7 +38,10 @@
                     </connections>
                 </tabBar>
                 <navigationBar contentMode="scaleToFill" placeholderIntrinsicWidth="600" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="lF5-hE-kuj">
-                    <rect key="frame" x="0.0" y="8" width="600" height="44"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="64" id="iRH-2E-ccD"/>
+                    </constraints>
                     <color key="barTintColor" red="0.0" green="0.45098039220000002" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                     <textAttributes key="titleTextAttributes">
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
@@ -45,22 +49,30 @@
                     <items>
                         <navigationItem title="Location Name" id="thI-bu-WhH">
                             <barButtonItem key="rightBarButtonItem" title="Close" id="W4Q-by-oKt">
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="closeModalSelected:" destination="-1" id="hBR-Ak-LrV"/>
                                 </connections>
                             </barButtonItem>
                         </navigationItem>
                     </items>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="Nqe-0V-s2J"/>
+                    </connections>
                 </navigationBar>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="lF5-hE-kuj" secondAttribute="trailing" id="7Ci-PP-D0B"/>
                 <constraint firstItem="T8Z-l2-3yN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="CT2-V8-heI"/>
+                <constraint firstItem="5UG-t0-WZ9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Gei-wX-1P8"/>
                 <constraint firstAttribute="bottom" secondItem="T8Z-l2-3yN" secondAttribute="bottom" id="T0Y-rf-fxK"/>
                 <constraint firstAttribute="trailing" secondItem="T8Z-l2-3yN" secondAttribute="trailing" id="ZgZ-Qm-0mi"/>
-                <constraint firstItem="lF5-hE-kuj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="dos-EY-2zY"/>
+                <constraint firstItem="lF5-hE-kuj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="dos-EY-2zY"/>
                 <constraint firstItem="lF5-hE-kuj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="jTO-6t-UR7"/>
+                <constraint firstItem="5UG-t0-WZ9" firstAttribute="top" secondItem="lF5-hE-kuj" secondAttribute="bottom" id="k9D-T5-YFR"/>
+                <constraint firstAttribute="trailing" secondItem="5UG-t0-WZ9" secondAttribute="trailing" id="lUb-oU-FX7"/>
+                <constraint firstItem="5UG-t0-WZ9" firstAttribute="bottom" secondItem="T8Z-l2-3yN" secondAttribute="top" id="w7a-uh-QPg"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <point key="canvasLocation" x="290" y="206"/>

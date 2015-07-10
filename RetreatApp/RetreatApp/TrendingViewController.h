@@ -10,9 +10,17 @@
 #import "TrendingModalViewController.h"
 #import "CheckinViewController.h"
 #import "PostModalViewController.h"
+#import "SCInfiniteCollectionView.h"
 
-@interface TrendingViewController : UIViewController <TrendingModalViewDelegate, CheckinModalViewControllerDelegate, PostModalViewControllerDelegate>
+@interface TrendingViewController : UIViewController <TrendingModalViewDelegate, CheckinModalViewControllerDelegate, PostModalViewControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (strong, nonatomic) Class sendingClass;
+
+@property (weak, nonatomic) IBOutlet SCInfiniteCollectionView *collectionView;
+@property (assign, nonatomic)  BOOL hasLoadedData;
+
+- (id)objectAtInfiniteIndexPath:(NSIndexPath *)indexPath;
+- (NSInteger)nonInfiniteItemPositionForIndexPath:(NSIndexPath *)indexPath;
+- (void)reloadCollectionView;
 
 @end
