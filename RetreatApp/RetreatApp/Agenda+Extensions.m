@@ -17,20 +17,20 @@
     static dispatch_once_t once;
     dispatch_once(&once, ^{
         CoreDataManager *coreDataManager = [CoreDataManager sharedManager];
-        agendaMap = [coreDataManager objectUriMap:@"Agenda" keyName:@"type" context:context];
+        agendaMap = [coreDataManager objectUriMap:@"Agenda" keyName:@"agendaId" context:context];
     });
     return agendaMap;
 }
 
 
-+ (Agenda *)agendaUpsertWithAgendaType:(NSString *)agendaType inManagedObjectContext: (NSManagedObjectContext *)backgroundContext {
++ (Agenda *)agendaUpsertWithAgendaID:(NSNumber *)agendaId inManagedObjectContext: (NSManagedObjectContext *)backgroundContext {
     
     NSManagedObjectContext *context = backgroundContext;
     @synchronized(self)
     {
         CoreDataManager *coreDataManager = [CoreDataManager sharedManager];
         NSMutableDictionary *agendaMap = [self agendaMapInContext:context];
-        NSURL *objectUri = [agendaMap objectForKey:agendaType];
+        NSURL *objectUri = [agendaMap objectForKey:agendaId];
         
         Agenda *agenda = nil;
         if(objectUri) {
@@ -38,9 +38,9 @@
         }
         if(!agenda) {
             agenda = [NSEntityDescription insertNewObjectForEntityForName:@"Agenda" inManagedObjectContext:context];
-            agenda.type = agendaType;
+            agenda.agendaId = agendaId;
             [context obtainPermanentIDsForObjects:@[agenda] error:nil];
-            [agendaMap setObject:agenda.objectID.URIRepresentation forKey:agendaType];
+            [agendaMap setObject:agenda.objectID.URIRepresentation forKey:agendaId];
         }
         return agenda;
     }

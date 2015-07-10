@@ -46,10 +46,11 @@
     NSArray *timeArray = @[fridayDate, fridayDate, saturdayDate, saturdayDate, saturdayDate, sundayDate, sundayDate];
     
     for (int i=0; i < titleArray.count; i++) {
-        Agenda *agenda = [Agenda agendaUpsertWithAgendaType:@"agenda" inManagedObjectContext:context];
+        Agenda *agenda = [Agenda agendaUpsertWithAgendaID:@(i) inManagedObjectContext:context];
         agenda.title = [titleArray objectAtIndex:i];
         agenda.location = [locationArray objectAtIndex:i];
         agenda.time = [timeArray objectAtIndex:i];
+        agenda.type = @"agenda";
     }
     [coreData saveContext:context];
     [[ServiceCoordinator sharedCoordinator] completeLocalOperation:self];

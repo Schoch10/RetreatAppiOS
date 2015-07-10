@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14C109" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Agenda" representedClassName="Agenda" syncable="YES">
+        <attribute name="agendaId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
@@ -10,7 +11,7 @@
         <attribute name="checkinDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="checkinID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Checkin" inverseName="user" inverseEntity="Checkin" syncable="YES"/>
     </entity>
     <entity name="Game" representedClassName="Game" syncable="YES">
         <attribute name="answer" optional="YES" attributeType="String" syncable="YES"/>
@@ -32,10 +33,10 @@
         <relationship name="posts" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Post" inverseName="user" inverseEntity="Post" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Agenda" positionX="-12692" positionY="1827" width="128" height="118"/>
         <element name="Checkin" positionX="-12582" positionY="1560" width="128" height="103"/>
-        <element name="Game" positionX="-13140" positionY="1874" width="128" height="88"/>
+        <element name="Game" positionX="-13140" positionY="1838" width="128" height="88"/>
         <element name="Post" positionX="-13178" positionY="1620" width="128" height="133"/>
         <element name="User" positionX="-12933" positionY="1701" width="128" height="103"/>
-        <element name="Agenda" positionX="-12861" positionY="1874" width="128" height="103"/>
     </elements>
 </model>

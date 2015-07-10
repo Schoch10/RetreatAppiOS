@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		561D9AEB1B387E4C00C70C07 /* Agenda.m in Sources */ = {isa = PBXBuildFile; fileRef = 561D9AEA1B387E4C00C70C07 /* Agenda.m */; };
 		561D9AEE1B387E6400C70C07 /* Agenda+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 561D9AED1B387E6400C70C07 /* Agenda+Extensions.m */; };
 		561D9AF11B387FE000C70C07 /* CreateAgendaOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 561D9AF01B387FE000C70C07 /* CreateAgendaOperation.m */; };
 		5631E40F1B21E55900798191 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5631E40E1B21E55900798191 /* User.m */; };
@@ -25,6 +24,7 @@
 		5640A4871B18DD760073D8E2 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5640A4851B18DD760073D8E2 /* WelcomeViewController.xib */; };
 		5640A48B1B18DF370073D8E2 /* CreateUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5640A4891B18DF370073D8E2 /* CreateUserViewController.m */; };
 		5640A48C1B18DF370073D8E2 /* CreateUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5640A48A1B18DF370073D8E2 /* CreateUserViewController.xib */; };
+		564EE5CC1B44A741003B41C7 /* Agenda.m in Sources */ = {isa = PBXBuildFile; fileRef = 564EE5CB1B44A741003B41C7 /* Agenda.m */; };
 		56A6069C1B17543000F95006 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A6069B1B17543000F95006 /* main.m */; };
 		56A6069F1B17543000F95006 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A6069E1B17543000F95006 /* AppDelegate.m */; };
 		56A606A21B17543000F95006 /* RetreatApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56A606A01B17543000F95006 /* RetreatApp.xcdatamodeld */; };
@@ -78,8 +78,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		561D9AE91B387E4C00C70C07 /* Agenda.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Agenda.h; sourceTree = "<group>"; };
-		561D9AEA1B387E4C00C70C07 /* Agenda.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Agenda.m; sourceTree = "<group>"; };
 		561D9AEC1B387E6400C70C07 /* Agenda+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Agenda+Extensions.h"; sourceTree = "<group>"; };
 		561D9AED1B387E6400C70C07 /* Agenda+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Agenda+Extensions.m"; sourceTree = "<group>"; };
 		561D9AEF1B387FE000C70C07 /* CreateAgendaOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateAgendaOperation.h; sourceTree = "<group>"; };
@@ -109,6 +107,8 @@
 		5640A4881B18DF370073D8E2 /* CreateUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateUserViewController.h; sourceTree = "<group>"; };
 		5640A4891B18DF370073D8E2 /* CreateUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateUserViewController.m; sourceTree = "<group>"; };
 		5640A48A1B18DF370073D8E2 /* CreateUserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateUserViewController.xib; sourceTree = "<group>"; };
+		564EE5CA1B44A741003B41C7 /* Agenda.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Agenda.h; sourceTree = "<group>"; };
+		564EE5CB1B44A741003B41C7 /* Agenda.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Agenda.m; sourceTree = "<group>"; };
 		56A606961B17543000F95006 /* RetreatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RetreatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56A6069A1B17543000F95006 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56A6069B1B17543000F95006 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -200,8 +200,8 @@
 		5640A46A1B18B5D70073D8E2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				561D9AE91B387E4C00C70C07 /* Agenda.h */,
-				561D9AEA1B387E4C00C70C07 /* Agenda.m */,
+				564EE5CA1B44A741003B41C7 /* Agenda.h */,
+				564EE5CB1B44A741003B41C7 /* Agenda.m */,
 				5631E4221B21F88500798191 /* Checkin.h */,
 				5631E4231B21F88500798191 /* Checkin.m */,
 				5631E41F1B21F76500798191 /* Checkin+Extensions.h */,
@@ -533,11 +533,11 @@
 				5640A46D1B18B5EA0073D8E2 /* SettingsManager.m in Sources */,
 				56B5E96F1B1E29590041C48E /* ServiceCoordinator.m in Sources */,
 				5640A48B1B18DF370073D8E2 /* CreateUserViewController.m in Sources */,
-				561D9AEB1B387E4C00C70C07 /* Agenda.m in Sources */,
 				56B5E9661B1E0ED40041C48E /* Game+Extensions.m in Sources */,
 				5631E41E1B21EB9700798191 /* CheckinOperation.m in Sources */,
 				56B7B4BA1B324F4B00615737 /* PostsTableViewCell.m in Sources */,
 				5631E41B1B21E79B00798191 /* CreateUserOperation.m in Sources */,
+				564EE5CC1B44A741003B41C7 /* Agenda.m in Sources */,
 				56A606A21B17543000F95006 /* RetreatApp.xcdatamodeld in Sources */,
 				56A6069C1B17543000F95006 /* main.m in Sources */,
 				56B5E9521B1CD81B0041C48E /* CheckinViewController.m in Sources */,

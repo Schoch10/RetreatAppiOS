@@ -9,6 +9,6 @@
 #import "Agenda.h"
 
 @interface Agenda (Extensions)
-+ (Agenda *)agendaUpsertWithAgendaType:(NSString *)agendaType inManagedObjectContext: (NSManagedObjectContext *)backgroundContext;
++ (Agenda *)agendaUpsertWithAgendaID:(NSNumber *)agendaId inManagedObjectContext: (NSManagedObjectContext *)backgroundContext;
 
 @end
