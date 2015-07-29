@@ -11,6 +11,8 @@
 #import "NSDate+Extensions.h"
 #import "AppDelegate.h"
 
+static NSString * const CMTSettingsLastLaunchedAppVersion = @"lastLaunchedAppVersion";
+
 @interface SettingsManager ()
 - (id)objectForKey:(NSString *)key;
 - (void)setObject:(id)value forKey:(NSString *)key;
@@ -72,6 +74,21 @@
 - (NSData *)userImage
 {
     return [self objectForKey:@"userImage"];
+}
+
+- (BOOL)iosIsAtLeastVersion:(NSString *)version
+{
+    return ([[[UIDevice currentDevice] systemVersion] compare:version options:NSNumericSearch] != NSOrderedAscending);
+}
+
+- (NSString *)lastLaunchedAppVersion
+{
+    return [self objectForKey:CMTSettingsLastLaunchedAppVersion];
+}
+
+- (void)setLastLaunchedAppVersion:(NSString *)lastLaunchedAppVersion
+{
+    [self setObject:lastLaunchedAppVersion forKey:CMTSettingsLastLaunchedAppVersion];
 }
 
 @end

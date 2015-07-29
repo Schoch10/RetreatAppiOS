@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		561D9AEB1B387E4C00C70C07 /* Agenda.m in Sources */ = {isa = PBXBuildFile; fileRef = 561D9AEA1B387E4C00C70C07 /* Agenda.m */; };
 		561D9AEE1B387E6400C70C07 /* Agenda+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 561D9AED1B387E6400C70C07 /* Agenda+Extensions.m */; };
 		561D9AF11B387FE000C70C07 /* CreateAgendaOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 561D9AF01B387FE000C70C07 /* CreateAgendaOperation.m */; };
 		5631E40F1B21E55900798191 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5631E40E1B21E55900798191 /* User.m */; };
@@ -24,7 +25,6 @@
 		5640A4871B18DD760073D8E2 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5640A4851B18DD760073D8E2 /* WelcomeViewController.xib */; };
 		5640A48B1B18DF370073D8E2 /* CreateUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5640A4891B18DF370073D8E2 /* CreateUserViewController.m */; };
 		5640A48C1B18DF370073D8E2 /* CreateUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5640A48A1B18DF370073D8E2 /* CreateUserViewController.xib */; };
-		564EE5CC1B44A741003B41C7 /* Agenda.m in Sources */ = {isa = PBXBuildFile; fileRef = 564EE5CB1B44A741003B41C7 /* Agenda.m */; };
 		56A6069C1B17543000F95006 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A6069B1B17543000F95006 /* main.m */; };
 		56A6069F1B17543000F95006 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A6069E1B17543000F95006 /* AppDelegate.m */; };
 		56A606A21B17543000F95006 /* RetreatApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56A606A01B17543000F95006 /* RetreatApp.xcdatamodeld */; };
@@ -33,6 +33,9 @@
 		56A606B91B17543000F95006 /* RetreatAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A606B81B17543000F95006 /* RetreatAppTests.m */; };
 		56A606CF1B176CF800F95006 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A606CD1B176CF800F95006 /* HomeViewController.m */; };
 		56A606D01B176CF800F95006 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56A606CE1B176CF800F95006 /* HomeViewController.xib */; };
+		56AC7CF81B62C79700B4404E /* RetreatAppServicesClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 56AC7CF71B62C79700B4404E /* RetreatAppServicesClient.m */; };
+		56AC7CFB1B62C7CC00B4404E /* RetreatAppServiceConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 56AC7CFA1B62C7CC00B4404E /* RetreatAppServiceConnectionOperation.m */; };
+		56AC7CFE1B62C98E00B4404E /* ServiceEndpoints.m in Sources */ = {isa = PBXBuildFile; fileRef = 56AC7CFD1B62C98E00B4404E /* ServiceEndpoints.m */; };
 		56B5E94D1B1CCF770041C48E /* CheckedInTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 56B5E94B1B1CCF770041C48E /* CheckedInTableViewCell.m */; };
 		56B5E94E1B1CCF770041C48E /* CheckedInTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56B5E94C1B1CCF770041C48E /* CheckedInTableViewCell.xib */; };
 		56B5E9521B1CD81B0041C48E /* CheckinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56B5E9501B1CD81B0041C48E /* CheckinViewController.m */; };
@@ -51,6 +54,7 @@
 		56B5E97A1B1E90480041C48E /* InformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56B5E9781B1E90480041C48E /* InformationTableViewCell.xib */; };
 		56B7B4BA1B324F4B00615737 /* PostsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 56B7B4B81B324F4B00615737 /* PostsTableViewCell.m */; };
 		56B7B4BB1B324F4B00615737 /* PostsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56B7B4B91B324F4B00615737 /* PostsTableViewCell.xib */; };
+		56C6D7551B666D9B007A2C48 /* NSError+RetreatApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C6D7541B666D9B007A2C48 /* NSError+RetreatApp.m */; };
 		56DC28041B17AC90009137E7 /* InformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56DC28021B17AC90009137E7 /* InformationViewController.m */; };
 		56DC28051B17AC90009137E7 /* InformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56DC28031B17AC90009137E7 /* InformationViewController.xib */; };
 		56DC28091B17AF58009137E7 /* AgendaTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56DC28071B17AF58009137E7 /* AgendaTableViewController.m */; };
@@ -82,6 +86,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		561D9AE91B387E4C00C70C07 /* Agenda.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Agenda.h; sourceTree = "<group>"; };
+		561D9AEA1B387E4C00C70C07 /* Agenda.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Agenda.m; sourceTree = "<group>"; };
 		561D9AEC1B387E6400C70C07 /* Agenda+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Agenda+Extensions.h"; sourceTree = "<group>"; };
 		561D9AED1B387E6400C70C07 /* Agenda+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Agenda+Extensions.m"; sourceTree = "<group>"; };
 		561D9AEF1B387FE000C70C07 /* CreateAgendaOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateAgendaOperation.h; sourceTree = "<group>"; };
@@ -111,8 +117,6 @@
 		5640A4881B18DF370073D8E2 /* CreateUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateUserViewController.h; sourceTree = "<group>"; };
 		5640A4891B18DF370073D8E2 /* CreateUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateUserViewController.m; sourceTree = "<group>"; };
 		5640A48A1B18DF370073D8E2 /* CreateUserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateUserViewController.xib; sourceTree = "<group>"; };
-		564EE5CA1B44A741003B41C7 /* Agenda.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Agenda.h; sourceTree = "<group>"; };
-		564EE5CB1B44A741003B41C7 /* Agenda.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Agenda.m; sourceTree = "<group>"; };
 		56A606961B17543000F95006 /* RetreatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RetreatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56A6069A1B17543000F95006 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56A6069B1B17543000F95006 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -127,6 +131,14 @@
 		56A606CC1B176CF800F95006 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		56A606CD1B176CF800F95006 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		56A606CE1B176CF800F95006 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		56AC7CF31B62C64600B4404E /* RetreatApp-PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RetreatApp-PrefixHeader.pch"; sourceTree = "<group>"; };
+		56AC7CF41B62C72100B4404E /* RetreatAppCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RetreatAppCommon.h; sourceTree = "<group>"; };
+		56AC7CF61B62C79700B4404E /* RetreatAppServicesClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RetreatAppServicesClient.h; sourceTree = "<group>"; };
+		56AC7CF71B62C79700B4404E /* RetreatAppServicesClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RetreatAppServicesClient.m; sourceTree = "<group>"; };
+		56AC7CF91B62C7CC00B4404E /* RetreatAppServiceConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RetreatAppServiceConnectionOperation.h; sourceTree = "<group>"; };
+		56AC7CFA1B62C7CC00B4404E /* RetreatAppServiceConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RetreatAppServiceConnectionOperation.m; sourceTree = "<group>"; };
+		56AC7CFC1B62C98E00B4404E /* ServiceEndpoints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceEndpoints.h; sourceTree = "<group>"; };
+		56AC7CFD1B62C98E00B4404E /* ServiceEndpoints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceEndpoints.m; sourceTree = "<group>"; };
 		56B5E94A1B1CCF770041C48E /* CheckedInTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckedInTableViewCell.h; sourceTree = "<group>"; };
 		56B5E94B1B1CCF770041C48E /* CheckedInTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckedInTableViewCell.m; sourceTree = "<group>"; };
 		56B5E94C1B1CCF770041C48E /* CheckedInTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CheckedInTableViewCell.xib; sourceTree = "<group>"; };
@@ -157,6 +169,9 @@
 		56B7B4B71B324F4B00615737 /* PostsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostsTableViewCell.h; sourceTree = "<group>"; };
 		56B7B4B81B324F4B00615737 /* PostsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostsTableViewCell.m; sourceTree = "<group>"; };
 		56B7B4B91B324F4B00615737 /* PostsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostsTableViewCell.xib; sourceTree = "<group>"; };
+		56C6D7531B666D9B007A2C48 /* NSError+RetreatApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+RetreatApp.h"; sourceTree = "<group>"; };
+		56C6D7541B666D9B007A2C48 /* NSError+RetreatApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+RetreatApp.m"; sourceTree = "<group>"; };
+		56C6D7561B667158007A2C48 /* SCFileUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCFileUtil.h; sourceTree = "<group>"; };
 		56DC28011B17AC90009137E7 /* InformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationViewController.h; sourceTree = "<group>"; };
 		56DC28021B17AC90009137E7 /* InformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationViewController.m; sourceTree = "<group>"; };
 		56DC28031B17AC90009137E7 /* InformationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InformationViewController.xib; sourceTree = "<group>"; };
@@ -211,8 +226,8 @@
 		5640A46A1B18B5D70073D8E2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				564EE5CA1B44A741003B41C7 /* Agenda.h */,
-				564EE5CB1B44A741003B41C7 /* Agenda.m */,
+				561D9AE91B387E4C00C70C07 /* Agenda.h */,
+				561D9AEA1B387E4C00C70C07 /* Agenda.m */,
 				5631E4221B21F88500798191 /* Checkin.h */,
 				5631E4231B21F88500798191 /* Checkin.m */,
 				5631E41F1B21F76500798191 /* Checkin+Extensions.h */,
@@ -250,6 +265,7 @@
 		56A6068D1B17542F00F95006 = {
 			isa = PBXGroup;
 			children = (
+				56C6D7561B667158007A2C48 /* SCFileUtil.h */,
 				56A606981B17543000F95006 /* RetreatApp */,
 				56A606B51B17543000F95006 /* RetreatAppTests */,
 				56A606971B17543000F95006 /* Products */,
@@ -268,6 +284,7 @@
 		56A606981B17543000F95006 /* RetreatApp */ = {
 			isa = PBXGroup;
 			children = (
+				56AC7CF51B62C77100B4404E /* ServiceCoordinator */,
 				56B5E95E1B1DF9D90041C48E /* Operations */,
 				8CB96F6E1B44BC1100845975 /* Categories */,
 				5640A4821B18BEF70073D8E2 /* Frameworks */,
@@ -279,6 +296,10 @@
 				56A606A91B17543000F95006 /* Images.xcassets */,
 				56A606A01B17543000F95006 /* RetreatApp.xcdatamodeld */,
 				56A606991B17543000F95006 /* Supporting Files */,
+				56AC7CF31B62C64600B4404E /* RetreatApp-PrefixHeader.pch */,
+				56AC7CF41B62C72100B4404E /* RetreatAppCommon.h */,
+				56C6D7531B666D9B007A2C48 /* NSError+RetreatApp.h */,
+				56C6D7541B666D9B007A2C48 /* NSError+RetreatApp.m */,
 			);
 			path = RetreatApp;
 			sourceTree = "<group>";
@@ -358,11 +379,22 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
-		56B5E95E1B1DF9D90041C48E /* Operations */ = {
+		56AC7CF51B62C77100B4404E /* ServiceCoordinator */ = {
 			isa = PBXGroup;
 			children = (
 				56B5E96E1B1E29590041C48E /* ServiceCoordinator.h */,
 				56B5E96D1B1E29590041C48E /* ServiceCoordinator.m */,
+				56AC7CF61B62C79700B4404E /* RetreatAppServicesClient.h */,
+				56AC7CF71B62C79700B4404E /* RetreatAppServicesClient.m */,
+				56AC7CFC1B62C98E00B4404E /* ServiceEndpoints.h */,
+				56AC7CFD1B62C98E00B4404E /* ServiceEndpoints.m */,
+			);
+			name = ServiceCoordinator;
+			sourceTree = "<group>";
+		};
+		56B5E95E1B1DF9D90041C48E /* Operations */ = {
+			isa = PBXGroup;
+			children = (
 				56B5E9601B1DF9E80041C48E /* Network Operations */,
 				56B5E95F1B1DF9E10041C48E /* Local Operations */,
 			);
@@ -389,6 +421,8 @@
 				5631E41A1B21E79B00798191 /* CreateUserOperation.m */,
 				5631E41C1B21EB9700798191 /* CheckinOperation.h */,
 				5631E41D1B21EB9700798191 /* CheckinOperation.m */,
+				56AC7CF91B62C7CC00B4404E /* RetreatAppServiceConnectionOperation.h */,
+				56AC7CFA1B62C7CC00B4404E /* RetreatAppServiceConnectionOperation.m */,
 			);
 			name = "Network Operations";
 			sourceTree = "<group>";
@@ -561,11 +595,12 @@
 				5640A46D1B18B5EA0073D8E2 /* SettingsManager.m in Sources */,
 				56B5E96F1B1E29590041C48E /* ServiceCoordinator.m in Sources */,
 				5640A48B1B18DF370073D8E2 /* CreateUserViewController.m in Sources */,
+				561D9AEB1B387E4C00C70C07 /* Agenda.m in Sources */,
 				56B5E9661B1E0ED40041C48E /* Game+Extensions.m in Sources */,
 				5631E41E1B21EB9700798191 /* CheckinOperation.m in Sources */,
 				56B7B4BA1B324F4B00615737 /* PostsTableViewCell.m in Sources */,
+				56AC7CFE1B62C98E00B4404E /* ServiceEndpoints.m in Sources */,
 				5631E41B1B21E79B00798191 /* CreateUserOperation.m in Sources */,
-				564EE5CC1B44A741003B41C7 /* Agenda.m in Sources */,
 				56A606A21B17543000F95006 /* RetreatApp.xcdatamodeld in Sources */,
 				56A6069C1B17543000F95006 /* main.m in Sources */,
 				8CB96F751B44C66C00845975 /* TrendingLocationCarouselCell.m in Sources */,
@@ -585,13 +620,16 @@
 				56B5E9791B1E90480041C48E /* InformationTableViewCell.m in Sources */,
 				561D9AF11B387FE000C70C07 /* CreateAgendaOperation.m in Sources */,
 				56DC28131B17B6B0009137E7 /* TrendingViewController.m in Sources */,
+				56AC7CF81B62C79700B4404E /* RetreatAppServicesClient.m in Sources */,
 				5631E4241B21F88500798191 /* Checkin.m in Sources */,
 				56DC280E1B17B049009137E7 /* ActivitiesTableViewController.m in Sources */,
 				56B5E9721B1E2AC20041C48E /* SaveQuizQuestionsOperation.m in Sources */,
 				56DC28091B17AF58009137E7 /* AgendaTableViewController.m in Sources */,
 				56E963E51B1C9857004F1F2F /* AgendaTableViewCell.m in Sources */,
+				56AC7CFB1B62C7CC00B4404E /* RetreatAppServiceConnectionOperation.m in Sources */,
 				5631E4181B21E69A00798191 /* User+Extensions.m in Sources */,
 				5631E4211B21F76500798191 /* Checkin+Extensions.m in Sources */,
+				56C6D7551B666D9B007A2C48 /* NSError+RetreatApp.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -709,9 +747,41 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_BOOL_CONVERSION = NO;
+				CLANG_WARN_CONSTANT_CONVERSION = NO;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = NO;
+				CLANG_WARN_ENUM_CONVERSION = NO;
+				CLANG_WARN_INT_CONVERSION = NO;
+				CLANG_WARN_UNREACHABLE_CODE = NO;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
+				GCC_NO_COMMON_BLOCKS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RetreatApp/RetreatApp-PrefixHeader.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"PRE_RELEASE=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				"GCC_WARN_64_TO_32_BIT_CONVERSION[arch=*64]" = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = NO;
 				HEADER_SEARCH_PATHS = "../SlalomCommon/**";
 				INFOPLIST_FILE = RetreatApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "../SlalomCommon/**";
+				LINKER_DISPLAYS_MANGLED_NAMES = NO;
+				OTHER_LDFLAGS = (
+					"-force_load",
+					"$(CONFIGURATION_BUILD_DIR)/libSlalomCommon.a",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -720,9 +790,38 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_BOOL_CONVERSION = NO;
+				CLANG_WARN_CONSTANT_CONVERSION = NO;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = NO;
+				CLANG_WARN_ENUM_CONVERSION = NO;
+				CLANG_WARN_INT_CONVERSION = NO;
+				CLANG_WARN_UNREACHABLE_CODE = NO;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
+				GCC_NO_COMMON_BLOCKS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "RetreatApp/RetreatApp-PrefixHeader.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "PRE_RELEASE=1";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = NO;
+				"GCC_WARN_64_TO_32_BIT_CONVERSION[arch=*64]" = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = NO;
 				HEADER_SEARCH_PATHS = "../SlalomCommon/**";
 				INFOPLIST_FILE = RetreatApp/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = "../SlalomCommon/**";
+				LINKER_DISPLAYS_MANGLED_NAMES = NO;
+				OTHER_LDFLAGS = (
+					"-force_load",
+					"$(CONFIGURATION_BUILD_DIR)/libSlalomCommon.a",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

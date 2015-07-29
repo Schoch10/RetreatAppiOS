@@ -6,9 +6,8 @@
 //  Copyright (c) 2014 Slalom Consulting. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-//#import "MindTapMobileServiceClient.h"
 #import "SCOperation.h"
+#import "RetreatAppServicesClient.h"
 
 typedef NS_ENUM(NSInteger, CMTTaskPriority) {
     CMTTaskPriorityLow,
@@ -16,18 +15,18 @@ typedef NS_ENUM(NSInteger, CMTTaskPriority) {
     CMTTaskPriorityHigh
 };
 
-@class MTServiceConnectionOperation;
+@class RetreatAppServiceConnectionOperation;
 
 @interface ServiceCoordinator : NSObject
 
 +(ServiceCoordinator*)sharedCoordinator;
-//-(MindTapMobileServiceClient*)serviceClientWithoutAuth;
-//-(MindTapMobileServiceClient*)serviceClientWithAuth;
+-(RetreatAppServicesClient *)serviceClientWithoutAuth;
+-(RetreatAppServicesClient *)serviceClientWithAuth; 
 +(void)addLocalOperation:(SCOperation*)operation priority:(CMTTaskPriority)priority;
 +(void)addLocalOperation:(SCOperation *)operation completion:(void (^)(void))completion;
-//+(void)addNetworkOperation:(MTServiceConnectionOperation*)operation priority:(CMTTaskPriority)priority;
-//-(void)completeNetworkOperation:(MTServiceConnectionOperation*)operation;
++(void)addNetworkOperation:(RetreatAppServiceConnectionOperation *)operation priority:(CMTTaskPriority)priority;
+-(void)completeNetworkOperation:(RetreatAppServiceConnectionOperation*)operation;
 -(void)completeLocalOperation:(SCOperation *)operation;
-//-(void)cancelAllOperations;
+-(void)cancelAllOperations;
 
 @end

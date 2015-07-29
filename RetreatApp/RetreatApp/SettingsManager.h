@@ -8,12 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-
 @interface SettingsManager : NSObject
 
 +(SettingsManager *)sharedManager;
+- (BOOL)iosIsAtLeastVersion:(NSString *)version;
+
 
 @property (nonatomic, strong) NSString *username;
 @property (nonatomic, strong) NSData *userImage;
+@property (nonatomic, strong) NSString *lastLaunchedAppVersion;
 
 @end

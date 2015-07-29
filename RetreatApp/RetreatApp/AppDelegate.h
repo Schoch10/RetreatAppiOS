@@ -8,12 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "SCAppDelegateBase.h"
 
+@interface AppDelegate : SCAppDelegateBase <UIApplicationDelegate>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
-@property (nonatomic, retain) UIViewController *rootViewController;
 @property (nonatomic, strong) UINavigationController *navigationController;
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;

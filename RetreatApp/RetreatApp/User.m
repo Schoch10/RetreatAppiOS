@@ -8,8 +8,6 @@
 
 #import "User.h"
 #import "Post.h"
-#import "User.h"
-
 
 @implementation User
 

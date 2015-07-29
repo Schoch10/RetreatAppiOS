@@ -20,17 +20,19 @@
 
 @implementation AppDelegate
 
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-   
+- (void)setupUserInterfaceWithOptions:(NSDictionary*)launchOptions {
+    SettingsManager *settings = [SettingsManager sharedManager];
     CoreDataManager *coreData = [CoreDataManager sharedManager];
+    //DO NOT MOVE OR REMOVE THIS. THESE OBJECTS MUST BE CREATED FIRST BEFORE ANYTHING ELSE.
+    NSString *appVersionString = [SCConfigurationUtil applicationShortVersionString];
+    if(settings.lastLaunchedAppVersion && ![settings.lastLaunchedAppVersion isEqualToString:appVersionString]) {
+        SCLogMessage(kLogLevelDebug, @"App version change detected. Clearing the CoreData files.");
+        [coreData clearStores];
+    }
     [coreData setUpManagedObjects];
+    //END DO NOT MOVE SECTION
     
-    [self populateQuizQuestions];
-    [self populateAgenda];
-    
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-
+    settings.lastLaunchedAppVersion = appVersionString;    
     SettingsManager *sharedManager = [SettingsManager sharedManager];
     NSString *username = sharedManager.username;
     if (username) {
@@ -41,9 +43,9 @@
         WelcomeViewController *welcomeViewController = [[WelcomeViewController alloc]initWithNibName:@"WelcomeViewController" bundle:nil];
         self.navigationController = [[UINavigationController alloc]initWithRootViewController:welcomeViewController];
     }
-    self.window.rootViewController = self.navigationController;
+    self.window.rootViewController = self.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
-    return YES;
+    
 }
 
 - (void)populateQuizQuestions

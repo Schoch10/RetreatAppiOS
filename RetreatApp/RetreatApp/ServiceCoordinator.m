@@ -8,9 +8,8 @@
 
 #import "ServiceCoordinator.h"
 #import "SettingsManager.h"
-//#import "MTServiceConnectionOperation.h"
-//#import "LoginOperation.h"
-//#import "ServiceEndpoints.h"
+#import "RetreatAppServiceConnectionOperation.h"
+#import "ServiceEndpoints.h"
 
 @interface ServiceCoordinator()
 
@@ -28,7 +27,7 @@
     NSOperationQueue *_defaultOperationQueue;
     NSOperationQueue *_lowOperationQueue;
     NSOperationQueue *_serialOperationQueue;
-    //MindTapMobileServiceClient *_serviceClient;
+    RetreatAppServicesClient *_serviceClient;
 }
 
 +(ServiceCoordinator*)sharedCoordinator
@@ -41,9 +40,9 @@
     return _sharedCoordinator;
 }
 
-/*-(id)serviceClientWithoutAuth
+-(id)serviceClientWithoutAuth
 {
-    return [[MindTapMobileServiceClient alloc] init];
+    return [[RetreatAppServicesClient alloc] init];
 }
 
 -(id)serviceClientWithAuth
@@ -52,13 +51,13 @@
     @synchronized(self) {
         if (!_serviceClient) {
             [settings addObserver:self forKeyPath:@"authToken" options:NSKeyValueObservingOptionNew context:nil];
-            _serviceClient = [[MindTapMobileServiceClient alloc] initWithAuthToken:settings.authToken];
+            _serviceClient = [[RetreatAppServicesClient alloc] initWithAuthToken:nil];
         }
     }
     return _serviceClient;
-} */
+}
 
-/*-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     SettingsManager *settings = [SettingsManager sharedManager];
     if (object == settings) {
@@ -69,7 +68,7 @@
             }
         }
     }
-} */
+}
 
 -(NSOperationQueue *)highPriorityOperationQueue
 {
@@ -107,7 +106,7 @@
     return _lowOperationQueue;
 }
 
-/*- (NSMutableSet *)highPriorityNetworkOperations
+- (NSMutableSet *)highPriorityNetworkOperations
 {
     if (_highPriorityNetworkOperations == nil) {
         _highPriorityNetworkOperations = [[NSMutableSet alloc] init];
@@ -137,7 +136,7 @@
         _deferredNetworkOperations = [[NSMutableArray alloc] init];
     }
     return _deferredNetworkOperations;
-} */
+}
 
 - (NSMutableArray *)deferredLocalOperations
 {
@@ -194,22 +193,16 @@
     [queue addOperation:operation];
 }
 
-/*+ (void)addNetworkOperation:(MTServiceConnectionOperation*)operation priority:(CMTTaskPriority)priority
++ (void)addNetworkOperation:(RetreatAppServiceConnectionOperation *)operation priority:(CMTTaskPriority)priority
 {
     ServiceCoordinator *coordinator = [ServiceCoordinator sharedCoordinator];
     BOOL usingCachedData = [operation useCachedDataIfAvailable];
     operation.priority = priority;
     if ([operation shouldDownloadFromNetwork]) {
-        SettingsManager *settings = [SettingsManager sharedManager];
         NSError *deferredDueToError = nil;
         if (![ServiceEndpoints isHostReachable]) {
             deferredDueToError = [NSError errorWithDomain:kServiceErrorDomain code:ErrorCodeCannotFindHost userInfo:@{@"hostName":[ServiceEndpoints getHostnameForSelectedEnvironment]}];
-        } else if (!settings.isLoggedIn && ![operation isKindOfClass:[LoginOperation class]]) {
-            deferredDueToError = [NSError errorWithDomain:kServiceErrorDomain code:ErrorCodeUnauthorized userInfo:@{@"url":operation.url}];
-            SCLogMessage(kLogLevelDebug, @"deferring %@ while auth token is expired and presumably refreshing.", operation);
-        }
-        if (deferredDueToError) {
-            SCLogMessage(kLogLevelDebug, @"deferring %@ due to %@", operation, deferredDueToError);
+        } else if (deferredDueToError) {
             [coordinator deferNetworkOperation:operation];
             if (!usingCachedData && !coordinator.highPriorityLoginIsInProgress) {
                 [operation.delegate serviceTaskDidFailToCompleteRequest:deferredDueToError];
@@ -224,22 +217,17 @@
 
 - (BOOL)highPriorityLoginIsInProgress
 {
-    for (MTServiceConnectionOperation *operation in self.highPriorityNetworkOperations) {
-        if ([operation isKindOfClass:[LoginOperation class]]) {
-            return YES;
-        }
-    }
     return NO;
 }
 
-- (void)deferNetworkOperation:(MTServiceConnectionOperation*)operation
+- (void)deferNetworkOperation:(RetreatAppServiceConnectionOperation *)operation
 {
     @synchronized (self.deferredNetworkOperations) {
         [self.deferredNetworkOperations addObject:operation];
     }
 }
 
-- (void)addNetworkOperation:(MTServiceConnectionOperation*)operation
+- (void)addNetworkOperation:(RetreatAppServiceConnectionOperation *)operation
 {
     // If we've already queued a given network operation, don't queue any duplicates. Just bump the priority.
     NSMutableSet *networkOperations;
@@ -274,12 +262,12 @@
     [operation resumeNetworkTask];
 }
 
-- (void)completeNetworkOperation:(MTServiceConnectionOperation *)operation
+- (void)completeNetworkOperation:(RetreatAppServiceConnectionOperation *)operation
 {
     [self removeFromNetworkQueueAndResumeDeferralsForOperation:operation];
 }
 
-- (void)removeFromNetworkQueueAndResumeDeferralsForOperation:(MTServiceConnectionOperation*)operation
+- (void)removeFromNetworkQueueAndResumeDeferralsForOperation:(RetreatAppServiceConnectionOperation *)operation
 {
     NSMutableSet *networkOperations;
     switch (operation.priority) {
@@ -300,25 +288,24 @@
         if ([networkOperations containsObject:operation]) {
             [networkOperations removeObject:operation];
         } else {
-            SCLogMessage(kLogLevelError, @"cannot find operation to complete");
         }
     }
     // If any tasks were deferred waiting on this, resume them.
     NSMutableArray *resumingNetworkOperations = [[NSMutableArray alloc] init];
     @synchronized (self.deferredNetworkOperations) {
-        for (MTServiceConnectionOperation *deferredOperation in self.deferredNetworkOperations) {
-            if ([deferredOperation isEqual:operation] || [operation isKindOfClass:[LoginOperation class]]) {
+        for (RetreatAppServiceConnectionOperation *deferredOperation in self.deferredNetworkOperations) {
+            if ([deferredOperation isEqual:operation]) {
                 [resumingNetworkOperations addObject:deferredOperation];
             }
         }
         [self.deferredNetworkOperations removeObjectsInArray:resumingNetworkOperations];
     }
-    for (MTServiceConnectionOperation *resumingOperation in resumingNetworkOperations) {
+    for (RetreatAppServiceConnectionOperation *resumingOperation in resumingNetworkOperations) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [ServiceCoordinator addNetworkOperation:resumingOperation priority:resumingOperation.priority];
         });
     }
-} */
+}
 
 - (void)completeLocalOperation:(SCOperation *)operation
 {
@@ -344,7 +331,7 @@
     }
 }
 
-/*- (void)cancelAllOperations
+- (void)cancelAllOperations
 {
     @synchronized (self) {
         @synchronized (self.deferredNetworkOperations) {
@@ -357,16 +344,16 @@
         [_lowOperationQueue cancelAllOperations];
         [_defaultOperationQueue cancelAllOperations];
         [_highOperationQueue cancelAllOperations];
-        for (MTServiceConnectionOperation *operation in [self.lowPriorityNetworkOperations copy]) {
+        for (RetreatAppServiceConnectionOperation *operation in [self.lowPriorityNetworkOperations copy]) {
             [operation cancel];
         }
-        for (MTServiceConnectionOperation *operation in [self.mediumPriorityNetworkOperations copy]) {
+        for (RetreatAppServiceConnectionOperation *operation in [self.mediumPriorityNetworkOperations copy]) {
             [operation cancel];
         }
-        for (MTServiceConnectionOperation *operation in [self.highPriorityNetworkOperations copy]) {
+        for (RetreatAppServiceConnectionOperation *operation in [self.highPriorityNetworkOperations copy]) {
             [operation cancel];
         }
     }
-} */
+}
 
 @end
