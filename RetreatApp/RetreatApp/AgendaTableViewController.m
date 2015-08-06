@@ -8,7 +8,7 @@
 
 #import "AgendaTableViewController.h"
 #import "AgendaTableViewCell.h"
-#import "TrendingViewController.h"
+#import "TrendingCarouselViewController.h"
 #import "CoreDataManager.h"
 #import "Agenda+Extensions.h"
 
@@ -114,7 +114,7 @@ static  NSString * const SBRAGENDATABLEVIEWCELL = @"AgendaTableViewCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TrendingViewController *trendingViewController =[[TrendingViewController alloc]initWithNibName:@"TrendingViewController" bundle:nil];
+    TrendingCarouselViewController *trendingViewController =[[TrendingCarouselViewController alloc]initWithNibName:@"TrendingViewController" bundle:nil];
     [self.navigationController pushViewController:trendingViewController animated:YES];
 }
 

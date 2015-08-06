@@ -10,7 +10,7 @@
 #import "InformationViewController.h"
 #import "AgendaTableViewController.h"
 #import "ActivitiesTableViewController.h"
-#import "TrendingViewController.h"
+#import "TrendingCarouselViewController.h"
 #import "GameViewController.h"
 #import "SettingsManager.h"
 
@@ -96,7 +96,7 @@ int secondsLeft;
 }
 
 - (IBAction)trendingButtonSelected:(id)sender {
-    TrendingViewController *trendingViewController = [[TrendingViewController alloc]initWithNibName:@"TrendingViewController" bundle:nil];
+    TrendingCarouselViewController *trendingViewController = [[TrendingCarouselViewController alloc]initWithNibName:@"TrendingViewController" bundle:nil];
     [self.navigationController pushViewController:trendingViewController animated:YES];
 }
 

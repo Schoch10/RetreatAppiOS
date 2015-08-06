@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Slalom Consulting. All rights reserved.
 //
 
-#import "TrendingViewController.h"
+#import "TrendingCarouselViewController.h"
 #import "TrendingLocationCarouselCell.h"
 #import "TrendingModalViewController.h"
 #import "CheckinViewController.h"
@@ -14,7 +14,7 @@
 
 #define kBannerScrollTime 8
 
-@interface TrendingViewController ()
+@interface TrendingCarouselViewController ()
 {
     NSTimer *bannerTimer;
 }
@@ -28,7 +28,7 @@
 
 @end
 
-@implementation TrendingViewController
+@implementation TrendingCarouselViewController
 
 - (void)populateTestData
 {
@@ -73,6 +73,8 @@
         [self reloadCollectionView];
     }
     
+    [self.collectionView.collectionViewLayout invalidateLayout];
+    
     [self registerTimer];
 }
 
@@ -81,7 +83,6 @@
     [super viewDidAppear:animated];
     
     [self.collectionView reloadData];
-    self.collectionView.frameSize = self.view.frameSize;
 }
 
 - (void)viewDidDisappear:(BOOL)animated

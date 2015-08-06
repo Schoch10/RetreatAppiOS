@@ -12,7 +12,7 @@
 #import "PostModalViewController.h"
 #import "SCInfiniteCollectionView.h"
 
-@interface TrendingViewController : UIViewController <TrendingModalViewDelegate, CheckinModalViewControllerDelegate, PostModalViewControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface TrendingCarouselViewController : UIViewController <TrendingModalViewDelegate, CheckinModalViewControllerDelegate, PostModalViewControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (strong, nonatomic) Class sendingClass;
 
