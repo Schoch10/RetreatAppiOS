@@ -17,6 +17,7 @@
 @property (strong, nonatomic) Class sendingClass;
 
 @property (weak, nonatomic) IBOutlet SCInfiniteCollectionView *collectionView;
+@property (nonatomic, strong) NSArray *dataSource; // TODO: Set up data source.  Placeholder for now.
 @property (assign, nonatomic)  BOOL hasLoadedData;
 
 - (id)objectAtInfiniteIndexPath:(NSIndexPath *)indexPath;

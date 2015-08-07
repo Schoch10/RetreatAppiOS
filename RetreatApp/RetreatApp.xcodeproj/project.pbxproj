@@ -69,6 +69,10 @@
 		56E963E61B1C9857004F1F2F /* AgendaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56E963E41B1C9857004F1F2F /* AgendaTableViewCell.xib */; };
 		56E963EB1B1CB46B004F1F2F /* TrendingModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E963E91B1CB46B004F1F2F /* TrendingModalViewController.m */; };
 		56E963EC1B1CB46B004F1F2F /* TrendingModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56E963EA1B1CB46B004F1F2F /* TrendingModalViewController.xib */; };
+		8C1963DF1B74239E00A2677A /* TrendingNowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1963DD1B74239E00A2677A /* TrendingNowViewController.m */; };
+		8C1963E01B74239E00A2677A /* TrendingNowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C1963DE1B74239E00A2677A /* TrendingNowViewController.xib */; };
+		8C1963E41B7426A200A2677A /* TrendingNowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1963E21B7426A200A2677A /* TrendingNowTableViewCell.m */; };
+		8C1963E51B7426A200A2677A /* TrendingNowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C1963E31B7426A200A2677A /* TrendingNowTableViewCell.xib */; };
 		8CB96F6D1B44B11B00845975 /* SCInfiniteCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB96F6B1B44B11B00845975 /* SCInfiniteCollectionView.m */; };
 		8CB96F711B44BC2600845975 /* UIView+Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB96F701B44BC2600845975 /* UIView+Position.m */; };
 		8CB96F751B44C66C00845975 /* TrendingLocationCarouselCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB96F731B44C66C00845975 /* TrendingLocationCarouselCell.m */; };
@@ -193,6 +197,12 @@
 		56E963E81B1CB46B004F1F2F /* TrendingModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrendingModalViewController.h; sourceTree = "<group>"; };
 		56E963E91B1CB46B004F1F2F /* TrendingModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrendingModalViewController.m; sourceTree = "<group>"; };
 		56E963EA1B1CB46B004F1F2F /* TrendingModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrendingModalViewController.xib; sourceTree = "<group>"; };
+		8C1963DC1B74239E00A2677A /* TrendingNowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrendingNowViewController.h; sourceTree = "<group>"; };
+		8C1963DD1B74239E00A2677A /* TrendingNowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrendingNowViewController.m; sourceTree = "<group>"; };
+		8C1963DE1B74239E00A2677A /* TrendingNowViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrendingNowViewController.xib; sourceTree = "<group>"; };
+		8C1963E11B7426A200A2677A /* TrendingNowTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrendingNowTableViewCell.h; sourceTree = "<group>"; };
+		8C1963E21B7426A200A2677A /* TrendingNowTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrendingNowTableViewCell.m; sourceTree = "<group>"; };
+		8C1963E31B7426A200A2677A /* TrendingNowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrendingNowTableViewCell.xib; sourceTree = "<group>"; };
 		8CB96F6B1B44B11B00845975 /* SCInfiniteCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCInfiniteCollectionView.m; sourceTree = "<group>"; };
 		8CB96F6C1B44B11B00845975 /* SCInfiniteCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCInfiniteCollectionView.h; sourceTree = "<group>"; };
 		8CB96F6F1B44BC2600845975 /* UIView+Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Position.h"; sourceTree = "<group>"; };
@@ -345,6 +355,9 @@
 				56DC280C1B17B049009137E7 /* ActivitiesTableViewController.m */,
 				56DC28101B17B6B0009137E7 /* TrendingCarouselViewController.h */,
 				56DC28111B17B6B0009137E7 /* TrendingCarouselViewController.m */,
+				8C1963DC1B74239E00A2677A /* TrendingNowViewController.h */,
+				8C1963DD1B74239E00A2677A /* TrendingNowViewController.m */,
+				8C1963DE1B74239E00A2677A /* TrendingNowViewController.xib */,
 				5640A4831B18DD760073D8E2 /* WelcomeViewController.h */,
 				5640A4841B18DD760073D8E2 /* WelcomeViewController.m */,
 				5640A4881B18DF370073D8E2 /* CreateUserViewController.h */,
@@ -442,6 +455,9 @@
 				56B7B4B71B324F4B00615737 /* PostsTableViewCell.h */,
 				56B7B4B81B324F4B00615737 /* PostsTableViewCell.m */,
 				56B7B4B91B324F4B00615737 /* PostsTableViewCell.xib */,
+				8C1963E11B7426A200A2677A /* TrendingNowTableViewCell.h */,
+				8C1963E21B7426A200A2677A /* TrendingNowTableViewCell.m */,
+				8C1963E31B7426A200A2677A /* TrendingNowTableViewCell.xib */,
 			);
 			name = "Custom Table Cells";
 			sourceTree = "<group>";
@@ -553,8 +569,10 @@
 			files = (
 				56B5E94E1B1CCF770041C48E /* CheckedInTableViewCell.xib in Resources */,
 				8CB96F761B44C66C00845975 /* TrendingLocationCarouselCell.xib in Resources */,
+				8C1963E51B7426A200A2677A /* TrendingNowTableViewCell.xib in Resources */,
 				56DC28191B17B83E009137E7 /* GameViewController.xib in Resources */,
 				56B5E9581B1CE7FD0041C48E /* PostModalViewController.xib in Resources */,
+				8C1963E01B74239E00A2677A /* TrendingNowViewController.xib in Resources */,
 				56B7B4BB1B324F4B00615737 /* PostsTableViewCell.xib in Resources */,
 				56DC280F1B17B049009137E7 /* ActivitiesTableViewController.xib in Resources */,
 				5640A4871B18DD760073D8E2 /* WelcomeViewController.xib in Resources */,
@@ -590,6 +608,7 @@
 				5631E40F1B21E55900798191 /* User.m in Sources */,
 				8CB96F711B44BC2600845975 /* UIView+Position.m in Sources */,
 				56B5E95C1B1CFA930041C48E /* GameCollectionViewCell.m in Sources */,
+				8C1963E41B7426A200A2677A /* TrendingNowTableViewCell.m in Sources */,
 				56DC28041B17AC90009137E7 /* InformationViewController.m in Sources */,
 				56A6069F1B17543000F95006 /* AppDelegate.m in Sources */,
 				5640A46D1B18B5EA0073D8E2 /* SettingsManager.m in Sources */,
@@ -615,6 +634,7 @@
 				56B5E94D1B1CCF770041C48E /* CheckedInTableViewCell.m in Sources */,
 				56B5E9571B1CE7FD0041C48E /* PostModalViewController.m in Sources */,
 				56B5E9691B1E22C90041C48E /* CoreDataManager.m in Sources */,
+				8C1963DF1B74239E00A2677A /* TrendingNowViewController.m in Sources */,
 				56E963EB1B1CB46B004F1F2F /* TrendingModalViewController.m in Sources */,
 				8CB96F6D1B44B11B00845975 /* SCInfiniteCollectionView.m in Sources */,
 				56B5E9791B1E90480041C48E /* InformationTableViewCell.m in Sources */,

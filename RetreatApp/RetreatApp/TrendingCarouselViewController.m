@@ -24,7 +24,6 @@
 - (void)trendingAreaSelected:(id)sender;
 
 @property (nonatomic, weak) IBOutlet UIActivityIndicatorView *activityIndicator;
-@property (nonatomic, strong) NSArray *dataSource; // TODO: Set up data source.  Placeholder for now.
 
 @end
 
@@ -58,7 +57,9 @@
     self.collectionView.infinityEnabled = YES;
     self.collectionView.minCellsForScroll = 1;
     
-    [self populateTestData];
+    if (!self.dataSource) {
+        [self populateTestData];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated

@@ -65,7 +65,7 @@ static  NSString * const SBRAGENDATABLEVIEWCELL = @"AgendaTableViewCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    TrendingCarouselViewController *trendingViewController =[[TrendingCarouselViewController alloc]initWithNibName:@"TrendingViewController" bundle:nil];
+    TrendingCarouselViewController *trendingViewController = [[TrendingCarouselViewController alloc] initWithNibName:nil bundle:nil];
     [self.navigationController pushViewController:trendingViewController animated:YES];
 }
 
