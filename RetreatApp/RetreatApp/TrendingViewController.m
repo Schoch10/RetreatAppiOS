@@ -11,10 +11,12 @@
 #import "TrendingModalViewController.h"
 #import "CheckinViewController.h"
 #import "UIView+Position.h"
+#import "PollParticipantLocationsOperation.h"
+#import "ServiceCoordinator.h"
 
 #define kBannerScrollTime 8
 
-@interface TrendingViewController ()
+@interface TrendingViewController () <PollParticipantLocationServiceDelegate>
 {
     NSTimer *bannerTimer;
 }
@@ -59,6 +61,22 @@
     self.collectionView.minCellsForScroll = 1;
     
     [self populateTestData];
+    [self getPollLocations];
+}
+
+- (void)getPollLocations {
+    PollParticipantLocationsOperation *pollParticipantOperation = [[PollParticipantLocationsOperation alloc]initPollParticipantOperation];
+    pollParticipantOperation.pollParticipantDelegate = self;
+    CMTTaskPriority priority = CMTTaskPriorityHigh;
+    [ServiceCoordinator addNetworkOperation:pollParticipantOperation priority:priority];
+}
+
+- (void)pollParticipantLocationDidSucceed {
+    SCLogMessage(kLogLevelDebug, @"Worked");
+}
+
+- (void)pollParticipantLocationDidFailWithError:(NSError *)error {
+    SCLogMessage(kLogLevelDebug, @"Error");
 }
 
 - (void)viewWillAppear:(BOOL)animated

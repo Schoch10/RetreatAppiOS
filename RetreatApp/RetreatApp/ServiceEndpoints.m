@@ -16,24 +16,18 @@
 
 +(BOOL)isHostReachable
 {
-    NetworkStatus networkStatus = [[Reachability reachabilityWithHostName:[ServiceEndpoints getHostnameForSelectedEnvironment]] currentReachabilityStatus];
-    
-    if (networkStatus == NotReachable) {
-        SCLogMessage(kLogLevelDebug, @"Service host %@ not reachable", [self getHostnameForSelectedEnvironment]);
-        return false;
-    } else {
-        return true;
-    }
+    return true;
 }
 
 +(NSString *)getHostnameForSelectedEnvironment
 {
-    return @"test";
+    return @"http://tpartyservice-dev.elasticbeanstalk.com/home/pollparticipantlocations";
+
 }
 
 +(NSString *)getEndpointURL:(NSString *)serviceType
 {
-    return @"test";
+    return @"http://tpartyservice-dev.elasticbeanstalk.com/home/pollparticipantlocations";
 }
 
 

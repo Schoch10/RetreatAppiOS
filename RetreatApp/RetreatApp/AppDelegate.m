@@ -30,6 +30,8 @@
         [coreData clearStores];
     }
     [coreData setUpManagedObjects];
+    [self populateAgenda];
+    [self populateQuizQuestions];
     //END DO NOT MOVE SECTION
     
     settings.lastLaunchedAppVersion = appVersionString;    

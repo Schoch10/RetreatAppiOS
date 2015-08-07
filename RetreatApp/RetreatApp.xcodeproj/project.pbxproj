@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5600ADC61B74EF3E00BB9DBE /* PollParticipantLocationsOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5600ADC51B74EF3E00BB9DBE /* PollParticipantLocationsOperation.m */; };
 		561D9AEB1B387E4C00C70C07 /* Agenda.m in Sources */ = {isa = PBXBuildFile; fileRef = 561D9AEA1B387E4C00C70C07 /* Agenda.m */; };
 		561D9AEE1B387E6400C70C07 /* Agenda+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 561D9AED1B387E6400C70C07 /* Agenda+Extensions.m */; };
 		561D9AF11B387FE000C70C07 /* CreateAgendaOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 561D9AF01B387FE000C70C07 /* CreateAgendaOperation.m */; };
@@ -59,8 +60,6 @@
 		56DC28051B17AC90009137E7 /* InformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56DC28031B17AC90009137E7 /* InformationViewController.xib */; };
 		56DC28091B17AF58009137E7 /* AgendaTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56DC28071B17AF58009137E7 /* AgendaTableViewController.m */; };
 		56DC280A1B17AF58009137E7 /* AgendaTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56DC28081B17AF58009137E7 /* AgendaTableViewController.xib */; };
-		56DC280E1B17B049009137E7 /* ActivitiesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56DC280C1B17B049009137E7 /* ActivitiesTableViewController.m */; };
-		56DC280F1B17B049009137E7 /* ActivitiesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56DC280D1B17B049009137E7 /* ActivitiesTableViewController.xib */; };
 		56DC28131B17B6B0009137E7 /* TrendingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56DC28111B17B6B0009137E7 /* TrendingViewController.m */; };
 		56DC28141B17B6B0009137E7 /* TrendingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56DC28121B17B6B0009137E7 /* TrendingViewController.xib */; };
 		56DC28181B17B83E009137E7 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56DC28161B17B83E009137E7 /* GameViewController.m */; };
@@ -86,6 +85,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5600ADC41B74EF3E00BB9DBE /* PollParticipantLocationsOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PollParticipantLocationsOperation.h; sourceTree = "<group>"; };
+		5600ADC51B74EF3E00BB9DBE /* PollParticipantLocationsOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PollParticipantLocationsOperation.m; sourceTree = "<group>"; };
 		561D9AE91B387E4C00C70C07 /* Agenda.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Agenda.h; sourceTree = "<group>"; };
 		561D9AEA1B387E4C00C70C07 /* Agenda.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Agenda.m; sourceTree = "<group>"; };
 		561D9AEC1B387E6400C70C07 /* Agenda+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Agenda+Extensions.h"; sourceTree = "<group>"; };
@@ -178,9 +179,6 @@
 		56DC28061B17AF58009137E7 /* AgendaTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgendaTableViewController.h; sourceTree = "<group>"; };
 		56DC28071B17AF58009137E7 /* AgendaTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgendaTableViewController.m; sourceTree = "<group>"; };
 		56DC28081B17AF58009137E7 /* AgendaTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AgendaTableViewController.xib; sourceTree = "<group>"; };
-		56DC280B1B17B049009137E7 /* ActivitiesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivitiesTableViewController.h; sourceTree = "<group>"; };
-		56DC280C1B17B049009137E7 /* ActivitiesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivitiesTableViewController.m; sourceTree = "<group>"; };
-		56DC280D1B17B049009137E7 /* ActivitiesTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivitiesTableViewController.xib; sourceTree = "<group>"; };
 		56DC28101B17B6B0009137E7 /* TrendingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrendingViewController.h; sourceTree = "<group>"; };
 		56DC28111B17B6B0009137E7 /* TrendingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrendingViewController.m; sourceTree = "<group>"; };
 		56DC28121B17B6B0009137E7 /* TrendingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrendingViewController.xib; sourceTree = "<group>"; };
@@ -341,8 +339,6 @@
 				56DC28021B17AC90009137E7 /* InformationViewController.m */,
 				56DC28061B17AF58009137E7 /* AgendaTableViewController.h */,
 				56DC28071B17AF58009137E7 /* AgendaTableViewController.m */,
-				56DC280B1B17B049009137E7 /* ActivitiesTableViewController.h */,
-				56DC280C1B17B049009137E7 /* ActivitiesTableViewController.m */,
 				56DC28101B17B6B0009137E7 /* TrendingViewController.h */,
 				56DC28111B17B6B0009137E7 /* TrendingViewController.m */,
 				5640A4831B18DD760073D8E2 /* WelcomeViewController.h */,
@@ -363,7 +359,6 @@
 				5640A48A1B18DF370073D8E2 /* CreateUserViewController.xib */,
 				5640A4851B18DD760073D8E2 /* WelcomeViewController.xib */,
 				56DC28121B17B6B0009137E7 /* TrendingViewController.xib */,
-				56DC280D1B17B049009137E7 /* ActivitiesTableViewController.xib */,
 				56DC28081B17AF58009137E7 /* AgendaTableViewController.xib */,
 				56DC28031B17AC90009137E7 /* InformationViewController.xib */,
 				56A606CE1B176CF800F95006 /* HomeViewController.xib */,
@@ -423,6 +418,8 @@
 				5631E41D1B21EB9700798191 /* CheckinOperation.m */,
 				56AC7CF91B62C7CC00B4404E /* RetreatAppServiceConnectionOperation.h */,
 				56AC7CFA1B62C7CC00B4404E /* RetreatAppServiceConnectionOperation.m */,
+				5600ADC41B74EF3E00BB9DBE /* PollParticipantLocationsOperation.h */,
+				5600ADC51B74EF3E00BB9DBE /* PollParticipantLocationsOperation.m */,
 			);
 			name = "Network Operations";
 			sourceTree = "<group>";
@@ -556,7 +553,6 @@
 				56DC28191B17B83E009137E7 /* GameViewController.xib in Resources */,
 				56B5E9581B1CE7FD0041C48E /* PostModalViewController.xib in Resources */,
 				56B7B4BB1B324F4B00615737 /* PostsTableViewCell.xib in Resources */,
-				56DC280F1B17B049009137E7 /* ActivitiesTableViewController.xib in Resources */,
 				5640A4871B18DD760073D8E2 /* WelcomeViewController.xib in Resources */,
 				56B5E9531B1CD81B0041C48E /* CheckinViewController.xib in Resources */,
 				56A606AD1B17543000F95006 /* LaunchScreen.xib in Resources */,
@@ -616,13 +612,13 @@
 				56B5E9571B1CE7FD0041C48E /* PostModalViewController.m in Sources */,
 				56B5E9691B1E22C90041C48E /* CoreDataManager.m in Sources */,
 				56E963EB1B1CB46B004F1F2F /* TrendingModalViewController.m in Sources */,
+				5600ADC61B74EF3E00BB9DBE /* PollParticipantLocationsOperation.m in Sources */,
 				8CB96F6D1B44B11B00845975 /* SCInfiniteCollectionView.m in Sources */,
 				56B5E9791B1E90480041C48E /* InformationTableViewCell.m in Sources */,
 				561D9AF11B387FE000C70C07 /* CreateAgendaOperation.m in Sources */,
 				56DC28131B17B6B0009137E7 /* TrendingViewController.m in Sources */,
 				56AC7CF81B62C79700B4404E /* RetreatAppServicesClient.m in Sources */,
 				5631E4241B21F88500798191 /* Checkin.m in Sources */,
-				56DC280E1B17B049009137E7 /* ActivitiesTableViewController.m in Sources */,
 				56B5E9721B1E2AC20041C48E /* SaveQuizQuestionsOperation.m in Sources */,
 				56DC28091B17AF58009137E7 /* AgendaTableViewController.m in Sources */,
 				56E963E51B1C9857004F1F2F /* AgendaTableViewCell.m in Sources */,
