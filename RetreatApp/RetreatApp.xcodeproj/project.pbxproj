@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		125180631B742F6900A51B08 /* GetSectionsOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 125180621B742F6900A51B08 /* GetSectionsOperation.m */; };
 		561D9AEB1B387E4C00C70C07 /* Agenda.m in Sources */ = {isa = PBXBuildFile; fileRef = 561D9AEA1B387E4C00C70C07 /* Agenda.m */; };
 		561D9AEE1B387E6400C70C07 /* Agenda+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 561D9AED1B387E6400C70C07 /* Agenda+Extensions.m */; };
 		561D9AF11B387FE000C70C07 /* CreateAgendaOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 561D9AF01B387FE000C70C07 /* CreateAgendaOperation.m */; };
@@ -86,6 +87,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		125180611B742F6900A51B08 /* GetSectionsOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetSectionsOperation.h; sourceTree = "<group>"; };
+		125180621B742F6900A51B08 /* GetSectionsOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetSectionsOperation.m; sourceTree = "<group>"; };
 		561D9AE91B387E4C00C70C07 /* Agenda.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Agenda.h; sourceTree = "<group>"; };
 		561D9AEA1B387E4C00C70C07 /* Agenda.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Agenda.m; sourceTree = "<group>"; };
 		561D9AEC1B387E6400C70C07 /* Agenda+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Agenda+Extensions.h"; sourceTree = "<group>"; };
@@ -421,6 +424,8 @@
 				5631E41A1B21E79B00798191 /* CreateUserOperation.m */,
 				5631E41C1B21EB9700798191 /* CheckinOperation.h */,
 				5631E41D1B21EB9700798191 /* CheckinOperation.m */,
+				125180611B742F6900A51B08 /* GetSectionsOperation.h */,
+				125180621B742F6900A51B08 /* GetSectionsOperation.m */,
 				56AC7CF91B62C7CC00B4404E /* RetreatAppServiceConnectionOperation.h */,
 				56AC7CFA1B62C7CC00B4404E /* RetreatAppServiceConnectionOperation.m */,
 			);
@@ -629,6 +634,7 @@
 				56AC7CFB1B62C7CC00B4404E /* RetreatAppServiceConnectionOperation.m in Sources */,
 				5631E4181B21E69A00798191 /* User+Extensions.m in Sources */,
 				5631E4211B21F76500798191 /* Checkin+Extensions.m in Sources */,
+				125180631B742F6900A51B08 /* GetSectionsOperation.m in Sources */,
 				56C6D7551B666D9B007A2C48 /* NSError+RetreatApp.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

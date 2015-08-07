@@ -81,6 +81,7 @@ int secondsLeft;
 }
 
 - (IBAction)informationButtonSelected:(id)sender {
+    
     InformationViewController *informationViewController = [[InformationViewController alloc]initWithNibName:@"InformationViewController" bundle:nil];
     [self.navigationController pushViewController:informationViewController animated:YES];
 }
