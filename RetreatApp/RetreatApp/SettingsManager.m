@@ -76,6 +76,7 @@ static NSString * const CMTSettingsLastLaunchedAppVersion = @"lastLaunchedAppVer
     return [self objectForKey:@"userImage"];
 }
 
+
 - (BOOL)iosIsAtLeastVersion:(NSString *)version
 {
     return ([[[UIDevice currentDevice] systemVersion] compare:version options:NSNumericSearch] != NSOrderedAscending);
@@ -90,5 +91,13 @@ static NSString * const CMTSettingsLastLaunchedAppVersion = @"lastLaunchedAppVer
 {
     [self setObject:lastLaunchedAppVersion forKey:CMTSettingsLastLaunchedAppVersion];
 }
+
+
+// Operations / Properties created to squash RetreatAppServiceConnectionsOperation
+-(NSNumber*) userId
+{
+    return nil;
+}
+
 
 @end

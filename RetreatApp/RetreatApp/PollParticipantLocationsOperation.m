@@ -30,7 +30,7 @@
     CoreDataManager *coreDataManager = [CoreDataManager sharedManager];
     NSManagedObjectContext *managedObjectContext = [coreDataManager operationContext];
     //Data Return
-    //NSMutableArray *flashcardIds = [[NSMutableArray alloc] init];    
+    //NSMutableArray *flashcardIds = [[NSMutableArray alloc] init];
     //Setup Core Data Model Access
     
     for (NSDictionary *pollDictionary in responseJSON) {

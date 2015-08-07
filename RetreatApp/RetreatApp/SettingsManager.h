@@ -17,5 +17,6 @@
 @property (nonatomic, strong) NSString *username;
 @property (nonatomic, strong) NSData *userImage;
 @property (nonatomic, strong) NSString *lastLaunchedAppVersion;
+@property (nonatomic, strong) NSNumber *userId;
 
 @end
