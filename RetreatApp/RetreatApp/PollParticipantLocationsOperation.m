@@ -15,7 +15,7 @@
 - (id)initPollParticipantOperation {
     
     if(self = [super initWithMethod:RESTMethodGet
-                        forEndpoint:@"test"
+                        forEndpoint:@"pollLocations"
                          withParams:nil])
     {
         self.delegate = self;

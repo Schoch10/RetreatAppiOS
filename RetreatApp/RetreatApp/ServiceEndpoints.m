@@ -9,6 +9,20 @@
 #import "ServiceEndpoints.h"
 #import "SettingsManager.h"
 
+typedef NS_ENUM(NSInteger, RALocation) {
+    RALocationBar,
+    RALocationLobby,
+    RALocationGolf,
+    RALocationLawnGames,
+    RALocationSpa,
+    RALocationZipline,
+    RALocationOutdoorActivity,
+    RALocationTown,
+    RALocationBanquet,
+    RALocationAfterParty
+};
+
+
 @interface ServiceEndpoints()
 @end
 
@@ -21,15 +35,20 @@
 
 +(NSString *)getHostnameForSelectedEnvironment
 {
-    return @"http://tpartyservice-dev.elasticbeanstalk.com/home/pollparticipantlocations";
+    return @"http://tpartyservice-dev.elasticbeanstalk.com/home/checkin?";
 
 }
 
-+(NSString *)getEndpointURL:(NSString *)serviceType
++(NSString *)getEndpointURL:(NSString *)endpoint
 {
-    return @"http://tpartyservice-dev.elasticbeanstalk.com/home/pollparticipantlocations";
+    if ([endpoint isEqualToString:@"checkin"]) {
+        return @"http://tpartyservice-dev.elasticbeanstalk.com/home/checkin?";
+    } else if ([endpoint isEqualToString:@"pollLocations"]) {
+        return @"http://tpartyservice-dev.elasticbeanstalk.com/home/pollparticipantlocations";
+    } else {
+        return @"error";
+    }
 }
-
 
 @end
 

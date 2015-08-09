@@ -9,8 +9,8 @@
     </entity>
     <entity name="Checkin" representedClassName="Checkin" syncable="YES">
         <attribute name="checkinDate" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="checkinID" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="locationId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="checkin" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Game" representedClassName="Game" syncable="YES">
@@ -34,9 +34,9 @@
     </entity>
     <elements>
         <element name="Agenda" positionX="-13142" positionY="1935" width="128" height="118"/>
-        <element name="Checkin" positionX="-12728" positionY="1670" width="128" height="103"/>
+        <element name="Checkin" positionX="-12744" positionY="1620" width="128" height="103"/>
         <element name="Game" positionX="-13140" positionY="1838" width="128" height="88"/>
-        <element name="Post" positionX="-13178" positionY="1620" width="128" height="133"/>
-        <element name="User" positionX="-12933" positionY="1701" width="128" height="103"/>
+        <element name="Post" positionX="-13178" positionY="1622" width="128" height="133"/>
+        <element name="User" positionX="-12969" positionY="1616" width="128" height="103"/>
     </elements>
 </model>

@@ -15,9 +15,7 @@
 		5631E4121B21E55900798191 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 5631E4111B21E55900798191 /* Post.m */; };
 		5631E4181B21E69A00798191 /* User+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5631E4171B21E69A00798191 /* User+Extensions.m */; };
 		5631E41B1B21E79B00798191 /* CreateUserOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5631E41A1B21E79B00798191 /* CreateUserOperation.m */; };
-		5631E41E1B21EB9700798191 /* CheckinOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5631E41D1B21EB9700798191 /* CheckinOperation.m */; };
 		5631E4211B21F76500798191 /* Checkin+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5631E4201B21F76500798191 /* Checkin+Extensions.m */; };
-		5631E4241B21F88500798191 /* Checkin.m in Sources */ = {isa = PBXBuildFile; fileRef = 5631E4231B21F88500798191 /* Checkin.m */; };
 		5640A46D1B18B5EA0073D8E2 /* SettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5640A46C1B18B5EA0073D8E2 /* SettingsManager.m */; };
 		5640A47D1B18BBC50073D8E2 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5640A47C1B18BBC50073D8E2 /* libz.dylib */; };
 		5640A47F1B18BBD70073D8E2 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5640A47E1B18BBD70073D8E2 /* libsqlite3.dylib */; };
@@ -56,6 +54,8 @@
 		56B7B4BA1B324F4B00615737 /* PostsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 56B7B4B81B324F4B00615737 /* PostsTableViewCell.m */; };
 		56B7B4BB1B324F4B00615737 /* PostsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56B7B4B91B324F4B00615737 /* PostsTableViewCell.xib */; };
 		56C5680E1B7536050073431C /* PollParticipantLocationsOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C5680C1B7536050073431C /* PollParticipantLocationsOperation.m */; };
+		56C568111B7539AF0073431C /* CheckinOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C568101B7539AF0073431C /* CheckinOperation.m */; };
+		56C568141B7577DC0073431C /* Checkin.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C568131B7577DC0073431C /* Checkin.m */; };
 		56C6D7551B666D9B007A2C48 /* NSError+RetreatApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C6D7541B666D9B007A2C48 /* NSError+RetreatApp.m */; };
 		56DC28041B17AC90009137E7 /* InformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56DC28021B17AC90009137E7 /* InformationViewController.m */; };
 		56DC28051B17AC90009137E7 /* InformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56DC28031B17AC90009137E7 /* InformationViewController.xib */; };
@@ -104,12 +104,8 @@
 		5631E4171B21E69A00798191 /* User+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+Extensions.m"; sourceTree = "<group>"; };
 		5631E4191B21E79B00798191 /* CreateUserOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateUserOperation.h; sourceTree = "<group>"; };
 		5631E41A1B21E79B00798191 /* CreateUserOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateUserOperation.m; sourceTree = "<group>"; };
-		5631E41C1B21EB9700798191 /* CheckinOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckinOperation.h; sourceTree = "<group>"; };
-		5631E41D1B21EB9700798191 /* CheckinOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckinOperation.m; sourceTree = "<group>"; };
 		5631E41F1B21F76500798191 /* Checkin+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Checkin+Extensions.h"; sourceTree = "<group>"; };
 		5631E4201B21F76500798191 /* Checkin+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Checkin+Extensions.m"; sourceTree = "<group>"; };
-		5631E4221B21F88500798191 /* Checkin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Checkin.h; sourceTree = "<group>"; };
-		5631E4231B21F88500798191 /* Checkin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Checkin.m; sourceTree = "<group>"; };
 		5640A46B1B18B5EA0073D8E2 /* SettingsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsManager.h; sourceTree = "<group>"; };
 		5640A46C1B18B5EA0073D8E2 /* SettingsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsManager.m; sourceTree = "<group>"; };
 		5640A47C1B18BBC50073D8E2 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -175,6 +171,10 @@
 		56B7B4B91B324F4B00615737 /* PostsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostsTableViewCell.xib; sourceTree = "<group>"; };
 		56C5680C1B7536050073431C /* PollParticipantLocationsOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PollParticipantLocationsOperation.m; sourceTree = "<group>"; };
 		56C5680D1B7536050073431C /* PollParticipantLocationsOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PollParticipantLocationsOperation.h; sourceTree = "<group>"; };
+		56C5680F1B7539AF0073431C /* CheckinOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckinOperation.h; sourceTree = "<group>"; };
+		56C568101B7539AF0073431C /* CheckinOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckinOperation.m; sourceTree = "<group>"; };
+		56C568121B7577DC0073431C /* Checkin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Checkin.h; sourceTree = "<group>"; };
+		56C568131B7577DC0073431C /* Checkin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Checkin.m; sourceTree = "<group>"; };
 		56C6D7531B666D9B007A2C48 /* NSError+RetreatApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+RetreatApp.h"; sourceTree = "<group>"; };
 		56C6D7541B666D9B007A2C48 /* NSError+RetreatApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+RetreatApp.m"; sourceTree = "<group>"; };
 		56C6D7561B667158007A2C48 /* SCFileUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCFileUtil.h; sourceTree = "<group>"; };
@@ -232,10 +232,10 @@
 		5640A46A1B18B5D70073D8E2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				56C568121B7577DC0073431C /* Checkin.h */,
+				56C568131B7577DC0073431C /* Checkin.m */,
 				561D9AE91B387E4C00C70C07 /* Agenda.h */,
 				561D9AEA1B387E4C00C70C07 /* Agenda.m */,
-				5631E4221B21F88500798191 /* Checkin.h */,
-				5631E4231B21F88500798191 /* Checkin.m */,
 				5631E41F1B21F76500798191 /* Checkin+Extensions.h */,
 				5631E4201B21F76500798191 /* Checkin+Extensions.m */,
 				5631E4101B21E55900798191 /* Post.h */,
@@ -423,16 +423,16 @@
 		56B5E9601B1DF9E80041C48E /* Network Operations */ = {
 			isa = PBXGroup;
 			children = (
-				56C5680C1B7536050073431C /* PollParticipantLocationsOperation.m */,
 				56C5680D1B7536050073431C /* PollParticipantLocationsOperation.h */,
+				56C5680C1B7536050073431C /* PollParticipantLocationsOperation.m */,
 				5631E4191B21E79B00798191 /* CreateUserOperation.h */,
 				5631E41A1B21E79B00798191 /* CreateUserOperation.m */,
-				5631E41C1B21EB9700798191 /* CheckinOperation.h */,
-				5631E41D1B21EB9700798191 /* CheckinOperation.m */,
 				125180611B742F6900A51B08 /* GetSectionsOperation.h */,
 				125180621B742F6900A51B08 /* GetSectionsOperation.m */,
 				56AC7CF91B62C7CC00B4404E /* RetreatAppServiceConnectionOperation.h */,
 				56AC7CFA1B62C7CC00B4404E /* RetreatAppServiceConnectionOperation.m */,
+				56C5680F1B7539AF0073431C /* CheckinOperation.h */,
+				56C568101B7539AF0073431C /* CheckinOperation.m */,
 			);
 			name = "Network Operations";
 			sourceTree = "<group>";
@@ -608,7 +608,6 @@
 				5640A48B1B18DF370073D8E2 /* CreateUserViewController.m in Sources */,
 				561D9AEB1B387E4C00C70C07 /* Agenda.m in Sources */,
 				56B5E9661B1E0ED40041C48E /* Game+Extensions.m in Sources */,
-				5631E41E1B21EB9700798191 /* CheckinOperation.m in Sources */,
 				56B7B4BA1B324F4B00615737 /* PostsTableViewCell.m in Sources */,
 				56AC7CFE1B62C98E00B4404E /* ServiceEndpoints.m in Sources */,
 				5631E41B1B21E79B00798191 /* CreateUserOperation.m in Sources */,
@@ -619,6 +618,7 @@
 				56DC28181B17B83E009137E7 /* GameViewController.m in Sources */,
 				56B5E9751B1E3A710041C48E /* SaveQuizAnswerOperation.m in Sources */,
 				5631E4121B21E55900798191 /* Post.m in Sources */,
+				56C568111B7539AF0073431C /* CheckinOperation.m in Sources */,
 				561D9AEE1B387E6400C70C07 /* Agenda+Extensions.m in Sources */,
 				5640A4861B18DD760073D8E2 /* WelcomeViewController.m in Sources */,
 				56A606CF1B176CF800F95006 /* HomeViewController.m in Sources */,
@@ -631,8 +631,8 @@
 				56B5E9791B1E90480041C48E /* InformationTableViewCell.m in Sources */,
 				561D9AF11B387FE000C70C07 /* CreateAgendaOperation.m in Sources */,
 				56DC28131B17B6B0009137E7 /* TrendingViewController.m in Sources */,
+				56C568141B7577DC0073431C /* Checkin.m in Sources */,
 				56AC7CF81B62C79700B4404E /* RetreatAppServicesClient.m in Sources */,
-				5631E4241B21F88500798191 /* Checkin.m in Sources */,
 				56DC280E1B17B049009137E7 /* ActivitiesTableViewController.m in Sources */,
 				56B5E9721B1E2AC20041C48E /* SaveQuizQuestionsOperation.m in Sources */,
 				56DC28091B17AF58009137E7 /* AgendaTableViewController.m in Sources */,

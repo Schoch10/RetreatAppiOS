@@ -15,6 +15,12 @@ typedef NS_ENUM(NSInteger, RESTMethod) {
     RESTMethodDelete,
 };
 
+typedef NS_ENUM(NSInteger, RAEndpoint) {
+    RAEndpointCreateUser,
+    RAEndpointPollParticipants,
+    RAEndpointCheckin
+};
+
 typedef NS_ENUM(NSInteger, HttpStatusCode) {
     HttpStatusCode200OK = 200,
     HttpStatusCode204OK = 204,
