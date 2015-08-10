@@ -38,7 +38,7 @@
         }
         if(!checkin) {
             checkin = [NSEntityDescription insertNewObjectForEntityForName:@"Checkin" inManagedObjectContext:context];
-            checkin.checkinID = checkinId;
+           // checkin.checkinID = checkinId;
             [context obtainPermanentIDsForObjects:@[checkin] error:nil];
             [checkinMap setObject:checkin.objectID.URIRepresentation forKey:checkinId];
         }

@@ -1,5 +1,5 @@
 //
-//  TrendingViewController.m
+//  TrendingCarouselViewController.m
 //  RetreatApp
 //
 //  Created by Brendan Schoch on 5/28/15.
@@ -11,10 +11,13 @@
 #import "TrendingModalViewController.h"
 #import "CheckinViewController.h"
 #import "UIView+Position.h"
+#import "PollParticipantLocationsOperation.h"
+#import "ServiceCoordinator.h"
+#import "CheckinOperation.h"
 
 #define kBannerScrollTime 8
 
-@interface TrendingCarouselViewController ()
+@interface TrendingCarouselViewController () <PollParticipantLocationServiceDelegate>
 {
     NSTimer *bannerTimer;
 }
@@ -60,6 +63,24 @@
     if (!self.dataSource) {
         [self populateTestData];
     }
+
+    [self populateTestData];
+    [self getPollLocations];
+}
+
+- (void)getPollLocations {
+    PollParticipantLocationsOperation *pollParticipantOperation = [[PollParticipantLocationsOperation alloc]initPollParticipantOperation];
+    pollParticipantOperation.pollParticipantDelegate = self;
+    CMTTaskPriority priority = CMTTaskPriorityHigh;
+    [ServiceCoordinator addNetworkOperation:pollParticipantOperation priority:priority];
+}
+
+- (void)pollParticipantLocationDidSucceed {
+    SCLogMessage(kLogLevelDebug, @"Worked");
+}
+
+- (void)pollParticipantLocationDidFailWithError:(NSError *)error {
+    SCLogMessage(kLogLevelDebug, @"Error");
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -152,11 +173,13 @@
 #pragma mark - Action methods
 
 - (IBAction)checkInButtonSelected:(id)sender {
-    CheckinViewController *checkinViewController = [[CheckinViewController alloc]initWithNibName:@"CheckinViewController" bundle:nil];
+    CheckinOperation *checkinOperation = [[CheckinOperation alloc]initCheckinOperationWithLocation:@(3)];
+    [ServiceCoordinator addNetworkOperation:checkinOperation priority:CMTTaskPriorityHigh];
+    /*CheckinViewController *checkinViewController = [[CheckinViewController alloc]initWithNibName:@"CheckinViewController" bundle:nil];
     checkinViewController.modalPresentationStyle = UIModalPresentationFullScreen;
     checkinViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     checkinViewController.delegate = self;
-    [self presentViewController:checkinViewController animated:YES completion:nil];
+    [self presentViewController:checkinViewController animated:YES completion:nil]; */
 }
 
 - (IBAction)postButtonSelected:(id)sender {

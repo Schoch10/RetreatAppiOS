@@ -2,7 +2,7 @@
 //  Checkin.m
 //  RetreatApp
 //
-//  Created by Brendan Schoch on 6/5/15.
+//  Created by Brendan Schoch on 8/7/15.
 //  Copyright (c) 2015 Slalom Consulting. All rights reserved.
 //
 
@@ -12,9 +12,9 @@
 
 @implementation Checkin
 
-@dynamic location;
 @dynamic checkinDate;
-@dynamic checkinID;
+@dynamic locationId;
+@dynamic location;
 @dynamic user;
 
 @end

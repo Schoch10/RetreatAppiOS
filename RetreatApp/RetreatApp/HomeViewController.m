@@ -17,14 +17,15 @@
 @interface HomeViewController ()
 - (IBAction)informationButtonSelected:(id)sender;
 - (IBAction)agendaButtonSelected:(id)sender;
-- (IBAction)activitiesButtonSelected:(id)sender;
 - (IBAction)trendingButtonSelected:(id)sender;
 - (IBAction)gameButtonSelected:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *countdownLabel;
 @property (weak, nonatomic) IBOutlet UIView *countdownView;
 @property (weak, nonatomic) IBOutlet UIButton *gameButton;
 @property (weak, nonatomic) IBOutlet UILabel *userInformationLabel;
+@property (weak, nonatomic) IBOutlet UIButton *infoButton;
 @property (weak, nonatomic) IBOutlet UIImageView *userImageView;
+@property (weak, nonatomic) IBOutlet UIButton *agendaButton;
 @property (nonatomic, strong) NSTimer *timer;
 @end
 
@@ -45,6 +46,14 @@ int secondsLeft;
     self.userInformationLabel.text = sharedManager.username;
     self.userImageView.image = [UIImage imageWithData:sharedManager.userImage];
     [self countdownTimer];
+    [self setButtonStyles];
+}
+
+- (void)setButtonStyles {
+    [self.infoButton.layer setBorderWidth:1.0];
+    [self.infoButton.layer setBorderColor:[[UIColor colorWithRed:0.0 green:0.447f blue:0.784f alpha:1.0f] CGColor]];
+    [self.agendaButton.layer setBorderWidth:1.0];
+    [self.agendaButton.layer setBorderColor:[[UIColor colorWithRed:0.0 green:0.447f blue:0.784f alpha:1.0f] CGColor]];
 }
 
 - (void)updateCounter:(NSTimer *)theTimer {
@@ -89,11 +98,6 @@ int secondsLeft;
 - (IBAction)agendaButtonSelected:(id)sender {
     AgendaTableViewController *agendaTableViewController = [[AgendaTableViewController alloc]initWithNibName:@"AgendaTableViewController" bundle:nil];
     [self.navigationController pushViewController:agendaTableViewController animated:YES];
-}
-
-- (IBAction)activitiesButtonSelected:(id)sender {
-    ActivitiesTableViewController *activitiesTableViewController = [[ActivitiesTableViewController alloc]initWithNibName:@"ActivitiesTableViewController" bundle:nil];
-    [self.navigationController pushViewController:activitiesTableViewController animated:YES];
 }
 
 - (IBAction)trendingButtonSelected:(id)sender {

@@ -47,26 +47,11 @@ static  NSString * const SBRAGENDATABLEVIEWCELL = @"AgendaTableViewCell";
 #pragma mark - Table view data source
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    switch (section) {
-        case 0:
-            return 2;
-            break;
-        case 1:
-            return 3;
-            break;
-        case 2:
-            return 2;
-            break;
-        default:
-            return 2;
-            break;
-    }
-    /* id  sectionInfo = [[_fetchedResultsController sections] objectAtIndex:section];
-    return [sectionInfo numberOfObjects]; */
+    return self.agendaArray.count;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -87,9 +72,12 @@ static  NSString * const SBRAGENDATABLEVIEWCELL = @"AgendaTableViewCell";
     UIImage *agendaImage = [UIImage imageNamed:@"golf"];
     agendaCell.agendaItem = currentAgendaItem.title;
     agendaCell.agendaLocation = currentAgendaItem.location;
-    //agendaCell.agendaTime = [NSString stringWithFormat:@"%@", currentAgendaItem.time];
     agendaCell.agendaImage = agendaImage;
-    agendaCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.timeStyle = NSDateFormatterNoStyle;
+    dateFormatter.dateStyle = NSDateFormatterMediumStyle;
+    NSString *agendaItemTime = [dateFormatter stringFromDate:currentAgendaItem.time];
+    agendaCell.agendaTime = [NSString stringWithFormat:@"%@", agendaItemTime];
     
 }
 

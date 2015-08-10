@@ -29,9 +29,6 @@
         NSURLSessionConfiguration *config = [NSURLSessionConfiguration ephemeralSessionConfiguration];
         NSMutableDictionary *headers =
         [NSMutableDictionary dictionaryWithDictionary:@{@"Content-Type": @"application/json"}];
-        if (authToken) {
-            headers[@"cengage.token"] = authToken;
-        }
         config.HTTPAdditionalHeaders = headers;
         _session = [NSURLSession sessionWithConfiguration:config];
     }
@@ -46,7 +43,6 @@
 
 -(void)suspendAllTasks
 {
-    // TODO: Call this before refreshing the login token. (?)
     [_session getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks) {
         for (NSURLSessionDataTask *dataTask in dataTasks) {
             [dataTask suspend];
@@ -78,7 +74,6 @@
 
 -(void)resumeAllTasks
 {
-    // TODO: call this after refreshing auth token. (?)
     [_session getTasksWithCompletionHandler:^(NSArray *dataTasks, NSArray *uploadTasks, NSArray *downloadTasks) {
         for (NSURLSessionDataTask *dataTask in dataTasks) {
             [dataTask resume];

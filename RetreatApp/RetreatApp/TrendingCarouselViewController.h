@@ -1,5 +1,5 @@
 //
-//  TrendingViewController.h
+//  TrendingCarouselViewController.h
 //  RetreatApp
 //
 //  Created by Brendan Schoch on 5/28/15.

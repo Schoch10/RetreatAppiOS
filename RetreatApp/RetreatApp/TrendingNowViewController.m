@@ -23,6 +23,10 @@
     [super viewDidLoad];
     
     self.title = @"Trending Now";
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.0 green:0.447f blue:0.784f alpha:1.0f];
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:nil];
     self.locations = @[@"Hotel Bar", @"Hotel Lobby", @"Golf", @"Lawn Games", @"Spa", @"Zipline", @"Outdoor Activities", @"Town", @"Banquet", @"Afterparty"];
     
