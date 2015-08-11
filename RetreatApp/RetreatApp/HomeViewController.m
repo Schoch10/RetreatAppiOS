@@ -46,6 +46,7 @@ int secondsLeft;
     self.userImageView.image = [UIImage imageWithData:sharedManager.userImage];
     [self countdownTimer];
     [self setButtonStyles];
+    SCLogMessage(kLogLevelDebug, @"userId %@", sharedManager.userId);
 }
 
 - (void)setButtonStyles {

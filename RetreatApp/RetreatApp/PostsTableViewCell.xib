@@ -37,6 +37,10 @@
                     </view>
                 </subviews>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="postTextLabel" destination="nMA-Fa-3em" id="nkZ-Ew-fKw"/>
+                <outlet property="userLabel" destination="jRb-6Z-Kx0" id="P2R-a7-MLO"/>
+            </connections>
             <point key="canvasLocation" x="306" y="360.5"/>
         </tableViewCell>
     </objects>

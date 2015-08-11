@@ -17,7 +17,7 @@
 
 @interface CheckinOperation : RetreatAppServiceConnectionOperation <RetreatServiceTaskDelegate>
 
-- (id)initCheckinOperationWithLocation:(NSNumber *)locationId;
+- (id)initCheckinOperationWithLocationForUser:(NSNumber *)userId withLocation:(NSNumber *)locationId;
 
 @property (nonatomic, weak) id<CheckinOperationDelegate> checkinOperationDelegate;
 @property (nonatomic, strong) NSNumber *locationId;

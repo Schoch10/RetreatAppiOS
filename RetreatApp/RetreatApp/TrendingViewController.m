@@ -14,6 +14,7 @@
 #import "PollParticipantLocationsOperation.h"
 #import "ServiceCoordinator.h"
 #import "CheckinOperation.h"
+#import "SettingsManager.h"
 
 #define kBannerScrollTime 8
 
@@ -169,13 +170,10 @@
 #pragma mark - Action methods
 
 - (IBAction)checkInButtonSelected:(id)sender {
-    CheckinOperation *checkinOperation = [[CheckinOperation alloc]initCheckinOperationWithLocation:@(3)];
+    SettingsManager *sharedManager = [SettingsManager sharedManager];
+    CheckinOperation *checkinOperation = [[CheckinOperation alloc]initCheckinOperationWithLocationForUser:sharedManager.userId withLocation:@(3)];
     [ServiceCoordinator addNetworkOperation:checkinOperation priority:CMTTaskPriorityHigh];
-    /*CheckinViewController *checkinViewController = [[CheckinViewController alloc]initWithNibName:@"CheckinViewController" bundle:nil];
-    checkinViewController.modalPresentationStyle = UIModalPresentationFullScreen;
-    checkinViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-    checkinViewController.delegate = self;
-    [self presentViewController:checkinViewController animated:YES completion:nil]; */
+   
 }
 
 - (IBAction)postButtonSelected:(id)sender {

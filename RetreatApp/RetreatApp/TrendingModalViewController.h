@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 
 @protocol TrendingModalViewDelegate <NSObject>
 
@@ -14,8 +15,9 @@
 
 @end
 
-@interface TrendingModalViewController : UIViewController <UITabBarDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface TrendingModalViewController : UIViewController <UITabBarDelegate, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, weak) id<TrendingModalViewDelegate> delegate;
-
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, strong) NSFetchedResultsController *checkinFetchedResultsController;
 @end

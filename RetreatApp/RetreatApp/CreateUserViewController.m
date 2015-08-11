@@ -9,10 +9,10 @@
 #import "CreateUserViewController.h"
 #import "SettingsManager.h"
 #import "HomeViewController.h"
-#import "CreateUserOperation.h"
 #import "ServiceCoordinator.h"
+#import "CreateUserNetworkOperation.h"
 
-@interface CreateUserViewController ()
+@interface CreateUserViewController () <CreateUserNetworkOperationDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *firstNameTextField;
 @property (strong, nonatomic) NSString *firstNameString;
 - (IBAction)saveButtonSelected:(id)sender;
@@ -37,21 +37,48 @@
 - (IBAction)saveButtonSelected:(id)sender {
 
     if (self.firstNameTextField.text) {
-        self.firstNameString = self.firstNameTextField.text;
+        self.saveButton.enabled = NO;
+        self.firstNameString = [self.firstNameTextField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         SettingsManager *settings = [SettingsManager sharedManager];
-        settings.username = self.firstNameString;
-        CreateUserOperation *createUserOperation = [[CreateUserOperation alloc]initUserWithUserName:self.firstNameString];
-        [ServiceCoordinator addLocalOperation:createUserOperation completion:^(void) {
-            // do something when it is finished
-        }];
+        settings.username = self.firstNameTextField.text;
+        CreateUserNetworkOperation *createUserNetworkOperation = [[CreateUserNetworkOperation alloc]initCreateUserOperationWithUsername:self.firstNameString];
+        createUserNetworkOperation.createUserOperationDelegate = self;
+        [ServiceCoordinator addNetworkOperation:createUserNetworkOperation priority:CMTTaskPriorityHigh];
+        
     } else {
         return;
     }
+}
+
+#pragma mark Create User Network Operation Delegate
+
+- (void)createUserNetworkOperationDidSucceedWithUserId:(NSNumber *)userId {
+    if (userId) {
+        SettingsManager *sharedManager = [SettingsManager sharedManager];
+        sharedManager.userId = userId;
+        HomeViewController *homeView = [[HomeViewController alloc]initWithNibName:@"HomeViewController" bundle:nil];
+        self.navigationController.viewControllers = [NSArray arrayWithObject:homeView];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    } else {
+        NSError *error;
+        [self presentCreateUserErrorView:error];
+    }
+}
+
+- (void)createUserNetworkOperationDidFail:(NSError *)error {
+    [self presentCreateUserErrorView:error];
+}
+
+- (void)presentCreateUserErrorView:(NSError *)error {
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Error!"
+                                                                   message:@"User cannot be created please try again"
+                                                            preferredStyle:UIAlertControllerStyleAlert];
     
-    HomeViewController *homeView = [[HomeViewController alloc]initWithNibName:@"HomeViewController" bundle:nil];
-    self.navigationController.viewControllers = [NSArray arrayWithObject:homeView];
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * action) {}];
     
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 #pragma mark Text Field Delegate

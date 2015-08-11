@@ -7,6 +7,8 @@
 //
 
 #import "PostModalViewController.h"
+#import "DoPostForLocation.h"
+#import "SettingsManager.h"
 
 @interface PostModalViewController () <UINavigationBarDelegate>
 @property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
@@ -33,11 +35,6 @@
     [self.view removeConstraint:self.topNavigationConstraint];
     NSLayoutConstraint *newTopConstraint = [NSLayoutConstraint constraintWithItem:self.navigationBar attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.topLayoutGuide attribute:NSLayoutAttributeTop multiplier:1 constant:0];
     [self.view addConstraint:newTopConstraint];
-
-    
-    if (!self.imageToPost) {
-        self.postButton.enabled = NO;
-    }
 }
 
 - (IBAction)selectImageButtonSelected:(id)sender {
@@ -50,6 +47,10 @@
 }
 
 - (IBAction)postButtonSelected:(id)sender {
+    NSString* encodedPost = [self.commentTextView.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] ;
+    SettingsManager *sharedManager = [SettingsManager sharedManager];
+    DoPostForLocation *doPostForLocationOperation = [[DoPostForLocation alloc]initDoPostForUser:sharedManager.userId forLocation:@(3) withText:encodedPost];
+    [ServiceCoordinator addNetworkOperation:doPostForLocationOperation priority:CMTTaskPriorityHigh];
     [self.delegate dismissPostModalViewController];
 }
 

@@ -9,6 +9,7 @@
 #import "PollParticipantLocationsOperation.h"
 #import "CoreDataManager.h"
 #import "SettingsManager.h"
+#import "Checkin+Extensions.h"
 
 @implementation PollParticipantLocationsOperation
 
@@ -29,47 +30,40 @@
 {
     CoreDataManager *coreDataManager = [CoreDataManager sharedManager];
     NSManagedObjectContext *managedObjectContext = [coreDataManager operationContext];
-    //Data Return
-    //NSMutableArray *flashcardIds = [[NSMutableArray alloc] init];
-    //Setup Core Data Model Access
-    
     for (NSDictionary *pollDictionary in responseJSON) {
-        
-        id userIdJSON = pollDictionary[@"UserId"];
-        id userNameJSON = pollDictionary[@"UserName"];
-        id userLocationIdJSON = pollDictionary[@"LocationId"];
-        id userLocationName = pollDictionary[@"LocationName"];
-        SCLogMessage(kLogLevelDebug, @"user id %@", userIdJSON);
-        SCLogMessage(kLogLevelDebug, @"user name %@", userNameJSON);
-        SCLogMessage(kLogLevelDebug, @"user Location Id %@", userLocationIdJSON);
-        SCLogMessage(kLogLevelDebug, @"user location name %@", userLocationName);
-        /*  [flashcardIds addObject:flashcardId];
-        Flashcard *flashcard = [Flashcard flashcardForUpsertWithCardId:flashcardId forDeck:deck inContext:managedObjectContext];
-        id frontContentJSON = flashcardDictionary[@"frontContent"];
-        if ([frontContentJSON isKindOfClass:[NSString class]]) {
-            if (![flashcard.frontContent isEqualToString:frontContentJSON]) {
-                flashcard.frontContent = frontContentJSON;
-            }
+        NSNumber *checkinID = pollDictionary[@"CheckinId"];
+        Checkin *checkin = [Checkin checkinUpsertWithCheckinId:checkinID inManagedObjectContext:managedObjectContext];
+        id checkinTimeStamp = pollDictionary[@"CheckinTimeStamp"];
+        if ([checkinTimeStamp isKindOfClass:[NSDate class]]) {
+            checkin.checkinDate = checkinTimeStamp;
         } else {
-            SCLog
-            Message(kLogLevelError, @"unexpected type for frontContent: %@", flashcardDictionary);
-        } */
+            SCLogMessage(kLogLevelDebug, @"timestamp error");
+        }
+        id checkinLocation = pollDictionary[@"Location"];
+        if ([checkinLocation isKindOfClass:[NSString class]]) {
+            checkin.location = checkinLocation;
+        } else {
+            SCLogMessage(kLogLevelDebug, @"error");
+        }
+        id checkinLocationId = pollDictionary[@"LocationId"];
+        if ([checkinLocationId isKindOfClass:[NSNumber class]]) {
+            checkin.locationId = checkinLocationId;
+        } else {
+            SCLogMessage(kLogLevelDebug, @"error");
+        }
+        id checkinUserName = pollDictionary[@"UserName"];
+        if ([checkinUserName isKindOfClass:[NSString class]]) {
+            checkin.username = checkinUserName;
+        } else {
+            SCLogMessage(kLogLevelDebug, @"error");
+        }
     }
     BOOL saved = [coreDataManager saveContext:managedObjectContext];
     if (saved) {
-        SCLogMessage(kLogLevelDebug, @"Saved");
+        SCLogMessage(kLogLevelDebug, @"saved");
     } else {
-        SCLogMessage(kLogLevelError, @"No Locations Saved");
+        SCLogMessage(kLogLevelError, @"No checkins saved");
     }
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (saved) {
-            [self.pollParticipantDelegate pollParticipantLocationDidSucceed];
-        } else {
-            NSError *error = [NSError errorWithDomain:kCoreDataErrorDomain code:ErrorCodeCoreDataFailedSave userInfo:nil];
-            [self.pollParticipantDelegate pollParticipantLocationDidFailWithError:error];
-        }
-    });
-    
 }
 
 -(void)serviceTaskDidReceiveStatusFailure:(HttpStatusCode)httpStatusCode

@@ -42,9 +42,15 @@ typedef NS_ENUM(NSInteger, RALocation) {
 +(NSString *)getEndpointURL:(NSString *)endpoint
 {
     if ([endpoint isEqualToString:@"checkin"]) {
-        return @"http://tpartyservice-dev.elasticbeanstalk.com/home/checkin?";
+        return @"http://tpartyservice-dev.elasticbeanstalk.com/home/checkin?userId={userId}/locationId={locationId}";
     } else if ([endpoint isEqualToString:@"pollLocations"]) {
         return @"http://tpartyservice-dev.elasticbeanstalk.com/home/pollparticipantlocations";
+    } else if ([endpoint isEqualToString:@"createUser"]) {
+        return @"http://tpartyservice-dev.elasticbeanstalk.com/Home/CreateUser?username={userName}";
+    } else if ([endpoint isEqualToString:@"getPosts"]) {
+        return @"http://tpartyservice-dev.elasticbeanstalk.com/Home/GetPostsForLocation?LocationId={locationId}";
+    } else if ([endpoint isEqualToString:@"doPost"]) {
+        return @"http://tpartyservice-dev.elasticbeanstalk.com/Home/DoPost?UserId={userId}&LocationId={locationId}&postText={postText}";
     } else {
         return @"error";
     }

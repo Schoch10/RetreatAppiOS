@@ -12,6 +12,7 @@
 #import "AppDelegate.h"
 
 static NSString * const CMTSettingsLastLaunchedAppVersion = @"lastLaunchedAppVersion";
+static NSString * const RAUserID = @"userId";
 
 @interface SettingsManager ()
 - (id)objectForKey:(NSString *)key;
@@ -19,6 +20,9 @@ static NSString * const CMTSettingsLastLaunchedAppVersion = @"lastLaunchedAppVer
 @end
 
 @implementation SettingsManager
+{
+    NSNumber *_userId;
+}
 
 + (SettingsManager *)sharedManager
 {
@@ -93,10 +97,18 @@ static NSString * const CMTSettingsLastLaunchedAppVersion = @"lastLaunchedAppVer
 }
 
 
-// Operations / Properties created to squash RetreatAppServiceConnectionsOperation
--(NSNumber*) userId
+- (NSNumber *)userId
 {
-    return nil;
+    if (_userId == nil) {
+        _userId = [self objectForKey:RAUserID];
+    }
+    return _userId;
+}
+
+- (void)setUserId:(NSNumber *)userId
+{
+    _userId = userId;
+    [self setObject:userId forKey:RAUserID];
 }
 
 

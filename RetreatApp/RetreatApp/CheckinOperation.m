@@ -11,11 +11,11 @@
 
 @implementation CheckinOperation
 
-- (id)initCheckinOperationWithLocation:(NSNumber *)locationId {
+- (id)initCheckinOperationWithLocationForUser:(NSNumber *)userId withLocation:(NSNumber *)locationId {
     
     if(self = [super initWithMethod:RESTMethodPost
                         forEndpoint:@"checkin"
-                         withParams:@{@"userId": @"1", @"locationId": [locationId stringValue]}])
+                         withParams:@{@"userId": userId, @"locationId": locationId}])
     {
         self.delegate = self;
         self.locationId = locationId;
@@ -28,50 +28,24 @@
 
 -(void)serviceTaskDidReceiveResponseJSON:(id)responseJSON
 {
-    SCLogMessage(kLogLevelDebug, @"responseJSON %@", responseJSON);
-  /*  CoreDataManager *coreDataManager = [CoreDataManager sharedManager];
-    NSManagedObjectContext *managedObjectContext = [coreDataManager operationContext];
-    //Data Return
-    //NSMutableArray *flashcardIds = [[NSMutableArray alloc] init];
-    //Setup Core Data Model Access
-    
-    for (NSDictionary *pollDictionary in responseJSON) {
-        
-        id userIdJSON = pollDictionary[@"UserId"];
-        id userNameJSON = pollDictionary[@"UserName"];
-        id userLocationIdJSON = pollDictionary[@"LocationId"];
-        id userLocationName = pollDictionary[@"LocationName"];
-        SCLogMessage(kLogLevelDebug, @"user id %@", userIdJSON);
-        SCLogMessage(kLogLevelDebug, @"user name %@", userNameJSON);
-        SCLogMessage(kLogLevelDebug, @"user Location Id %@", userLocationIdJSON);
-        SCLogMessage(kLogLevelDebug, @"user location name %@", userLocationName);
-        /*  [flashcardIds addObject:flashcardId];
-         Flashcard *flashcard = [Flashcard flashcardForUpsertWithCardId:flashcardId forDeck:deck inContext:managedObjectContext];
-         id frontContentJSON = flashcardDictionary[@"frontContent"];
-         if ([frontContentJSON isKindOfClass:[NSString class]]) {
-         if (![flashcard.frontContent isEqualToString:frontContentJSON]) {
-         flashcard.frontContent = frontContentJSON;
-         }
-         } else {
-         SCLog
-         Message(kLogLevelError, @"unexpected type for frontContent: %@", flashcardDictionary);
-         }
-    }
-    BOOL saved = [coreDataManager saveContext:managedObjectContext];
-    if (saved) {
-        SCLogMessage(kLogLevelDebug, @"Saved");
-    } else {
-        SCLogMessage(kLogLevelError, @"No Locations Saved");
-    }
     dispatch_async(dispatch_get_main_queue(), ^{
-        if (saved) {
-            [self.pollParticipantDelegate pollParticipantLocationDidSucceed];
-        } else {
-            NSError *error = [NSError errorWithDomain:kCoreDataErrorDomain code:ErrorCodeCoreDataFailedSave userInfo:nil];
-            [self.pollParticipantDelegate pollParticipantLocationDidFailWithError:error];
-        }
-    }); */
-    
+        [self.checkinOperationDelegate checkinOperationDidSucceed];
+    });
+}
+
+- (void)serviceTaskDidFailToCompleteRequest:(NSError *)error {
+    SCLogMessage(kLogLevelDebug, @"error");
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.checkinOperationDelegate checkinOperationDidFailWithError:error];
+    });
+}
+
+- (void)serviceTaskDidReceiveStatusFailure:(HttpStatusCode)httpStatusCode {
+    SCLogMessage(kLogLevelDebug, @"error");
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSError *error;
+        [self.checkinOperationDelegate checkinOperationDidFailWithError:error];
+    });
 }
 
 @end
