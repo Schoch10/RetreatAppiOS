@@ -62,7 +62,10 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
     // Edit the sort key as appropriate.
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"checkinID" ascending:NO];
     NSArray *sortDescriptors = @[sortDescriptor];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(checkinLocation.locationId == %@)", self.locationId];
+
     [fetchRequest setSortDescriptors:sortDescriptors];
+    [fetchRequest setPredicate:predicate];
 
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
@@ -98,8 +101,11 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
     // Edit the sort key as appropriate.
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"postID" ascending:NO];
     NSArray *sortDescriptors = @[sortDescriptor];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(locationId == %@)", self.locationId];
+    
     
     [fetchRequest setSortDescriptors:sortDescriptors];
+    [fetchRequest setPredicate:predicate];
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
@@ -170,7 +176,7 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
 
 
 - (void)getPostsForLocation {
-    GetPostsForLocationOperation *getPostsLocationOperation = [[GetPostsForLocationOperation alloc]initGetPostsOperationForLocationId:@(3)];
+    GetPostsForLocationOperation *getPostsLocationOperation = [[GetPostsForLocationOperation alloc]initGetPostsOperationForLocationId:self.locationId];
     [ServiceCoordinator addNetworkOperation:getPostsLocationOperation priority:CMTTaskPriorityHigh];
     
 }

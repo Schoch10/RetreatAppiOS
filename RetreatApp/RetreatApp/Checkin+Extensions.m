@@ -17,20 +17,20 @@
     static dispatch_once_t once;
     dispatch_once(&once, ^{
         CoreDataManager *coreDataManager = [CoreDataManager sharedManager];
-        checkinMap = [coreDataManager objectUriMap:@"Checkin" keyName:@"checkinID" context:context];
+        checkinMap = [coreDataManager objectUriMap:@"Checkin" keyName:@"userId" context:context];
     });
     return checkinMap;
 }
 
 
-+ (Checkin *)checkinUpsertWithCheckinId:(NSNumber *)checkinId inManagedObjectContext: (NSManagedObjectContext *)backgroundContext {
++ (Checkin *)checkinUpsertWithUserId:(NSNumber *)userId inManagedObjectContext: (NSManagedObjectContext *)backgroundContext {
     
     NSManagedObjectContext *context = backgroundContext;
     @synchronized(self)
     {
         CoreDataManager *coreDataManager = [CoreDataManager sharedManager];
         NSMutableDictionary *checkinMap = [self checkinMapInContext:context];
-        NSURL *objectUri = [checkinMap objectForKey:checkinId];
+        NSURL *objectUri = [checkinMap objectForKey:userId];
         
         Checkin *checkin = nil;
         if(objectUri) {
@@ -38,9 +38,9 @@
         }
         if(!checkin) {
             checkin = [NSEntityDescription insertNewObjectForEntityForName:@"Checkin" inManagedObjectContext:context];
-            checkin.checkinID = checkinId;
+            checkin.userId = userId;
             [context obtainPermanentIDsForObjects:@[checkin] error:nil];
-            [checkinMap setObject:checkin.objectID.URIRepresentation forKey:checkinId];
+            [checkinMap setObject:checkin.objectID.URIRepresentation forKey:userId];
         }
         return checkin;
     }

@@ -1,24 +1,23 @@
 //
-//  TrendingViewController.m
+//  TrendingCarouselViewController.m
 //  RetreatApp
 //
 //  Created by Brendan Schoch on 5/28/15.
 //  Copyright (c) 2015 Slalom Consulting. All rights reserved.
 //
 
-#import "TrendingViewController.h"
+#import "TrendingCarouselViewController.h"
 #import "TrendingLocationCarouselCell.h"
 #import "TrendingModalViewController.h"
 #import "CheckinViewController.h"
 #import "UIView+Position.h"
-#import "PollParticipantLocationsOperation.h"
 #import "ServiceCoordinator.h"
 #import "CheckinOperation.h"
 #import "SettingsManager.h"
 
 #define kBannerScrollTime 8
 
-@interface TrendingViewController () <PollParticipantLocationServiceDelegate>
+@interface TrendingCarouselViewController ()
 {
     NSTimer *bannerTimer;
 }
@@ -28,20 +27,25 @@
 - (void)trendingAreaSelected:(id)sender;
 
 @property (nonatomic, weak) IBOutlet UIActivityIndicatorView *activityIndicator;
-@property (nonatomic, strong) NSArray *dataSource; // TODO: Set up data source.  Placeholder for now.
 
 @end
 
-@implementation TrendingViewController
+@implementation TrendingCarouselViewController
 
 - (void)populateTestData
 {
 #define kLocationNameKey @"kLocationNameKey"
-    
     self.dataSource = @[
-                        @{ kLocationNameKey : @"Pool" },
-                        @{ kLocationNameKey : @"Bar" },
+                        @{ kLocationNameKey : @"Hotel Bar" },
+                        @{ kLocationNameKey : @"Hotel Lobby" },
                         @{ kLocationNameKey : @"Golf" },
+                        @{ kLocationNameKey:  @"Lawn Games"},
+                        @{ kLocationNameKey:  @"Spa"},
+                        @{ kLocationNameKey:  @"Zipline"},
+                        @{ kLocationNameKey:  @"Outdoor Activities"},
+                        @{ kLocationNameKey:  @"Town"},
+                        @{ kLocationNameKey:  @"Banquet"},
+                        @{ kLocationNameKey:  @"After Party"}
                         ];
 }
 
@@ -62,24 +66,13 @@
     self.collectionView.infinityEnabled = YES;
     self.collectionView.minCellsForScroll = 1;
     
+    if (!self.dataSource) {
+        [self populateTestData];
+    }
+
     [self populateTestData];
-    [self getPollLocations];
 }
 
-- (void)getPollLocations {
-    PollParticipantLocationsOperation *pollParticipantOperation = [[PollParticipantLocationsOperation alloc]initPollParticipantOperation];
-    pollParticipantOperation.pollParticipantDelegate = self;
-    CMTTaskPriority priority = CMTTaskPriorityHigh;
-    [ServiceCoordinator addNetworkOperation:pollParticipantOperation priority:priority];
-}
-
-- (void)pollParticipantLocationDidSucceed {
-    SCLogMessage(kLogLevelDebug, @"Worked");
-}
-
-- (void)pollParticipantLocationDidFailWithError:(NSError *)error {
-    SCLogMessage(kLogLevelDebug, @"Error");
-}
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -93,6 +86,8 @@
         [self reloadCollectionView];
     }
     
+    [self.collectionView.collectionViewLayout invalidateLayout];
+    
     [self registerTimer];
 }
 
@@ -101,7 +96,8 @@
     [super viewDidAppear:animated];
     
     [self.collectionView reloadData];
-    self.collectionView.frameSize = self.view.frameSize;
+    [self jumpToIndexOnViewLoad];
+
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -119,7 +115,6 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSDictionary *itemData = [self objectAtInfiniteIndexPath:indexPath];
-    
     [self trendingAreaSelected:itemData[kLocationNameKey]];
 }
 
@@ -170,15 +165,18 @@
 #pragma mark - Action methods
 
 - (IBAction)checkInButtonSelected:(id)sender {
+    SCLogMessage(kLogLevelDebug, @"location %@", self.currentIndex);
     SettingsManager *sharedManager = [SettingsManager sharedManager];
-    CheckinOperation *checkinOperation = [[CheckinOperation alloc]initCheckinOperationWithLocationForUser:sharedManager.userId withLocation:@(3)];
+    CheckinOperation *checkinOperation = [[CheckinOperation alloc]initCheckinOperationWithLocationForUser:sharedManager.userId withLocation:self.currentIndex];
     [ServiceCoordinator addNetworkOperation:checkinOperation priority:CMTTaskPriorityHigh];
+    
    
 }
 
 - (IBAction)postButtonSelected:(id)sender {
     PostModalViewController *postViewController = [[PostModalViewController alloc]initWithNibName:@"PostModalViewController" bundle:nil];
     postViewController.modalPresentationStyle = UIModalPresentationFullScreen;
+    postViewController.locationId = self.currentIndex;
     postViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     postViewController.delegate = self;
     [self presentViewController:postViewController animated:YES completion:nil];
@@ -186,6 +184,7 @@
 
 - (void)trendingAreaSelected:(id)sender {
     TrendingModalViewController *trendingModalview = [[TrendingModalViewController alloc]initWithNibName:@"TrendingModalViewController" bundle:nil];
+    trendingModalview.locationId = self.currentIndex;
     trendingModalview.modalPresentationStyle = UIModalPresentationFullScreen;
     trendingModalview.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     trendingModalview.delegate = self;
@@ -206,6 +205,16 @@
 
 #pragma mark - Banner Sliding
 
+- (void)jumpToIndexOnViewLoad {
+    NSIndexPath *visibleIndexPath = [[self.collectionView indexPathsForVisibleItems] lastObject];
+    NSLog(@"visible index path %@", visibleIndexPath);
+    NSInteger currentRow = [self.currentIndex integerValue] - 1;
+    NSIndexPath *nextIndexPath = [NSIndexPath indexPathForItem:currentRow inSection:visibleIndexPath.section];
+    UICollectionViewScrollPosition scrollPosition = UICollectionViewScrollPositionCenteredHorizontally;
+    [self.collectionView scrollToItemAtIndexPath:nextIndexPath atScrollPosition:scrollPosition animated:(currentRow > 0)];
+}
+
+
 - (void)slideBanner
 {
     if (bannerTimer.isValid && self.dataSource.count > 0 && !self.collectionView.isDragging)
@@ -215,8 +224,16 @@
         NSIndexPath *nextIndexPath = [NSIndexPath indexPathForItem:nextRow inSection:visibleIndexPath.section];
         
         UICollectionViewScrollPosition scrollPosition = UICollectionViewScrollPositionCenteredHorizontally;
-        
+        [self updateCurrentIndex];
         [self.collectionView scrollToItemAtIndexPath:nextIndexPath atScrollPosition:scrollPosition animated:(nextRow > 0)];
+    }
+}
+
+- (void)updateCurrentIndex {
+    if ([self.currentIndex intValue] > self.dataSource.count) {
+        self.currentIndex = @(1);
+    } else {
+        self.currentIndex = @([self.currentIndex intValue] + 1);
     }
 }
 
@@ -248,6 +265,7 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     [self registerTimer];
+    [self updateCurrentIndex];
 }
 
 #pragma mark - Helpers for Infinite Scrolling

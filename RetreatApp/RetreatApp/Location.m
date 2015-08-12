@@ -1,23 +1,19 @@
 //
-//  Checkin.m
+//  Location.m
 //  RetreatApp
 //
 //  Created by Brendan Schoch on 8/11/15.
 //  Copyright (c) 2015 Slalom Consulting. All rights reserved.
 //
 
-#import "Checkin.h"
 #import "Location.h"
+#import "Checkin.h"
 
 
-@implementation Checkin
+@implementation Location
 
-@dynamic checkinDate;
-@dynamic location;
 @dynamic locationId;
-@dynamic username;
-@dynamic userId;
-@dynamic checkinID;
-@dynamic checkinLocation;
+@dynamic locationName;
+@dynamic checkin;
 
 @end

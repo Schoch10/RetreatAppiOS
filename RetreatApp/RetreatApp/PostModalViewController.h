@@ -17,5 +17,6 @@
 @interface PostModalViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate>
 
 @property (strong, nonatomic) id<PostModalViewControllerDelegate> delegate;
+@property (strong, nonatomic) NSNumber *locationId;
 
 @end

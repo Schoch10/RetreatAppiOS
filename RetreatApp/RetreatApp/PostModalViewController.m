@@ -49,7 +49,7 @@
 - (IBAction)postButtonSelected:(id)sender {
     NSString* encodedPost = [self.commentTextView.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] ;
     SettingsManager *sharedManager = [SettingsManager sharedManager];
-    DoPostForLocation *doPostForLocationOperation = [[DoPostForLocation alloc]initDoPostForUser:sharedManager.userId forLocation:@(3) withText:encodedPost];
+    DoPostForLocation *doPostForLocationOperation = [[DoPostForLocation alloc]initDoPostForUser:sharedManager.userId forLocation:self.locationId withText:encodedPost];
     [ServiceCoordinator addNetworkOperation:doPostForLocationOperation priority:CMTTaskPriorityHigh];
     [self.delegate dismissPostModalViewController];
 }

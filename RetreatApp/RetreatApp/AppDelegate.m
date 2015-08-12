@@ -14,6 +14,7 @@
 #import "SaveQuizQuestionsOperation.h"
 #import "ServiceCoordinator.h"
 #import "CreateAgendaOperation.h"
+#import "AddLocationsOperation.h"
 
 @interface AppDelegate ()
 @end
@@ -32,6 +33,7 @@
     [coreData setUpManagedObjects];
     [self populateAgenda];
     [self populateQuizQuestions];
+    [self populateLocations];
     //END DO NOT MOVE SECTION
     
     settings.lastLaunchedAppVersion = appVersionString;    
@@ -61,6 +63,12 @@
 - (void)populateAgenda {
     CreateAgendaOperation *createAgendaOperation = [[CreateAgendaOperation alloc]initAgendaWithType:@"agenda"];
     [ServiceCoordinator addLocalOperation:createAgendaOperation completion:^(void){
+    }];
+}
+
+- (void)populateLocations {
+    AddLocationsOperation *locationsOperation = [[AddLocationsOperation alloc]initLocations];
+    [ServiceCoordinator addLocalOperation:locationsOperation completion:^(void){
     }];
 }
 

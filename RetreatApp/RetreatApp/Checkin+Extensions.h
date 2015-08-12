@@ -10,6 +10,6 @@
 
 @interface Checkin (Extensions)
 
-+ (Checkin *)checkinUpsertWithCheckinId:(NSNumber *)checkinId inManagedObjectContext: (NSManagedObjectContext *)backgroundContext;
++ (Checkin *)checkinUpsertWithUserId:(NSNumber *)userId inManagedObjectContext: (NSManagedObjectContext *)backgroundContext;
 
 @end

@@ -10,6 +10,7 @@
 #import "CoreDataManager.h"
 #import "SettingsManager.h"
 #import "Checkin+Extensions.h"
+#import "Location+Extensions.h"
 
 @implementation PollParticipantLocationsOperation
 
@@ -32,7 +33,9 @@
     NSManagedObjectContext *managedObjectContext = [coreDataManager operationContext];
     for (NSDictionary *pollDictionary in responseJSON) {
         NSNumber *checkinID = pollDictionary[@"CheckinId"];
-        Checkin *checkin = [Checkin checkinUpsertWithCheckinId:checkinID inManagedObjectContext:managedObjectContext];
+        NSNumber *userID = pollDictionary[@"UserId"];
+        Checkin *checkin = [Checkin checkinUpsertWithUserId:userID inManagedObjectContext:managedObjectContext];
+        checkin.checkinID = checkinID;
         id checkinTimeStamp = pollDictionary[@"CheckinTimeStamp"];
         if ([checkinTimeStamp isKindOfClass:[NSDate class]]) {
             checkin.checkinDate = checkinTimeStamp;
@@ -41,13 +44,14 @@
         }
         id checkinLocation = pollDictionary[@"Location"];
         if ([checkinLocation isKindOfClass:[NSString class]]) {
-            checkin.location = checkinLocation;
         } else {
             SCLogMessage(kLogLevelDebug, @"error");
         }
         id checkinLocationId = pollDictionary[@"LocationId"];
         if ([checkinLocationId isKindOfClass:[NSNumber class]]) {
-            checkin.locationId = checkinLocationId;
+            NSNumber *locationId = checkinLocationId;
+            Location *location = [Location locationUpsertWithLocationId:locationId inManagedObjectContext:managedObjectContext];
+            checkin.checkinLocation = location;
         } else {
             SCLogMessage(kLogLevelDebug, @"error");
         }

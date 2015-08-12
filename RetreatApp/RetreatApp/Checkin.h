@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
+@class Location;
 
 @interface Checkin : NSManagedObject
 
@@ -18,5 +19,6 @@
 @property (nonatomic, retain) NSString * username;
 @property (nonatomic, retain) NSNumber * userId;
 @property (nonatomic, retain) NSNumber * checkinID;
+@property (nonatomic, retain) Location *checkinLocation;
 
 @end

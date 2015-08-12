@@ -1,5 +1,5 @@
 //
-//  TrendingViewController.h
+//  TrendingCarouselViewController.h
 //  RetreatApp
 //
 //  Created by Brendan Schoch on 5/28/15.
@@ -12,12 +12,14 @@
 #import "PostModalViewController.h"
 #import "SCInfiniteCollectionView.h"
 
-@interface TrendingViewController : UIViewController <TrendingModalViewDelegate, CheckinModalViewControllerDelegate, PostModalViewControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface TrendingCarouselViewController : UIViewController <TrendingModalViewDelegate, CheckinModalViewControllerDelegate, PostModalViewControllerDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (strong, nonatomic) Class sendingClass;
 
 @property (weak, nonatomic) IBOutlet SCInfiniteCollectionView *collectionView;
+@property (nonatomic, strong) NSArray *dataSource; // TODO: Set up data source.  Placeholder for now.
 @property (assign, nonatomic)  BOOL hasLoadedData;
+@property (nonatomic, strong) NSNumber *currentIndex;
 
 - (id)objectAtInfiniteIndexPath:(NSIndexPath *)indexPath;
 - (NSInteger)nonInfiniteItemPositionForIndexPath:(NSIndexPath *)indexPath;

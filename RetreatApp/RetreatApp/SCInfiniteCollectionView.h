@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define kInfiniteScrollMultiplier 9
+#define kInfiniteScrollMultiplier 10
 
 @interface SCInfiniteCollectionView : UICollectionView
 

@@ -14,11 +14,17 @@
         <attribute name="locationId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="userId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="checkinLocation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="checkin" inverseEntity="Location" syncable="YES"/>
     </entity>
     <entity name="Game" representedClassName="Game" syncable="YES">
         <attribute name="answer" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="gameId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="question" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Location" representedClassName="Location" syncable="YES">
+        <attribute name="locationId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="locationName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="checkin" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Checkin" inverseName="checkinLocation" inverseEntity="Checkin" syncable="YES"/>
     </entity>
     <entity name="Post" representedClassName="Post" syncable="YES">
         <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
@@ -37,9 +43,10 @@
     </entity>
     <elements>
         <element name="Agenda" positionX="-13142" positionY="1935" width="128" height="118"/>
-        <element name="Checkin" positionX="-12744" positionY="1620" width="128" height="135"/>
+        <element name="Checkin" positionX="-12744" positionY="1620" width="128" height="148"/>
         <element name="Game" positionX="-13140" positionY="1838" width="128" height="88"/>
         <element name="Post" positionX="-13178" positionY="1622" width="128" height="165"/>
         <element name="User" positionX="-12969" positionY="1616" width="128" height="90"/>
+        <element name="Location" positionX="-12962" positionY="1748" width="128" height="88"/>
     </elements>
 </model>

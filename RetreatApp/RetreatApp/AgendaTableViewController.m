@@ -8,7 +8,7 @@
 
 #import "AgendaTableViewController.h"
 #import "AgendaTableViewCell.h"
-#import "TrendingViewController.h"
+#import "TrendingCarouselViewController.h"
 #import "CoreDataManager.h"
 #import "Agenda+Extensions.h"
 
@@ -81,5 +81,29 @@ static  NSString * const SBRAGENDATABLEVIEWCELL = @"AgendaTableViewCell";
     
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    switch (section) {
+        case 0:
+            return @"Friday";
+            break;
+        case 1:
+            return @"Saturday";
+            break;
+        case 2:
+            return @"Sunday";
+            break;
+        default:
+            return @"Error";
+            break;
+    }
+}
+
+#pragma mark - UITableView Delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TrendingCarouselViewController *trendingViewController = [[TrendingCarouselViewController alloc] initWithNibName:nil bundle:nil];
+    [self.navigationController pushViewController:trendingViewController animated:YES];
+}
 
 @end
