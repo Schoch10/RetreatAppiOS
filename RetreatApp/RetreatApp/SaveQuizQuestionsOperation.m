@@ -25,7 +25,7 @@
 {
     CoreDataManager *coreData = [CoreDataManager sharedManager];
     NSManagedObjectContext *context = coreData.operationContext;
-    NSArray *questionsArray = @[@"How old is Russell?", @"What object does Mikey B look like when he stands?", @"Who Broke the Elevator?", @"Name an IM&A SSIS Architect?", @"How does Todd Richman get to work in the summer?", @"Who are Slalom's founders?", @"What is a fun fact about someone else?", @"What is Todd Christy's favorite snack?", @"What consultant was mounted by a cow?", @"What is the Dude's favorite hobby?", @"What is a fun fact about Barry?", @"Who has more than 3 siblings?"];
+    NSArray *questionsArray = @[@"Attended the Boston Business Journal Best Places to Work Award Ceremony?", @"Can Name 5 of Slalom's Core Values?", @"Volunteered at the Greater Boston Food Bank with Slalom?", @"Has Run the Boston Marathon?", @"Participated in Last Year's Shuffleboard Tournament", @"Part of the Slalom Boston First 20?", @"Won a Mogul Award?", @"Has Hiked Mt. Washington?", @"Started at Slalom After Jan 1, 2015?", @"is Wearing their Slalom Fitbit?", @"Plays a Musical Instrument?", @"Developed this app!"];
     
     for (int i=0; i < questionsArray.count; i++) {
         Game *game = [Game gameUpsertWithGameId:@(i) inManagedObjectContext:context];

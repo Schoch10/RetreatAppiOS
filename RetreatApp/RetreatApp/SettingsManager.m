@@ -13,6 +13,7 @@
 
 static NSString * const CMTSettingsLastLaunchedAppVersion = @"lastLaunchedAppVersion";
 static NSString * const RAUserID = @"userId";
+static NSString * const RACurrentUserCheckinLocation = @"currentUserCheckinLocation";
 
 @interface SettingsManager ()
 - (id)objectForKey:(NSString *)key;
@@ -22,6 +23,7 @@ static NSString * const RAUserID = @"userId";
 @implementation SettingsManager
 {
     NSNumber *_userId;
+    NSNumber *_currentUserCheckinLocation;
 }
 
 + (SettingsManager *)sharedManager
@@ -109,6 +111,18 @@ static NSString * const RAUserID = @"userId";
 {
     _userId = userId;
     [self setObject:userId forKey:RAUserID];
+}
+
+- (NSNumber *)currentUserCheckinLocation {
+    if (_currentUserCheckinLocation == nil) {
+        _currentUserCheckinLocation = [self objectForKey:RACurrentUserCheckinLocation];
+    }
+    return _currentUserCheckinLocation;
+}
+
+- (void)setCurrentUserCheckinLocation:(NSNumber *)currentUserCheckinLocation {
+    _currentUserCheckinLocation = currentUserCheckinLocation;
+    [self setObject:currentUserCheckinLocation forKey:RACurrentUserCheckinLocation];
 }
 
 

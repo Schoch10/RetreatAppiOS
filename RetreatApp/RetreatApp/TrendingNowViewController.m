@@ -36,6 +36,11 @@
     [self getPollLocations];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self getPollLocations];
+}
+
 - (NSFetchedResultsController *)fetchedResultsController
 {
     if (_fetchedResultsController != nil) {
@@ -87,7 +92,15 @@
 }
 
 - (void)pollParticipantLocationDidFailWithError:(NSError *)error {
-    SCLogMessage(kLogLevelDebug, @"Error");
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Error!"
+                                                                   message:@"Could Not Load Data. Please Try again!"
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * action) {}];
+    
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 #pragma mark Fetched Results Controller Delegate
@@ -160,8 +173,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-   TrendingCarouselViewController *trendingViewController = [[TrendingCarouselViewController alloc] initWithNibName:nil bundle:nil];
-    trendingViewController.currentIndex = @(indexPath.row + 1);
+    TrendingModalViewController *trendingViewController = [[TrendingModalViewController alloc]initWithNibName:@"TrendingModalViewController" bundle:nil];
+    trendingViewController.locationId = @(indexPath.row + 3);
     [self.navigationController pushViewController:trendingViewController animated:YES];
 }
 

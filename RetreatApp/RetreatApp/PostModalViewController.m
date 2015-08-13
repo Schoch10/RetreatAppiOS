@@ -10,7 +10,7 @@
 #import "DoPostForLocation.h"
 #import "SettingsManager.h"
 
-@interface PostModalViewController () <UINavigationBarDelegate>
+@interface PostModalViewController () <UINavigationBarDelegate, DoPostForLocationDelegate>
 @property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topNavigationConstraint;
 
@@ -50,8 +50,26 @@
     NSString* encodedPost = [self.commentTextView.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] ;
     SettingsManager *sharedManager = [SettingsManager sharedManager];
     DoPostForLocation *doPostForLocationOperation = [[DoPostForLocation alloc]initDoPostForUser:sharedManager.userId forLocation:self.locationId withText:encodedPost];
+    doPostForLocationOperation.doPostForLocationDelegate = self;
     [ServiceCoordinator addNetworkOperation:doPostForLocationOperation priority:CMTTaskPriorityHigh];
     [self.delegate dismissPostModalViewController];
+}
+
+#pragma mark DoPostForLocationDelegate
+
+- (void)doPostForLocationDidSucceed {
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Success!"
+                                                                   message:@"You Have Successfully Posted Please Check the Wall"
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * action) {}];
+    
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)doPostForLocationDidFailWithError:(NSError *)error {
 }
 
 #pragma mark UIImagePickerDelegate

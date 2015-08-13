@@ -27,7 +27,6 @@
 - (void)trendingAreaSelected:(id)sender;
 
 @property (nonatomic, weak) IBOutlet UIActivityIndicatorView *activityIndicator;
-
 @end
 
 @implementation TrendingCarouselViewController
@@ -63,7 +62,7 @@
     
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
-    self.collectionView.infinityEnabled = YES;
+    self.collectionView.infinityEnabled = NO;
     self.collectionView.minCellsForScroll = 1;
     
     if (!self.dataSource) {
@@ -206,10 +205,9 @@
 #pragma mark - Banner Sliding
 
 - (void)jumpToIndexOnViewLoad {
-    NSIndexPath *visibleIndexPath = [[self.collectionView indexPathsForVisibleItems] lastObject];
-    NSLog(@"visible index path %@", visibleIndexPath);
-    NSInteger currentRow = [self.currentIndex integerValue] - 1;
-    NSIndexPath *nextIndexPath = [NSIndexPath indexPathForItem:currentRow inSection:visibleIndexPath.section];
+    NSIndexPath *initialIndexPath = [[self.collectionView indexPathsForVisibleItems] lastObject];
+    NSInteger currentRow = [self.scrollIndex integerValue] - 1;
+    NSIndexPath *nextIndexPath = [NSIndexPath indexPathForItem:currentRow inSection:initialIndexPath.section];
     UICollectionViewScrollPosition scrollPosition = UICollectionViewScrollPositionCenteredHorizontally;
     [self.collectionView scrollToItemAtIndexPath:nextIndexPath atScrollPosition:scrollPosition animated:(currentRow > 0)];
 }
@@ -224,16 +222,25 @@
         NSIndexPath *nextIndexPath = [NSIndexPath indexPathForItem:nextRow inSection:visibleIndexPath.section];
         
         UICollectionViewScrollPosition scrollPosition = UICollectionViewScrollPositionCenteredHorizontally;
-        [self updateCurrentIndex];
         [self.collectionView scrollToItemAtIndexPath:nextIndexPath atScrollPosition:scrollPosition animated:(nextRow > 0)];
+        [self updateCurrentIndex];
     }
 }
 
 - (void)updateCurrentIndex {
-    if ([self.currentIndex intValue] > self.dataSource.count) {
-        self.currentIndex = @(1);
+    NSIndexPath *visibleIndexPath = [[self.collectionView indexPathsForVisibleItems] lastObject] ;
+    SCLogMessage(kLogLevelDebug, @"visible index path %i", visibleIndexPath.row);
+    if ((visibleIndexPath.row + 1) >= self.dataSource.count - 2) {
+        self.currentIndex = @(3);
+        self.scrollIndex = @(0);
     } else {
-        self.currentIndex = @([self.currentIndex intValue] + 1);
+        if ([self.scrollIndex integerValue] == visibleIndexPath.row) {
+            self.currentIndex = @(visibleIndexPath.row - 2);
+            self.scrollIndex = @(visibleIndexPath.row);
+        } else {
+            self.currentIndex = @(visibleIndexPath.row + 1);
+            self.scrollIndex = @(visibleIndexPath.row);
+        }
     }
 }
 
@@ -246,6 +253,7 @@
         bannerTimer = [NSTimer scheduledTimerWithTimeInterval:kBannerScrollTime target:self selector:@selector(slideBanner) userInfo:nil repeats:YES];
     }
 }
+
 
 #pragma mark - UIScrollView Methods
 
@@ -265,7 +273,11 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     [self registerTimer];
-    [self updateCurrentIndex];
+    if ([self.currentIndex intValue] == 1) {
+        return;
+    } else {
+        [self updateCurrentIndex];
+    }
 }
 
 #pragma mark - Helpers for Infinite Scrolling

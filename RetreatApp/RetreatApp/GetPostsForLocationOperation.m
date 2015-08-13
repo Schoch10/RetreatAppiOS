@@ -53,6 +53,12 @@
         } else {
             SCLogMessage(kLogLevelDebug, @"Error");
         }
+        id postUserName = postDictionary[@"UserName"];
+        if ([postUserName isKindOfClass:[NSString class]]) {
+            post.username = postUserName;
+        } else {
+            SCLogMessage(kLogLevelDebug, @"Error");
+        }
     }
     BOOL saved = [coreDataManager saveContext:managedObjectContext];
     if (saved) {

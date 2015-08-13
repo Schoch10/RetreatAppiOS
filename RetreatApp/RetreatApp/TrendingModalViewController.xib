@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TrendingModalViewController">
             <connections>
-                <outlet property="navigationBar" destination="lF5-hE-kuj" id="qCD-v0-qRo"/>
-                <outlet property="topNavigationConstraint" destination="dos-EY-2zY" id="2dd-d5-5xf"/>
                 <outlet property="trendingInformationTab" destination="T8Z-l2-3yN" id="R5v-Op-yeC"/>
                 <outlet property="trendingTableView" destination="5UG-t0-WZ9" id="pVx-dX-INK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -19,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5UG-t0-WZ9">
-                    <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="497"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="lMk-fZ-9bx"/>
@@ -37,42 +35,33 @@
                         <outlet property="delegate" destination="-1" id="vOo-QI-GHo"/>
                     </connections>
                 </tabBar>
-                <navigationBar contentMode="scaleToFill" placeholderIntrinsicWidth="600" placeholderIntrinsicHeight="44" translatesAutoresizingMaskIntoConstraints="NO" id="lF5-hE-kuj">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jgh-SU-BWr">
+                    <rect key="frame" x="0.0" y="498" width="600" height="53"/>
+                    <color key="backgroundColor" red="0.0" green="0.45098039220000002" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="64" id="iRH-2E-ccD"/>
+                        <constraint firstAttribute="height" constant="53" id="6Pl-Sf-SBR"/>
                     </constraints>
-                    <color key="barTintColor" red="0.0" green="0.45098039220000002" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
-                    <textAttributes key="titleTextAttributes">
-                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
-                    </textAttributes>
-                    <items>
-                        <navigationItem title="Location Name" id="thI-bu-WhH">
-                            <barButtonItem key="rightBarButtonItem" title="Close" id="W4Q-by-oKt">
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="closeModalSelected:" destination="-1" id="hBR-Ak-LrV"/>
-                                </connections>
-                            </barButtonItem>
-                        </navigationItem>
-                    </items>
+                    <state key="normal" title="Post">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
                     <connections>
-                        <outlet property="delegate" destination="-1" id="Nqe-0V-s2J"/>
+                        <action selector="createPostButtonSelected:" destination="-1" eventType="touchUpInside" id="Tq3-1I-tw5"/>
                     </connections>
-                </navigationBar>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="lF5-hE-kuj" secondAttribute="trailing" id="7Ci-PP-D0B"/>
                 <constraint firstItem="T8Z-l2-3yN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="CT2-V8-heI"/>
-                <constraint firstItem="5UG-t0-WZ9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Gei-wX-1P8"/>
+                <constraint firstItem="Jgh-SU-BWr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Fsi-hN-rCE"/>
+                <constraint firstAttribute="trailing" secondItem="5UG-t0-WZ9" secondAttribute="trailing" id="NHk-sK-Z3I"/>
                 <constraint firstAttribute="bottom" secondItem="T8Z-l2-3yN" secondAttribute="bottom" id="T0Y-rf-fxK"/>
+                <constraint firstItem="T8Z-l2-3yN" firstAttribute="top" secondItem="Jgh-SU-BWr" secondAttribute="bottom" id="Y3R-Jn-U5V"/>
                 <constraint firstAttribute="trailing" secondItem="T8Z-l2-3yN" secondAttribute="trailing" id="ZgZ-Qm-0mi"/>
-                <constraint firstItem="lF5-hE-kuj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="dos-EY-2zY"/>
-                <constraint firstItem="lF5-hE-kuj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="jTO-6t-UR7"/>
-                <constraint firstItem="5UG-t0-WZ9" firstAttribute="top" secondItem="lF5-hE-kuj" secondAttribute="bottom" id="k9D-T5-YFR"/>
-                <constraint firstAttribute="trailing" secondItem="5UG-t0-WZ9" secondAttribute="trailing" id="lUb-oU-FX7"/>
-                <constraint firstItem="5UG-t0-WZ9" firstAttribute="bottom" secondItem="T8Z-l2-3yN" secondAttribute="top" id="w7a-uh-QPg"/>
+                <constraint firstAttribute="trailing" secondItem="Jgh-SU-BWr" secondAttribute="trailing" id="ahc-cg-phJ"/>
+                <constraint firstItem="Jgh-SU-BWr" firstAttribute="top" secondItem="5UG-t0-WZ9" secondAttribute="bottom" constant="1" id="d32-F3-vpi"/>
+                <constraint firstItem="5UG-t0-WZ9" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="us1-as-fHw"/>
+                <constraint firstItem="5UG-t0-WZ9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="vS6-PW-Mf0"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <point key="canvasLocation" x="290" y="206"/>

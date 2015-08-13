@@ -63,11 +63,14 @@
         }
     }
     BOOL saved = [coreDataManager saveContext:managedObjectContext];
-    if (saved) {
-        SCLogMessage(kLogLevelDebug, @"saved");
-    } else {
-        SCLogMessage(kLogLevelError, @"No checkins saved");
-    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (saved) {
+            [self.pollParticipantDelegate pollParticipantLocationDidSucceed];
+        } else {
+            NSError *error;
+            [self.pollParticipantDelegate pollParticipantLocationDidFailWithError:error];
+        }
+    });
 }
 
 -(void)serviceTaskDidReceiveStatusFailure:(HttpStatusCode)httpStatusCode

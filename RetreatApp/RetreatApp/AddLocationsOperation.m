@@ -23,7 +23,7 @@
     NSManagedObjectContext *managedObjectContext = coreData.operationContext;
     NSArray *locations = @[@"Hotel Bar", @"Hotel Lobby", @"Golf", @"Lawn Games", @"Spa", @"Zipline", @"Outdoor Activities", @"Town", @"Banquet", @"Afterparty"];
     for (int i=0; i < locations.count; i++) {
-        Location *location = [Location locationUpsertWithLocationId:@(i) inManagedObjectContext:managedObjectContext];
+        Location *location = [Location locationUpsertWithLocationId:@(i+3) inManagedObjectContext:managedObjectContext];
         location.locationName = [locations objectAtIndex:i];
     }
     [coreData saveContext:managedObjectContext];

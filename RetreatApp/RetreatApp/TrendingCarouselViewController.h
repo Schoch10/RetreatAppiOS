@@ -20,6 +20,7 @@
 @property (nonatomic, strong) NSArray *dataSource; // TODO: Set up data source.  Placeholder for now.
 @property (assign, nonatomic)  BOOL hasLoadedData;
 @property (nonatomic, strong) NSNumber *currentIndex;
+@property (nonatomic, strong) NSNumber *scrollIndex;
 
 - (id)objectAtInfiniteIndexPath:(NSIndexPath *)indexPath;
 - (NSInteger)nonInfiniteItemPositionForIndexPath:(NSIndexPath *)indexPath;

@@ -15,37 +15,68 @@
 #import "Post.h"
 #import "User.h"
 #import "Checkin.h"
+#import "ServiceCoordinator.h"
+#import "SettingsManager.h"
+#import "CheckinOperation.h"
+#import "PostModalViewController.h"
 
 static  NSString * const SBRCHECKEDINCELL = @"CheckedinTableCell";
 static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
 
 
-@interface TrendingModalViewController () <UINavigationBarDelegate>
-@property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topNavigationConstraint;
-
+@interface TrendingModalViewController () <UINavigationBarDelegate, PostModalViewControllerDelegate, CheckinOperationDelegate>
 @property (weak, nonatomic) IBOutlet UITabBar *trendingInformationTab;
 @property (weak, nonatomic) IBOutlet UITableView *trendingTableView;
+- (IBAction)createPostButtonSelected:(id)sender;
 @property (nonatomic) BOOL isCheckedInView;
-
-
-- (IBAction)closeModalSelected:(id)sender;
 @end
 
 @implementation TrendingModalViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self.view removeConstraint:self.topNavigationConstraint];
-    NSLayoutConstraint *newTopConstraint = [NSLayoutConstraint constraintWithItem:self.navigationBar attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.topLayoutGuide attribute:NSLayoutAttributeTop multiplier:1 constant:0];
-    [self.view addConstraint:newTopConstraint];
-    
     [self.trendingTableView registerNib:[UINib nibWithNibName:@"CheckedInTableViewCell" bundle:nil] forCellReuseIdentifier:SBRCHECKEDINCELL];
     [self.trendingTableView registerNib:[UINib nibWithNibName:@"PostsTableViewCell" bundle:nil] forCellReuseIdentifier:SBRPOSTSCELL];
     self.isCheckedInView = NO;
+    self.title = @"Location Title";
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Checkin" style:UIBarButtonItemStylePlain target:self action:@selector(checkinSelected)];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
     [self getPostsForLocation];
+    SettingsManager *sharedSettings = [SettingsManager sharedManager];
+    if ([sharedSettings.currentUserCheckinLocation intValue] == [self.locationId intValue]) {
+        self.navigationItem.rightBarButtonItem.title = @"CheckedIn";
+        self.navigationItem.rightBarButtonItem.enabled = NO;
+    }
+}
+
+- (void)checkinSelected {
+    SettingsManager *sharedManager = [SettingsManager sharedManager];
+    CheckinOperation *checkinOperation = [[CheckinOperation alloc]initCheckinOperationWithLocationForUser:sharedManager.userId withLocation:self.locationId];
+    checkinOperation.checkinOperationDelegate = self;
+    [ServiceCoordinator addNetworkOperation:checkinOperation priority:CMTTaskPriorityHigh];
+}
+
+#pragma mark Checkin Operation Delegate 
+
+- (void)checkinOperationDidSucceed {
+
+    self.navigationItem.rightBarButtonItem.title = @"Checked In";
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+    SettingsManager *sharedManager = [SettingsManager sharedManager];
+    sharedManager.currentUserCheckinLocation = self.locationId;
+
+}
+
+- (void)checkinOperationDidFailWithError:(NSError *)error {
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Error!"
+                                                                   message:@"Could not Checkin Please Try Again"
+                                                            preferredStyle:UIAlertControllerStyleAlert];
     
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * action) {}];
+    
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (NSFetchedResultsController *)checkinFetchedResultsController {
@@ -181,10 +212,6 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
     
 }
 
-- (IBAction)closeModalSelected:(id)sender {
-    [self.delegate dismissTrendingModalViewController];
-}
-
 #pragma mark UITableView Datasource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -232,7 +259,8 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
        PostsTableViewCell *postsCell = (PostsTableViewCell *)cell;
         Post *post = [self.fetchedResultsController objectAtIndexPath:indexPath];
         postsCell.postTextLabel.text = [post.comment stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
-        postsCell.userLabel.text = [NSString stringWithFormat:@"%@", post.userid];
+        NSString *usernameString = [post.username stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
+        postsCell.userLabel.text = [NSString stringWithFormat:@"Posted By: %@", usernameString];
     }
     
 }
@@ -260,6 +288,24 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
 - (UIBarPosition)positionForBar:(id<UIBarPositioning>)bar
 {
     return UIBarPositionTopAttached;
+}
+
+- (IBAction)createPostButtonSelected:(id)sender {
+    PostModalViewController *postViewController = [[PostModalViewController alloc]initWithNibName:@"PostModalViewController" bundle:nil];
+    postViewController.modalPresentationStyle = UIModalPresentationFullScreen;
+    postViewController.locationId = self.locationId;
+    postViewController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    postViewController.delegate = self;
+    [self presentViewController:postViewController animated:YES completion:nil];
+}
+
+#pragma mark Post Modal View Delegate
+
+- (void)dismissPostModalViewController {
+    [self dismissViewControllerAnimated:YES completion:^(void){
+        [self getPostsForLocation];
+    }];
+    
 }
 
 @end
