@@ -15,18 +15,22 @@
 #import "SettingsManager.h"
 
 @interface HomeViewController ()
+
 - (IBAction)informationButtonSelected:(id)sender;
 - (IBAction)agendaButtonSelected:(id)sender;
 - (IBAction)trendingButtonSelected:(id)sender;
 - (IBAction)gameButtonSelected:(id)sender;
+
 @property (weak, nonatomic) IBOutlet UILabel *countdownLabel;
 @property (weak, nonatomic) IBOutlet UIView *countdownView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *countdownViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet UIButton *gameButton;
 @property (weak, nonatomic) IBOutlet UILabel *userInformationLabel;
 @property (weak, nonatomic) IBOutlet UIButton *infoButton;
 @property (weak, nonatomic) IBOutlet UIImageView *userImageView;
 @property (weak, nonatomic) IBOutlet UIButton *agendaButton;
 @property (nonatomic, strong) NSTimer *timer;
+
 @end
 
 int days, hours, minutes;
@@ -57,26 +61,31 @@ int secondsLeft;
     [self.agendaButton.layer setBorderColor:[[UIColor colorWithRed:0.0 green:0.447f blue:0.784f alpha:1.0f] CGColor]];
 }
 
-- (void)updateCounter:(NSTimer *)theTimer {
-    if(secondsLeft > 0 ){
-        secondsLeft -- ;
+- (void)updateCounter:(NSTimer *)timer {
+    if (secondsLeft > 0)
+    {
+        secondsLeft--;
         days = secondsLeft / 86400;
         hours = (secondsLeft % 86400) / 3600;
         minutes = (secondsLeft % 3600) / 60;
         seconds = (secondsLeft % 3600) % 60;
-        self.countdownLabel.text = [NSString stringWithFormat:@"%02d:%02d:%02d:%02.f",days, hours, minutes, seconds];
+        self.countdownLabel.text = [NSString stringWithFormat:@"%02d:%02d:%02d:%02.f", days, hours, minutes, seconds];
         self.gameButton.enabled = YES;
         self.gameButton.backgroundColor = [UIColor grayColor];
-        self.gameButton.titleLabel.text = @"Top Secret";
+        [self.gameButton setTitle:@"Top Secret" forState:UIControlStateNormal];
     }
-    else if (secondsLeft <= 0) {
+    else
+    {
+        [timer invalidate];
         self.countdownView.hidden = YES;
+        self.countdownViewHeightConstraint.constant = 20;
         self.gameButton.enabled = YES;
-        self.gameButton.titleLabel.text = @"Game";
+        [self.gameButton setTitle:@"Game" forState:UIControlStateNormal];
+        self.gameButton.titleLabel.textAlignment = NSTextAlignmentCenter;
     }
 }
 
--(void)countdownTimer{
+- (void)countdownTimer {
     NSDateComponents *comps = [[NSDateComponents alloc] init];
     [comps setDay:28];
     [comps setMonth:8];
