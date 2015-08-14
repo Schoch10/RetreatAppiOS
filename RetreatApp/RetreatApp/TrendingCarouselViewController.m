@@ -207,11 +207,12 @@
 - (void)jumpToIndexOnViewLoad {
     NSIndexPath *initialIndexPath = [[self.collectionView indexPathsForVisibleItems] lastObject];
     NSInteger currentRow = [self.scrollIndex integerValue] - 1;
-    NSIndexPath *nextIndexPath = [NSIndexPath indexPathForItem:currentRow inSection:initialIndexPath.section];
-    UICollectionViewScrollPosition scrollPosition = UICollectionViewScrollPositionCenteredHorizontally;
-    [self.collectionView scrollToItemAtIndexPath:nextIndexPath atScrollPosition:scrollPosition animated:(currentRow > 0)];
+    if (currentRow >= 0) {
+        NSIndexPath *nextIndexPath = [NSIndexPath indexPathForItem:currentRow inSection:initialIndexPath.section];
+        UICollectionViewScrollPosition scrollPosition = UICollectionViewScrollPositionCenteredHorizontally;
+        [self.collectionView scrollToItemAtIndexPath:nextIndexPath atScrollPosition:scrollPosition animated:(currentRow > 0)];
+    }
 }
-
 
 - (void)slideBanner
 {
@@ -229,7 +230,7 @@
 
 - (void)updateCurrentIndex {
     NSIndexPath *visibleIndexPath = [[self.collectionView indexPathsForVisibleItems] lastObject] ;
-    SCLogMessage(kLogLevelDebug, @"visible index path %i", visibleIndexPath.row);
+    SCLogMessage(kLogLevelDebug, @"visible index path %ld", (long)visibleIndexPath.row);
     if ((visibleIndexPath.row + 1) >= self.dataSource.count - 2) {
         self.currentIndex = @(3);
         self.scrollIndex = @(0);
