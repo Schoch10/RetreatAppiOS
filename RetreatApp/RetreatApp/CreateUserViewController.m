@@ -11,6 +11,7 @@
 #import "HomeViewController.h"
 #import "ServiceCoordinator.h"
 #import "CreateUserNetworkOperation.h"
+#import "SVProgressHUD/SVProgressHUD.h"
 
 @interface CreateUserViewController () <CreateUserNetworkOperationDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *firstNameTextField;
@@ -37,6 +38,7 @@
 - (IBAction)saveButtonSelected:(id)sender {
 
     if (self.firstNameTextField.text) {
+        [SVProgressHUD show];
         self.saveButton.enabled = NO;
         self.firstNameString = [self.firstNameTextField.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         SettingsManager *settings = [SettingsManager sharedManager];
@@ -53,6 +55,7 @@
 #pragma mark Create User Network Operation Delegate
 
 - (void)createUserNetworkOperationDidSucceedWithUserId:(NSNumber *)userId {
+    [SVProgressHUD dismiss];
     if (userId) {
         SettingsManager *sharedManager = [SettingsManager sharedManager];
         sharedManager.userId = userId;
@@ -70,6 +73,7 @@
 }
 
 - (void)presentCreateUserErrorView:(NSError *)error {
+    [SVProgressHUD dismiss];
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Error!"
                                                                    message:@"User cannot be created please try again"
                                                             preferredStyle:UIAlertControllerStyleAlert];

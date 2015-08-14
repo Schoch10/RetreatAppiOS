@@ -22,6 +22,9 @@
 		5640A4871B18DD760073D8E2 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5640A4851B18DD760073D8E2 /* WelcomeViewController.xib */; };
 		5640A48B1B18DF370073D8E2 /* CreateUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5640A4891B18DF370073D8E2 /* CreateUserViewController.m */; };
 		5640A48C1B18DF370073D8E2 /* CreateUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5640A48A1B18DF370073D8E2 /* CreateUserViewController.xib */; };
+		5688F7CC1B7E80F00085B36E /* SVProgressHUD in Resources */ = {isa = PBXBuildFile; fileRef = 5688F7CB1B7E80F00085B36E /* SVProgressHUD */; };
+		5688F7CE1B7E812A0085B36E /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5688F7CD1B7E812A0085B36E /* SVProgressHUD.bundle */; };
+		5688F7D01B7E81400085B36E /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 5688F7CF1B7E81400085B36E /* SVProgressHUD.m */; };
 		56A6069C1B17543000F95006 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A6069B1B17543000F95006 /* main.m */; };
 		56A6069F1B17543000F95006 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A6069E1B17543000F95006 /* AppDelegate.m */; };
 		56A606A21B17543000F95006 /* RetreatApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 56A606A01B17543000F95006 /* RetreatApp.xcdatamodeld */; };
@@ -124,6 +127,9 @@
 		5640A4881B18DF370073D8E2 /* CreateUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateUserViewController.h; sourceTree = "<group>"; };
 		5640A4891B18DF370073D8E2 /* CreateUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateUserViewController.m; sourceTree = "<group>"; };
 		5640A48A1B18DF370073D8E2 /* CreateUserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateUserViewController.xib; sourceTree = "<group>"; };
+		5688F7CB1B7E80F00085B36E /* SVProgressHUD */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SVProgressHUD; sourceTree = "<group>"; };
+		5688F7CD1B7E812A0085B36E /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SVProgressHUD.bundle; path = RetreatApp/SVProgressHUD/SVProgressHUD.bundle; sourceTree = "<group>"; };
+		5688F7CF1B7E81400085B36E /* SVProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SVProgressHUD.m; path = RetreatApp/SVProgressHUD/SVProgressHUD.m; sourceTree = "<group>"; };
 		56A606961B17543000F95006 /* RetreatApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RetreatApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56A6069A1B17543000F95006 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		56A6069B1B17543000F95006 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -307,6 +313,8 @@
 		56A6068D1B17542F00F95006 = {
 			isa = PBXGroup;
 			children = (
+				5688F7CF1B7E81400085B36E /* SVProgressHUD.m */,
+				5688F7CD1B7E812A0085B36E /* SVProgressHUD.bundle */,
 				56C6D7561B667158007A2C48 /* SCFileUtil.h */,
 				56A606981B17543000F95006 /* RetreatApp */,
 				56A606B51B17543000F95006 /* RetreatAppTests */,
@@ -326,6 +334,7 @@
 		56A606981B17543000F95006 /* RetreatApp */ = {
 			isa = PBXGroup;
 			children = (
+				5688F7CB1B7E80F00085B36E /* SVProgressHUD */,
 				56AC7CF51B62C77100B4404E /* ServiceCoordinator */,
 				56B5E95E1B1DF9D90041C48E /* Operations */,
 				8CB96F6E1B44BC1100845975 /* Categories */,
@@ -610,6 +619,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5688F7CE1B7E812A0085B36E /* SVProgressHUD.bundle in Resources */,
 				56B5E94E1B1CCF770041C48E /* CheckedInTableViewCell.xib in Resources */,
 				8CB96F761B44C66C00845975 /* TrendingLocationCarouselCell.xib in Resources */,
 				8C1963E51B7426A200A2677A /* TrendingNowTableViewCell.xib in Resources */,
@@ -623,6 +633,7 @@
 				56A606AD1B17543000F95006 /* LaunchScreen.xib in Resources */,
 				56A69F571B7D526E00DE181A /* GameInstructionsModalViewController.xib in Resources */,
 				56A606D01B176CF800F95006 /* HomeViewController.xib in Resources */,
+				5688F7CC1B7E80F00085B36E /* SVProgressHUD in Resources */,
 				56A606AA1B17543000F95006 /* Images.xcassets in Resources */,
 				56DC28141B17B6B0009137E7 /* TrendingCarouselViewController.xib in Resources */,
 				56E963EC1B1CB46B004F1F2F /* TrendingModalViewController.xib in Resources */,
@@ -649,6 +660,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5688F7D01B7E81400085B36E /* SVProgressHUD.m in Sources */,
 				56A69F3B1B7A7DB500DE181A /* Post+Extensions.m in Sources */,
 				5631E40F1B21E55900798191 /* User.m in Sources */,
 				8CB96F711B44BC2600845975 /* UIView+Position.m in Sources */,
