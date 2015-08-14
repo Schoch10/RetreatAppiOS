@@ -57,7 +57,6 @@
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.0 green:0.447f blue:0.784f alpha:1.0f];
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    
     [self.collectionView registerNib:[UINib nibWithNibName:@"TrendingLocationCarouselCell" bundle:nil] forCellWithReuseIdentifier:kTrendingLocationCarouselCellIdentifier];
     
     self.collectionView.dataSource = self;
@@ -212,7 +211,6 @@
     [self.collectionView scrollToItemAtIndexPath:nextIndexPath atScrollPosition:scrollPosition animated:(currentRow > 0)];
 }
 
-
 - (void)slideBanner
 {
     if (bannerTimer.isValid && self.dataSource.count > 0 && !self.collectionView.isDragging)
@@ -229,7 +227,6 @@
 
 - (void)updateCurrentIndex {
     NSIndexPath *visibleIndexPath = [[self.collectionView indexPathsForVisibleItems] lastObject] ;
-    SCLogMessage(kLogLevelDebug, @"visible index path %i", visibleIndexPath.row);
     if ((visibleIndexPath.row + 1) >= self.dataSource.count - 2) {
         self.currentIndex = @(3);
         self.scrollIndex = @(0);

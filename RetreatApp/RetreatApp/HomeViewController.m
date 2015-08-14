@@ -41,13 +41,17 @@ int secondsLeft;
     UIImageView* logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"slalomwhite"]];
     logo.contentMode = UIViewContentModeScaleAspectFit;
     self.navigationItem.titleView = logo;
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.0 green:0.447f blue:0.784f alpha:1.0f];
     SettingsManager *sharedManager = [SettingsManager sharedManager];
     self.userInformationLabel.text = sharedManager.username;
     self.userImageView.image = [UIImage imageWithData:sharedManager.userImage];
     [self countdownTimer];
     [self setButtonStyles];
     SCLogMessage(kLogLevelDebug, @"userId %@", sharedManager.userId);
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.0 green:0.447f blue:0.784f alpha:1.0f];
 }
 
 - (void)setButtonStyles {

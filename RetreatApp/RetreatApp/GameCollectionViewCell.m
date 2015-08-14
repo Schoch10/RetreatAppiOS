@@ -62,7 +62,6 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
-    self.contentView.backgroundColor = [UIColor greenColor];
     self.answerLabel.text = self.gameAnswerTextField.text;
     SaveQuizAnswerOperation *saveQuizAnswer = [[SaveQuizAnswerOperation alloc]initGameAnswerWithGameId:self.cardId forAnswer:textField.text];
     [ServiceCoordinator addLocalOperation:saveQuizAnswer completion:^(void){}];
@@ -73,9 +72,7 @@
     self.gameAnswerTextField.hidden = YES;
     self.gameQuestionTextView.userInteractionEnabled = NO;
     self.answerLabel.hidden = YES;
-    if (self.answerString != nil) {
-        self.contentView.backgroundColor = [UIColor greenColor];
-    }
+    [self.gameQuestionTextView sizeToFit];
     if (self.gameAnswerTextField.hidden == NO && self.answerString != nil) {
         self.answerLabel.hidden = YES;
     } else {

@@ -38,6 +38,8 @@
 		56A69F471B7A84F400DE181A /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A69F461B7A84F400DE181A /* Location.m */; };
 		56A69F4A1B7A861D00DE181A /* AddLocationsOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A69F491B7A861D00DE181A /* AddLocationsOperation.m */; };
 		56A69F4D1B7A887400DE181A /* Location+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A69F4C1B7A887400DE181A /* Location+Extensions.m */; };
+		56A69F561B7D526E00DE181A /* GameInstructionsModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A69F541B7D526E00DE181A /* GameInstructionsModalViewController.m */; };
+		56A69F571B7D526E00DE181A /* GameInstructionsModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56A69F551B7D526E00DE181A /* GameInstructionsModalViewController.xib */; };
 		56AC7CF81B62C79700B4404E /* RetreatAppServicesClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 56AC7CF71B62C79700B4404E /* RetreatAppServicesClient.m */; };
 		56AC7CFB1B62C7CC00B4404E /* RetreatAppServiceConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 56AC7CFA1B62C7CC00B4404E /* RetreatAppServiceConnectionOperation.m */; };
 		56AC7CFE1B62C98E00B4404E /* ServiceEndpoints.m in Sources */ = {isa = PBXBuildFile; fileRef = 56AC7CFD1B62C98E00B4404E /* ServiceEndpoints.m */; };
@@ -152,6 +154,9 @@
 		56A69F491B7A861D00DE181A /* AddLocationsOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddLocationsOperation.m; sourceTree = "<group>"; };
 		56A69F4B1B7A887400DE181A /* Location+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Location+Extensions.h"; sourceTree = "<group>"; };
 		56A69F4C1B7A887400DE181A /* Location+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Location+Extensions.m"; sourceTree = "<group>"; };
+		56A69F531B7D526E00DE181A /* GameInstructionsModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameInstructionsModalViewController.h; sourceTree = "<group>"; };
+		56A69F541B7D526E00DE181A /* GameInstructionsModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameInstructionsModalViewController.m; sourceTree = "<group>"; };
+		56A69F551B7D526E00DE181A /* GameInstructionsModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GameInstructionsModalViewController.xib; sourceTree = "<group>"; };
 		56AC7CF31B62C64600B4404E /* RetreatApp-PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RetreatApp-PrefixHeader.pch"; sourceTree = "<group>"; };
 		56AC7CF41B62C72100B4404E /* RetreatAppCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RetreatAppCommon.h; sourceTree = "<group>"; };
 		56AC7CF61B62C79700B4404E /* RetreatAppServicesClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RetreatAppServicesClient.h; sourceTree = "<group>"; };
@@ -509,6 +514,9 @@
 				56B5E9541B1CE7FD0041C48E /* PostModalViewController.h */,
 				56B5E9551B1CE7FD0041C48E /* PostModalViewController.m */,
 				56B5E9561B1CE7FD0041C48E /* PostModalViewController.xib */,
+				56A69F531B7D526E00DE181A /* GameInstructionsModalViewController.h */,
+				56A69F541B7D526E00DE181A /* GameInstructionsModalViewController.m */,
+				56A69F551B7D526E00DE181A /* GameInstructionsModalViewController.xib */,
 			);
 			name = Modals;
 			sourceTree = "<group>";
@@ -613,6 +621,7 @@
 				5640A4871B18DD760073D8E2 /* WelcomeViewController.xib in Resources */,
 				56B5E9531B1CD81B0041C48E /* CheckinViewController.xib in Resources */,
 				56A606AD1B17543000F95006 /* LaunchScreen.xib in Resources */,
+				56A69F571B7D526E00DE181A /* GameInstructionsModalViewController.xib in Resources */,
 				56A606D01B176CF800F95006 /* HomeViewController.xib in Resources */,
 				56A606AA1B17543000F95006 /* Images.xcassets in Resources */,
 				56DC28141B17B6B0009137E7 /* TrendingCarouselViewController.xib in Resources */,
@@ -665,6 +674,7 @@
 				56DC28181B17B83E009137E7 /* GameViewController.m in Sources */,
 				56A69F371B7A7D1800DE181A /* DoPostForLocation.m in Sources */,
 				56B5E9751B1E3A710041C48E /* SaveQuizAnswerOperation.m in Sources */,
+				56A69F561B7D526E00DE181A /* GameInstructionsModalViewController.m in Sources */,
 				5631E4121B21E55900798191 /* Post.m in Sources */,
 				56C568111B7539AF0073431C /* CheckinOperation.m in Sources */,
 				561D9AEE1B387E6400C70C07 /* Agenda+Extensions.m in Sources */,

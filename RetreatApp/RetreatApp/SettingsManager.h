@@ -19,5 +19,6 @@
 @property (nonatomic, strong) NSString *lastLaunchedAppVersion;
 @property (nonatomic, strong) NSNumber *userId;
 @property (nonatomic, strong) NSNumber *currentUserCheckinLocation;
+@property (nonatomic) BOOL userReadGameInstructions;
 
 @end

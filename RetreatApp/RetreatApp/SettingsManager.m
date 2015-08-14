@@ -14,6 +14,7 @@
 static NSString * const CMTSettingsLastLaunchedAppVersion = @"lastLaunchedAppVersion";
 static NSString * const RAUserID = @"userId";
 static NSString * const RACurrentUserCheckinLocation = @"currentUserCheckinLocation";
+static NSString * const RAUserReadGameInstructions = @"userReadGameInstructions";
 
 @interface SettingsManager ()
 - (id)objectForKey:(NSString *)key;
@@ -24,6 +25,7 @@ static NSString * const RACurrentUserCheckinLocation = @"currentUserCheckinLocat
 {
     NSNumber *_userId;
     NSNumber *_currentUserCheckinLocation;
+    BOOL _userReadGameInstructions;
 }
 
 + (SettingsManager *)sharedManager
@@ -49,6 +51,17 @@ static NSString * const RACurrentUserCheckinLocation = @"currentUserCheckinLocat
         [[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
     });
     return instance;
+}
+
+- (BOOL)boolForKey:(NSString *)key
+{
+    return [[NSUserDefaults standardUserDefaults] boolForKey:key];
+}
+
+- (void)setBool:(BOOL)value forKey:(NSString *)key
+{
+    [[NSUserDefaults standardUserDefaults] setBool:value forKey:key];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (id)objectForKey:(NSString *)key
@@ -125,5 +138,14 @@ static NSString * const RACurrentUserCheckinLocation = @"currentUserCheckinLocat
     [self setObject:currentUserCheckinLocation forKey:RACurrentUserCheckinLocation];
 }
 
+-(BOOL)userReadGameInstructions
+{
+    return [self boolForKey:RAUserReadGameInstructions];
+}
+
+-(void)setUserReadGameInstructions:(BOOL)userReadGameInstructions
+{
+    [self setBool:userReadGameInstructions forKey:RAUserReadGameInstructions];
+}
 
 @end
