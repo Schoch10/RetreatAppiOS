@@ -40,7 +40,6 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
     self.trendingTableView.rowHeight = UITableViewAutomaticDimension;
     self.trendingTableView.estimatedRowHeight = 300.f;
     self.isCheckedInView = NO;
-    self.title = @"Location Title";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Checkin" style:UIBarButtonItemStylePlain target:self action:@selector(checkinSelected)];
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
     [self getPostsForLocation];

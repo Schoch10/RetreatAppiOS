@@ -193,7 +193,10 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    Location *location = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
     TrendingModalViewController *trendingViewController = [[TrendingModalViewController alloc]initWithNibName:@"TrendingModalViewController" bundle:nil];
+    trendingViewController.title = location.locationName;
     trendingViewController.locationId = @(indexPath.row + 3);
     [self.navigationController pushViewController:trendingViewController animated:YES];
 }
