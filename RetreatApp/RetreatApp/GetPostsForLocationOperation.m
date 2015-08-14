@@ -59,6 +59,14 @@
         } else {
             SCLogMessage(kLogLevelDebug, @"Error");
         }
+        id postTimeStamp = postDictionary[@"PostTimeStamp"];
+        if ([postTimeStamp isKindOfClass:[NSString class]]) {
+            NSString *postTimeString = postTimeStamp;
+            NSDateFormatter *dateFor = [[NSDateFormatter alloc] init];
+            [dateFor setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'+'SS:SS"];
+            NSDate *postDate = [dateFor dateFromString:postTimeString];
+            post.postDate = postDate;
+        }
     }
     BOOL saved = [coreDataManager saveContext:managedObjectContext];
     if (saved) {

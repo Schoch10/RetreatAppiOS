@@ -251,6 +251,7 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
         NSString *usernameString = [post.username stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
         postsCell.userLabel.text = [NSString stringWithFormat:@"Posted by: %@", usernameString];
         postsCell.postTextLabel.text = [post.comment stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
+        SCLogMessage(kLogLevelDebug, @"timestamp %@", post.postDate);
         
         return postsCell;
     }
