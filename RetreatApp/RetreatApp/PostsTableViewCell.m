@@ -10,14 +10,11 @@
 
 @implementation PostsTableViewCell
 
-- (void)awakeFromNib {
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (void)awakeFromNib
+{
+    // Workaround for iOS 8 behavior where table view separators don't start flush with the left margin
+    self.layoutMargins = UIEdgeInsetsZero;
+    self.preservesSuperviewLayoutMargins = NO;
 }
 
 @end

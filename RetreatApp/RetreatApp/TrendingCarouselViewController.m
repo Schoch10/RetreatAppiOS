@@ -57,6 +57,7 @@
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.0 green:0.447f blue:0.784f alpha:1.0f];
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
     [self.collectionView registerNib:[UINib nibWithNibName:@"TrendingLocationCarouselCell" bundle:nil] forCellWithReuseIdentifier:kTrendingLocationCarouselCellIdentifier];
     
     self.collectionView.dataSource = self;
@@ -206,9 +207,11 @@
 - (void)jumpToIndexOnViewLoad {
     NSIndexPath *initialIndexPath = [[self.collectionView indexPathsForVisibleItems] lastObject];
     NSInteger currentRow = [self.scrollIndex integerValue] - 1;
-    NSIndexPath *nextIndexPath = [NSIndexPath indexPathForItem:currentRow inSection:initialIndexPath.section];
-    UICollectionViewScrollPosition scrollPosition = UICollectionViewScrollPositionCenteredHorizontally;
-    [self.collectionView scrollToItemAtIndexPath:nextIndexPath atScrollPosition:scrollPosition animated:(currentRow > 0)];
+    if (currentRow >= 0) {
+        NSIndexPath *nextIndexPath = [NSIndexPath indexPathForItem:currentRow inSection:initialIndexPath.section];
+        UICollectionViewScrollPosition scrollPosition = UICollectionViewScrollPositionCenteredHorizontally;
+        [self.collectionView scrollToItemAtIndexPath:nextIndexPath atScrollPosition:scrollPosition animated:(currentRow > 0)];
+    }
 }
 
 - (void)slideBanner
@@ -227,6 +230,7 @@
 
 - (void)updateCurrentIndex {
     NSIndexPath *visibleIndexPath = [[self.collectionView indexPathsForVisibleItems] lastObject] ;
+    SCLogMessage(kLogLevelDebug, @"visible index path %ld", (long)visibleIndexPath.row);
     if ((visibleIndexPath.row + 1) >= self.dataSource.count - 2) {
         self.currentIndex = @(3);
         self.scrollIndex = @(0);
