@@ -36,6 +36,15 @@
     [self getPollLocations];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    for (NSIndexPath *indexPath in self.tableView.indexPathsForSelectedRows)
+    {
+        [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
+    }
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self getPollLocations];
@@ -160,6 +169,17 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.fetchedResultsController.sections[section] numberOfObjects];
+}
+
+// Set an empty footer view to hide extra separators at bottom of table
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0.01;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    return nil;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

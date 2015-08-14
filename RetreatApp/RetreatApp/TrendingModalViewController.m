@@ -37,6 +37,8 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
     [super viewDidLoad];
     [self.trendingTableView registerNib:[UINib nibWithNibName:@"CheckedInTableViewCell" bundle:nil] forCellReuseIdentifier:SBRCHECKEDINCELL];
     [self.trendingTableView registerNib:[UINib nibWithNibName:@"PostsTableViewCell" bundle:nil] forCellReuseIdentifier:SBRPOSTSCELL];
+    self.trendingTableView.rowHeight = UITableViewAutomaticDimension;
+    self.trendingTableView.estimatedRowHeight = 300.f;
     self.isCheckedInView = NO;
     self.title = @"Location Title";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Checkin" style:UIBarButtonItemStylePlain target:self action:@selector(checkinSelected)];
@@ -230,10 +232,28 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.isCheckedInView) {
-        return [self.trendingTableView dequeueReusableCellWithIdentifier:SBRCHECKEDINCELL forIndexPath:indexPath];
-    } else {
-        return [self.trendingTableView dequeueReusableCellWithIdentifier:SBRPOSTSCELL forIndexPath:indexPath];
+    if (self.isCheckedInView)
+    {
+        CheckedInTableViewCell *checkinCell = [self.trendingTableView dequeueReusableCellWithIdentifier:SBRCHECKEDINCELL forIndexPath:indexPath];
+        
+        [checkinCell layoutWithWidth:CGRectGetWidth(self.trendingTableView.bounds)];
+        Checkin *checkins = [self.checkinFetchedResultsController objectAtIndexPath:indexPath];
+        checkinCell.checkinName = [checkins.username stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
+        checkinCell.checkinTime = [NSString stringWithFormat:@"%@", checkins.checkinDate];
+        
+        return checkinCell;
+    }
+    else
+    {
+        PostsTableViewCell *postsCell = [self.trendingTableView dequeueReusableCellWithIdentifier:SBRPOSTSCELL forIndexPath:indexPath];
+        
+        Post *post = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        
+        NSString *usernameString = [post.username stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
+        postsCell.userLabel.text = [NSString stringWithFormat:@"Posted by: %@", usernameString];
+        postsCell.postTextLabel.text = [post.comment stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
+        
+        return postsCell;
     }
 }
 
@@ -242,27 +262,18 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
     if (self.isCheckedInView) {
         return [CheckedInTableViewCell estimatedHeight];
     } else {
-        return 250.0f;
+        return UITableViewAutomaticDimension;
     }
 }
 
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    
-    if(self.isCheckedInView) {
-        CheckedInTableViewCell *checkinCell = (CheckedInTableViewCell *)cell;
-        [checkinCell layoutWithWidth:CGRectGetWidth(self.trendingTableView.bounds)];
-        Checkin *checkins = [self.checkinFetchedResultsController objectAtIndexPath:indexPath];
-        checkinCell.checkinName = [checkins.username stringByReplacingOccurrencesOfString:@"%20" withString:@" "];;
-        checkinCell.checkinTime = [NSString stringWithFormat:@"%@", checkins.checkinDate];
-    } else {
-       PostsTableViewCell *postsCell = (PostsTableViewCell *)cell;
-        Post *post = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        postsCell.postTextLabel.text = [post.comment stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
-        NSString *usernameString = [post.username stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
-        postsCell.userLabel.text = [NSString stringWithFormat:@"Posted By: %@", usernameString];
-    }
-    
+    return 0.01;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    return nil;
 }
 
 #pragma mark UITabBarDelegate Methods

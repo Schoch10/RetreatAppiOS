@@ -18,8 +18,11 @@
 
 @implementation AgendaTableViewCell
 
-- (void)awakeFromNib {
-    // Initialization code
+- (void)awakeFromNib
+{
+    // Workaround for iOS 8 behavior where table view separators don't start flush with the left margin
+    self.layoutMargins = UIEdgeInsetsZero;
+    self.preservesSuperviewLayoutMargins = NO;
 }
 
 + (CGFloat)estimatedHeight

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -8,30 +8,28 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="251" id="KGk-i7-Jjw" customClass="PostsTableViewCell">
-            <rect key="frame" x="0.0" y="1" width="320" height="253"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="KGk-i7-Jjw" customClass="PostsTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="270"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Posted By: Brendan 20 mins ago" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRb-6Z-Kx0">
-                        <rect key="frame" x="8" y="142" width="304" height="16"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Posted by: Brendan (20 mins ago)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRb-6Z-Kx0">
+                        <rect key="frame" x="8" y="203" width="304" height="14"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Commet: This is me leaning up against an old truck #oldtruck" translatesAutoresizingMaskIntoConstraints="NO" id="nMA-Fa-3em">
-                        <rect key="frame" x="8" y="166" width="304" height="57.5"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Comment: This is me leaning up against an old truck #oldtruck" lineBreakMode="wordWrap" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="nMA-Fa-3em">
+                        <rect key="frame" x="8" y="225" width="304" height="36"/>
+                        <fontDescription key="fontDescription" name="Avenir-Oblique" family="Avenir" pointSize="13"/>
                         <color key="textColor" red="0.0" green="0.44705882349999998" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                    </textView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="me" translatesAutoresizingMaskIntoConstraints="NO" id="UTi-hq-9Q4">
-                        <rect key="frame" x="8" y="8" width="304" height="119"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="me" translatesAutoresizingMaskIntoConstraints="NO" id="UTi-hq-9Q4">
+                        <rect key="frame" x="8" y="8" width="304" height="180"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="UTi-hq-9Q4" secondAttribute="height" multiplier="304:119" id="lKs-u8-3m3"/>
+                            <constraint firstAttribute="width" secondItem="UTi-hq-9Q4" secondAttribute="height" multiplier="304:180" priority="999" id="lKs-u8-3m3"/>
                         </constraints>
                     </imageView>
                 </subviews>
@@ -40,10 +38,10 @@
                     <constraint firstAttribute="trailing" secondItem="UTi-hq-9Q4" secondAttribute="trailing" constant="8" id="Qvj-el-fZ5"/>
                     <constraint firstItem="UTi-hq-9Q4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="UNa-qm-eUZ"/>
                     <constraint firstItem="jRb-6Z-Kx0" firstAttribute="top" secondItem="UTi-hq-9Q4" secondAttribute="bottom" constant="15" id="af0-7M-IQg"/>
-                    <constraint firstItem="nMA-Fa-3em" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="beZ-iH-YS7"/>
+                    <constraint firstItem="nMA-Fa-3em" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="beZ-iH-YS7"/>
                     <constraint firstItem="UTi-hq-9Q4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="ddS-XT-xLN"/>
-                    <constraint firstItem="jRb-6Z-Kx0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="o2X-gV-VM2"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="nMA-Fa-3em" secondAttribute="bottom" constant="21" id="oqh-pP-cgE"/>
+                    <constraint firstItem="jRb-6Z-Kx0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="o2X-gV-VM2"/>
+                    <constraint firstAttribute="bottom" secondItem="nMA-Fa-3em" secondAttribute="bottom" constant="8" id="oqh-pP-cgE"/>
                     <constraint firstItem="jRb-6Z-Kx0" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="rLr-98-Nw0"/>
                     <constraint firstItem="nMA-Fa-3em" firstAttribute="top" secondItem="jRb-6Z-Kx0" secondAttribute="bottom" constant="8" id="taj-Av-52w"/>
                 </constraints>
@@ -52,7 +50,7 @@
                 <outlet property="postTextLabel" destination="nMA-Fa-3em" id="nkZ-Ew-fKw"/>
                 <outlet property="userLabel" destination="jRb-6Z-Kx0" id="P2R-a7-MLO"/>
             </connections>
-            <point key="canvasLocation" x="306" y="353.5"/>
+            <point key="canvasLocation" x="306" y="376"/>
         </tableViewCell>
     </objects>
     <resources>
