@@ -186,7 +186,7 @@
     TrendingNowTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kTrendingNowCellIdentifier forIndexPath:indexPath];
     
     Location *location = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    NSString *checkInString = [NSString stringWithFormat:@"%@ checkins", @(location.checkin.count)];
+    NSString *checkInString = [NSString stringWithFormat:@"%@", @(location.checkin.count)];
     [cell configureWithLocation:location.locationName checkInText:checkInString imageURL:nil];
     
     return cell;

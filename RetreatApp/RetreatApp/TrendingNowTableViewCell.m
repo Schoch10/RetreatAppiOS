@@ -12,14 +12,15 @@
 
 @property (nonatomic, weak) IBOutlet UILabel *locationLabel;
 @property (nonatomic, weak) IBOutlet UILabel *checkinLabel;
-@property (nonatomic, weak) IBOutlet UIImageView *locationImageView;
 
 @end
 
 @implementation TrendingNowTableViewCell
 
 - (void)awakeFromNib {
-    
+    // Workaround for iOS 8 behavior where table view separators don't start flush with the left margin
+    self.layoutMargins = UIEdgeInsetsZero;
+    self.preservesSuperviewLayoutMargins = NO;
 }
 
 - (void)configureWithLocation:(NSString *)location checkInText:(NSString *)checkInText imageURL:(NSString *)imageURL {
