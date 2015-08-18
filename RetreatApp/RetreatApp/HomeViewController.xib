@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
@@ -50,33 +48,22 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="33" id="EYK-Dk-RG9"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.01176470588" green="0.4823529412" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K6R-WI-hec">
-                    <rect key="frame" x="312" y="407" width="280" height="106"/>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" title="Agenda">
-                        <color key="titleColor" red="0.0" green="0.45098039220000002" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="agendaButtonSelected:" destination="-1" eventType="touchUpInside" id="xR7-of-fsR"/>
-                    </connections>
-                </button>
                 <view contentMode="scaleToFill" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="1Oo-xQ-XVE" userLabel="Countdown View">
                     <rect key="frame" x="0.0" y="71" width="592" height="106"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Countdown" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x89-wl-hEv">
-                            <rect key="frame" x="8" y="12" width="576" height="26"/>
-                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COUNTDOWN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x89-wl-hEv">
+                            <rect key="frame" x="8" y="12" width="576" height="24.5"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="21"/>
                             <color key="textColor" red="0.011764705882352941" green="0.4823529411764706" blue="0.84313725490196079" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="0:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUN-we-ogH">
-                            <rect key="frame" x="8" y="30" width="576" height="64"/>
-                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="53"/>
+                            <rect key="frame" x="8" y="37" width="576" height="57"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="48"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -92,66 +79,113 @@
                         <constraint firstAttribute="height" constant="106" id="zRU-tx-Sjz"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Acp-06-yLA">
-                    <rect key="frame" x="8" y="327" width="584" height="46"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Acp-06-yLA">
+                    <rect key="frame" x="175" y="330" width="250" height="46"/>
                     <color key="backgroundColor" red="0.0" green="0.44705882352941173" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="46" id="JaJ-ui-yVN"/>
+                        <constraint firstAttribute="width" constant="250" id="7Em-Sf-ej3"/>
+                        <constraint firstAttribute="height" constant="46" id="FVj-uq-Qi5"/>
                     </constraints>
-                    <state key="normal" title="Trending">
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                    <state key="normal" title="Select Location" backgroundImage="MobileCardReaderButton1x">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
                         <action selector="trendingButtonSelected:" destination="-1" eventType="touchUpInside" id="xpN-el-S3v"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MbQ-pk-2xR">
-                    <rect key="frame" x="8" y="407" width="280" height="106"/>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uby-Df-1Zm">
+                    <rect key="frame" x="175" y="389" width="250" height="112"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K6R-WI-hec">
+                            <rect key="frame" x="153" y="9" width="60" height="60"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="60" id="20l-LU-GWh"/>
+                                <constraint firstAttribute="height" constant="60" id="Aki-KY-alf"/>
+                            </constraints>
+                            <state key="normal" backgroundImage="AGENDA-1">
+                                <color key="titleColor" red="0.0" green="0.45098039220000002" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="agendaButtonSelected:" destination="-1" eventType="touchUpInside" id="xR7-of-fsR"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MbQ-pk-2xR">
+                            <rect key="frame" x="36" y="14" width="50" height="50"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="FDe-DO-cjb"/>
+                                <constraint firstAttribute="width" constant="50" id="qdO-Kn-ihn"/>
+                            </constraints>
+                            <state key="normal" backgroundImage="INFO">
+                                <color key="titleColor" red="0.0" green="0.45098039220000002" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="informationButtonSelected:" destination="-1" eventType="touchUpInside" id="wZZ-jI-Y6c"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AGENDA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xro-YJ-iu4">
+                            <rect key="frame" x="132" y="73" width="102" height="23.5"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INFO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g4g-eN-RNB">
+                            <rect key="frame" x="21" y="73" width="80" height="23.5"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="128" id="tYf-vG-6u8"/>
+                        <constraint firstAttribute="trailing" secondItem="Xro-YJ-iu4" secondAttribute="trailing" constant="16" id="C0X-yF-tVn"/>
+                        <constraint firstItem="g4g-eN-RNB" firstAttribute="centerY" secondItem="Xro-YJ-iu4" secondAttribute="centerY" id="Ciy-Uu-0dN"/>
+                        <constraint firstItem="g4g-eN-RNB" firstAttribute="centerX" secondItem="MbQ-pk-2xR" secondAttribute="centerX" id="Kxb-J8-x3m"/>
+                        <constraint firstItem="Xro-YJ-iu4" firstAttribute="top" secondItem="K6R-WI-hec" secondAttribute="bottom" constant="4" id="MxG-1a-PEK"/>
+                        <constraint firstItem="Xro-YJ-iu4" firstAttribute="centerX" secondItem="K6R-WI-hec" secondAttribute="centerX" id="Xaa-LN-Wh1"/>
+                        <constraint firstItem="MbQ-pk-2xR" firstAttribute="top" secondItem="Uby-Df-1Zm" secondAttribute="top" constant="14" id="am6-h0-FsF"/>
+                        <constraint firstItem="K6R-WI-hec" firstAttribute="top" secondItem="Uby-Df-1Zm" secondAttribute="top" constant="9" id="bSv-uL-L59"/>
+                        <constraint firstItem="g4g-eN-RNB" firstAttribute="leading" secondItem="Uby-Df-1Zm" secondAttribute="leading" constant="21" id="g3g-R3-puj"/>
+                        <constraint firstItem="K6R-WI-hec" firstAttribute="centerY" secondItem="MbQ-pk-2xR" secondAttribute="centerY" id="i0b-8X-ahe"/>
+                        <constraint firstAttribute="trailing" secondItem="K6R-WI-hec" secondAttribute="trailing" constant="37" id="i4Y-Xa-VRx"/>
+                        <constraint firstItem="MbQ-pk-2xR" firstAttribute="leading" secondItem="Uby-Df-1Zm" secondAttribute="leading" constant="36" id="ycA-7Y-Etx"/>
                     </constraints>
-                    <state key="normal" title="Info">
-                        <color key="titleColor" red="0.0" green="0.45098039220000002" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="informationButtonSelected:" destination="-1" eventType="touchUpInside" id="wZZ-jI-Y6c"/>
-                    </connections>
-                </button>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
             <constraints>
-                <constraint firstItem="Acp-06-yLA" firstAttribute="top" secondItem="MPI-s8-jXR" secondAttribute="bottom" constant="18" id="2rx-Lp-YXH"/>
-                <constraint firstItem="K6R-WI-hec" firstAttribute="top" secondItem="MbQ-pk-2xR" secondAttribute="top" id="5dT-zM-xG4"/>
+                <constraint firstItem="Uby-Df-1Zm" firstAttribute="top" secondItem="Acp-06-yLA" secondAttribute="bottom" constant="13" id="3wu-35-Bv4"/>
                 <constraint firstItem="1Oo-xQ-XVE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9Li-A5-Avn"/>
                 <constraint firstItem="GKQ-za-gjZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="DhA-7W-2ri"/>
-                <constraint firstItem="K6R-WI-hec" firstAttribute="trailing" secondItem="Acp-06-yLA" secondAttribute="trailing" id="EqS-uR-eNO"/>
-                <constraint firstItem="MbQ-pk-2xR" firstAttribute="leading" secondItem="Acp-06-yLA" secondAttribute="leading" id="GZG-Sv-iKx"/>
                 <constraint firstItem="c58-78-wDy" firstAttribute="top" secondItem="1Oo-xQ-XVE" secondAttribute="bottom" constant="8" id="Gxz-kY-aii"/>
-                <constraint firstItem="K6R-WI-hec" firstAttribute="leading" secondItem="MbQ-pk-2xR" secondAttribute="trailing" constant="24" id="Jq9-vD-ql6"/>
                 <constraint firstAttribute="trailing" secondItem="MPI-s8-jXR" secondAttribute="trailing" constant="30" id="Lnx-zm-HUu"/>
                 <constraint firstItem="1Oo-xQ-XVE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="71" id="NGA-64-5pe"/>
-                <constraint firstItem="MbQ-pk-2xR" firstAttribute="top" secondItem="Acp-06-yLA" secondAttribute="bottom" constant="34" id="UOi-2a-Upg"/>
+                <constraint firstItem="GKQ-za-gjZ" firstAttribute="top" secondItem="Uby-Df-1Zm" secondAttribute="bottom" constant="52" id="PnH-bk-NTN"/>
+                <constraint firstItem="Acp-06-yLA" firstAttribute="centerX" secondItem="MPI-s8-jXR" secondAttribute="centerX" id="ScK-H5-77w"/>
                 <constraint firstAttribute="trailing" secondItem="1Oo-xQ-XVE" secondAttribute="trailing" constant="8" id="Y5g-h9-fOc"/>
-                <constraint firstItem="K6R-WI-hec" firstAttribute="width" secondItem="MbQ-pk-2xR" secondAttribute="width" id="ckW-IU-gcJ"/>
+                <constraint firstItem="Acp-06-yLA" firstAttribute="top" secondItem="MPI-s8-jXR" secondAttribute="bottom" constant="21" id="aIe-4E-w0P"/>
                 <constraint firstItem="MPI-s8-jXR" firstAttribute="top" secondItem="c58-78-wDy" secondAttribute="bottom" constant="18" id="df6-Fx-Vx0"/>
                 <constraint firstItem="c58-78-wDy" firstAttribute="centerX" secondItem="GKQ-za-gjZ" secondAttribute="centerX" id="ek8-R5-fhx"/>
                 <constraint firstItem="MPI-s8-jXR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="31" id="f5j-yx-HhG"/>
-                <constraint firstItem="Acp-06-yLA" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="fUL-WK-AoF"/>
-                <constraint firstAttribute="trailing" secondItem="Acp-06-yLA" secondAttribute="trailing" constant="8" id="gDE-hq-hXL"/>
-                <constraint firstItem="GKQ-za-gjZ" firstAttribute="top" secondItem="MbQ-pk-2xR" secondAttribute="bottom" constant="40" id="hfg-cy-uQk"/>
-                <constraint firstItem="MbQ-pk-2xR" firstAttribute="baseline" secondItem="K6R-WI-hec" secondAttribute="firstBaseline" id="p7b-Q9-joa"/>
-                <constraint firstItem="K6R-WI-hec" firstAttribute="baseline" secondItem="MbQ-pk-2xR" secondAttribute="firstBaseline" id="pYp-jj-t57"/>
+                <constraint firstItem="Uby-Df-1Zm" firstAttribute="trailing" secondItem="Acp-06-yLA" secondAttribute="trailing" id="iw3-21-04B"/>
                 <constraint firstItem="MPI-s8-jXR" firstAttribute="centerX" secondItem="c58-78-wDy" secondAttribute="centerX" id="q9m-YI-ytQ"/>
+                <constraint firstItem="Uby-Df-1Zm" firstAttribute="leading" secondItem="Acp-06-yLA" secondAttribute="leading" id="sUU-1b-qBU"/>
                 <constraint firstAttribute="bottom" secondItem="GKQ-za-gjZ" secondAttribute="bottom" id="t9c-V6-Aep"/>
             </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
         </view>
     </objects>
     <resources>
+        <image name="AGENDA-1" width="54" height="50"/>
+        <image name="INFO" width="60" height="60"/>
+        <image name="MobileCardReaderButton1x" width="450" height="96"/>
         <image name="me" width="960" height="699"/>
     </resources>
 </document>

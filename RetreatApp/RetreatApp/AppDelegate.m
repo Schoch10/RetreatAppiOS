@@ -24,6 +24,7 @@
 - (void)setupUserInterfaceWithOptions:(NSDictionary*)launchOptions {
     SettingsManager *settings = [SettingsManager sharedManager];
     CoreDataManager *coreData = [CoreDataManager sharedManager];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     //DO NOT MOVE OR REMOVE THIS. THESE OBJECTS MUST BE CREATED FIRST BEFORE ANYTHING ELSE.
     NSString *appVersionString = [SCConfigurationUtil applicationShortVersionString];
     if(settings.lastLaunchedAppVersion && ![settings.lastLaunchedAppVersion isEqualToString:appVersionString]) {

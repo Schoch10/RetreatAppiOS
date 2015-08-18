@@ -17,8 +17,7 @@
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Comment: This is me leaning up against an old truck #oldtruck" lineBreakMode="wordWrap" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="nMA-Fa-3em">
                         <rect key="frame" x="8" y="225" width="304" height="36"/>
-                        <fontDescription key="fontDescription" name="Avenir-Oblique" family="Avenir" pointSize="13"/>
-                        <color key="textColor" red="0.0" green="0.44705882349999998" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="me" translatesAutoresizingMaskIntoConstraints="NO" id="UTi-hq-9Q4">
                         <rect key="frame" x="8" y="39" width="304" height="180"/>
@@ -31,8 +30,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="23" id="aPQ-W7-pDB"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>

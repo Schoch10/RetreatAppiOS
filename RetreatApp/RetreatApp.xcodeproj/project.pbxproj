@@ -22,6 +22,8 @@
 		5640A4871B18DD760073D8E2 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5640A4851B18DD760073D8E2 /* WelcomeViewController.xib */; };
 		5640A48B1B18DF370073D8E2 /* CreateUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5640A4891B18DF370073D8E2 /* CreateUserViewController.m */; };
 		5640A48C1B18DF370073D8E2 /* CreateUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5640A48A1B18DF370073D8E2 /* CreateUserViewController.xib */; };
+		56572DE61B83D03100663221 /* ViewCheckinsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56572DE41B83D03100663221 /* ViewCheckinsTableViewController.m */; };
+		56572DE71B83D03100663221 /* ViewCheckinsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56572DE51B83D03100663221 /* ViewCheckinsTableViewController.xib */; };
 		5688F7CC1B7E80F00085B36E /* SVProgressHUD in Resources */ = {isa = PBXBuildFile; fileRef = 5688F7CB1B7E80F00085B36E /* SVProgressHUD */; };
 		5688F7CE1B7E812A0085B36E /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5688F7CD1B7E812A0085B36E /* SVProgressHUD.bundle */; };
 		5688F7D01B7E81400085B36E /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 5688F7CF1B7E81400085B36E /* SVProgressHUD.m */; };
@@ -127,6 +129,9 @@
 		5640A4881B18DF370073D8E2 /* CreateUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateUserViewController.h; sourceTree = "<group>"; };
 		5640A4891B18DF370073D8E2 /* CreateUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateUserViewController.m; sourceTree = "<group>"; };
 		5640A48A1B18DF370073D8E2 /* CreateUserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateUserViewController.xib; sourceTree = "<group>"; };
+		56572DE31B83D03100663221 /* ViewCheckinsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewCheckinsTableViewController.h; sourceTree = "<group>"; };
+		56572DE41B83D03100663221 /* ViewCheckinsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewCheckinsTableViewController.m; sourceTree = "<group>"; };
+		56572DE51B83D03100663221 /* ViewCheckinsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewCheckinsTableViewController.xib; sourceTree = "<group>"; };
 		5688F7CB1B7E80F00085B36E /* SVProgressHUD */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SVProgressHUD; sourceTree = "<group>"; };
 		5688F7CD1B7E812A0085B36E /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SVProgressHUD.bundle; path = RetreatApp/SVProgressHUD/SVProgressHUD.bundle; sourceTree = "<group>"; };
 		5688F7CF1B7E81400085B36E /* SVProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SVProgressHUD.m; path = RetreatApp/SVProgressHUD/SVProgressHUD.m; sourceTree = "<group>"; };
@@ -526,6 +531,9 @@
 				56A69F531B7D526E00DE181A /* GameInstructionsModalViewController.h */,
 				56A69F541B7D526E00DE181A /* GameInstructionsModalViewController.m */,
 				56A69F551B7D526E00DE181A /* GameInstructionsModalViewController.xib */,
+				56572DE31B83D03100663221 /* ViewCheckinsTableViewController.h */,
+				56572DE41B83D03100663221 /* ViewCheckinsTableViewController.m */,
+				56572DE51B83D03100663221 /* ViewCheckinsTableViewController.xib */,
 			);
 			name = Modals;
 			sourceTree = "<group>";
@@ -638,6 +646,7 @@
 				56A606AA1B17543000F95006 /* Images.xcassets in Resources */,
 				56DC28141B17B6B0009137E7 /* TrendingCarouselViewController.xib in Resources */,
 				56E963EC1B1CB46B004F1F2F /* TrendingModalViewController.xib in Resources */,
+				56572DE71B83D03100663221 /* ViewCheckinsTableViewController.xib in Resources */,
 				56DC28051B17AC90009137E7 /* InformationViewController.xib in Resources */,
 				56B5E95D1B1CFA930041C48E /* GameCollectionViewCell.xib in Resources */,
 				56E963E61B1C9857004F1F2F /* AgendaTableViewCell.xib in Resources */,
@@ -688,6 +697,7 @@
 				56A69F371B7A7D1800DE181A /* DoPostForLocation.m in Sources */,
 				56B5E9751B1E3A710041C48E /* SaveQuizAnswerOperation.m in Sources */,
 				56A69F561B7D526E00DE181A /* GameInstructionsModalViewController.m in Sources */,
+				56572DE61B83D03100663221 /* ViewCheckinsTableViewController.m in Sources */,
 				5631E4121B21E55900798191 /* Post.m in Sources */,
 				56C568111B7539AF0073431C /* CheckinOperation.m in Sources */,
 				561D9AEE1B387E6400C70C07 /* Agenda+Extensions.m in Sources */,

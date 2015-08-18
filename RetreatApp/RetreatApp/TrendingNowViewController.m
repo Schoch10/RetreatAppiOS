@@ -26,12 +26,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"Trending Now";
+    self.title = @"SELECT LOCATION";
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.0 green:0.447f blue:0.784f alpha:1.0f];
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:nil];
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];
     [self.tableView registerNib:[UINib nibWithNibName:@"TrendingNowTableViewCell" bundle:nil] forCellReuseIdentifier:kTrendingNowCellIdentifier];
     [self getPollLocations];
 }
@@ -187,7 +186,7 @@
     
     Location *location = [self.fetchedResultsController objectAtIndexPath:indexPath];
     NSString *checkInString = [NSString stringWithFormat:@"%@", @(location.checkin.count)];
-    [cell configureWithLocation:location.locationName checkInText:checkInString imageURL:nil];
+    [cell configureWithLocation:[location.locationName uppercaseString] checkInText:checkInString imageURL:nil];
     
     return cell;
 }
@@ -196,7 +195,8 @@
     Location *location = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     TrendingModalViewController *trendingViewController = [[TrendingModalViewController alloc]initWithNibName:@"TrendingModalViewController" bundle:nil];
-    trendingViewController.title = location.locationName;
+    trendingViewController.title = [location.locationName uppercaseString];
+    trendingViewController.totalCheckinsForLocations = @(location.checkin.count);
     trendingViewController.locationId = @(indexPath.row + 3);
     [self.navigationController pushViewController:trendingViewController animated:YES];
 }

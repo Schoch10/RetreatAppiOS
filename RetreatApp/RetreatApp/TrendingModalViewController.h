@@ -21,4 +21,5 @@
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, strong) NSFetchedResultsController *checkinFetchedResultsController;
 @property (nonatomic, strong) NSNumber *locationId;
+@property (nonatomic, strong) NSNumber *totalCheckinsForLocations;
 @end

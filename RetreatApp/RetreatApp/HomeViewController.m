@@ -46,11 +46,13 @@ int secondsLeft;
     logo.contentMode = UIViewContentModeScaleAspectFit;
     self.navigationItem.titleView = logo;
     SettingsManager *sharedManager = [SettingsManager sharedManager];
-    self.userInformationLabel.text = sharedManager.username;
+    self.userInformationLabel.text = [sharedManager.username uppercaseString];
     self.userImageView.image = [UIImage imageWithData:sharedManager.userImage];
     [self countdownTimer];
     [self setButtonStyles];
     SCLogMessage(kLogLevelDebug, @"userId %@", sharedManager.userId);
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -59,10 +61,6 @@ int secondsLeft;
 }
 
 - (void)setButtonStyles {
-    [self.infoButton.layer setBorderWidth:1.0];
-    [self.infoButton.layer setBorderColor:[[UIColor colorWithRed:0.0 green:0.447f blue:0.784f alpha:1.0f] CGColor]];
-    [self.agendaButton.layer setBorderWidth:1.0];
-    [self.agendaButton.layer setBorderColor:[[UIColor colorWithRed:0.0 green:0.447f blue:0.784f alpha:1.0f] CGColor]];
 }
 
 - (void)updateCounter:(NSTimer *)timer {
@@ -74,9 +72,9 @@ int secondsLeft;
         minutes = (secondsLeft % 3600) / 60;
         seconds = (secondsLeft % 3600) % 60;
         self.countdownLabel.text = [NSString stringWithFormat:@"%02d:%02d:%02d:%02.f", days, hours, minutes, seconds];
-        self.gameButton.enabled = YES;
-        self.gameButton.backgroundColor = [UIColor grayColor];
-        [self.gameButton setTitle:@"Top Secret" forState:UIControlStateNormal];
+        self.gameButton.enabled = NO;
+        self.gameButton.backgroundColor = [UIColor colorWithRed:0.0 green:0.447f blue:0.784f alpha:1.0f];
+        [self.gameButton setTitle:@"FIND SOMEONE WHO..." forState:UIControlStateNormal];
     }
     else
     {

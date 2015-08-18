@@ -39,6 +39,7 @@
     flowlayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
     self.collectionView.collectionViewLayout = flowlayout;
     [self checkAnswers];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     SettingsManager *sharedSettings = [SettingsManager sharedManager];
     if (!sharedSettings.userReadGameInstructions) {
         [self showGameInstructions];
