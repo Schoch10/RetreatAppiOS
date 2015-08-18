@@ -253,7 +253,7 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
         Post *post = [self.fetchedResultsController objectAtIndexPath:indexPath];
         
         NSString *usernameString = [post.username stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
-        postsCell.userLabel.text = [NSString stringWithFormat:@"Posted by: %@", usernameString];
+        postsCell.userLabel.text = usernameString;
         postsCell.postTextLabel.text = [post.comment stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
         SCLogMessage(kLogLevelDebug, @"timestamp %@", post.postDate);
         

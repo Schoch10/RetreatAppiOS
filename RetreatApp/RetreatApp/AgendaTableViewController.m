@@ -98,12 +98,4 @@ static  NSString * const SBRAGENDATABLEVIEWCELL = @"AgendaTableViewCell";
     }
 }
 
-#pragma mark - UITableView Delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    TrendingCarouselViewController *trendingViewController = [[TrendingCarouselViewController alloc] initWithNibName:nil bundle:nil];
-    [self.navigationController pushViewController:trendingViewController animated:YES];
-}
-
 @end
