@@ -42,12 +42,16 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
     self.isCheckedInView = NO;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Checkin" style:UIBarButtonItemStylePlain target:self action:@selector(checkinSelected)];
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
-    [self getPostsForLocation];
     SettingsManager *sharedSettings = [SettingsManager sharedManager];
     if ([sharedSettings.currentUserCheckinLocation intValue] == [self.locationId intValue]) {
         self.navigationItem.rightBarButtonItem.title = @"CheckedIn";
         self.navigationItem.rightBarButtonItem.enabled = NO;
     }
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self getPostsForLocation];
 }
 
 - (void)checkinSelected {
