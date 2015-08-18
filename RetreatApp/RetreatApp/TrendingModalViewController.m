@@ -19,12 +19,13 @@
 #import "SettingsManager.h"
 #import "CheckinOperation.h"
 #import "PostModalViewController.h"
+#import "SVProgressHUD/SVProgressHUD.h"
 
 static  NSString * const SBRCHECKEDINCELL = @"CheckedinTableCell";
 static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
 
 
-@interface TrendingModalViewController () <UINavigationBarDelegate, PostModalViewControllerDelegate, CheckinOperationDelegate>
+@interface TrendingModalViewController () <UINavigationBarDelegate, PostModalViewControllerDelegate, CheckinOperationDelegate, GetPostsForLocationDelegate>
 @property (weak, nonatomic) IBOutlet UITabBar *trendingInformationTab;
 @property (weak, nonatomic) IBOutlet UITableView *trendingTableView;
 - (IBAction)createPostButtonSelected:(id)sender;
@@ -212,8 +213,31 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
 
 
 - (void)getPostsForLocation {
+    [SVProgressHUD show];
     GetPostsForLocationOperation *getPostsLocationOperation = [[GetPostsForLocationOperation alloc]initGetPostsOperationForLocationId:self.locationId];
+    getPostsLocationOperation.getPostsForLocationDelegate = self;
     [ServiceCoordinator addNetworkOperation:getPostsLocationOperation priority:CMTTaskPriorityHigh];
+    
+}
+
+#pragma mark Get Posts For Location
+
+- (void)getPostsForLocationDidSucceed {
+    [SVProgressHUD dismiss];
+    [self.trendingTableView reloadData];
+}
+
+- (void)getPostsForLocationDidFailWithError:(NSError *)error {
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Error!"
+                                                                   message:@"Could not Retrieve Posts Please Try Again"
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    
+    //Add Action To Try Again
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * action) {}];
+    
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
     
 }
 
