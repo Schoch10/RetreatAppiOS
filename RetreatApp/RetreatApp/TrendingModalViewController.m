@@ -55,6 +55,12 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
     [self getPostsForLocation];
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    self.fetchedResultsController = nil;
+    self.checkinFetchedResultsController = nil;
+}
+
 - (void)checkinSelected {
     SettingsManager *sharedManager = [SettingsManager sharedManager];
     CheckinOperation *checkinOperation = [[CheckinOperation alloc]initCheckinOperationWithLocationForUser:sharedManager.userId withLocation:self.locationId];
