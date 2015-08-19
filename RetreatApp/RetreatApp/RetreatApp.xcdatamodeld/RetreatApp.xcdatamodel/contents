@@ -2,8 +2,9 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14C109" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Agenda" representedClassName="Agenda" syncable="YES">
         <attribute name="agendaId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="day" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="time" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="time" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
@@ -42,11 +43,11 @@
         <relationship name="checkin" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Checkin" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Agenda" positionX="-13142" positionY="1935" width="128" height="118"/>
+        <element name="Agenda" positionX="-13142" positionY="1935" width="128" height="133"/>
         <element name="Checkin" positionX="-12744" positionY="1620" width="128" height="148"/>
         <element name="Game" positionX="-13140" positionY="1838" width="128" height="88"/>
+        <element name="Location" positionX="-12962" positionY="1748" width="128" height="88"/>
         <element name="Post" positionX="-13178" positionY="1622" width="128" height="165"/>
         <element name="User" positionX="-12969" positionY="1616" width="128" height="90"/>
-        <element name="Location" positionX="-12962" positionY="1748" width="128" height="88"/>
     </elements>
 </model>

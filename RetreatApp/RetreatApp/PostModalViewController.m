@@ -35,6 +35,10 @@
     [self.view removeConstraint:self.topNavigationConstraint];
     NSLayoutConstraint *newTopConstraint = [NSLayoutConstraint constraintWithItem:self.navigationBar attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.topLayoutGuide attribute:NSLayoutAttributeTop multiplier:1 constant:0];
     [self.view addConstraint:newTopConstraint];
+    self.navigationBar.barTintColor = [UIColor colorWithRed:0.0 green:0.447f blue:0.784f alpha:1.0f];
+    self.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
+    self.navigationBar.barStyle = UIBarStyleBlack;
+
 }
 
 - (void)viewDidAppear:(BOOL)animated {

@@ -2,7 +2,7 @@
 //  Agenda.m
 //  RetreatApp
 //
-//  Created by Brendan Schoch on 7/1/15.
+//  Created by Brendan Schoch on 8/19/15.
 //  Copyright (c) 2015 Slalom Consulting. All rights reserved.
 //
 
@@ -11,10 +11,11 @@
 
 @implementation Agenda
 
+@dynamic agendaId;
 @dynamic location;
 @dynamic time;
 @dynamic title;
 @dynamic type;
-@dynamic agendaId;
+@dynamic day;
 
 @end

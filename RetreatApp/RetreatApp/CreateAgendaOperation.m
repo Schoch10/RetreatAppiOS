@@ -25,32 +25,19 @@
 
     CoreDataManager *coreData = [CoreDataManager sharedManager];
     NSManagedObjectContext *context = coreData.operationContext;
-    NSArray *titleArray = @[@"Arrive & Checkin", @"Cocktail Hour", @"Breakfast", @"Golf", @"Lawn Games", @"Zipline", @"Outdoor Activities", @"20s Gala", @"Breakfast", @"Checkout"];
-    NSArray *locationArray = @[@"Mt. Omni Lobby", @"Mt. Omni Pool", @"Mt. Omni Restaurant", @"Mount Washington Course", @"Omni Resort", @"Omni Canopy Tours - Slopes", @"Check Activities Email", @"Mt. Omni Ballroom", @"Mt. Omni Restaurant", @"Mt. Omni Lobby"];
-    NSCalendar *calendar = [[NSCalendar alloc]initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-    NSDateComponents *friday = [[NSDateComponents alloc] init];
-    [friday setDay:28];
-    [friday setMonth:8];
-    [friday setYear:2015];
-    NSDate *fridayDate = [calendar dateFromComponents:friday];
-    NSDateComponents *saturday = [[NSDateComponents alloc] init];
-    [saturday setDay:29];
-    [saturday setMonth:8];
-    [saturday setYear:2015];
-    NSDate *saturdayDate = [calendar dateFromComponents:saturday];
-    NSDateComponents *sunday = [[NSDateComponents alloc] init];
-    [sunday setDay:29];
-    [sunday setMonth:8];
-    [sunday setYear:2015];
-    NSDate *sundayDate = [calendar dateFromComponents:sunday];
-    NSArray *timeArray = @[fridayDate, fridayDate, saturdayDate, saturdayDate, saturdayDate, saturdayDate, saturdayDate,saturdayDate, sundayDate, sundayDate];
+    NSArray *titleArray = @[@"Arrive & Checkin", @"Cocktail Hour", @"Breakfast", @"Golf", @"Lawn Games", @"Zipline", @"Outdoor Activities", @"1920s Speakeasy", @"Breakfast", @"Checkout"];
+    NSArray *locationArray = @[@"Omni Mt. Washington Lobby", @"Jewel Terrace", @"Main Dining Room", @"Omni Mt. Washington Golf Course", @"South Veranda Lawn", @"Omni Canopy Tours - Slopes", @"Check Activities Email", @"Presidential Ballroom, Presidential Foyer, Presidential Garden", @"Main Dining Room", @"Omni Mt. Washington Lobby"];
+    NSArray *imagePathArray = @[@"checkin", @"cocktails", @"breakfast", @"golf", @"lawngames", @"zipline", @"outdoors", @"banquet", @"breakfast", @"checkout"];
+    NSArray *dayArray = @[@"Friday", @"Friday", @"Saturday", @"Saturday", @"Saturday", @"Saturday", @"Saturday", @"Saturday", @"Sunday", @"Sunday"];
+    NSArray *timeArray = @[@"4:00PM", @"6:00PM-10:00PM", @"7:00AM-10:00AM", @"9:00AM", @"10:00AM", @"11:00AM", @"All Day", @"6:00PM-10:00PM", @"7:00AM", @"11:00AM"];
     
     for (int i=0; i < titleArray.count; i++) {
         Agenda *agenda = [Agenda agendaUpsertWithAgendaID:@(i) inManagedObjectContext:context];
         agenda.title = [titleArray objectAtIndex:i];
         agenda.location = [locationArray objectAtIndex:i];
+        agenda.day = [dayArray objectAtIndex:i];
         agenda.time = [timeArray objectAtIndex:i];
-        agenda.type = @"agenda";
+        agenda.type = [imagePathArray objectAtIndex:i];
     }
     [coreData saveContext:context];
     [[ServiceCoordinator sharedCoordinator] completeLocalOperation:self];

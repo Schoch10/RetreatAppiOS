@@ -16,6 +16,9 @@ static  NSString * const SBRAGENDATABLEVIEWCELL = @"AgendaTableViewCell";
 
 @interface AgendaTableViewController ()
 @property (strong, nonatomic) NSArray *agendaArray;
+@property (strong, nonatomic) NSMutableArray *fridayArray;
+@property (strong, nonatomic) NSMutableArray *saturdayArray;
+@property (strong, nonatomic) NSMutableArray *sundayArray;
 
 @end
 
@@ -34,10 +37,22 @@ static  NSString * const SBRAGENDATABLEVIEWCELL = @"AgendaTableViewCell";
 - (void)getAgendaItems {
     NSManagedObjectContext *sharedContext = [CoreDataManager sharedManager].mainThreadManagedObjectContext;
     NSFetchRequest *agendaFetchRequest = [[NSFetchRequest alloc]initWithEntityName:@"Agenda"];
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]initWithKey:@"time" ascending:YES];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]initWithKey:@"agendaId" ascending:YES];
     agendaFetchRequest.sortDescriptors = @[sortDescriptor];
     NSError *error;
     self.agendaArray = [sharedContext executeFetchRequest:agendaFetchRequest error:&error];
+    self.fridayArray = [[NSMutableArray alloc]init];
+    self.saturdayArray = [[NSMutableArray alloc]init];
+    self.sundayArray = [[NSMutableArray alloc]init];
+    for (Agenda *agendaItem in self.agendaArray) {
+        if ([agendaItem.day isEqualToString:@"Friday"]) {
+            [self.fridayArray addObject:agendaItem];
+        } else if ([agendaItem.day isEqualToString:@"Saturday"]) {
+            [self.saturdayArray addObject:agendaItem];
+        } else {
+            [self.sundayArray addObject:agendaItem];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,11 +62,23 @@ static  NSString * const SBRAGENDATABLEVIEWCELL = @"AgendaTableViewCell";
 #pragma mark - Table view data source
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.agendaArray.count;
+    switch (section) {
+        case 0:
+            return self.fridayArray.count;
+            break;
+        case 1:
+            return self.saturdayArray.count;
+            break;
+        case 2:
+            return self.sundayArray.count;
+        default:
+            return self.agendaArray.count;
+            break;
+    }
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -65,24 +92,32 @@ static  NSString * const SBRAGENDATABLEVIEWCELL = @"AgendaTableViewCell";
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     AgendaTableViewCell *agendaCell = (AgendaTableViewCell *)cell;
-    Agenda *currentAgendaItem = [self.agendaArray objectAtIndex:indexPath.row];
+    Agenda *currentAgendaItem;
+    switch (indexPath.section) {
+        case 0:
+           currentAgendaItem = [self.fridayArray objectAtIndex:indexPath.row];
+            break;
+        case 1:
+            currentAgendaItem = [self.saturdayArray objectAtIndex:indexPath.row];
+            break;
+        case 2:
+            currentAgendaItem = [self.sundayArray objectAtIndex:indexPath.row];
+            break;
+        default:
+            break;
+    }
     [agendaCell layoutWithWidth:CGRectGetWidth(tableView.bounds)];
-    UIImage *agendaImage = [UIImage imageNamed:@"golf"];
     agendaCell.agendaItem = currentAgendaItem.title;
     agendaCell.agendaLocation = currentAgendaItem.location;
-    agendaCell.agendaImage = agendaImage;
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.timeStyle = NSDateFormatterNoStyle;
-    dateFormatter.dateStyle = NSDateFormatterMediumStyle;
-    NSString *agendaItemTime = [dateFormatter stringFromDate:currentAgendaItem.time];
+    NSString *agendaItemTime = currentAgendaItem.time;
     agendaCell.agendaTime = [NSString stringWithFormat:@"%@", agendaItemTime];
+    agendaCell.agendaImage = [UIImage imageNamed:currentAgendaItem.type];
     agendaCell.selectionStyle = UITableViewCellSelectionStyleNone;
     
 }
 
-/*- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     switch (section) {
         case 0:
             return @"Friday";
@@ -97,6 +132,6 @@ static  NSString * const SBRAGENDATABLEVIEWCELL = @"AgendaTableViewCell";
             return @"Error";
             break;
     }
-} */
+}
 
 @end

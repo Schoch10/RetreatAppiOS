@@ -25,8 +25,9 @@
                         <constraint firstAttribute="height" constant="64" id="uxc-Pi-lek"/>
                     </constraints>
                     <items>
-                        <navigationItem title="Post" id="E4b-B0-dGe">
+                        <navigationItem title="POST" id="E4b-B0-dGe">
                             <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="mUg-N1-qfK">
+                                <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="cancelPostSelected:" destination="-1" id="BbC-rI-xQ0"/>
                                 </connections>
