@@ -11,5 +11,6 @@
 @interface Checkin (Extensions)
 
 + (Checkin *)checkinUpsertWithUserId:(NSNumber *)userId inManagedObjectContext: (NSManagedObjectContext *)backgroundContext;
++ (NSInteger)getCheckinCountForLocation:(NSNumber *)locationId inManagedObjectContext: (NSManagedObjectContext *)managedObjectContext;
 
 @end

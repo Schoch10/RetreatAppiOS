@@ -7,6 +7,7 @@
 //
 
 #import "Checkin+Extensions.h"
+#import "Location+Extensions.h"
 #import "CoreDataManager.h"
 
 @implementation Checkin (Extensions)
@@ -45,5 +46,15 @@
         return checkin;
     }
 }
+
++ (NSInteger)getCheckinCountForLocation:(NSNumber *)locationId inManagedObjectContext: (NSManagedObjectContext *)managedObjectContext {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc]initWithEntityName:@"Checkin"];
+    NSPredicate *locationPredicate = [NSPredicate predicateWithFormat:@"checkinLocation.locationId == %@", locationId];
+    fetchRequest.predicate = locationPredicate;
+    NSError *error = nil;
+    NSArray *checkinsArray = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    return checkinsArray.count;    
+}
+
 
 @end

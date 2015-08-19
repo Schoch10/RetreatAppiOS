@@ -26,19 +26,7 @@
 
 + (CGFloat)estimatedHeight
 {
-    return 80.f;
-}
-
-- (CGSize)layoutWithWidth:(CGFloat)width
-{
-    if (CGRectGetWidth(self.contentView.frame) != width) {
-        self.contentView.frame = CGRectMake(0, 0, width, CGRectGetHeight(self.contentView.frame));
-        [self.contentView setNeedsLayout];
-    }
-    [self layoutSubviews];
-    
-    CGSize compressedSize = [self.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-    return CGSizeMake(width, compressedSize.height);
+    return 60.f;
 }
 
 - (void)setCheckinName:(NSString *)username

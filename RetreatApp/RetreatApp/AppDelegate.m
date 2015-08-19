@@ -24,7 +24,6 @@
 - (void)setupUserInterfaceWithOptions:(NSDictionary*)launchOptions {
     SettingsManager *settings = [SettingsManager sharedManager];
     CoreDataManager *coreData = [CoreDataManager sharedManager];
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     //DO NOT MOVE OR REMOVE THIS. THESE OBJECTS MUST BE CREATED FIRST BEFORE ANYTHING ELSE.
     NSString *appVersionString = [SCConfigurationUtil applicationShortVersionString];
     if(settings.lastLaunchedAppVersion && ![settings.lastLaunchedAppVersion isEqualToString:appVersionString]) {
@@ -48,6 +47,7 @@
         WelcomeViewController *welcomeViewController = [[WelcomeViewController alloc]initWithNibName:@"WelcomeViewController" bundle:nil];
         self.navigationController = [[UINavigationController alloc]initWithRootViewController:welcomeViewController];
     }
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     self.window.rootViewController = self.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     

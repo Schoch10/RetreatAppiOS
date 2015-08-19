@@ -96,7 +96,7 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uby-Df-1Zm">
-                    <rect key="frame" x="175" y="389" width="250" height="112"/>
+                    <rect key="frame" x="175" y="414" width="250" height="112"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K6R-WI-hec">
                             <rect key="frame" x="153" y="9" width="60" height="60"/>
@@ -160,13 +160,13 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
             <constraints>
-                <constraint firstItem="Uby-Df-1Zm" firstAttribute="top" secondItem="Acp-06-yLA" secondAttribute="bottom" constant="13" id="3wu-35-Bv4"/>
+                <constraint firstItem="Uby-Df-1Zm" firstAttribute="top" secondItem="Acp-06-yLA" secondAttribute="bottom" constant="38" id="3wu-35-Bv4"/>
                 <constraint firstItem="1Oo-xQ-XVE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9Li-A5-Avn"/>
                 <constraint firstItem="GKQ-za-gjZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="DhA-7W-2ri"/>
                 <constraint firstItem="c58-78-wDy" firstAttribute="top" secondItem="1Oo-xQ-XVE" secondAttribute="bottom" constant="8" id="Gxz-kY-aii"/>
                 <constraint firstAttribute="trailing" secondItem="MPI-s8-jXR" secondAttribute="trailing" constant="30" id="Lnx-zm-HUu"/>
                 <constraint firstItem="1Oo-xQ-XVE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="71" id="NGA-64-5pe"/>
-                <constraint firstItem="GKQ-za-gjZ" firstAttribute="top" secondItem="Uby-Df-1Zm" secondAttribute="bottom" constant="52" id="PnH-bk-NTN"/>
+                <constraint firstItem="GKQ-za-gjZ" firstAttribute="top" secondItem="Uby-Df-1Zm" secondAttribute="bottom" constant="27" id="PnH-bk-NTN"/>
                 <constraint firstItem="Acp-06-yLA" firstAttribute="centerX" secondItem="MPI-s8-jXR" secondAttribute="centerX" id="ScK-H5-77w"/>
                 <constraint firstAttribute="trailing" secondItem="1Oo-xQ-XVE" secondAttribute="trailing" constant="8" id="Y5g-h9-fOc"/>
                 <constraint firstItem="Acp-06-yLA" firstAttribute="top" secondItem="MPI-s8-jXR" secondAttribute="bottom" constant="21" id="aIe-4E-w0P"/>

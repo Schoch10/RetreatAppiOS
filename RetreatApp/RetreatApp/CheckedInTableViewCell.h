@@ -14,7 +14,6 @@
 @property (strong, nonatomic) NSString *checkinTime;
 @property (strong, nonatomic) UIImage *userImage;
 
-- (CGSize)layoutWithWidth:(CGFloat)width;
 + (CGFloat)estimatedHeight;
 
 @end

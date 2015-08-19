@@ -15,18 +15,20 @@
 #import "Post.h"
 #import "User.h"
 #import "Checkin.h"
+#import "Checkin+Extensions.h"
 #import "ServiceCoordinator.h"
 #import "SettingsManager.h"
 #import "CheckinOperation.h"
 #import "PostModalViewController.h"
 #import "SVProgressHUD/SVProgressHUD.h"
 #import "ViewCheckinsTableViewController.h"
+#import "PollParticipantLocationsOperation.h"
 
 static  NSString * const SBRCHECKEDINCELL = @"CheckedinTableCell";
 static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
 
 
-@interface TrendingModalViewController () <UINavigationBarDelegate, PostModalViewControllerDelegate, CheckinOperationDelegate, GetPostsForLocationDelegate, ViewCheckinsControllerDelegate>
+@interface TrendingModalViewController () <UINavigationBarDelegate, PostModalViewControllerDelegate, CheckinOperationDelegate, GetPostsForLocationDelegate, ViewCheckinsControllerDelegate, PollParticipantLocationServiceDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *trendingTableView;
 @property (weak, nonatomic) IBOutlet UIButton *checkinPostButton;
 @property (weak, nonatomic) IBOutlet UIImageView *userImageView;
@@ -88,6 +90,24 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
     [ServiceCoordinator addNetworkOperation:checkinOperation priority:CMTTaskPriorityHigh];
 }
 
+- (void)getCheckinsForLocation {
+    PollParticipantLocationsOperation *pollCheckins = [[PollParticipantLocationsOperation alloc]initPollParticipantOperation];
+    pollCheckins.pollParticipantDelegate = self;
+    [ServiceCoordinator addNetworkOperation:pollCheckins priority:CMTTaskPriorityMedium];
+}
+
+#pragma mark Poll Participant Delegate
+
+- (void)pollParticipantLocationDidSucceed {
+    NSManagedObjectContext *managedObjectContext = [CoreDataManager sharedManager].mainThreadManagedObjectContext;
+    NSInteger checkinCount = [Checkin getCheckinCountForLocation:self.locationId inManagedObjectContext:managedObjectContext];
+    [self.navigationItem.rightBarButtonItem setTitle:[NSString stringWithFormat:@"%li", (long)checkinCount]];
+}
+
+- (void)pollParticipantLocationDidFailWithError:(NSError *)error {
+    
+}
+
 #pragma mark Checkin Operation Delegate 
 
 - (void)checkinOperationDidSucceed {
@@ -95,6 +115,7 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
     SettingsManager *sharedManager = [SettingsManager sharedManager];
     sharedManager.currentUserCheckinLocation = self.locationId;
     [self.checkinPostButton setTitle:@"Checked-In, Write Something..." forState:UIControlStateNormal];
+    [self getCheckinsForLocation];
 
 }
 
@@ -254,14 +275,49 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
         NSString *usernameString = [post.username stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
         postsCell.userLabel.text = usernameString;
         postsCell.postTextLabel.text = [post.comment stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
-        SCLogMessage(kLogLevelDebug, @"timestamp %@", post.postDate);
-        
+        if ([post.imageURL rangeOfString:@"http"].location == NSNotFound) {
+            postsCell.postImageView.image = nil;
+        } else {
+            NSURL *url = [NSURL URLWithString:post.imageURL];
+            NSData *data = [NSData dataWithContentsOfURL:url];
+            postsCell.postImageView.image = [UIImage imageWithData:data];
+        }
         return postsCell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-        return UITableViewAutomaticDimension;
+    return [self heightForImageCellAtIndexPath:indexPath];
+    //return UITableViewAutomaticDimension;
+}
+
+- (CGFloat)heightForImageCellAtIndexPath:(NSIndexPath *)indexPath {
+    static PostsTableViewCell *sizingCell = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sizingCell = [self.trendingTableView dequeueReusableCellWithIdentifier:SBRPOSTSCELL];
+    });
+    
+    [self configureImageCell:sizingCell atIndexPath:indexPath];
+    return [self calculateHeightForConfiguredSizingCell:sizingCell];
+}
+
+- (void)configureImageCell:(PostsTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    Post *post = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.userLabel.text = post.username;
+    cell.postTextLabel.text = post.comment;
+    if ([post.imageURL rangeOfString:@"http"].location == NSNotFound) {
+        cell.postImageView.image = nil;
+    } else {
+        cell.postImageView.image = [UIImage imageNamed:@"me"];
+    }
+}
+
+- (CGFloat)calculateHeightForConfiguredSizingCell:(UITableViewCell *)sizingCell {
+    [sizingCell setNeedsLayout];
+    [sizingCell layoutIfNeeded];
+    CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+    return size.height + 1.0f; // Add 1.0f for the cell separator height
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section

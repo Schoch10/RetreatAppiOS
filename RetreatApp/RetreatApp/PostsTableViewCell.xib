@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -16,13 +15,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Comment: This is me leaning up against an old truck #oldtruck" lineBreakMode="wordWrap" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="nMA-Fa-3em">
-                        <rect key="frame" x="8" y="225" width="304" height="36"/>
+                        <rect key="frame" x="8" y="230.5" width="304" height="30.5"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="me" translatesAutoresizingMaskIntoConstraints="NO" id="UTi-hq-9Q4">
-                        <rect key="frame" x="8" y="39" width="304" height="180"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UTi-hq-9Q4">
+                        <rect key="frame" x="8" y="39" width="304" height="185.5"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="UTi-hq-9Q4" secondAttribute="height" multiplier="304:180" priority="999" id="lKs-u8-3m3"/>
+                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="185.5" id="CG1-vC-Awf"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Posted by: Brendan (20 mins ago)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRb-6Z-Kx0">
@@ -55,7 +54,4 @@
             <point key="canvasLocation" x="306" y="376"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="me" width="960" height="699"/>
-    </resources>
 </document>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -13,22 +13,43 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2QM-uJ-2MI">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2QM-uJ-2MI">
                         <rect key="frame" x="8" y="8" width="83" height="64"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="83" id="aZU-ex-N1z"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="First Name Last Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oYW-7h-nkX">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="First Name Last Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oYW-7h-nkX">
                         <rect key="frame" x="99" y="8" width="213" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="goD-1N-HO7"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Checkin Time: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xHk-eO-POQ">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checkin Time: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xHk-eO-POQ">
                         <rect key="frame" x="99" y="29" width="213" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="pUZ-Be-cOx"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.44705882352941173" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="2QM-uJ-2MI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="0Yq-s9-chp"/>
+                    <constraint firstAttribute="bottom" secondItem="2QM-uJ-2MI" secondAttribute="bottom" constant="7.5" id="3Qr-2F-3m2"/>
+                    <constraint firstItem="2QM-uJ-2MI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Adc-NC-R5c"/>
+                    <constraint firstItem="xHk-eO-POQ" firstAttribute="leading" secondItem="2QM-uJ-2MI" secondAttribute="trailing" constant="8" id="JjM-y7-VTe"/>
+                    <constraint firstItem="xHk-eO-POQ" firstAttribute="top" secondItem="oYW-7h-nkX" secondAttribute="bottom" id="V5a-MX-Ybd"/>
+                    <constraint firstItem="2QM-uJ-2MI" firstAttribute="top" secondItem="oYW-7h-nkX" secondAttribute="top" id="Y2w-Ix-p4k"/>
+                    <constraint firstAttribute="trailing" secondItem="xHk-eO-POQ" secondAttribute="trailing" constant="8" id="bJE-PG-BM3"/>
+                    <constraint firstItem="oYW-7h-nkX" firstAttribute="leading" secondItem="2QM-uJ-2MI" secondAttribute="trailing" constant="8" id="h1p-Le-Uzr"/>
+                    <constraint firstItem="oYW-7h-nkX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="hs8-4r-Iui"/>
+                    <constraint firstAttribute="trailing" secondItem="oYW-7h-nkX" secondAttribute="trailing" constant="8" id="pbx-UN-Omh"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="checkinTimeLabel" destination="xHk-eO-POQ" id="ISH-X1-atJ"/>

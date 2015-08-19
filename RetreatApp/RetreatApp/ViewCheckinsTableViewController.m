@@ -139,7 +139,6 @@ static  NSString * const SBRCHECKEDINCELL = @"CheckedinTableCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CheckedInTableViewCell *checkinCell = [self.tableView dequeueReusableCellWithIdentifier:SBRCHECKEDINCELL forIndexPath:indexPath];
     
-    [checkinCell layoutWithWidth:CGRectGetWidth(self.tableView.bounds)];
     Checkin *checkins = [self.checkinFetchedResultsController objectAtIndexPath:indexPath];
     checkinCell.checkinName = [checkins.username stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
     checkinCell.checkinTime = [NSString stringWithFormat:@"%@", checkins.checkinDate];

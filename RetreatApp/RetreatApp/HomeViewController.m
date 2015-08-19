@@ -51,8 +51,6 @@ int secondsLeft;
     [self countdownTimer];
     [self setButtonStyles];
     SCLogMessage(kLogLevelDebug, @"userId %@", sharedManager.userId);
-    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-
 }
 
 - (void)viewDidAppear:(BOOL)animated {
