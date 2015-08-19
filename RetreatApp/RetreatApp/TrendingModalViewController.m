@@ -53,7 +53,6 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [NSFetchedResultsController deleteCacheWithName:@"Root"];
     [self getPostsForLocation];
     SettingsManager *sharedSettings = [SettingsManager sharedManager];
     if ([self.locationId intValue] == [sharedSettings.currentUserCheckinLocation intValue]) {
@@ -63,6 +62,8 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
+    self.fetchedResultsController = nil;
+    self.checkinFetchedResultsController = nil;
 }
 
 - (void)showCheckedInView {
@@ -131,6 +132,10 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
 
 - (NSFetchedResultsController *)fetchedResultsController
 {
+    if (_fetchedResultsController != nil) {
+        [NSFetchedResultsController deleteCacheWithName:@"posts"];
+        return _fetchedResultsController;
+    }
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
     
