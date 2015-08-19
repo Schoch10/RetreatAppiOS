@@ -32,12 +32,18 @@ static  NSString * const SBRCHECKEDINCELL = @"CheckedinTableCell";
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.tableView reloadData];
+}
+
 - (void)closeViewCheckinsModal {
     [self.delegate dismissViewCheckinsTableViewController];
 }
 
 - (NSFetchedResultsController *)checkinFetchedResultsController {
     if (_checkinFetchedResultsController != nil) {
+        [NSFetchedResultsController deleteCacheWithName:@"checkins"];
         return _checkinFetchedResultsController;
     }
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -57,7 +63,7 @@ static  NSString * const SBRCHECKEDINCELL = @"CheckedinTableCell";
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    NSFetchedResultsController *checkinFetchRequest = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:mangedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
+    NSFetchedResultsController *checkinFetchRequest = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:mangedObjectContext sectionNameKeyPath:nil cacheName:@"checkins"];
     checkinFetchRequest.delegate = self;
     self.checkinFetchedResultsController = checkinFetchRequest;
     
