@@ -9,7 +9,6 @@
             <connections>
                 <outlet property="commentTextView" destination="8E5-CZ-0TM" id="me7-FO-kJe"/>
                 <outlet property="navigationBar" destination="yyS-ba-2ln" id="hsA-jV-15r"/>
-                <outlet property="postButton" destination="RqY-1a-dZn" id="jDy-bZ-aBa"/>
                 <outlet property="topNavigationConstraint" destination="4eD-VH-w08" id="sVS-ER-rS5"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -26,10 +25,16 @@
                     </constraints>
                     <items>
                         <navigationItem title="POST" id="E4b-B0-dGe">
-                            <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="mUg-N1-qfK">
+                            <barButtonItem key="leftBarButtonItem" title="CANCEL" id="c19-gD-tNF">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="cancelPostSelected:" destination="-1" id="Hqp-Qj-9fe"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem key="rightBarButtonItem" title="POST" id="mUg-N1-qfK">
                                 <color key="tintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <action selector="cancelPostSelected:" destination="-1" id="BbC-rI-xQ0"/>
+                                    <action selector="postButtonSelected:" destination="-1" id="Pyy-1K-As2"/>
                                 </connections>
                             </barButtonItem>
                         </navigationItem>
@@ -46,17 +51,6 @@
                         <outlet property="delegate" destination="-1" id="Yz2-Xu-Aig"/>
                     </connections>
                 </textView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RqY-1a-dZn">
-                    <rect key="frame" x="8" y="317" width="584" height="30"/>
-                    <color key="backgroundColor" red="0.0" green="0.44705882352941173" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" title="Post">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="postButtonSelected:" destination="-1" eventType="touchUpInside" id="0gc-ui-ZQ9"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -65,9 +59,6 @@
                 <constraint firstItem="yyS-ba-2ln" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4eD-VH-w08"/>
                 <constraint firstAttribute="trailing" secondItem="yyS-ba-2ln" secondAttribute="trailing" id="Acz-n3-qdI"/>
                 <constraint firstItem="8E5-CZ-0TM" firstAttribute="top" secondItem="yyS-ba-2ln" secondAttribute="bottom" constant="12" id="C2x-Qi-k6g"/>
-                <constraint firstItem="RqY-1a-dZn" firstAttribute="top" secondItem="8E5-CZ-0TM" secondAttribute="bottom" constant="8" symbolic="YES" id="aTq-Qg-Y1h"/>
-                <constraint firstItem="8E5-CZ-0TM" firstAttribute="leading" secondItem="RqY-1a-dZn" secondAttribute="leading" id="qbB-5M-vhw"/>
-                <constraint firstItem="8E5-CZ-0TM" firstAttribute="trailing" secondItem="RqY-1a-dZn" secondAttribute="trailing" id="rHc-vl-Rk6"/>
                 <constraint firstItem="8E5-CZ-0TM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="u3S-Q1-ziY"/>
             </constraints>
         </view>

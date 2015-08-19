@@ -16,7 +16,6 @@
 
 @property (strong, nonatomic) UIImage *imageToPost;
 @property (weak, nonatomic) IBOutlet UIImageView *imageToPostImageView;
-@property (weak, nonatomic) IBOutlet UIButton *postButton;
 @property (weak, nonatomic) IBOutlet UITextView *commentTextView;
 
 
@@ -117,7 +116,6 @@
     textAttachment.image = [UIImage imageWithCGImage:textAttachment.image.CGImage scale:scaleFactor orientation:UIImageOrientationUp];
     NSAttributedString *attrStringWithImage = [NSAttributedString attributedStringWithAttachment:textAttachment];
     self.commentTextView.attributedText = attrStringWithImage;
-    self.postButton.enabled = YES;
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {

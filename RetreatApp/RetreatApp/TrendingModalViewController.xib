@@ -45,6 +45,7 @@
                     </state>
                     <variation key="default">
                         <mask key="constraints">
+                            <exclude reference="7a2-l7-D97"/>
                             <exclude reference="h9d-tM-4MY"/>
                         </mask>
                     </variation>
