@@ -20,7 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *commentTextView;
 
 
-- (IBAction)selectImageButtonSelected:(id)sender;
+- (IBAction)selectImageButtonSelected;
 - (IBAction)postButtonSelected:(id)sender;
 - (IBAction)cancelPostSelected:(id)sender;
 
@@ -37,7 +37,12 @@
     [self.view addConstraint:newTopConstraint];
 }
 
-- (IBAction)selectImageButtonSelected:(id)sender {
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.commentTextView becomeFirstResponder];
+}
+
+- (IBAction)selectImageButtonSelected {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     picker.allowsEditing = YES;
@@ -47,12 +52,33 @@
 }
 
 - (IBAction)postButtonSelected:(id)sender {
-    NSString* encodedPost = [self.commentTextView.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] ;
+    NSString *nonAttributedString = self.commentTextView.text;
+    SCLogMessage(kLogLevelDebug, @"non attributed String %@", nonAttributedString);
+    NSString* encodedPost = [nonAttributedString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *cleanedEncodeForAttributedString = [encodedPost stringByReplacingOccurrencesOfString:@"%EF%BF%BC%0A" withString:@""];
+    NSString *cleanedEncodeFoNoText = [cleanedEncodeForAttributedString stringByReplacingOccurrencesOfString:@"%EF%BF%BC" withString:@""];
     SettingsManager *sharedManager = [SettingsManager sharedManager];
-    DoPostForLocation *doPostForLocationOperation = [[DoPostForLocation alloc]initDoPostForUser:sharedManager.userId forLocation:self.locationId withText:encodedPost];
-    doPostForLocationOperation.doPostForLocationDelegate = self;
-    [ServiceCoordinator addNetworkOperation:doPostForLocationOperation priority:CMTTaskPriorityHigh];
-    [self.delegate dismissPostModalViewController];
+    DoPostForLocation *doPostForLocationOperation = [[DoPostForLocation alloc]initDoPostForUser:sharedManager.userId forLocation:self.locationId withText:cleanedEncodeFoNoText];
+    if (self.imageToPost != nil || ![nonAttributedString isEqualToString:@"What's on your mind?"]) {
+        doPostForLocationOperation.doPostForLocationDelegate = self;
+        [ServiceCoordinator addNetworkOperation:doPostForLocationOperation priority:CMTTaskPriorityHigh];
+        [self.delegate dismissPostModalViewController];
+    } else {
+        [self showAlertForPostContent];
+    }
+}
+
+- (void)showAlertForPostContent {
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Please Complete Post!"
+                                                                   message:@"Please add a picture or text to the post"
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * action) {}];
+    
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
+
 }
 
 #pragma mark DoPostForLocationDelegate
@@ -77,8 +103,16 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     self.imageToPost = info[UIImagePickerControllerEditedImage];
-    self.imageToPostImageView.image = self.imageToPost;
     [picker dismissViewControllerAnimated:YES completion:NULL];
+    NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
+    textAttachment.image = self.imageToPost;
+    CGFloat oldWidth = textAttachment.image.size.width;
+    //I'm subtracting 10px to make the image display nicely, accounting
+    //for the padding inside the textView
+    CGFloat scaleFactor = oldWidth / (self.commentTextView.frame.size.width - 10);
+    textAttachment.image = [UIImage imageWithCGImage:textAttachment.image.CGImage scale:scaleFactor orientation:UIImageOrientationUp];
+    NSAttributedString *attrStringWithImage = [NSAttributedString attributedStringWithAttachment:textAttachment];
+    self.commentTextView.attributedText = attrStringWithImage;
     self.postButton.enabled = YES;
 }
 
@@ -96,9 +130,30 @@
 }
 
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
+    textView.selectedRange = NSMakeRange(0, 0);
+    if ([textView.text isEqualToString:@"What's on your mind?"]) {
+        textView.textColor = [UIColor colorWithRed:0.90 green:0.90 blue:0.90 alpha:1.0f];
+    }
     UIView *accessoryView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 40.0)];
     accessoryView.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1.0f];
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button addTarget:self
+               action:@selector(selectImageButtonSelected)
+     forControlEvents:UIControlEventTouchUpInside];
+    [button setTitle:@"Photo" forState:UIControlStateNormal];
+    button.frame = CGRectMake(5.0, 5.0, 50.0, 30.0);
+    [accessoryView addSubview:button];
     self.commentTextView.inputAccessoryView = accessoryView;
+    return YES;
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if ([textView.text isEqualToString:@"What's on your mind?"]) {
+        textView.text = @"";
+        textView.textColor = [UIColor blackColor];
+    }
     return YES;
 }
 

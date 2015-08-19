@@ -2,12 +2,12 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PostModalViewController">
             <connections>
                 <outlet property="commentTextView" destination="8E5-CZ-0TM" id="me7-FO-kJe"/>
-                <outlet property="imageToPostImageView" destination="MIC-iB-OhP" id="YMq-IQ-jvS"/>
                 <outlet property="navigationBar" destination="yyS-ba-2ln" id="hsA-jV-15r"/>
                 <outlet property="postButton" destination="RqY-1a-dZn" id="jDy-bZ-aBa"/>
                 <outlet property="topNavigationConstraint" destination="4eD-VH-w08" id="sVS-ER-rS5"/>
@@ -34,34 +34,19 @@
                         </navigationItem>
                     </items>
                 </navigationBar>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="uploadphot" translatesAutoresizingMaskIntoConstraints="NO" id="MIC-iB-OhP">
-                    <rect key="frame" x="8" y="76" width="584" height="78"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="What's on your mind?" translatesAutoresizingMaskIntoConstraints="NO" id="8E5-CZ-0TM">
+                    <rect key="frame" x="8" y="76" width="584" height="233"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="78" id="ptB-wq-NLf"/>
+                        <constraint firstAttribute="height" constant="233" id="aIX-aX-RXT"/>
                     </constraints>
-                </imageView>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Comment" translatesAutoresizingMaskIntoConstraints="NO" id="8E5-CZ-0TM">
-                    <rect key="frame" x="8" y="223" width="584" height="82"/>
-                    <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="Yz2-Xu-Aig"/>
                     </connections>
                 </textView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6bY-5q-XKS">
-                    <rect key="frame" x="8" y="173" width="574" height="30"/>
-                    <color key="backgroundColor" red="0.0" green="0.44705882352941173" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" title="Select Image">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="selectImageButtonSelected:" destination="-1" eventType="touchUpInside" id="VAT-Oc-icu"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RqY-1a-dZn">
-                    <rect key="frame" x="8" y="313" width="584" height="30"/>
+                    <rect key="frame" x="8" y="317" width="584" height="30"/>
                     <color key="backgroundColor" red="0.0" green="0.44705882352941173" blue="0.78431372549019607" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="Post">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -74,26 +59,16 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="6bY-5q-XKS" secondAttribute="trailing" constant="18" id="1w7-Tj-Lxm"/>
+                <constraint firstItem="8E5-CZ-0TM" firstAttribute="centerX" secondItem="yyS-ba-2ln" secondAttribute="centerX" id="1dE-hS-osS"/>
                 <constraint firstItem="yyS-ba-2ln" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2KD-Fr-I0m"/>
-                <constraint firstAttribute="trailing" secondItem="8E5-CZ-0TM" secondAttribute="trailing" constant="8" id="2L8-AM-p80"/>
                 <constraint firstItem="yyS-ba-2ln" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4eD-VH-w08"/>
-                <constraint firstAttribute="trailing" secondItem="RqY-1a-dZn" secondAttribute="trailing" constant="8" id="5an-NZ-cwx"/>
-                <constraint firstItem="8E5-CZ-0TM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="9Ak-EY-gc1"/>
                 <constraint firstAttribute="trailing" secondItem="yyS-ba-2ln" secondAttribute="trailing" id="Acz-n3-qdI"/>
-                <constraint firstItem="MIC-iB-OhP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Fps-ju-p6y"/>
-                <constraint firstAttribute="trailing" secondItem="MIC-iB-OhP" secondAttribute="trailing" constant="8" id="PNd-k2-0N4"/>
-                <constraint firstItem="8E5-CZ-0TM" firstAttribute="top" secondItem="6bY-5q-XKS" secondAttribute="bottom" constant="20" id="WdS-bO-Me4"/>
-                <constraint firstItem="RqY-1a-dZn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="X96-0A-v1u"/>
-                <constraint firstItem="6bY-5q-XKS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Ygb-rN-Cpx"/>
-                <constraint firstItem="6bY-5q-XKS" firstAttribute="top" secondItem="MIC-iB-OhP" secondAttribute="bottom" constant="19" id="ZxS-ZK-X1J"/>
-                <constraint firstAttribute="bottom" secondItem="RqY-1a-dZn" secondAttribute="bottom" constant="257" id="cZR-XL-sOQ"/>
-                <constraint firstItem="RqY-1a-dZn" firstAttribute="top" secondItem="8E5-CZ-0TM" secondAttribute="bottom" constant="8" id="dJ0-gN-j9U"/>
-                <constraint firstItem="MIC-iB-OhP" firstAttribute="top" secondItem="yyS-ba-2ln" secondAttribute="bottom" constant="12" id="k9c-NQ-kk3"/>
+                <constraint firstItem="8E5-CZ-0TM" firstAttribute="top" secondItem="yyS-ba-2ln" secondAttribute="bottom" constant="12" id="C2x-Qi-k6g"/>
+                <constraint firstItem="RqY-1a-dZn" firstAttribute="top" secondItem="8E5-CZ-0TM" secondAttribute="bottom" constant="8" symbolic="YES" id="aTq-Qg-Y1h"/>
+                <constraint firstItem="8E5-CZ-0TM" firstAttribute="leading" secondItem="RqY-1a-dZn" secondAttribute="leading" id="qbB-5M-vhw"/>
+                <constraint firstItem="8E5-CZ-0TM" firstAttribute="trailing" secondItem="RqY-1a-dZn" secondAttribute="trailing" id="rHc-vl-Rk6"/>
+                <constraint firstItem="8E5-CZ-0TM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="u3S-Q1-ziY"/>
             </constraints>
         </view>
     </objects>
-    <resources>
-        <image name="uploadphot" width="512" height="512"/>
-    </resources>
 </document>

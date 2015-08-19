@@ -25,26 +25,33 @@
                         <outlet property="delegate" destination="-1" id="Lmb-Iu-ubm"/>
                     </connections>
                 </tableView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="me" translatesAutoresizingMaskIntoConstraints="NO" id="GCS-sQ-Q9j">
+                    <rect key="frame" x="0.0" y="66" width="94" height="53"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="94" id="8lQ-1D-sRk"/>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="53" id="hWI-uy-bAr"/>
+                    </constraints>
+                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jgh-SU-BWr">
                     <rect key="frame" x="93" y="66" width="507" height="53"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="53" id="7a2-l7-D97"/>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="53" id="7a2-l7-D97"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="53" id="h9d-tM-4MY"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" title="TAP TO CHECK-IN">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="h9d-tM-4MY"/>
+                        </mask>
+                    </variation>
                     <connections>
                         <action selector="createPostButtonSelected:" destination="-1" eventType="touchUpInside" id="Tq3-1I-tw5"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="me" translatesAutoresizingMaskIntoConstraints="NO" id="GCS-sQ-Q9j">
-                    <rect key="frame" x="0.0" y="66" width="94" height="53"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="94" id="V3S-KM-mJh"/>
-                    </constraints>
-                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>

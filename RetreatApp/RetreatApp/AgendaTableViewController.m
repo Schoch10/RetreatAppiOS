@@ -78,10 +78,11 @@ static  NSString * const SBRAGENDATABLEVIEWCELL = @"AgendaTableViewCell";
     dateFormatter.dateStyle = NSDateFormatterMediumStyle;
     NSString *agendaItemTime = [dateFormatter stringFromDate:currentAgendaItem.time];
     agendaCell.agendaTime = [NSString stringWithFormat:@"%@", agendaItemTime];
+    agendaCell.selectionStyle = UITableViewCellSelectionStyleNone;
     
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+/*- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     switch (section) {
         case 0:
             return @"Friday";
@@ -96,6 +97,6 @@ static  NSString * const SBRAGENDATABLEVIEWCELL = @"AgendaTableViewCell";
             return @"Error";
             break;
     }
-}
+} */
 
 @end
