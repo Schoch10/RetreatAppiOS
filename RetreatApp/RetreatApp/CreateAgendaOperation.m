@@ -26,7 +26,7 @@
     CoreDataManager *coreData = [CoreDataManager sharedManager];
     NSManagedObjectContext *context = coreData.operationContext;
     NSArray *titleArray = @[@"Arrive & Checkin", @"Cocktail Hour", @"Breakfast", @"Golf", @"Lawn Games", @"Zipline", @"Outdoor Activities", @"1920s Speakeasy", @"Breakfast", @"Checkout"];
-    NSArray *locationArray = @[@"Omni Mt. Washington Lobby", @"Jewel Terrace", @"Main Dining Room", @"Omni Mt. Washington Golf Course", @"South Veranda Lawn", @"Omni Canopy Tours - Slopes", @"Check Activities Email", @"Presidential Ballroom, Presidential Foyer, Presidential Garden", @"Main Dining Room", @"Omni Mt. Washington Lobby"];
+    NSArray *locationArray = @[@"Omni Mt. Washington Lobby", @"Jewel Terrace", @"Main Dining Room", @"Omni Mt. Washington Golf Course", @"South Veranda Lawn", @"Omni Canopy Tours - Slopes", @"Check Activities Email", @"Presidential Foyer", @"Main Dining Room", @"Omni Mt. Washington Lobby"];
     NSArray *imagePathArray = @[@"checkin", @"cocktails", @"breakfast", @"golf", @"lawngames", @"zipline", @"outdoors", @"banquet", @"breakfast", @"checkout"];
     NSArray *dayArray = @[@"Friday", @"Friday", @"Saturday", @"Saturday", @"Saturday", @"Saturday", @"Saturday", @"Saturday", @"Sunday", @"Sunday"];
     NSArray *timeArray = @[@"4:00PM", @"6:00PM-10:00PM", @"7:00AM-10:00AM", @"9:00AM", @"10:00AM", @"11:00AM", @"All Day", @"6:00PM-10:00PM", @"7:00AM", @"11:00AM"];
