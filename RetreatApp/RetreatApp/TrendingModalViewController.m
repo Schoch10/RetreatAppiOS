@@ -63,8 +63,6 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    self.fetchedResultsController = nil;
-    self.checkinFetchedResultsController = nil;
 }
 
 - (void)showCheckedInView {
@@ -133,9 +131,6 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
 
 - (NSFetchedResultsController *)fetchedResultsController
 {
-    if (_fetchedResultsController != nil) {
-        return _fetchedResultsController;
-    }
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
     

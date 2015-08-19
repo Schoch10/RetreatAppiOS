@@ -10,7 +10,7 @@
 #import "DoPostForLocation.h"
 #import "SettingsManager.h"
 
-@interface PostModalViewController () <UINavigationBarDelegate, DoPostForLocationDelegate>
+@interface PostModalViewController () <UINavigationBarDelegate, DoPostForLocationDelegate, UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topNavigationConstraint;
 
@@ -92,7 +92,14 @@
 
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
-    [textView resignFirstResponder];
+    [self.commentTextView resignFirstResponder];
+}
+
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
+    UIView *accessoryView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 40.0)];
+    accessoryView.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1.0f];
+    self.commentTextView.inputAccessoryView = accessoryView;
+    return YES;
 }
 
 - (IBAction)cancelPostSelected:(id)sender {
