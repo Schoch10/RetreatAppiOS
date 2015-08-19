@@ -51,6 +51,7 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    [NSFetchedResultsController deleteCacheWithName:@"Root"];
     [self getPostsForLocation];
     SettingsManager *sharedSettings = [SettingsManager sharedManager];
     if ([self.locationId intValue] == [sharedSettings.currentUserCheckinLocation intValue]) {
@@ -133,7 +134,7 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
     
     // Edit the section name key path and cache name if appropriate.
     // nil for section name key path means "no sections".
-    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:mangedObjectContext sectionNameKeyPath:nil cacheName:@"Master"];
+    NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:mangedObjectContext sectionNameKeyPath:nil cacheName:@"posts"];
     aFetchedResultsController.delegate = self;
     self.fetchedResultsController = aFetchedResultsController;
     
