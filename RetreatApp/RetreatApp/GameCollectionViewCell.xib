@@ -27,18 +27,11 @@
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qhg-lc-xaC">
-                        <rect key="frame" x="2" y="121" width="98" height="21"/>
-                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                        <color key="textColor" red="0.01176470588" green="0.4823529412" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
-                <outlet property="answerLabel" destination="Qhg-lc-xaC" id="dPW-ud-Mfw"/>
                 <outlet property="gameAnswerTextField" destination="xsJ-2X-xmn" id="TbX-eJ-TVQ"/>
                 <outlet property="gameQuestionTextView" destination="Q4i-0P-LnI" id="WoU-Io-N91"/>
             </connections>

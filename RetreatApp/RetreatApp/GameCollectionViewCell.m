@@ -13,9 +13,7 @@
 #import "ServiceCoordinator.h"
 
 @interface GameCollectionViewCell()
-@property (weak, nonatomic) IBOutlet UITextField *gameAnswerTextField;
 @property (weak, nonatomic) IBOutlet UITextView *gameQuestionTextView;
-@property (weak, nonatomic) IBOutlet UILabel *answerLabel;
 
 @end
 
@@ -32,57 +30,43 @@
 - (void)setAnswerString:(NSString *)answerString
 {
     if (answerString) {
-        self.gameAnswerTextField.text = answerString;
-        self.answerLabel.text = answerString;
         _answerString = answerString;
     }
 }
 
-- (void)flipCell {
-    
-    [UIView transitionWithView:self.contentView
-                      duration:1
-                       options:UIViewAnimationOptionTransitionFlipFromLeft
-                    animations:^{
-                        
-                        if (!self.gameAnswerTextField.hidden) {
-                            self.gameAnswerTextField.hidden = YES;
-                            self.answerLabel.hidden = NO;
-                        } else {
-                            self.gameAnswerTextField.hidden = NO;
-                            self.answerLabel.hidden = YES;
-                        }
-                        
-                    } completion:nil];
-}
-
-
 #pragma mark UITextFieldDelegate
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    if (self.cardIndex.item >= 6) {
+        dispatch_async(dispatch_get_main_queue(),^{
+            NSDictionary *userInfo = @{@"indexPath": self.cardIndex};
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"ScrollForKeyboardNotification" object:self userInfo:userInfo];
+        });
+    }
+    return YES;
+}
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
-    self.answerLabel.text = self.gameAnswerTextField.text;
-    SaveQuizAnswerOperation *saveQuizAnswer = [[SaveQuizAnswerOperation alloc]initGameAnswerWithGameId:self.cardId forAnswer:textField.text];
+    SCLogMessage(kLogLevelDebug, @"cardId on cell %ld", (long)self.cardId);
+    SaveQuizAnswerOperation *saveQuizAnswer = [[SaveQuizAnswerOperation alloc]initGameAnswerWithGameId:self.cardId forAnswer:self.gameAnswerTextField.text];
+    saveQuizAnswer.saveQuizOperationDelegate = self;
     [ServiceCoordinator addLocalOperation:saveQuizAnswer completion:^(void){}];
     return YES;
 }
 
 - (void)awakeFromNib {
-    self.gameAnswerTextField.hidden = YES;
+    self.gameAnswerTextField.hidden = NO;
     self.gameQuestionTextView.userInteractionEnabled = NO;
-    self.answerLabel.hidden = YES;
     [self.gameQuestionTextView sizeToFit];
-    if (self.gameAnswerTextField.hidden == NO && self.answerString != nil) {
-        self.answerLabel.hidden = YES;
-    } else {
-        self.answerLabel.hidden = NO;
-    }
 }
 
 - (void)quizAnswerOperationDidSucceedWithAnswer:(NSString *)answer
 {
-    self.answerLabel.text = answer;
+    dispatch_async(dispatch_get_main_queue(),^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"AnswerUpdated" object:self];
+    });
 }
 
 @end

@@ -19,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *commentTextView;
 
 
-- (IBAction)selectImageButtonSelected;
+- (void)selectImageButtonSelected;
 - (IBAction)postButtonSelected:(id)sender;
 - (IBAction)cancelPostSelected:(id)sender;
 
@@ -30,7 +30,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     [self.view removeConstraint:self.topNavigationConstraint];
     NSLayoutConstraint *newTopConstraint = [NSLayoutConstraint constraintWithItem:self.navigationBar attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.topLayoutGuide attribute:NSLayoutAttributeTop multiplier:1 constant:0];
     [self.view addConstraint:newTopConstraint];
@@ -45,7 +44,7 @@
     [self.commentTextView becomeFirstResponder];
 }
 
-- (IBAction)selectImageButtonSelected {
+- (void)selectImageButtonSelected {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     picker.allowsEditing = YES;

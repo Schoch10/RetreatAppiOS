@@ -9,12 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "SaveQuizAnswerOperation.h"
 
+
 @interface GameCollectionViewCell : UICollectionViewCell <UITextFieldDelegate, SaveQuizAnswerOperationDelegate>
 
 @property (strong, nonatomic) NSString *questionString;
 @property (strong, nonatomic) NSString *answerString;
+@property (weak, nonatomic) IBOutlet UITextField *gameAnswerTextField;
 @property (nonatomic) NSInteger cardId;
-
-- (void)flipCell;
+@property (nonatomic) NSIndexPath *cardIndex;
 
 @end

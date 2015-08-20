@@ -70,7 +70,7 @@ int secondsLeft;
         minutes = (secondsLeft % 3600) / 60;
         seconds = (secondsLeft % 3600) % 60;
         self.countdownLabel.text = [NSString stringWithFormat:@"%02d:%02d:%02d:%02.f", days, hours, minutes, seconds];
-        self.gameButton.enabled = NO;
+        self.gameButton.enabled = YES;
         self.gameButton.backgroundColor = [UIColor colorWithRed:0.0 green:0.447f blue:0.784f alpha:1.0f];
         [self.gameButton setTitle:@"FIND SOMEONE WHO..." forState:UIControlStateNormal];
     }
