@@ -34,7 +34,7 @@
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     UICollectionViewFlowLayout *flowlayout = [[UICollectionViewFlowLayout alloc]init];
     flowlayout.headerReferenceSize = CGSizeZero;
-    flowlayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    flowlayout.sectionInset = UIEdgeInsetsMake(5, 5, 0, 0);
     self.collectionView.collectionViewLayout = flowlayout;
     self.collectionView.scrollsToTop = YES;
     [self checkAnswers];
@@ -96,7 +96,7 @@
 - (void)scrollToTopNoficationReceived:(NSNotification *)notification  {
     NSIndexPath *indexForScroll = [notification.userInfo objectForKey:@"indexPath"];
     UICollectionViewCell *cell = [self.collectionView cellForItemAtIndexPath:indexForScroll];
-    [self.collectionView setContentOffset:CGPointMake(cell.center.x - self.collectionView.frame.size.width * 0.5, cell.frame.origin.y) animated:YES];
+    [self.collectionView setContentOffset:CGPointMake(0, cell.frame.origin.y) animated:YES];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
@@ -104,7 +104,7 @@
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsMake(7, 10, 5, 10);
+    return UIEdgeInsetsMake(5, 5, 1, 1);
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -123,6 +123,11 @@
     gameCell.gameAnswerTextField.text = game.answer;
 }
 
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionView *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 4
+    ; // This is the minimum inter item spacing, can be more
+}
 #pragma mark - UICollectionViewDelegate
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -152,7 +157,7 @@
 #pragma mark – UICollectionViewDelegateFlowLayout
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(100, 150);
+    return CGSizeMake(90, 150);
 }
 
 

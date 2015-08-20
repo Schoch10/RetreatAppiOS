@@ -10,6 +10,7 @@
 
 @interface GameInstructionsModalViewController ()
 - (IBAction)dismissGameInstructionsModal:(id)sender;
+@property (weak, nonatomic) IBOutlet UIView *instructionsView;
 
 @end
 
@@ -17,6 +18,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.instructionsView.layer.masksToBounds = NO;
+    self.instructionsView.layer.shadowOffset = CGSizeMake(2, 2);
+    self.instructionsView.layer.shadowRadius = 5;
+    self.instructionsView.layer.shadowOpacity = 0.5;
 }
 
 - (IBAction)dismissGameInstructionsModal:(id)sender {

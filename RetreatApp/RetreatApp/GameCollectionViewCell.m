@@ -11,6 +11,7 @@
 #import "Game+Extensions.h"
 #import "CoreDataManager.h"
 #import "ServiceCoordinator.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface GameCollectionViewCell()
 @property (weak, nonatomic) IBOutlet UITextView *gameQuestionTextView;
@@ -60,6 +61,12 @@
     self.gameAnswerTextField.hidden = NO;
     self.gameQuestionTextView.userInteractionEnabled = NO;
     [self.gameQuestionTextView sizeToFit];
+    self.layer.masksToBounds = NO;
+    self.layer.shadowOffset = CGSizeMake(2, 2);
+    self.layer.shadowRadius = 5;
+    self.layer.shadowOpacity = 0.5;
+    self.gameAnswerTextField.layer.borderColor=[[UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1.0]CGColor];
+    self.gameAnswerTextField.layer.borderWidth = 1.0;
 }
 
 - (void)quizAnswerOperationDidSucceedWithAnswer:(NSString *)answer

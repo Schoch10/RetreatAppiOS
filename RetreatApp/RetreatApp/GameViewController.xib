@@ -15,8 +15,14 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find someone who" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0T-Fs-lds">
+                    <rect key="frame" x="8" y="80" width="584" height="23"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                    <color key="textColor" red="0.0" green="0.45098039220000002" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="iv6-AS-AFS">
-                    <rect key="frame" x="0.0" y="116" width="608" height="492"/>
+                    <rect key="frame" x="8" y="111" width="584" height="492"/>
                     <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nKc-Oo-cxL">
                         <size key="itemSize" width="50" height="60"/>
@@ -29,22 +35,16 @@
                         <outlet property="delegate" destination="-1" id="TBn-Vg-L1v"/>
                     </connections>
                 </collectionView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find someone who..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0T-Fs-lds">
-                    <rect key="frame" x="8" y="80" width="584" height="23"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                    <color key="textColor" red="0.0" green="0.45098039220000002" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
             <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="F0T-Fs-lds" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="1WT-X9-wXc"/>
-                <constraint firstAttribute="trailing" secondItem="iv6-AS-AFS" secondAttribute="trailing" constant="-8" id="76O-0R-6Sj"/>
-                <constraint firstItem="iv6-AS-AFS" firstAttribute="top" secondItem="F0T-Fs-lds" secondAttribute="bottom" constant="13" id="8fe-3J-aI7"/>
+                <constraint firstAttribute="trailing" secondItem="iv6-AS-AFS" secondAttribute="trailing" constant="8" id="76O-0R-6Sj"/>
+                <constraint firstItem="iv6-AS-AFS" firstAttribute="top" secondItem="F0T-Fs-lds" secondAttribute="bottom" constant="8" id="8fe-3J-aI7"/>
                 <constraint firstItem="F0T-Fs-lds" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="EkL-gk-Ckw"/>
                 <constraint firstAttribute="trailing" secondItem="F0T-Fs-lds" secondAttribute="trailing" constant="8" id="fTA-8O-R4t"/>
-                <constraint firstAttribute="bottom" secondItem="iv6-AS-AFS" secondAttribute="bottom" constant="-8" id="gcM-SC-P07"/>
-                <constraint firstItem="iv6-AS-AFS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="jpO-uI-K6Z"/>
+                <constraint firstAttribute="bottom" secondItem="iv6-AS-AFS" secondAttribute="bottom" constant="-3" id="gcM-SC-P07"/>
+                <constraint firstItem="iv6-AS-AFS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="jpO-uI-K6Z"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
         </view>

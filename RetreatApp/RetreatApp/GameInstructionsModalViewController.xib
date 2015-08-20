@@ -2,10 +2,12 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GameInstructionsModalViewController">
             <connections>
+                <outlet property="instructionsView" destination="AqS-jf-Fwp" id="pva-c2-iCI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,34 +16,59 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zLI-lJ-0bF">
-                    <rect key="frame" x="0.0" y="566" width="600" height="34"/>
-                    <color key="backgroundColor" red="0.0" green="0.45098039220000002" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
-                    <color key="tintColor" red="0.0" green="0.45098039220000002" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
-                    <state key="normal" title="Play the Game">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" red="0.0" green="0.45098039220000002" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="dismissGameInstructionsModal:" destination="-1" eventType="touchUpInside" id="PXx-ou-9GI"/>
-                    </connections>
-                </button>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Game Instructions" translatesAutoresizingMaskIntoConstraints="NO" id="Pof-GN-Cal">
-                    <rect key="frame" x="0.0" y="34" width="600" height="532"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AqS-jf-Fwp">
+                    <rect key="frame" x="31" y="31" width="538" height="538"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Rp-T3-WFs">
+                            <rect key="frame" x="479" y="8" width="59" height="36"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="59" id="QQL-73-nYX"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                            <state key="normal" title="X">
+                                <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="dismissGameInstructionsModal:" destination="-1" eventType="touchUpInside" id="14g-9o-6oS"/>
+                            </connections>
+                        </button>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3H-0N-AUy">
+                            <rect key="frame" x="0.0" y="58" width="538" height="472"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <string key="text">To play the game….
+
+
+1. Do Something
+
+
+2. Do Something else
+
+3. Hit Return
+
+
+4. Show your app on the way in Friday</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                    </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
+                    <constraints>
+                        <constraint firstItem="6Rp-T3-WFs" firstAttribute="trailing" secondItem="AqS-jf-Fwp" secondAttribute="trailingMargin" constant="8" id="5UH-VQ-y8p"/>
+                        <constraint firstAttribute="trailing" secondItem="B3H-0N-AUy" secondAttribute="trailing" id="DiB-x0-Adx"/>
+                        <constraint firstItem="B3H-0N-AUy" firstAttribute="bottom" secondItem="AqS-jf-Fwp" secondAttribute="bottomMargin" id="MCK-7W-DR3"/>
+                        <constraint firstItem="B3H-0N-AUy" firstAttribute="top" secondItem="6Rp-T3-WFs" secondAttribute="bottom" constant="14" id="OlS-n4-zE4"/>
+                        <constraint firstItem="B3H-0N-AUy" firstAttribute="leading" secondItem="AqS-jf-Fwp" secondAttribute="leading" id="V1i-KR-NVR"/>
+                        <constraint firstItem="6Rp-T3-WFs" firstAttribute="top" secondItem="AqS-jf-Fwp" secondAttribute="topMargin" id="lI0-4B-dBR"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="zLI-lJ-0bF" secondAttribute="bottom" id="27A-Wu-xqb"/>
-                <constraint firstItem="Pof-GN-Cal" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="7kJ-MT-PfO"/>
-                <constraint firstItem="zLI-lJ-0bF" firstAttribute="top" secondItem="Pof-GN-Cal" secondAttribute="bottom" id="ShU-Hj-Qi6"/>
-                <constraint firstAttribute="trailing" secondItem="Pof-GN-Cal" secondAttribute="trailing" id="mDZ-y3-ayf"/>
-                <constraint firstAttribute="trailing" secondItem="zLI-lJ-0bF" secondAttribute="trailing" id="pCS-z6-8tc"/>
-                <constraint firstItem="Pof-GN-Cal" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="34" id="vab-3e-TdU"/>
-                <constraint firstItem="zLI-lJ-0bF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="wYE-WD-ew9"/>
+                <constraint firstItem="AqS-jf-Fwp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="31" id="88B-5q-GO3"/>
+                <constraint firstAttribute="bottom" secondItem="AqS-jf-Fwp" secondAttribute="bottom" constant="31" id="TFX-ym-1ne"/>
+                <constraint firstAttribute="trailing" secondItem="AqS-jf-Fwp" secondAttribute="trailing" constant="31" id="TRM-cp-dtU"/>
+                <constraint firstItem="AqS-jf-Fwp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="31" id="XQL-ea-Ph8"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
