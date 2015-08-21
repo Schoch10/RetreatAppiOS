@@ -61,7 +61,7 @@
     NSString *cleanedEncodeFoNoText = [cleanedEncodeForAttributedString stringByReplacingOccurrencesOfString:@"%EF%BF%BC" withString:@""];
     SettingsManager *sharedManager = [SettingsManager sharedManager];
     if (self.imageToPost != nil) {
-        DoPostForLocation *doPostForLocationImageOperation = [[DoPostForLocation alloc]initDoPostForUser:sharedManager.userId forLocation:self.locationId withText:cleanedEncodeFoNoText withImage:UIImagePNGRepresentation(self.imageToPost)];
+        DoPostForLocation *doPostForLocationImageOperation = [[DoPostForLocation alloc]initDoPostForUser:sharedManager.userId forLocation:self.locationId withText:cleanedEncodeFoNoText withImage:UIImageJPEGRepresentation(self.imageToPost, 1.0)];
         doPostForLocationImageOperation.doPostForLocationDelegate = self;
         [ServiceCoordinator addNetworkOperation:doPostForLocationImageOperation priority:CMTTaskPriorityHigh];
     } else {

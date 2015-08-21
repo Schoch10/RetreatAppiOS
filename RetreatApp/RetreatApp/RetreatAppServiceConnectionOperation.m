@@ -16,6 +16,7 @@ static int const CMTServiceConnectionMaxAttempts = 2;
 
 @property (nonatomic, strong) NSMutableURLRequest *request;
 @property (nonatomic, strong) NSURLSessionDataTask *dataTask;
+@property (nonatomic, strong) NSData *imageData;
 @property (nonatomic) int numberOfAttempts;
 
 @end
@@ -72,6 +73,7 @@ static int const CMTServiceConnectionMaxAttempts = 2;
             continue;
         } else if ([parameterValueId isKindOfClass:[NSData class]]) {
             parameterValue = parameterValueId;
+            self.imageData = parameterValueId;
             parameterData = nil;
         } else {
             if ([parameterValueId isKindOfClass:[NSSet class]]) {
@@ -99,20 +101,19 @@ static int const CMTServiceConnectionMaxAttempts = 2;
     SCLogMessage(kLogLevelDebug, @"%@", endpoint);
     switch (requestType) {
         case RESTMethodPost:
-           if ([endpoint isEqualToString:@"doPost"]) {
-               NSString *image_name = @"test";
-               NSString *boundary = @"14737809831466499882746641449";
+            if ([endpoint isEqualToString:@"doPost"] && self.imageData != nil) {
+               NSString *image_name = @"filetest";
+               NSString *boundary = @"testBoundary";
                NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];
                [request addValue:contentType forHTTPHeaderField: @"Content-Type"];
                NSMutableData *body = [NSMutableData data];
                [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
                [body appendData:[[NSString stringWithFormat:@"Content-Disposition:form-data; name=\"file\"; filename=\"%@\"\r\n",image_name] dataUsingEncoding:NSUTF8StringEncoding]];
                [body appendData:[@"Content-Type: image/png\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-               [body appendData:[NSData dataWithData:parameterData]];
+               [body appendData:[NSData dataWithData:self.imageData]];
                [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
                SCLogMessage(kLogLevelDebug, @"Data %@", body);
                request.HTTPBody = body;
-    
             } else {
                 jsonData = [NSJSONSerialization dataWithJSONObject:normalizedParams
                                                        options:(NSJSONWritingOptions)0
@@ -120,6 +121,7 @@ static int const CMTServiceConnectionMaxAttempts = 2;
                 SCLogMessage(kLogLevelDebug, @"data: %@", [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
                 request.HTTPBody = jsonData;
             }
+            self.imageData = nil;
             break;
         case RESTMethodGet:
             // GET needs no body.
