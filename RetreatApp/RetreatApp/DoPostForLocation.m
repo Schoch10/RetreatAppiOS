@@ -13,7 +13,16 @@
 - (id)initDoPostForUser:(NSNumber *)userId forLocation:(NSNumber *)locationId withText:(NSString *)postText {
     if (self = [super initWithMethod:RESTMethodPost
                          forEndpoint:@"doPost"
-                          withParams:@{@"userId": userId, @"locationId": [locationId stringValue], @"postText": postText}]) {
+                          withParams:@{@"userId": userId, @"locationId": [locationId stringValue], @"posttext": postText}]) {
+        self.delegate = self;
+    }
+    return self;
+}
+
+- (id)initDoPostForUser:(NSNumber *)userId forLocation:(NSNumber *)locationId withText:(NSString *)postText withImage:(NSData *)postImage {
+    if (self = [super initWithMethod:RESTMethodPost
+                         forEndpoint:@"doPost"
+                          withParams:@{@"userId": userId, @"locationId": [locationId stringValue], @"posttext": postText, @"postImage": postImage}]) {
         self.delegate = self;
     }
     return self;

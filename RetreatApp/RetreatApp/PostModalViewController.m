@@ -60,14 +60,16 @@
     NSString *cleanedEncodeForAttributedString = [encodedPost stringByReplacingOccurrencesOfString:@"%EF%BF%BC%0A" withString:@""];
     NSString *cleanedEncodeFoNoText = [cleanedEncodeForAttributedString stringByReplacingOccurrencesOfString:@"%EF%BF%BC" withString:@""];
     SettingsManager *sharedManager = [SettingsManager sharedManager];
-    DoPostForLocation *doPostForLocationOperation = [[DoPostForLocation alloc]initDoPostForUser:sharedManager.userId forLocation:self.locationId withText:cleanedEncodeFoNoText];
-    if (self.imageToPost != nil || ![nonAttributedString isEqualToString:@"What's on your mind?"]) {
+    if (self.imageToPost != nil) {
+        DoPostForLocation *doPostForLocationImageOperation = [[DoPostForLocation alloc]initDoPostForUser:sharedManager.userId forLocation:self.locationId withText:cleanedEncodeFoNoText withImage:UIImagePNGRepresentation(self.imageToPost)];
+        doPostForLocationImageOperation.doPostForLocationDelegate = self;
+        [ServiceCoordinator addNetworkOperation:doPostForLocationImageOperation priority:CMTTaskPriorityHigh];
+    } else {
+        DoPostForLocation *doPostForLocationOperation = [[DoPostForLocation alloc]initDoPostForUser:sharedManager.userId forLocation:self.locationId withText:cleanedEncodeFoNoText];
         doPostForLocationOperation.doPostForLocationDelegate = self;
         [ServiceCoordinator addNetworkOperation:doPostForLocationOperation priority:CMTTaskPriorityHigh];
-        [self.delegate dismissPostModalViewController];
-    } else {
-        [self showAlertForPostContent];
     }
+    [self.delegate dismissPostModalViewController];
 }
 
 - (void)showAlertForPostContent {

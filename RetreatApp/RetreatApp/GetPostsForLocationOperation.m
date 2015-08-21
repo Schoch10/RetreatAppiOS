@@ -43,7 +43,7 @@
         }
         id postImageURL = postDictionary[@"S3ImageUrl"];
         if ([postImageURL isKindOfClass:[NSString class]]) {
-            post.imageURL = postTextJSON;
+            post.imageURL = postImageURL;
         } else {
             SCLogMessage(kLogLevelDebug, @"Error");
         }

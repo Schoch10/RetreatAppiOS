@@ -21,7 +21,7 @@
 - (void)doWork {
     CoreDataManager *coreData = [CoreDataManager sharedManager];
     NSManagedObjectContext *managedObjectContext = coreData.operationContext;
-    NSArray *locations = @[@"The Cave", @"Lobby and Terrace", @"Golf", @"Lawn Games", @"Spa", @"Outdoor Activities/Town", @"Stickney's", @"Pool", @"Presidential Foyer", @"Afterparty"];
+    NSArray *locations = @[@"The Cave", @"Lobby and Terrace", @"Golf", @"Lawn Games", @"Town", @"Outdoor Activities", @"Stickney's", @"Pool", @"Presidential Foyer", @"Afterparty"];
     for (int i=0; i < locations.count; i++) {
         Location *location = [Location locationUpsertWithLocationId:@(i+3) inManagedObjectContext:managedObjectContext];
         location.locationName = [locations objectAtIndex:i];

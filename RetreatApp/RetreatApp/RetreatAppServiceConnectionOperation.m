@@ -56,17 +56,23 @@ static int const CMTServiceConnectionMaxAttempts = 2;
 {
     NSString *endpointUrlString = [ServiceEndpoints getEndpointURL:endpoint];
     NSMutableDictionary *normalizedParams = [[NSMutableDictionary alloc] initWithCapacity:params.count];
+    NSData *parameterData;
     for (NSString *parameterName in params.allKeys) {
         NSString *parameterTemplateSyntax = [NSString stringWithFormat:@"{%@}", parameterName];
         id parameterValueId = [params objectForKey:parameterName];
         NSString *parameterValue;
         if ([parameterValueId isKindOfClass:[NSString class]]) {
             parameterValue = parameterValueId;
+            parameterData = nil;
         } else if ([parameterValueId respondsToSelector:@selector(stringValue)]) {
             parameterValue = [parameterValueId stringValue];
+            parameterData = nil;
         } else if (!parameterValueId) {
             SCLogMessage(kLogLevelError, @"nil parameter value not allowed");
             continue;
+        } else if ([parameterValueId isKindOfClass:[NSData class]]) {
+            parameterValue = parameterValueId;
+            parameterData = nil;
         } else {
             if ([parameterValueId isKindOfClass:[NSSet class]]) {
                 parameterValueId = [parameterValueId allObjects];
@@ -76,8 +82,10 @@ static int const CMTServiceConnectionMaxAttempts = 2;
                                                                options:0 error:&error];
             parameterValue = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
         }
-        normalizedParams[parameterName] = parameterValueId;
-        endpointUrlString = [endpointUrlString stringByReplacingOccurrencesOfString:parameterTemplateSyntax withString:parameterValue];
+        if (parameterData == nil) {
+            normalizedParams[parameterName] = parameterValueId;
+            endpointUrlString = [endpointUrlString stringByReplacingOccurrencesOfString:parameterTemplateSyntax withString:parameterValue];
+        }
     }
     _url = [NSURL URLWithString:endpointUrlString];
     if (!_url) {
@@ -88,15 +96,31 @@ static int const CMTServiceConnectionMaxAttempts = 2;
     request.HTTPMethod = [self getRequestTypeString:requestType];
     NSData *jsonData;
     NSError *error;
+    SCLogMessage(kLogLevelDebug, @"%@", endpoint);
     switch (requestType) {
         case RESTMethodPost:
-            jsonData = [NSJSONSerialization dataWithJSONObject:normalizedParams
+           if ([endpoint isEqualToString:@"doPost"]) {
+               NSString *image_name = @"test";
+               NSString *boundary = @"14737809831466499882746641449";
+               NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];
+               [request addValue:contentType forHTTPHeaderField: @"Content-Type"];
+               NSMutableData *body = [NSMutableData data];
+               [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+               [body appendData:[[NSString stringWithFormat:@"Content-Disposition:form-data; name=\"file\"; filename=\"%@\"\r\n",image_name] dataUsingEncoding:NSUTF8StringEncoding]];
+               [body appendData:[@"Content-Type: image/png\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+               [body appendData:[NSData dataWithData:parameterData]];
+               [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+               SCLogMessage(kLogLevelDebug, @"Data %@", body);
+               request.HTTPBody = body;
+    
+            } else {
+                jsonData = [NSJSONSerialization dataWithJSONObject:normalizedParams
                                                        options:(NSJSONWritingOptions)0
                                                          error:&error];
-            SCLogMessage(kLogLevelDebug, @"data: %@", [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
-            request.HTTPBody = jsonData;
+                SCLogMessage(kLogLevelDebug, @"data: %@", [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
+                request.HTTPBody = jsonData;
+            }
             break;
-            
         case RESTMethodGet:
             // GET needs no body.
             break;

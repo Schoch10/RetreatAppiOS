@@ -18,6 +18,7 @@
 @interface DoPostForLocation : RetreatAppServiceConnectionOperation <RetreatServiceTaskDelegate>
 
 - (id)initDoPostForUser:(NSNumber *)userId forLocation:(NSNumber *)locationId withText:(NSString *)postText;
+- (id)initDoPostForUser:(NSNumber *)userId forLocation:(NSNumber *)locationId withText:(NSString *)postText withImage:(NSData *)postImage;
 
 @property (nonatomic, weak) id<DoPostForLocationDelegate> doPostForLocationDelegate;
 

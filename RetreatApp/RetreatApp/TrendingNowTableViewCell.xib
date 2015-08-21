@@ -23,7 +23,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgc-ey-hD1">
-                        <rect key="frame" x="97" y="11" width="190" height="21"/>
+                        <rect key="frame" x="77" y="11" width="210" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -31,7 +31,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="vgc-ey-hD1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="0Uc-22-42X"/>
-                    <constraint firstItem="zcg-Rx-XaT" firstAttribute="trailing" secondItem="vgc-ey-hD1" secondAttribute="leading" constant="-15" id="ClV-Rb-yYT"/>
+                    <constraint firstItem="zcg-Rx-XaT" firstAttribute="trailing" secondItem="vgc-ey-hD1" secondAttribute="leading" constant="5" id="ClV-Rb-yYT"/>
                     <constraint firstAttribute="trailing" secondItem="vgc-ey-hD1" secondAttribute="trailing" id="JuG-FL-T3n"/>
                     <constraint firstAttribute="bottom" secondItem="vgc-ey-hD1" secondAttribute="bottom" constant="11.5" id="LwV-WW-M4U"/>
                     <constraint firstItem="zcg-Rx-XaT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="afJ-tb-Qu5"/>

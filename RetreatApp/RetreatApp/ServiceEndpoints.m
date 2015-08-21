@@ -50,7 +50,7 @@ typedef NS_ENUM(NSInteger, RALocation) {
     } else if ([endpoint isEqualToString:@"getPosts"]) {
         return @"http://tpartyservice-dev.elasticbeanstalk.com/Home/GetPostsForLocation?LocationId={locationId}";
     } else if ([endpoint isEqualToString:@"doPost"]) {
-        return @"http://tpartyservice-dev.elasticbeanstalk.com/Home/DoPost?UserId={userId}&LocationId={locationId}&postText={postText}";
+        return @"http://tpartyservice-dev.elasticbeanstalk.com/api/post/SubmitPost?userid={userId}&locationid={locationId}&posttext={posttext}";        
     } else {
         return @"error";
     }

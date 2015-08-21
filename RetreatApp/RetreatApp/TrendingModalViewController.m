@@ -306,6 +306,7 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
     Post *post = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.userLabel.text = post.username;
     cell.postTextLabel.text = post.comment;
+    SCLogMessage(kLogLevelDebug, @"image URL %@", post.imageURL);
     if ([post.imageURL rangeOfString:@"http"].location == NSNotFound) {
         cell.postImageView.image = nil;
     } else {

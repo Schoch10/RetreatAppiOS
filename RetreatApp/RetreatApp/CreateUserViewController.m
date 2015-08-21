@@ -56,7 +56,7 @@
 
 - (void)createUserNetworkOperationDidSucceedWithUserId:(NSNumber *)userId {
     [SVProgressHUD dismiss];
-    if (userId) {
+    if (userId && [userId intValue] != -1) {
         SettingsManager *sharedManager = [SettingsManager sharedManager];
         sharedManager.userId = userId;
         HomeViewController *homeView = [[HomeViewController alloc]initWithNibName:@"HomeViewController" bundle:nil];
