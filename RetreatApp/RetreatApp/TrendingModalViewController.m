@@ -7,7 +7,6 @@
 //
 
 #import "TrendingModalViewController.h"
-#import "CheckedInTableViewCell.h"
 #import "PostsTableViewCell.h"
 #import "GetPostsForLocationOperation.h"
 #import "ServiceCoordinator.h"
@@ -24,7 +23,6 @@
 #import "ViewCheckinsTableViewController.h"
 #import "PollParticipantLocationsOperation.h"
 
-static  NSString * const SBRCHECKEDINCELL = @"CheckedinTableCell";
 static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
 
 
@@ -40,7 +38,6 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.trendingTableView registerNib:[UINib nibWithNibName:@"CheckedInTableViewCell" bundle:nil] forCellReuseIdentifier:SBRCHECKEDINCELL];
     [self.trendingTableView registerNib:[UINib nibWithNibName:@"PostsTableViewCell" bundle:nil] forCellReuseIdentifier:SBRPOSTSCELL];
     self.trendingTableView.rowHeight = UITableViewAutomaticDimension;
     self.trendingTableView.estimatedRowHeight = 300.f;
@@ -114,6 +111,7 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
     SettingsManager *sharedManager = [SettingsManager sharedManager];
     sharedManager.currentUserCheckinLocation = self.locationId;
     [self.checkinPostButton setTitle:@"Checked-In, Write Something..." forState:UIControlStateNormal];
+    sharedManager.currentCheckinLocationName = self.locationName;
     [self getCheckinsForLocation];
 
 }

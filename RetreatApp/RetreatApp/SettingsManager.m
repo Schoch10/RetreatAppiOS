@@ -15,6 +15,7 @@ static NSString * const CMTSettingsLastLaunchedAppVersion = @"lastLaunchedAppVer
 static NSString * const RAUserID = @"userId";
 static NSString * const RACurrentUserCheckinLocation = @"currentUserCheckinLocation";
 static NSString * const RAUserReadGameInstructions = @"userReadGameInstructions";
+static NSString * const RACurrentUserLocationName = @"currentUserLocationName";
 
 @interface SettingsManager ()
 - (id)objectForKey:(NSString *)key;
@@ -83,6 +84,14 @@ static NSString * const RAUserReadGameInstructions = @"userReadGameInstructions"
 - (NSString *)username
 {
     return [self objectForKey:kUsernameKey];
+}
+
+- (void)setCurrentCheckinLocationName:(NSString *)currentCheckinLocationName {
+    [self setObject:currentCheckinLocationName forKey:RACurrentUserLocationName];
+}
+
+- (NSString *)currentCheckinLocationName {
+    return [self objectForKey:RACurrentUserLocationName];
 }
 
 - (void)setUserImage:(NSData *)userImage

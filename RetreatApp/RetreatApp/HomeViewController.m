@@ -30,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *userImageView;
 @property (weak, nonatomic) IBOutlet UIButton *agendaButton;
 @property (nonatomic, strong) NSTimer *timer;
+@property (weak, nonatomic) IBOutlet UIButton *selectLocationButton;
 
 @end
 
@@ -56,6 +57,13 @@ int secondsLeft;
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.0 green:0.447f blue:0.784f alpha:1.0f];
+    SettingsManager *sharedSettings = [SettingsManager sharedManager];
+    if (sharedSettings.currentCheckinLocationName != nil) {
+        [self.selectLocationButton setTitle:sharedSettings.currentCheckinLocationName forState:UIControlStateNormal];
+    } else {
+        [self.selectLocationButton setTitle:@"Select Location" forState:UIControlStateNormal];
+    }
+    
 }
 
 - (void)setButtonStyles {

@@ -14,6 +14,7 @@
 #import "Checkin.h"
 #import "PollParticipantLocationsOperation.h"
 #import "TrendingModalViewController.h"
+#import "SettingsManager.h"
 
 @interface TrendingNowViewController () <UITableViewDataSource, UITableViewDelegate, PollParticipantLocationServiceDelegate >
 
@@ -47,6 +48,12 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self getPollLocations];
+    SettingsManager *sharedSettings = [SettingsManager sharedManager];
+    if (sharedSettings.currentCheckinLocationName != nil) {
+        self.title = [sharedSettings.currentCheckinLocationName uppercaseString];
+    } else {
+        self.title = @"SELECT LOCATION";
+    }
 }
 
 - (NSFetchedResultsController *)fetchedResultsController
@@ -196,6 +203,7 @@
     
     TrendingModalViewController *trendingViewController = [[TrendingModalViewController alloc]initWithNibName:@"TrendingModalViewController" bundle:nil];
     trendingViewController.title = [location.locationName uppercaseString];
+    trendingViewController.locationName = location.locationName;
     trendingViewController.totalCheckinsForLocations = @(location.checkin.count);
     trendingViewController.locationId = @(indexPath.row + 3);
     [self.navigationController pushViewController:trendingViewController animated:YES];

@@ -12,6 +12,7 @@
                 <outlet property="countdownViewHeightConstraint" destination="zRU-tx-Sjz" id="Kej-LJ-LPP"/>
                 <outlet property="gameButton" destination="GKQ-za-gjZ" id="XH3-f6-eeM"/>
                 <outlet property="infoButton" destination="MbQ-pk-2xR" id="bna-tB-yMS"/>
+                <outlet property="selectLocationButton" destination="Acp-06-yLA" id="J7f-Wj-HRm"/>
                 <outlet property="userImageView" destination="c58-78-wDy" id="tQo-Np-Uhw"/>
                 <outlet property="userInformationLabel" destination="MPI-s8-jXR" id="i28-06-OOR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
