@@ -96,7 +96,7 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uby-Df-1Zm">
-                    <rect key="frame" x="175" y="414" width="250" height="112"/>
+                    <rect key="frame" x="175" y="414" width="250" height="84"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K6R-WI-hec">
                             <rect key="frame" x="153" y="9" width="60" height="60"/>
@@ -105,7 +105,7 @@
                                 <constraint firstAttribute="width" constant="60" id="20l-LU-GWh"/>
                                 <constraint firstAttribute="height" constant="60" id="Aki-KY-alf"/>
                             </constraints>
-                            <state key="normal" backgroundImage="AGENDA-1">
+                            <state key="normal" backgroundImage="agendaIcons">
                                 <color key="titleColor" red="0.0" green="0.45098039220000002" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -120,7 +120,7 @@
                                 <constraint firstAttribute="height" constant="50" id="FDe-DO-cjb"/>
                                 <constraint firstAttribute="width" constant="50" id="qdO-Kn-ihn"/>
                             </constraints>
-                            <state key="normal" backgroundImage="INFO">
+                            <state key="normal" backgroundImage="information">
                                 <color key="titleColor" red="0.0" green="0.45098039220000002" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -128,29 +128,11 @@
                                 <action selector="informationButtonSelected:" destination="-1" eventType="touchUpInside" id="wZZ-jI-Y6c"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AGENDA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xro-YJ-iu4">
-                            <rect key="frame" x="132" y="73" width="102" height="23.5"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INFO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g4g-eN-RNB">
-                            <rect key="frame" x="21" y="73" width="80" height="23.5"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="Xro-YJ-iu4" secondAttribute="trailing" constant="16" id="C0X-yF-tVn"/>
-                        <constraint firstItem="g4g-eN-RNB" firstAttribute="centerY" secondItem="Xro-YJ-iu4" secondAttribute="centerY" id="Ciy-Uu-0dN"/>
-                        <constraint firstItem="g4g-eN-RNB" firstAttribute="centerX" secondItem="MbQ-pk-2xR" secondAttribute="centerX" id="Kxb-J8-x3m"/>
-                        <constraint firstItem="Xro-YJ-iu4" firstAttribute="top" secondItem="K6R-WI-hec" secondAttribute="bottom" constant="4" id="MxG-1a-PEK"/>
-                        <constraint firstItem="Xro-YJ-iu4" firstAttribute="centerX" secondItem="K6R-WI-hec" secondAttribute="centerX" id="Xaa-LN-Wh1"/>
                         <constraint firstItem="MbQ-pk-2xR" firstAttribute="top" secondItem="Uby-Df-1Zm" secondAttribute="top" constant="14" id="am6-h0-FsF"/>
                         <constraint firstItem="K6R-WI-hec" firstAttribute="top" secondItem="Uby-Df-1Zm" secondAttribute="top" constant="9" id="bSv-uL-L59"/>
-                        <constraint firstItem="g4g-eN-RNB" firstAttribute="leading" secondItem="Uby-Df-1Zm" secondAttribute="leading" constant="21" id="g3g-R3-puj"/>
                         <constraint firstItem="K6R-WI-hec" firstAttribute="centerY" secondItem="MbQ-pk-2xR" secondAttribute="centerY" id="i0b-8X-ahe"/>
                         <constraint firstAttribute="trailing" secondItem="K6R-WI-hec" secondAttribute="trailing" constant="37" id="i4Y-Xa-VRx"/>
                         <constraint firstItem="MbQ-pk-2xR" firstAttribute="leading" secondItem="Uby-Df-1Zm" secondAttribute="leading" constant="36" id="ycA-7Y-Etx"/>
@@ -166,7 +148,7 @@
                 <constraint firstItem="c58-78-wDy" firstAttribute="top" secondItem="1Oo-xQ-XVE" secondAttribute="bottom" constant="8" id="Gxz-kY-aii"/>
                 <constraint firstAttribute="trailing" secondItem="MPI-s8-jXR" secondAttribute="trailing" constant="30" id="Lnx-zm-HUu"/>
                 <constraint firstItem="1Oo-xQ-XVE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="71" id="NGA-64-5pe"/>
-                <constraint firstItem="GKQ-za-gjZ" firstAttribute="top" secondItem="Uby-Df-1Zm" secondAttribute="bottom" constant="27" id="PnH-bk-NTN"/>
+                <constraint firstItem="GKQ-za-gjZ" firstAttribute="top" secondItem="Uby-Df-1Zm" secondAttribute="bottom" constant="55" id="PnH-bk-NTN"/>
                 <constraint firstItem="Acp-06-yLA" firstAttribute="centerX" secondItem="MPI-s8-jXR" secondAttribute="centerX" id="ScK-H5-77w"/>
                 <constraint firstAttribute="trailing" secondItem="1Oo-xQ-XVE" secondAttribute="trailing" constant="8" id="Y5g-h9-fOc"/>
                 <constraint firstItem="Acp-06-yLA" firstAttribute="top" secondItem="MPI-s8-jXR" secondAttribute="bottom" constant="21" id="aIe-4E-w0P"/>
@@ -183,9 +165,9 @@
         </view>
     </objects>
     <resources>
-        <image name="AGENDA-1" width="54" height="50"/>
-        <image name="INFO" width="60" height="60"/>
         <image name="MobileCardReaderButton1x" width="450" height="96"/>
+        <image name="agendaIcons" width="64" height="64"/>
+        <image name="information" width="64" height="64"/>
         <image name="me" width="960" height="699"/>
     </resources>
 </document>
