@@ -25,16 +25,9 @@
                         <outlet property="delegate" destination="-1" id="Lmb-Iu-ubm"/>
                     </connections>
                 </tableView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="me" translatesAutoresizingMaskIntoConstraints="NO" id="GCS-sQ-Q9j">
-                    <rect key="frame" x="0.0" y="66" width="94" height="53"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="94" id="8lQ-1D-sRk"/>
-                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="53" id="hWI-uy-bAr"/>
-                    </constraints>
-                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jgh-SU-BWr">
-                    <rect key="frame" x="93" y="66" width="507" height="53"/>
-                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <rect key="frame" x="71" y="66" width="529" height="53"/>
+                    <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="53" id="7a2-l7-D97"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="53" id="h9d-tM-4MY"/>
@@ -53,15 +46,22 @@
                         <action selector="createPostButtonSelected:" destination="-1" eventType="touchUpInside" id="Tq3-1I-tw5"/>
                     </connections>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="me" translatesAutoresizingMaskIntoConstraints="NO" id="GCS-sQ-Q9j">
+                    <rect key="frame" x="8" y="66" width="55" height="53"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="55" id="8lQ-1D-sRk"/>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="53" id="hWI-uy-bAr"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="GCS-sQ-Q9j" firstAttribute="leading" secondItem="5UG-t0-WZ9" secondAttribute="leading" id="7Mb-FR-tzN"/>
+                <constraint firstItem="GCS-sQ-Q9j" firstAttribute="leading" secondItem="5UG-t0-WZ9" secondAttribute="leading" constant="8" id="7Mb-FR-tzN"/>
                 <constraint firstItem="GCS-sQ-Q9j" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="66" id="8Ig-yt-mrf"/>
                 <constraint firstItem="5UG-t0-WZ9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="A1k-RX-I3s"/>
                 <constraint firstItem="Jgh-SU-BWr" firstAttribute="trailing" secondItem="5UG-t0-WZ9" secondAttribute="trailing" id="CAZ-bA-WNw"/>
                 <constraint firstItem="5UG-t0-WZ9" firstAttribute="top" secondItem="Jgh-SU-BWr" secondAttribute="bottom" constant="2" id="DUZ-ob-KMq"/>
-                <constraint firstItem="Jgh-SU-BWr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="93" id="I5G-q8-fnE"/>
+                <constraint firstItem="Jgh-SU-BWr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="71" id="I5G-q8-fnE"/>
                 <constraint firstAttribute="trailing" secondItem="5UG-t0-WZ9" secondAttribute="trailing" id="LRz-Jq-nN4"/>
                 <constraint firstItem="5UG-t0-WZ9" firstAttribute="top" secondItem="GCS-sQ-Q9j" secondAttribute="bottom" constant="2" id="h4m-9H-LM1"/>
                 <constraint firstItem="Jgh-SU-BWr" firstAttribute="top" secondItem="GCS-sQ-Q9j" secondAttribute="top" id="y8k-ls-arX"/>

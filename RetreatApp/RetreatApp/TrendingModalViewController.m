@@ -155,8 +155,8 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
     // nil for section name key path means "no sections".
     NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:mangedObjectContext sectionNameKeyPath:nil cacheName:@"posts"];
     aFetchedResultsController.delegate = self;
+    aFetchedResultsController.fetchRequest.fetchBatchSize = 20;
     self.fetchedResultsController = aFetchedResultsController;
-    
     NSError *error = nil;
     if (![self.fetchedResultsController performFetch:&error]) {
         // Replace this implementation with code to handle the error appropriately.
@@ -276,17 +276,33 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
         if ([post.imageURL rangeOfString:@"http"].location == NSNotFound) {
             postsCell.postImageView.image = nil;
         } else {
-            NSURL *url = [NSURL URLWithString:post.imageURL];
-            NSData *data = [NSData dataWithContentsOfURL:url];
-            postsCell.postImageView.image = [UIImage imageWithData:data];
+            if (post.imageCache != nil) {
+                postsCell.postImageView.image = [UIImage imageWithData:post.imageCache];
+            } else {
+                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^(void) {
+                    NSURL *url = [NSURL URLWithString:post.imageURL];
+                    NSData *data = [NSData dataWithContentsOfURL:url];
+                    dispatch_sync(dispatch_get_main_queue(), ^(void) {
+                        postsCell.postImageView.image = [UIImage imageWithData:data];
+                    });
+                });
+            }
         }
         return postsCell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    Post *post = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    if ([post.imageURL rangeOfString:@"http"].location == NSNotFound) {
+        return 270.0f;
+    } else {
+        return 100.0f;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return [self heightForImageCellAtIndexPath:indexPath];
-    //return UITableViewAutomaticDimension;
 }
 
 - (CGFloat)heightForImageCellAtIndexPath:(NSIndexPath *)indexPath {

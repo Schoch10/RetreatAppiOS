@@ -18,7 +18,7 @@
                         <rect key="frame" x="8" y="230.5" width="304" height="30.5"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UTi-hq-9Q4">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="me" translatesAutoresizingMaskIntoConstraints="NO" id="UTi-hq-9Q4">
                         <rect key="frame" x="8" y="39" width="304" height="185.5"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="185.5" id="CG1-vC-Awf"/>
@@ -54,4 +54,7 @@
             <point key="canvasLocation" x="306" y="376"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="me" width="960" height="699"/>
+    </resources>
 </document>

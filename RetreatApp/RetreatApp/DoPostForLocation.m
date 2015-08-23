@@ -38,13 +38,19 @@
 
 - (void)serviceTaskDidFailToCompleteRequest:(NSError *)error {
     SCLogMessage(kLogLevelDebug, @"Error %@", error);
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.doPostForLocationDelegate doPostForLocationDidFailWithError:error];
-    });
+    if (error.code == 2) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.doPostForLocationDelegate doPostForLocationDidSucceed];
+        });
+    } else {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.doPostForLocationDelegate doPostForLocationDidFailWithError:error];
+        });
+    }
 }
 
 - (void)serviceTaskDidReceiveStatusFailure:(HttpStatusCode)httpStatusCode {
-    SCLogMessage(kLogLevelDebug, @"Error");
+    SCLogMessage(kLogLevelDebug, @"Error %ld", (long)httpStatusCode);
 }
 
 @end

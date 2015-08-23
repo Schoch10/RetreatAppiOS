@@ -10,7 +10,6 @@
 		561D9AEE1B387E6400C70C07 /* Agenda+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 561D9AED1B387E6400C70C07 /* Agenda+Extensions.m */; };
 		561D9AF11B387FE000C70C07 /* CreateAgendaOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 561D9AF01B387FE000C70C07 /* CreateAgendaOperation.m */; };
 		5631E40F1B21E55900798191 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 5631E40E1B21E55900798191 /* User.m */; };
-		5631E4121B21E55900798191 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 5631E4111B21E55900798191 /* Post.m */; };
 		5631E4181B21E69A00798191 /* User+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5631E4171B21E69A00798191 /* User+Extensions.m */; };
 		5631E4211B21F76500798191 /* Checkin+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5631E4201B21F76500798191 /* Checkin+Extensions.m */; };
 		5640A46D1B18B5EA0073D8E2 /* SettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5640A46C1B18B5EA0073D8E2 /* SettingsManager.m */; };
@@ -23,6 +22,7 @@
 		5640A48C1B18DF370073D8E2 /* CreateUserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5640A48A1B18DF370073D8E2 /* CreateUserViewController.xib */; };
 		56572DE61B83D03100663221 /* ViewCheckinsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56572DE41B83D03100663221 /* ViewCheckinsTableViewController.m */; };
 		56572DE71B83D03100663221 /* ViewCheckinsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56572DE51B83D03100663221 /* ViewCheckinsTableViewController.xib */; };
+		56694BE41B8A1907003D91E0 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 56694BE31B8A1907003D91E0 /* Post.m */; };
 		5688F7CC1B7E80F00085B36E /* SVProgressHUD in Resources */ = {isa = PBXBuildFile; fileRef = 5688F7CB1B7E80F00085B36E /* SVProgressHUD */; };
 		5688F7CE1B7E812A0085B36E /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5688F7CD1B7E812A0085B36E /* SVProgressHUD.bundle */; };
 		5688F7D01B7E81400085B36E /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 5688F7CF1B7E81400085B36E /* SVProgressHUD.m */; };
@@ -110,8 +110,6 @@
 		561D9AF01B387FE000C70C07 /* CreateAgendaOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateAgendaOperation.m; sourceTree = "<group>"; };
 		5631E40D1B21E55900798191 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		5631E40E1B21E55900798191 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		5631E4101B21E55900798191 /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
-		5631E4111B21E55900798191 /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		5631E4161B21E69A00798191 /* User+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+Extensions.h"; sourceTree = "<group>"; };
 		5631E4171B21E69A00798191 /* User+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+Extensions.m"; sourceTree = "<group>"; };
 		5631E41F1B21F76500798191 /* Checkin+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Checkin+Extensions.h"; sourceTree = "<group>"; };
@@ -130,6 +128,8 @@
 		56572DE31B83D03100663221 /* ViewCheckinsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewCheckinsTableViewController.h; sourceTree = "<group>"; };
 		56572DE41B83D03100663221 /* ViewCheckinsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewCheckinsTableViewController.m; sourceTree = "<group>"; };
 		56572DE51B83D03100663221 /* ViewCheckinsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewCheckinsTableViewController.xib; sourceTree = "<group>"; };
+		56694BE21B8A1907003D91E0 /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
+		56694BE31B8A1907003D91E0 /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		5688F7CB1B7E80F00085B36E /* SVProgressHUD */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SVProgressHUD; sourceTree = "<group>"; };
 		5688F7CD1B7E812A0085B36E /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SVProgressHUD.bundle; path = RetreatApp/SVProgressHUD/SVProgressHUD.bundle; sourceTree = "<group>"; };
 		5688F7CF1B7E81400085B36E /* SVProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SVProgressHUD.m; path = RetreatApp/SVProgressHUD/SVProgressHUD.m; sourceTree = "<group>"; };
@@ -273,6 +273,8 @@
 		5640A46A1B18B5D70073D8E2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				56694BE21B8A1907003D91E0 /* Post.h */,
+				56694BE31B8A1907003D91E0 /* Post.m */,
 				56F80AE61B8512F0002FDB2C /* Agenda.h */,
 				56F80AE71B8512F0002FDB2C /* Agenda.m */,
 				56A69F451B7A84F400DE181A /* Location.h */,
@@ -283,8 +285,6 @@
 				56A69F3A1B7A7DB500DE181A /* Post+Extensions.m */,
 				5631E41F1B21F76500798191 /* Checkin+Extensions.h */,
 				5631E4201B21F76500798191 /* Checkin+Extensions.m */,
-				5631E4101B21E55900798191 /* Post.h */,
-				5631E4111B21E55900798191 /* Post.m */,
 				5631E40D1B21E55900798191 /* User.h */,
 				5631E40E1B21E55900798191 /* User.m */,
 				5631E4161B21E69A00798191 /* User+Extensions.h */,
@@ -697,10 +697,10 @@
 				56B5E9751B1E3A710041C48E /* SaveQuizAnswerOperation.m in Sources */,
 				56A69F561B7D526E00DE181A /* GameInstructionsModalViewController.m in Sources */,
 				56572DE61B83D03100663221 /* ViewCheckinsTableViewController.m in Sources */,
-				5631E4121B21E55900798191 /* Post.m in Sources */,
 				56C568111B7539AF0073431C /* CheckinOperation.m in Sources */,
 				561D9AEE1B387E6400C70C07 /* Agenda+Extensions.m in Sources */,
 				5640A4861B18DD760073D8E2 /* WelcomeViewController.m in Sources */,
+				56694BE41B8A1907003D91E0 /* Post.m in Sources */,
 				56A606CF1B176CF800F95006 /* HomeViewController.m in Sources */,
 				56B5E96C1B1E28F20041C48E /* Game.m in Sources */,
 				56B5E94D1B1CCF770041C48E /* CheckedInTableViewCell.m in Sources */,

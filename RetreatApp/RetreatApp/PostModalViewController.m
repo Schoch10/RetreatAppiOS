@@ -69,7 +69,6 @@
         doPostForLocationOperation.doPostForLocationDelegate = self;
         [ServiceCoordinator addNetworkOperation:doPostForLocationOperation priority:CMTTaskPriorityHigh];
     }
-    [self.delegate dismissPostModalViewController];
 }
 
 - (void)showAlertForPostContent {
@@ -88,6 +87,10 @@
 #pragma mark DoPostForLocationDelegate
 
 - (void)doPostForLocationDidSucceed {
+    [self.delegate dismissPostModalViewController];
+}
+
+- (void)doPostForLocationDidFailWithError:(NSError *)error {
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Success!"
                                                                    message:@"You Have Successfully Posted Please Check the Wall"
                                                             preferredStyle:UIAlertControllerStyleAlert];
@@ -97,9 +100,6 @@
     
     [alert addAction:defaultAction];
     [self presentViewController:alert animated:YES completion:nil];
-}
-
-- (void)doPostForLocationDidFailWithError:(NSError *)error {
 }
 
 #pragma mark UIImagePickerDelegate

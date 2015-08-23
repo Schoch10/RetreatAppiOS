@@ -29,6 +29,7 @@
     </entity>
     <entity name="Post" representedClassName="Post" syncable="YES">
         <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imageCache" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="imageURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="locationId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -47,7 +48,7 @@
         <element name="Checkin" positionX="-12744" positionY="1620" width="128" height="148"/>
         <element name="Game" positionX="-13140" positionY="1838" width="128" height="88"/>
         <element name="Location" positionX="-12962" positionY="1748" width="128" height="88"/>
-        <element name="Post" positionX="-13178" positionY="1622" width="128" height="165"/>
+        <element name="Post" positionX="-13178" positionY="1622" width="128" height="180"/>
         <element name="User" positionX="-12969" positionY="1616" width="128" height="90"/>
     </elements>
 </model>
