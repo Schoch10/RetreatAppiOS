@@ -286,7 +286,6 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
                     NSData *data = [NSData dataWithContentsOfURL:url];
                     dispatch_sync(dispatch_get_main_queue(), ^(void) {
                         postsCell.postImageView.image = [UIImage imageWithData:data];
-                        [self saveImageToCacheForPost:post.postID withImageData:data];
                     });
                 });
             }

@@ -44,9 +44,9 @@
         id postImageURL = postDictionary[@"S3ImageUrl"];
         if ([postImageURL isKindOfClass:[NSString class]]) {
             post.imageURL = postImageURL;
-       /*     NSURL *url = [NSURL URLWithString:post.imageURL];
+           NSURL *url = [NSURL URLWithString:post.imageURL];
             NSData *data = [NSData dataWithContentsOfURL:url];
-            post.imageCache = data; */
+            post.imageCache = data; 
         } else {
             SCLogMessage(kLogLevelDebug, @"Error");
         }
