@@ -23,6 +23,7 @@
 		56572DE61B83D03100663221 /* ViewCheckinsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56572DE41B83D03100663221 /* ViewCheckinsTableViewController.m */; };
 		56572DE71B83D03100663221 /* ViewCheckinsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56572DE51B83D03100663221 /* ViewCheckinsTableViewController.xib */; };
 		56694BE41B8A1907003D91E0 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = 56694BE31B8A1907003D91E0 /* Post.m */; };
+		56694BE71B8BB094003D91E0 /* SaveImageLocalOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 56694BE61B8BB094003D91E0 /* SaveImageLocalOperation.m */; };
 		5688F7CC1B7E80F00085B36E /* SVProgressHUD in Resources */ = {isa = PBXBuildFile; fileRef = 5688F7CB1B7E80F00085B36E /* SVProgressHUD */; };
 		5688F7CE1B7E812A0085B36E /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5688F7CD1B7E812A0085B36E /* SVProgressHUD.bundle */; };
 		5688F7D01B7E81400085B36E /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 5688F7CF1B7E81400085B36E /* SVProgressHUD.m */; };
@@ -130,6 +131,8 @@
 		56572DE51B83D03100663221 /* ViewCheckinsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewCheckinsTableViewController.xib; sourceTree = "<group>"; };
 		56694BE21B8A1907003D91E0 /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		56694BE31B8A1907003D91E0 /* Post.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		56694BE51B8BB094003D91E0 /* SaveImageLocalOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveImageLocalOperation.h; sourceTree = "<group>"; };
+		56694BE61B8BB094003D91E0 /* SaveImageLocalOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveImageLocalOperation.m; sourceTree = "<group>"; };
 		5688F7CB1B7E80F00085B36E /* SVProgressHUD */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SVProgressHUD; sourceTree = "<group>"; };
 		5688F7CD1B7E812A0085B36E /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SVProgressHUD.bundle; path = RetreatApp/SVProgressHUD/SVProgressHUD.bundle; sourceTree = "<group>"; };
 		5688F7CF1B7E81400085B36E /* SVProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SVProgressHUD.m; path = RetreatApp/SVProgressHUD/SVProgressHUD.m; sourceTree = "<group>"; };
@@ -471,6 +474,8 @@
 				561D9AF01B387FE000C70C07 /* CreateAgendaOperation.m */,
 				56A69F481B7A861D00DE181A /* AddLocationsOperation.h */,
 				56A69F491B7A861D00DE181A /* AddLocationsOperation.m */,
+				56694BE51B8BB094003D91E0 /* SaveImageLocalOperation.h */,
+				56694BE61B8BB094003D91E0 /* SaveImageLocalOperation.m */,
 			);
 			name = "Local Operations";
 			sourceTree = "<group>";
@@ -672,6 +677,7 @@
 			files = (
 				5688F7D01B7E81400085B36E /* SVProgressHUD.m in Sources */,
 				56A69F3B1B7A7DB500DE181A /* Post+Extensions.m in Sources */,
+				56694BE71B8BB094003D91E0 /* SaveImageLocalOperation.m in Sources */,
 				5631E40F1B21E55900798191 /* User.m in Sources */,
 				8CB96F711B44BC2600845975 /* UIView+Position.m in Sources */,
 				56B5E95C1B1CFA930041C48E /* GameCollectionViewCell.m in Sources */,

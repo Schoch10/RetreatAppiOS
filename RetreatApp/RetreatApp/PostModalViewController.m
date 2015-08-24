@@ -9,6 +9,7 @@
 #import "PostModalViewController.h"
 #import "DoPostForLocation.h"
 #import "SettingsManager.h"
+#import "SVProgressHUD/SVProgressHUD.h"
 
 @interface PostModalViewController () <UINavigationBarDelegate, DoPostForLocationDelegate, UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UINavigationBar *navigationBar;
@@ -42,6 +43,10 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.commentTextView becomeFirstResponder];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [SVProgressHUD dismiss];
 }
 
 - (void)selectImageButtonSelected {

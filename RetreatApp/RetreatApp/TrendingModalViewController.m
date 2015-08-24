@@ -22,6 +22,7 @@
 #import "SVProgressHUD/SVProgressHUD.h"
 #import "ViewCheckinsTableViewController.h"
 #import "PollParticipantLocationsOperation.h"
+#import "SaveImageLocalOperation.h"
 
 static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
 
@@ -60,7 +61,7 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     self.fetchedResultsController = nil;
-    self.checkinFetchedResultsController = nil;
+    [SVProgressHUD dismiss];
 }
 
 - (void)showCheckedInView {
@@ -271,7 +272,8 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
         Post *post = [self.fetchedResultsController objectAtIndexPath:indexPath];
         
         NSString *usernameString = [post.username stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
-        postsCell.userLabel.text = usernameString;
+        NSString *postDate = [self formatPostDateForPostDate:post.postDate];
+        postsCell.userLabel.text = [NSString stringWithFormat:@"%@ %@", usernameString, postDate];
         postsCell.postTextLabel.text = [post.comment stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
         if ([post.imageURL rangeOfString:@"http"].location == NSNotFound) {
             postsCell.postImageView.image = nil;
@@ -284,11 +286,39 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
                     NSData *data = [NSData dataWithContentsOfURL:url];
                     dispatch_sync(dispatch_get_main_queue(), ^(void) {
                         postsCell.postImageView.image = [UIImage imageWithData:data];
+                        [self saveImageToCacheForPost:post.postID withImageData:data];
                     });
                 });
             }
         }
         return postsCell;
+}
+
+- (void)saveImageToCacheForPost:(NSNumber *)postId withImageData:(NSData *)imageData {
+    SaveImageLocalOperation *saveImageOperation = [[SaveImageLocalOperation alloc]initWithPostId:postId withImage:imageData];
+    [ServiceCoordinator addLocalOperation:saveImageOperation completion:^(void){}];
+}
+
+- (NSString *)formatPostDateForPostDate:(NSDate *)postDate {
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    dateFormatter.dateStyle = NSDateFormatterMediumStyle;
+    NSTimeInterval postTimeInterval = [[NSDate date] timeIntervalSinceDate:postDate];
+    int postTimeInt =  postTimeInterval;
+    ;
+    SCLogMessage(kLogLevelDebug, @"time interval %f", postTimeInterval);
+    NSString *postDateString;
+    int days = postTimeInt / 86400;
+    int hours = (postTimeInt % 86400) / 3600;
+    int minutes = (postTimeInt % 3600) / 60;
+    int seconds = (postTimeInt % 3600) % 60;
+    if (minutes == 0 && hours == 0 & days == 0) {
+        postDateString = @"Just Now";
+    } else if (hours == 0 &&  days == 0) {
+        postDateString = [NSString stringWithFormat:@"%d Minutes Ago", minutes];
+    } else {
+        postDateString = [NSString stringWithFormat:@"%d Hours Ago", hours];
+    }
+    return postDateString;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -15,6 +15,7 @@
 #import "PollParticipantLocationsOperation.h"
 #import "TrendingModalViewController.h"
 #import "SettingsManager.h"
+#import "SVProgressHUD/SVProgressHUD.h"
 
 @interface TrendingNowViewController () <UITableViewDataSource, UITableViewDelegate, PollParticipantLocationServiceDelegate >
 
@@ -54,6 +55,11 @@
     } else {
         self.title = @"SELECT LOCATION";
     }
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [SVProgressHUD dismiss];
 }
 
 - (NSFetchedResultsController *)fetchedResultsController

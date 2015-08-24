@@ -44,9 +44,9 @@
         id postImageURL = postDictionary[@"S3ImageUrl"];
         if ([postImageURL isKindOfClass:[NSString class]]) {
             post.imageURL = postImageURL;
-            NSURL *url = [NSURL URLWithString:post.imageURL];
+       /*     NSURL *url = [NSURL URLWithString:post.imageURL];
             NSData *data = [NSData dataWithContentsOfURL:url];
-            post.imageCache = data;
+            post.imageCache = data; */
         } else {
             SCLogMessage(kLogLevelDebug, @"Error");
         }
@@ -66,7 +66,7 @@
         if ([postTimeStamp isKindOfClass:[NSString class]]) {
             NSString *postTimeString = postTimeStamp;
             NSDateFormatter *dateFor = [[NSDateFormatter alloc] init];
-            [dateFor setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss'+'SS:SS"];
+            [dateFor setDateFormat:@"MM-dd-yy'T'HH:mm:ss'"];
             NSDate *postDate = [dateFor dateFromString:postTimeString];
             post.postDate = postDate;
         }
