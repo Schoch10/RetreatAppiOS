@@ -47,6 +47,12 @@
     return YES;
 }
 
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    SaveQuizAnswerOperation *saveQuizAnswer = [[SaveQuizAnswerOperation alloc]initGameAnswerWithGameId:self.cardId forAnswer:self.gameAnswerTextField.text];
+    saveQuizAnswer.saveQuizOperationDelegate = self;
+    [ServiceCoordinator addLocalOperation:saveQuizAnswer completion:^(void){}];
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [textField resignFirstResponder];
