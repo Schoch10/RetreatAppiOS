@@ -86,10 +86,13 @@ int secondsLeft;
     {
         [timer invalidate];
         self.countdownView.hidden = YES;
+        self.countdownLabel.hidden = YES;
+        
         self.countdownViewHeightConstraint.constant = 20;
         self.gameButton.enabled = YES;
         [self.gameButton setTitle:@"Game" forState:UIControlStateNormal];
         self.gameButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+        
     }
 }
 
@@ -98,6 +101,7 @@ int secondsLeft;
     [comps setDay:28];
     [comps setMonth:8];
     [comps setYear:2015];
+    [comps setHour:16];
     //Add iOS 7 support
     NSCalendar *gregorian = [[NSCalendar alloc]
                              initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
