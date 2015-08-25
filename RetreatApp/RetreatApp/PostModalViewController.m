@@ -95,7 +95,7 @@
 #pragma mark DoPostForLocationDelegate
 
 - (void)doPostForLocationDidSucceed {
-    [self.delegate dismissPostModalViewController];
+    [self.delegate dismissPostModalViewControllerWithPost];
 }
 
 - (void)doPostForLocationDidFailWithError:(NSError *)error {

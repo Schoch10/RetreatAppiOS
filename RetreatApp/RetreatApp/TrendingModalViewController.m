@@ -302,6 +302,7 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
 }
 
 - (NSString *)formatPostDateForPostDate:(NSDate *)postDate {
+    SCLogMessage(kLogLevelDebug, @"Post Date %@", postDate);
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
     dateFormatter.dateStyle = NSDateFormatterMediumStyle;
     NSTimeInterval postTimeInterval = [[NSDate date] timeIntervalSinceDate:postDate];
@@ -418,9 +419,13 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
 
 - (void)dismissPostModalViewController {
     [self dismissViewControllerAnimated:YES completion:^(void){
+    }];
+}
+
+- (void)dismissPostModalViewControllerWithPost {
+    [self dismissViewControllerAnimated:YES completion:^(void){
         [self getPostsForLocation];
     }];
-    
 }
 
 @end

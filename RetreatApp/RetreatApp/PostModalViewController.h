@@ -11,6 +11,7 @@
 @protocol PostModalViewControllerDelegate <NSObject>
 
 - (void)dismissPostModalViewController;
+- (void)dismissPostModalViewControllerWithPost;
 
 @end
 
