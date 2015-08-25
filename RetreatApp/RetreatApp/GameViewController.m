@@ -27,7 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Game View Controller";
+    self.title = @"Find Someone Who";
     [self.collectionView registerNib:[UINib nibWithNibName:@"GameCollectionViewCell" bundle:nil]forCellWithReuseIdentifier:@"QuestionCell"];
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.0 green:0.447f blue:0.784f alpha:1.0f];
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
