@@ -51,6 +51,10 @@
 
 - (void)serviceTaskDidReceiveStatusFailure:(HttpStatusCode)httpStatusCode {
     SCLogMessage(kLogLevelDebug, @"Error %ld", (long)httpStatusCode);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSError *error = nil;
+        [self.doPostForLocationDelegate doPostForLocationDidFailWithError:error];
+    });
 }
 
 @end

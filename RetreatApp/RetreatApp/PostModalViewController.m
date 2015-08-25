@@ -18,6 +18,7 @@
 @property (strong, nonatomic) UIImage *imageToPost;
 @property (weak, nonatomic) IBOutlet UIImageView *imageToPostImageView;
 @property (weak, nonatomic) IBOutlet UITextView *commentTextView;
+@property (strong, nonatomic) UIButton *selectPhotoButton;
 
 
 - (void)selectImageButtonSelected;
@@ -43,6 +44,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.commentTextView becomeFirstResponder];
+    self.selectPhotoButton.enabled = YES;
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -122,7 +124,8 @@
     textAttachment.image = [UIImage imageWithCGImage:textAttachment.image.CGImage scale:scaleFactor orientation:UIImageOrientationUp];
     NSAttributedString *attrStringWithImage = [NSAttributedString attributedStringWithAttachment:textAttachment];
     self.commentTextView.attributedText = attrStringWithImage;
-    self.commentTextView.selectedRange = NSMakeRange(2, 1);
+
+    self.selectPhotoButton.enabled = NO;
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
@@ -139,20 +142,20 @@
 }
 
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
-    textView.selectedRange = NSMakeRange(0, 0);
     if ([textView.text isEqualToString:@"What's on your mind?"]) {
         textView.textColor = [UIColor colorWithRed:0.90 green:0.90 blue:0.90 alpha:1.0f];
     }
     UIView *accessoryView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 40.0)];
     accessoryView.backgroundColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1.0f];
-    
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [button addTarget:self
-               action:@selector(selectImageButtonSelected)
-     forControlEvents:UIControlEventTouchUpInside];
-    [button setTitle:@"Photo" forState:UIControlStateNormal];
-    button.frame = CGRectMake(5.0, 5.0, 50.0, 30.0);
-    [accessoryView addSubview:button];
+    if (self.selectPhotoButton == nil) {
+        self.selectPhotoButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [self.selectPhotoButton addTarget:self
+                                   action:@selector(selectImageButtonSelected)
+                         forControlEvents:UIControlEventTouchUpInside];
+        [self.selectPhotoButton setTitle:@"Photo" forState:UIControlStateNormal];
+        self.selectPhotoButton.frame = CGRectMake(5.0, 5.0, 50.0, 30.0);
+    }
+    [accessoryView addSubview:self.selectPhotoButton];
     self.commentTextView.inputAccessoryView = accessoryView;
     return YES;
 }
@@ -162,6 +165,7 @@
     if ([textView.text isEqualToString:@"What's on your mind?"]) {
         textView.text = @"";
         textView.textColor = [UIColor blackColor];
+        self.selectPhotoButton.enabled = YES;
     }
     if([[textView text] length] > 1000){
         return NO;

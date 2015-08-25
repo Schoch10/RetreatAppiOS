@@ -483,12 +483,12 @@
 		56B5E9601B1DF9E80041C48E /* Network Operations */ = {
 			isa = PBXGroup;
 			children = (
-				56A69F301B7A7D1800DE181A /* GetPostsForLocationOperation.m */,
 				56A69F311B7A7D1800DE181A /* DoPostForLocation.h */,
 				56A69F321B7A7D1800DE181A /* DoPostForLocation.m */,
 				56A69F331B7A7D1800DE181A /* CreateUserNetworkOperation.m */,
 				56A69F341B7A7D1800DE181A /* CreateUserNetworkOperation.h */,
 				56A69F351B7A7D1800DE181A /* GetPostsForLocationOperation.h */,
+				56A69F301B7A7D1800DE181A /* GetPostsForLocationOperation.m */,
 				56C5680D1B7536050073431C /* PollParticipantLocationsOperation.h */,
 				56C5680C1B7536050073431C /* PollParticipantLocationsOperation.m */,
 				56AC7CF91B62C7CC00B4404E /* RetreatAppServiceConnectionOperation.h */,

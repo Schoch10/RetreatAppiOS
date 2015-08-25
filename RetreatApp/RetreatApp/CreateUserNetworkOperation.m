@@ -47,4 +47,17 @@
     });
 }
 
+- (void)serviceTaskDidFailToCompleteRequest:(NSError *)error {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.createUserOperationDelegate createUserNetworkOperationDidFail:error];
+    });
+}
+
+- (void)serviceTaskDidReceiveStatusFailure:(HttpStatusCode)httpStatusCode {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSError *error = nil;
+        [self.createUserOperationDelegate createUserNetworkOperationDidFail:error];
+    });
+}
+
 @end
