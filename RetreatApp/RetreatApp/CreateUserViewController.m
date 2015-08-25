@@ -19,7 +19,8 @@
 - (IBAction)saveButtonSelected:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *saveButton;
 - (IBAction)chooseUserImageSelected:(id)sender;
-@property (weak, nonatomic) IBOutlet UIImageView *userImageView;
+@property (weak, nonatomic) IBOutlet UIButton *selectImageButton;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 
 @end
 
@@ -32,6 +33,19 @@
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.0 green:0.447f blue:0.784f alpha:1.0f];
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    [self drawBorders];
+}
+
+- (void)drawBorders {
+    CALayer *bottomBorder = [CALayer layer];
+    bottomBorder.frame = CGRectMake(0.0f, self.firstNameTextField.frame.size.height - 1, self.firstNameTextField.frame.size.width, 1.0f);
+    bottomBorder.backgroundColor = [UIColor colorWithRed:0.0 green:0.447f blue:0.784f alpha:1.0f].CGColor;
+    [self.firstNameTextField.layer addSublayer:bottomBorder];
+    CALayer *nameBorder = [CALayer layer];
+    nameBorder.frame = CGRectMake(0.0f, self.nameLabel.frame.size.height - 1, self.nameLabel.frame.size.width, 1.0f);
+    nameBorder.backgroundColor = [UIColor colorWithRed:0.0 green:0.447f blue:0.784f alpha:1.0f].CGColor;
+    [self.nameLabel.layer addSublayer:nameBorder];
+
 
 }
 
@@ -103,7 +117,7 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     UIImage *userImage = info[UIImagePickerControllerEditedImage];
-    self.userImageView.image = userImage;
+    [self.selectImageButton setBackgroundImage:userImage forState:UIControlStateNormal];
     NSData *imageData = UIImagePNGRepresentation(userImage);
     SettingsManager *sharedSettings = [SettingsManager sharedManager];
     sharedSettings.userImage = imageData;
