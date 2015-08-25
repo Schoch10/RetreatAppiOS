@@ -102,7 +102,7 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
 }
 
 - (void)pollParticipantLocationDidFailWithError:(NSError *)error {
-    
+    [SVProgressHUD dismiss];
 }
 
 #pragma mark Checkin Operation Delegate 
@@ -236,6 +236,7 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
 }
 
 - (void)getPostsForLocationDidFailWithError:(NSError *)error {
+    [SVProgressHUD dismiss];
     UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Error!"
                                                                    message:@"Could not Retrieve Posts Please Try Again"
                                                             preferredStyle:UIAlertControllerStyleAlert];
@@ -273,7 +274,8 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
         
         NSString *usernameString = [post.username stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
         NSString *postDate = [self formatPostDateForPostDate:post.postDate];
-        postsCell.userLabel.text = [NSString stringWithFormat:@"%@ %@", usernameString, postDate];
+        postsCell.userLabel.text = usernameString;
+        postsCell.timeStampLabel.text = postDate;
         postsCell.postTextLabel.text = [post.comment stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
         if ([post.imageURL rangeOfString:@"http"].location == NSNotFound) {
             postsCell.postImageView.image = nil;
@@ -303,19 +305,34 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
     dateFormatter.dateStyle = NSDateFormatterMediumStyle;
     NSTimeInterval postTimeInterval = [[NSDate date] timeIntervalSinceDate:postDate];
     int postTimeInt =  postTimeInterval;
-    ;
-    SCLogMessage(kLogLevelDebug, @"time interval %f", postTimeInterval);
     NSString *postDateString;
     int days = postTimeInt / 86400;
-    int hours = (postTimeInt % 86400) / 3600;
-    int minutes = (postTimeInt % 3600) / 60;
-    int seconds = (postTimeInt % 3600) % 60;
+    int hours;
+    int minutes;
+    int seconds;
+    if (days == 0) {
+        hours = postTimeInt/3600;
+    } else {
+        hours = (postTimeInt % 86400) / 3600;
+    }
+    if (hours == 0) {
+        minutes = postTimeInt/60;
+    } else {
+        minutes = (postTimeInt % 3600) / 60;
+    }
+    if (minutes == 0) {
+        seconds = postTimeInt;
+    } else {
+        seconds = (postTimeInt % 3600) % 60;
+    }
     if (minutes == 0 && hours == 0 & days == 0) {
         postDateString = @"Just Now";
     } else if (hours == 0 &&  days == 0) {
         postDateString = [NSString stringWithFormat:@"%d Minutes Ago", minutes];
-    } else {
+    } else if (days == 0) {
         postDateString = [NSString stringWithFormat:@"%d Hours Ago", hours];
+    } else {
+        postDateString = [NSString stringWithFormat:@"%d Days Ago", days];
     }
     return postDateString;
 }
@@ -393,6 +410,8 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
         [self presentViewController:postViewController animated:YES completion:nil];
     }
 }
+
+
 
 #pragma mark Post Modal View Delegate
 

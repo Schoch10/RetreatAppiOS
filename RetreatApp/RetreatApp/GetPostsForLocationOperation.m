@@ -46,7 +46,7 @@
             post.imageURL = postImageURL;
            NSURL *url = [NSURL URLWithString:post.imageURL];
             NSData *data = [NSData dataWithContentsOfURL:url];
-            post.imageCache = data; 
+            post.imageCache = data;
         } else {
             SCLogMessage(kLogLevelDebug, @"Error");
         }
@@ -66,8 +66,9 @@
         if ([postTimeStamp isKindOfClass:[NSString class]]) {
             NSString *postTimeString = postTimeStamp;
             NSDateFormatter *dateFor = [[NSDateFormatter alloc] init];
-            [dateFor setDateFormat:@"MM-dd-yy'T'HH:mm:ss'"];
+            [dateFor setDateFormat:@"MM-dd-yy kk:mm:ss"];
             NSDate *postDate = [dateFor dateFromString:postTimeString];
+            SCLogMessage(kLogLevelDebug, @"post date %@", postDate);
             post.postDate = postDate;
         }
     }
@@ -83,6 +84,20 @@
             [self.getPostsForLocationDelegate getPostsForLocationDidFailWithError:error];
         });
     }
+}
+
+- (void)serviceTaskDidFailToCompleteRequest:(NSError *)error {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.getPostsForLocationDelegate getPostsForLocationDidFailWithError:error];
+    });
+}
+
+- (void)serviceTaskDidReceiveStatusFailure:(HttpStatusCode)httpStatusCode {
+    SCLogMessage(kLogLevelDebug, @"statusCode %ld", (long)httpStatusCode);
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSError *error;
+        [self.getPostsForLocationDelegate getPostsForLocationDidFailWithError:error];
+    });
 }
 
 @end

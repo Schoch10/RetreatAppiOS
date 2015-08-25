@@ -122,6 +122,7 @@
     textAttachment.image = [UIImage imageWithCGImage:textAttachment.image.CGImage scale:scaleFactor orientation:UIImageOrientationUp];
     NSAttributedString *attrStringWithImage = [NSAttributedString attributedStringWithAttachment:textAttachment];
     self.commentTextView.attributedText = attrStringWithImage;
+    self.commentTextView.selectedRange = NSMakeRange(2, 1);
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
@@ -161,6 +162,9 @@
     if ([textView.text isEqualToString:@"What's on your mind?"]) {
         textView.text = @"";
         textView.textColor = [UIColor blackColor];
+    }
+    if([[textView text] length] > 1000){
+        return NO;
     }
     return YES;
 }

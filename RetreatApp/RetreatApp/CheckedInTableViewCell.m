@@ -26,7 +26,7 @@
 
 + (CGFloat)estimatedHeight
 {
-    return 60.f;
+    return 80.f;
 }
 
 - (void)setCheckinName:(NSString *)username

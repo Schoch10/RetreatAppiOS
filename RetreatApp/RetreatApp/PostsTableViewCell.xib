@@ -15,46 +15,54 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Comment: This is me leaning up against an old truck #oldtruck" lineBreakMode="wordWrap" numberOfLines="0" translatesAutoresizingMaskIntoConstraints="NO" id="nMA-Fa-3em">
-                        <rect key="frame" x="8" y="230.5" width="304" height="30.5"/>
+                        <rect key="frame" x="8" y="230" width="304" height="31.5"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="me" translatesAutoresizingMaskIntoConstraints="NO" id="UTi-hq-9Q4">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UTi-hq-9Q4">
                         <rect key="frame" x="8" y="39" width="304" height="185.5"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="185.5" id="CG1-vC-Awf"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Posted by: Brendan (20 mins ago)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRb-6Z-Kx0">
-                        <rect key="frame" x="8" y="8" width="304" height="23"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posted By" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jRb-6Z-Kx0">
+                        <rect key="frame" x="8" y="8" width="175" height="23"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="23" id="aPQ-W7-pDB"/>
+                            <constraint firstAttribute="width" constant="175" id="dly-vl-3d5"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GM6-e5-ghJ">
+                        <rect key="frame" x="206" y="9" width="106" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="highlightedColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="jRb-6Z-Kx0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="2Y8-sf-t8U"/>
+                    <constraint firstItem="UTi-hq-9Q4" firstAttribute="top" secondItem="GM6-e5-ghJ" secondAttribute="bottom" constant="9" id="5dE-2a-rVV"/>
                     <constraint firstItem="nMA-Fa-3em" firstAttribute="top" secondItem="UTi-hq-9Q4" secondAttribute="bottom" constant="6" id="5db-uN-BkJ"/>
                     <constraint firstItem="nMA-Fa-3em" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="96P-pa-tih"/>
+                    <constraint firstItem="GM6-e5-ghJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="Lgx-eV-Ysc"/>
+                    <constraint firstItem="GM6-e5-ghJ" firstAttribute="leading" secondItem="jRb-6Z-Kx0" secondAttribute="trailing" constant="23" id="PlT-wt-3IW"/>
                     <constraint firstAttribute="trailing" secondItem="UTi-hq-9Q4" secondAttribute="trailing" constant="8" id="Qvj-el-fZ5"/>
                     <constraint firstItem="nMA-Fa-3em" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="beZ-iH-YS7"/>
                     <constraint firstItem="UTi-hq-9Q4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="ddS-XT-xLN"/>
                     <constraint firstItem="jRb-6Z-Kx0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="o2X-gV-VM2"/>
                     <constraint firstAttribute="bottom" secondItem="nMA-Fa-3em" secondAttribute="bottom" constant="8" id="oqh-pP-cgE"/>
-                    <constraint firstItem="jRb-6Z-Kx0" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="rLr-98-Nw0"/>
                     <constraint firstItem="UTi-hq-9Q4" firstAttribute="top" secondItem="jRb-6Z-Kx0" secondAttribute="bottom" constant="8" id="ttE-gP-Txr"/>
+                    <constraint firstAttribute="trailing" secondItem="GM6-e5-ghJ" secondAttribute="trailing" constant="8" id="yU6-Ob-0XK"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="postImageView" destination="UTi-hq-9Q4" id="R4Z-Lb-NXP"/>
                 <outlet property="postTextLabel" destination="nMA-Fa-3em" id="nkZ-Ew-fKw"/>
+                <outlet property="timeStampLabel" destination="GM6-e5-ghJ" id="REY-Xb-9bA"/>
                 <outlet property="userLabel" destination="jRb-6Z-Kx0" id="P2R-a7-MLO"/>
             </connections>
             <point key="canvasLocation" x="306" y="376"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="me" width="960" height="699"/>
-    </resources>
 </document>
