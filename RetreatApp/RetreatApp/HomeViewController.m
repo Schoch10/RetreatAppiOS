@@ -51,7 +51,6 @@ int secondsLeft;
     self.userImageView.image = [UIImage imageWithData:sharedManager.userImage];
     [self countdownTimer];
     [self setButtonStyles];
-    SCLogMessage(kLogLevelDebug, @"userId %@", sharedManager.userId);
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -67,6 +66,15 @@ int secondsLeft;
 }
 
 - (void)setButtonStyles {
+    self.selectLocationButton.layer.cornerRadius = 2;
+    self.selectLocationButton.clipsToBounds = YES;
+    float newSize = 80;
+    CGPoint saveCenter = self.userImageView.center;
+    CGRect newFrame = CGRectMake(self.userImageView.frame.origin.x, self.userImageView.frame.origin.y, newSize, newSize);
+    self.userImageView.frame = newFrame;
+    self.userImageView.layer.cornerRadius = newSize / 2.0;
+    self.userImageView.center = saveCenter;
+    self.userImageView.clipsToBounds = YES;
 }
 
 - (void)updateCounter:(NSTimer *)timer {

@@ -24,7 +24,7 @@
                         <constraint firstAttribute="height" constant="64" id="uxc-Pi-lek"/>
                     </constraints>
                     <items>
-                        <navigationItem title="POST" id="E4b-B0-dGe">
+                        <navigationItem id="E4b-B0-dGe">
                             <barButtonItem key="leftBarButtonItem" title="CANCEL" id="c19-gD-tNF">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>

@@ -36,30 +36,6 @@
                         <outlet property="delegate" destination="-1" id="7Qv-N4-Knq"/>
                     </connections>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wRl-8x-0UD">
-                    <rect key="frame" x="8" y="276" width="584" height="37"/>
-                    <color key="backgroundColor" red="0.01176470588" green="0.4823529412" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="37" id="Gg8-P5-N7D"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
-                    <state key="normal" title="SAVE">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="saveButtonSelected:" destination="-1" eventType="touchUpInside" id="vjg-XJ-jhF"/>
-                    </connections>
-                </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAP TO ADD PIC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TWb-s0-sXt">
-                    <rect key="frame" x="8" y="200" width="584" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="21" id="Pcg-kG-jWP"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                    <color key="textColor" red="0.92156862745098034" green="0.94117647058823528" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cGN-dR-Pfn">
                     <rect key="frame" x="242" y="75" width="117" height="117"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -76,12 +52,37 @@
                         <action selector="chooseUserImageSelected:" destination="-1" eventType="touchUpInside" id="pak-P0-qfB"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAP TO ADD PIC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TWb-s0-sXt">
+                    <rect key="frame" x="8" y="200" width="584" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="Pcg-kG-jWP"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" red="0.92156862745098034" green="0.94117647058823528" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wRl-8x-0UD">
+                    <rect key="frame" x="180" y="276" width="240" height="37"/>
+                    <color key="backgroundColor" red="0.01176470588" green="0.4823529412" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="240" id="8T5-fA-f4t"/>
+                        <constraint firstAttribute="height" constant="37" id="Gg8-P5-N7D"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <state key="normal" title="SAVE" backgroundImage="MobileCardReaderButton1x">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="saveButtonSelected:" destination="-1" eventType="touchUpInside" id="vjg-XJ-jhF"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="wRl-8x-0UD" firstAttribute="top" secondItem="Dzi-vR-dvY" secondAttribute="bottom" constant="20" id="7Sg-nb-0M9"/>
-                <constraint firstAttribute="trailing" secondItem="wRl-8x-0UD" secondAttribute="trailing" constant="8" id="9aW-sq-wgT"/>
                 <constraint firstItem="TWb-s0-sXt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="C7r-Eb-eY2"/>
+                <constraint firstItem="wRl-8x-0UD" firstAttribute="centerX" secondItem="cGN-dR-Pfn" secondAttribute="centerX" id="D1k-WL-xLa"/>
                 <constraint firstItem="wRl-8x-0UD" firstAttribute="top" secondItem="gI0-WY-YW7" secondAttribute="bottom" constant="20" id="KbK-XG-RdM"/>
                 <constraint firstItem="cGN-dR-Pfn" firstAttribute="centerX" secondItem="TWb-s0-sXt" secondAttribute="centerX" id="NS3-UW-iOW"/>
                 <constraint firstItem="gI0-WY-YW7" firstAttribute="bottom" secondItem="Dzi-vR-dvY" secondAttribute="bottom" id="QJc-EC-R81"/>
@@ -90,7 +91,6 @@
                 <constraint firstItem="Dzi-vR-dvY" firstAttribute="top" secondItem="TWb-s0-sXt" secondAttribute="bottom" constant="5" id="aE8-yv-Qqg"/>
                 <constraint firstItem="Dzi-vR-dvY" firstAttribute="leading" secondItem="gI0-WY-YW7" secondAttribute="trailing" id="lsx-ob-K7n"/>
                 <constraint firstAttribute="trailing" secondItem="Dzi-vR-dvY" secondAttribute="trailing" constant="8" id="pvf-fD-RrI"/>
-                <constraint firstItem="wRl-8x-0UD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="qnE-N3-DEl"/>
                 <constraint firstItem="TWb-s0-sXt" firstAttribute="top" secondItem="cGN-dR-Pfn" secondAttribute="bottom" constant="8" id="tcd-8w-qFp"/>
                 <constraint firstItem="gI0-WY-YW7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="w7q-Ga-8VT"/>
                 <constraint firstItem="cGN-dR-Pfn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="75" id="xZI-ip-sIS"/>
@@ -100,6 +100,7 @@
         </view>
     </objects>
     <resources>
+        <image name="MobileCardReaderButton1x" width="450" height="96"/>
         <image name="person-placeholder" width="500" height="500"/>
     </resources>
 </document>

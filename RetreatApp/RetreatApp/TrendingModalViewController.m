@@ -54,7 +54,7 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
     [self getPostsForLocation];
     SettingsManager *sharedSettings = [SettingsManager sharedManager];
     if ([self.locationId intValue] == [sharedSettings.currentUserCheckinLocation intValue]) {
-        [self.checkinPostButton setTitle:@"Checked-In, Write Something..." forState:UIControlStateNormal];
+        [self.checkinPostButton setTitle:@"Checked-In, Post Something..." forState:UIControlStateNormal];
     }
 }
 

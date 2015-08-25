@@ -37,13 +37,6 @@
                         <action selector="gameButtonSelected:" destination="-1" eventType="touchUpInside" id="Nd5-Mr-fF8"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="me" translatesAutoresizingMaskIntoConstraints="NO" id="c58-78-wDy">
-                    <rect key="frame" x="253" y="185" width="95" height="73"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="95" id="DJI-OX-VHu"/>
-                        <constraint firstAttribute="height" constant="73" id="DcH-4e-dHd"/>
-                    </constraints>
-                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Information" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MPI-s8-jXR">
                     <rect key="frame" x="31" y="276" width="539" height="33"/>
                     <constraints>
@@ -139,6 +132,13 @@
                         <constraint firstItem="MbQ-pk-2xR" firstAttribute="leading" secondItem="Uby-Df-1Zm" secondAttribute="leading" constant="36" id="ycA-7Y-Etx"/>
                     </constraints>
                 </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="me" translatesAutoresizingMaskIntoConstraints="NO" id="c58-78-wDy">
+                    <rect key="frame" x="260" y="185" width="80" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="DJI-OX-VHu"/>
+                        <constraint firstAttribute="height" constant="80" id="DcH-4e-dHd"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="deviceRGB"/>
@@ -153,7 +153,7 @@
                 <constraint firstItem="Acp-06-yLA" firstAttribute="centerX" secondItem="MPI-s8-jXR" secondAttribute="centerX" id="ScK-H5-77w"/>
                 <constraint firstAttribute="trailing" secondItem="1Oo-xQ-XVE" secondAttribute="trailing" constant="8" id="Y5g-h9-fOc"/>
                 <constraint firstItem="Acp-06-yLA" firstAttribute="top" secondItem="MPI-s8-jXR" secondAttribute="bottom" constant="21" id="aIe-4E-w0P"/>
-                <constraint firstItem="MPI-s8-jXR" firstAttribute="top" secondItem="c58-78-wDy" secondAttribute="bottom" constant="18" id="df6-Fx-Vx0"/>
+                <constraint firstItem="MPI-s8-jXR" firstAttribute="top" secondItem="c58-78-wDy" secondAttribute="bottom" constant="11" id="df6-Fx-Vx0"/>
                 <constraint firstItem="c58-78-wDy" firstAttribute="centerX" secondItem="GKQ-za-gjZ" secondAttribute="centerX" id="ek8-R5-fhx"/>
                 <constraint firstItem="MPI-s8-jXR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="31" id="f5j-yx-HhG"/>
                 <constraint firstItem="Uby-Df-1Zm" firstAttribute="trailing" secondItem="Acp-06-yLA" secondAttribute="trailing" id="iw3-21-04B"/>

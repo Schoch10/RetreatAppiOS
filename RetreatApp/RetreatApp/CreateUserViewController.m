@@ -45,6 +45,9 @@
     nameBorder.frame = CGRectMake(0.0f, self.nameLabel.frame.size.height - 1, self.nameLabel.frame.size.width, 1.0f);
     nameBorder.backgroundColor = [UIColor colorWithRed:0.0 green:0.447f blue:0.784f alpha:1.0f].CGColor;
     [self.nameLabel.layer addSublayer:nameBorder];
+    
+    self.saveButton.layer.cornerRadius = 2;
+    self.saveButton.clipsToBounds = YES;
 
 
 }
