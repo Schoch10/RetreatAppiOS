@@ -15,6 +15,7 @@
 #import "ServiceCoordinator.h"
 #import "CreateAgendaOperation.h"
 #import "AddLocationsOperation.h"
+#import "CreateUserViewController.h"
 
 @interface AppDelegate ()
 @end
@@ -44,8 +45,8 @@
         self.navigationController = [[UINavigationController alloc]initWithRootViewController:homeViewController];
     }
     else {
-        WelcomeViewController *welcomeViewController = [[WelcomeViewController alloc]initWithNibName:@"WelcomeViewController" bundle:nil];
-        self.navigationController = [[UINavigationController alloc]initWithRootViewController:welcomeViewController];
+        CreateUserViewController *createUserVC = [[CreateUserViewController alloc]initWithNibName:@"CreateUserViewController" bundle:nil];
+        self.navigationController = [[UINavigationController alloc]initWithRootViewController:createUserVC];
     }
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     self.window.rootViewController = self.rootViewController = self.navigationController;

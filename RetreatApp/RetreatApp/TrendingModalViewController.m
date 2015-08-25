@@ -413,8 +413,6 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
     }
 }
 
-
-
 #pragma mark Post Modal View Delegate
 
 - (void)dismissPostModalViewController {
