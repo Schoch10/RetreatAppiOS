@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageToPostImageView;
 @property (weak, nonatomic) IBOutlet UITextView *commentTextView;
 @property (strong, nonatomic) UIButton *selectPhotoButton;
+@property (strong, nonatomic) NSAttributedString *imageAttribution;
 
 
 - (void)selectImageButtonSelected;
@@ -122,9 +123,8 @@
     //for the padding inside the textView
     CGFloat scaleFactor = oldWidth / (self.commentTextView.frame.size.width - 10);
     textAttachment.image = [UIImage imageWithCGImage:textAttachment.image.CGImage scale:scaleFactor orientation:UIImageOrientationUp];
-    NSAttributedString *attrStringWithImage = [NSAttributedString attributedStringWithAttachment:textAttachment];
-    self.commentTextView.attributedText = attrStringWithImage;
-
+    self.imageAttribution = [NSAttributedString attributedStringWithAttachment:textAttachment];
+    self.commentTextView.attributedText = self.imageAttribution;
     self.selectPhotoButton.enabled = NO;
 }
 
@@ -142,6 +142,9 @@
 }
 
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
+    if (self.imageAttribution == nil) {
+        textView.selectedRange = NSMakeRange(0, 0);
+    }
     if ([textView.text isEqualToString:@"What's on your mind?"]) {
         textView.textColor = [UIColor colorWithRed:0.90 green:0.90 blue:0.90 alpha:1.0f];
     }
