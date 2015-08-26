@@ -31,6 +31,7 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
 @property (weak, nonatomic) IBOutlet UITableView *trendingTableView;
 @property (weak, nonatomic) IBOutlet UIButton *checkinPostButton;
 @property (weak, nonatomic) IBOutlet UIImageView *userImageView;
+@property (strong, nonatomic) UIRefreshControl *refreshController;
 @property (nonatomic) BOOL isCheckedInView;
 - (IBAction)createPostButtonSelected:(id)sender;
 @end
@@ -40,19 +41,34 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.trendingTableView registerNib:[UINib nibWithNibName:@"PostsTableViewCell" bundle:nil] forCellReuseIdentifier:SBRPOSTSCELL];
-    self.trendingTableView.rowHeight = UITableViewAutomaticDimension;
-    self.trendingTableView.estimatedRowHeight = 300.f;
+    self.refreshController = [[UIRefreshControl alloc] init];
+    [self.refreshController addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+    [self.trendingTableView addSubview:self.refreshController];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[self.totalCheckinsForLocations stringValue] style:UIBarButtonItemStylePlain target:self action:@selector(showCheckedInView)];
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
     SettingsManager *sharedSettings = [SettingsManager sharedManager];
     self.userImageView.image = [UIImage imageWithData:sharedSettings.userImage];
     self.automaticallyAdjustsScrollViewInsets = NO;
+    [self getPostsForLocationForNumberOfPosts:@(50)];
+}
+
+- (void)refresh:(id)sender {
+    [self getPostsForLocationForNumberOfPosts:@(20)];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self getPostsForLocation];
     SettingsManager *sharedSettings = [SettingsManager sharedManager];
+    NSDate *lastUpdate = [sharedSettings checkLastUpdateForLocation:self.locationId];
+    NSTimeInterval timeIntervalSinceUpdate;
+    timeIntervalSinceUpdate  = [lastUpdate timeIntervalSinceNow] * -1;
+    if (lastUpdate == nil) {
+        [self getPostsForLocationForNumberOfPosts:@(50)];
+    } else if (timeIntervalSinceUpdate > 3600 * 5 && timeIntervalSinceUpdate < 3600 * 60) {
+        [self getPostsForLocationForNumberOfPosts:@(20)];
+    } else if (timeIntervalSinceUpdate > 3600 * 60) {
+        [self getPostsForLocationForNumberOfPosts:@(50)];
+    }
     if ([self.locationId intValue] == [sharedSettings.currentUserCheckinLocation intValue]) {
         [self.checkinPostButton setTitle:@"Checked-In, Post Something..." forState:UIControlStateNormal];
     }
@@ -220,9 +236,9 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
 }
 
 
-- (void)getPostsForLocation {
+- (void)getPostsForLocationForNumberOfPosts:(NSNumber *)numberOfPosts {
     [SVProgressHUD show];
-    GetPostsForLocationOperation *getPostsLocationOperation = [[GetPostsForLocationOperation alloc]initGetPostsOperationForLocationId:self.locationId];
+    GetPostsForLocationOperation *getPostsLocationOperation = [[GetPostsForLocationOperation alloc]initGetPostsOperationForLocationId:self.locationId andNumberOfPosts:numberOfPosts];
     getPostsLocationOperation.getPostsForLocationDelegate = self;
     [ServiceCoordinator addNetworkOperation:getPostsLocationOperation priority:CMTTaskPriorityHigh];
     
@@ -232,7 +248,10 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
 
 - (void)getPostsForLocationDidSucceed {
     [SVProgressHUD dismiss];
+    [self.refreshController endRefreshing];
     [self.trendingTableView reloadData];
+    SettingsManager *sharedManager = [SettingsManager sharedManager];
+    [sharedManager setLastUpdateForLocation:self.locationId];
 }
 
 - (void)getPostsForLocationDidFailWithError:(NSError *)error {
@@ -302,40 +321,10 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
 }
 
 - (NSString *)formatPostDateForPostDate:(NSDate *)postDate {
-    SCLogMessage(kLogLevelDebug, @"Post Date %@", postDate);
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-    dateFormatter.dateStyle = NSDateFormatterMediumStyle;
-    NSTimeInterval postTimeInterval = [[NSDate date] timeIntervalSinceDate:postDate];
-    int postTimeInt =  postTimeInterval;
-    NSString *postDateString;
-    int days = postTimeInt / 86400;
-    int hours;
-    int minutes;
-    int seconds;
-    if (days == 0) {
-        hours = postTimeInt/3600;
-    } else {
-        hours = (postTimeInt % 86400) / 3600;
-    }
-    if (hours == 0) {
-        minutes = postTimeInt/60;
-    } else {
-        minutes = (postTimeInt % 3600) / 60;
-    }
-    if (minutes == 0) {
-        seconds = postTimeInt;
-    } else {
-        seconds = (postTimeInt % 3600) % 60;
-    }
-    if (minutes == 0 && hours == 0 & days == 0) {
-        postDateString = @"Just Now";
-    } else if (hours == 0 &&  days == 0) {
-        postDateString = [NSString stringWithFormat:@"%d Minutes Ago", minutes];
-    } else if (days == 0) {
-        postDateString = [NSString stringWithFormat:@"%d Hours Ago", hours];
-    } else {
-        postDateString = [NSString stringWithFormat:@"%d Days Ago", days];
-    }
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:-3600*5]];
+    [dateFormatter setDateFormat:@"MM/dd hh:mm a"];
+    NSString *postDateString = [dateFormatter stringFromDate:postDate];
     return postDateString;
 }
 
@@ -422,7 +411,7 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
 
 - (void)dismissPostModalViewControllerWithPost {
     [self dismissViewControllerAnimated:YES completion:^(void){
-        [self getPostsForLocation];
+        [self getPostsForLocationForNumberOfPosts:@(10)];
     }];
 }
 

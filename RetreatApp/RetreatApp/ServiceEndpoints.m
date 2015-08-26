@@ -48,7 +48,7 @@ typedef NS_ENUM(NSInteger, RALocation) {
     } else if ([endpoint isEqualToString:@"createUser"]) {
         return @"http://tpartyservice-dev.elasticbeanstalk.com/Home/CreateUser?username={userName}";
     } else if ([endpoint isEqualToString:@"getPosts"]) {
-        return @"http://tpartyservice-dev.elasticbeanstalk.com/Home/GetPostsForLocation?LocationId={locationId}";
+        return @"http://tpartyservice-dev.elasticbeanstalk.com/Home/GetPostsForLocation?LocationId={locationId}&page={pageNumber}";
     } else if ([endpoint isEqualToString:@"doPost"]) {
         return @"http://tpartyservice-dev.elasticbeanstalk.com/api/post/SubmitPost?userid={userId}&locationid={locationId}&posttext={posttext}";        
     } else {

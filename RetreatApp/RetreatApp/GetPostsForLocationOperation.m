@@ -13,11 +13,11 @@
 
 @implementation GetPostsForLocationOperation
 
-- (id)initGetPostsOperationForLocationId:(NSNumber *)locationId {
+- (id)initGetPostsOperationForLocationId:(NSNumber *)locationId andNumberOfPosts:(NSNumber *)postNumber {
     
     if (self = [super initWithMethod:RESTMethodGet
                          forEndpoint:@"getPosts"
-                          withParams:@{@"locationId": [locationId stringValue]}] ) {
+                          withParams:@{@"locationId": [locationId stringValue], @"pageNumber": postNumber}] ) {
         self.delegate = self;
     }
     return self;
@@ -66,7 +66,12 @@
         if ([postTimeStamp isKindOfClass:[NSString class]]) {
             NSString *postTimeString = postTimeStamp;
             NSDateFormatter *dateFor = [[NSDateFormatter alloc] init];
-            [dateFor setDateFormat:@"MM-dd-yy kk:mm:ss"];
+            NSCalendar *calendar = [NSCalendar currentCalendar];
+            [calendar setTimeZone: [NSTimeZone systemTimeZone]];
+            
+            // Specify the date components manually (year, month, day, hour, minutes, etc.)
+            [dateFor setDateFormat:@"MM-dd-yy HH:mm:ss"];
+            [dateFor setTimeZone:[NSTimeZone defaultTimeZone]];
             NSDate *postDate = [dateFor dateFromString:postTimeString];
             SCLogMessage(kLogLevelDebug, @"post date %@", postDate);
             post.postDate = postDate;

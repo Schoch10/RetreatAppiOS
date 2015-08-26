@@ -11,7 +11,6 @@
 @interface CheckedInTableViewCell()
 @property (weak, nonatomic) IBOutlet UIImageView *userImageView;
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *checkinTimeLabel;
 
 @end
 
@@ -43,12 +42,6 @@
     }
 }
 
-- (void)setCheckinTime:(NSString *)checkinTime
-{
-    if (checkinTime) {
-        self.checkinTimeLabel.text = checkinTime;
-    }
-}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

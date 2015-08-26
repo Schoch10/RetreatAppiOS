@@ -17,7 +17,7 @@
 
 @interface GetPostsForLocationOperation : RetreatAppServiceConnectionOperation <RetreatServiceTaskDelegate>
 
-- (id)initGetPostsOperationForLocationId:(NSNumber *)locationId;
+- (id)initGetPostsOperationForLocationId:(NSNumber *)locationId andNumberOfPosts:(NSNumber *)postNumber;
 
 @property (nonatomic, weak) id<GetPostsForLocationDelegate> getPostsForLocationDelegate;
 

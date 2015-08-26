@@ -11,7 +11,6 @@
 @interface CheckedInTableViewCell : UITableViewCell
 
 @property (strong, nonatomic) NSString *checkinName;
-@property (strong, nonatomic) NSString *checkinTime;
 @property (strong, nonatomic) UIImage *userImage;
 
 + (CGFloat)estimatedHeight;
