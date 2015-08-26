@@ -22,32 +22,43 @@
 #import "SVProgressHUD/SVProgressHUD.h"
 #import "ViewCheckinsTableViewController.h"
 #import "PollParticipantLocationsOperation.h"
-#import "SaveImageLocalOperation.h"
+#import "DownloadImageOperation.h"
 
 static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
 
 
 @interface TrendingModalViewController () <UINavigationBarDelegate, PostModalViewControllerDelegate, CheckinOperationDelegate, GetPostsForLocationDelegate, ViewCheckinsControllerDelegate, PollParticipantLocationServiceDelegate>
+
 @property (weak, nonatomic) IBOutlet UITableView *trendingTableView;
 @property (weak, nonatomic) IBOutlet UIButton *checkinPostButton;
 @property (weak, nonatomic) IBOutlet UIImageView *userImageView;
 @property (strong, nonatomic) UIRefreshControl *refreshController;
+
 @property (nonatomic) BOOL isCheckedInView;
+
 - (IBAction)createPostButtonSelected:(id)sender;
+
 @end
 
 @implementation TrendingModalViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [self.trendingTableView registerNib:[UINib nibWithNibName:@"PostsTableViewCell" bundle:nil] forCellReuseIdentifier:SBRPOSTSCELL];
+
     self.refreshController = [[UIRefreshControl alloc] init];
     [self.refreshController addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
     [self.trendingTableView addSubview:self.refreshController];
+
+    self.trendingTableView.estimatedRowHeight = 300.f;
+    self.trendingTableView.rowHeight = UITableViewAutomaticDimension;
+    
+
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[self.totalCheckinsForLocations stringValue] style:UIBarButtonItemStylePlain target:self action:@selector(showCheckedInView)];
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
-    SettingsManager *sharedSettings = [SettingsManager sharedManager];
-    self.userImageView.image = [UIImage imageWithData:sharedSettings.userImage];
+
+    self.userImageView.image = [UIImage imageWithData:[SettingsManager sharedManager].userImage];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self getPostsForLocationForNumberOfPosts:@(50)];
 }
@@ -287,37 +298,17 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-        PostsTableViewCell *postsCell = [self.trendingTableView dequeueReusableCellWithIdentifier:SBRPOSTSCELL forIndexPath:indexPath];
-        
-        Post *post = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        
-        NSString *usernameString = [post.username stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
-        NSString *postDate = [self formatPostDateForPostDate:post.postDate];
-        postsCell.userLabel.text = usernameString;
-        postsCell.timeStampLabel.text = postDate;
-        postsCell.postTextLabel.text = [post.comment stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
-        if ([post.imageURL rangeOfString:@"http"].location == NSNotFound) {
-            postsCell.postImageView.image = nil;
-        } else {
-            if (post.imageCache != nil) {
-                postsCell.postImageView.image = [UIImage imageWithData:post.imageCache];
-            } else {
-                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^(void) {
-                    NSURL *url = [NSURL URLWithString:post.imageURL];
-                    SCLogMessage(kLogLevelDebug, @"image url %@", post.imageURL);
-                    NSData *data = [NSData dataWithContentsOfURL:url];
-                    dispatch_sync(dispatch_get_main_queue(), ^(void) {
-                        postsCell.postImageView.image = [UIImage imageWithData:data];
-                    });
-                });
-            }
-        }
-        return postsCell;
-}
-
-- (void)saveImageToCacheForPost:(NSNumber *)postId withImageData:(NSData *)imageData {
-    SaveImageLocalOperation *saveImageOperation = [[SaveImageLocalOperation alloc]initWithPostId:postId withImage:imageData];
-    [ServiceCoordinator addLocalOperation:saveImageOperation completion:^(void){}];
+    PostsTableViewCell *postsCell = [self.trendingTableView dequeueReusableCellWithIdentifier:SBRPOSTSCELL forIndexPath:indexPath];
+    Post *post = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    NSString *usernameString = [post.username stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
+    NSString *postDate = [self formatPostDateForPostDate:post.postDate];
+    postsCell.userLabel.text = usernameString;
+    postsCell.timeStampLabel.text = postDate;
+    postsCell.postTextLabel.text = [post.comment stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
+    [postsCell configureImageWithURL:post.imageURL];
+    
+    return postsCell;
 }
 
 - (NSString *)formatPostDateForPostDate:(NSDate *)postDate {
@@ -326,50 +317,6 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
     [dateFormatter setDateFormat:@"MM/dd hh:mm a"];
     NSString *postDateString = [dateFormatter stringFromDate:postDate];
     return postDateString;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    Post *post = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    if ([post.imageURL rangeOfString:@"http"].location == NSNotFound) {
-        return 270.0f;
-    } else {
-        return 100.0f;
-    }
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return [self heightForImageCellAtIndexPath:indexPath];
-}
-
-- (CGFloat)heightForImageCellAtIndexPath:(NSIndexPath *)indexPath {
-    static PostsTableViewCell *sizingCell = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        sizingCell = [self.trendingTableView dequeueReusableCellWithIdentifier:SBRPOSTSCELL];
-    });
-    
-    [self configureImageCell:sizingCell atIndexPath:indexPath];
-    return [self calculateHeightForConfiguredSizingCell:sizingCell];
-}
-
-- (void)configureImageCell:(PostsTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
-    Post *post = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.userLabel.text = post.username;
-    cell.postTextLabel.text = post.comment;
-    SCLogMessage(kLogLevelDebug, @"image URL %@", post.imageURL);
-    if ([post.imageURL rangeOfString:@"http"].location == NSNotFound) {
-        cell.postImageView.image = nil;
-    } else {
-        cell.postImageView.image = [UIImage imageNamed:@"me"];
-    }
-}
-
-- (CGFloat)calculateHeightForConfiguredSizingCell:(UITableViewCell *)sizingCell {
-    [sizingCell setNeedsLayout];
-    [sizingCell layoutIfNeeded];
-    CGSize size = [sizingCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-    return size.height + 1.0f; // Add 1.0f for the cell separator height
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
