@@ -33,22 +33,13 @@
                                 <action selector="dismissGameInstructionsModal:" destination="-1" eventType="touchUpInside" id="14g-9o-6oS"/>
                             </connections>
                         </button>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3H-0N-AUy">
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3H-0N-AUy">
                             <rect key="frame" x="0.0" y="58" width="538" height="472"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <string key="text">To play the game….
-
-
-1. Do Something
-
-
-2. Do Something else
-
-3. Hit Return
-
-
-4. Show your app on the way in Friday</string>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <mutableString key="text">Hey Guys &amp; Dolls!
+ 
+Want to be the Bees Knees at TParty 2015?!  I know a lot of things are hush-hush around here during prohibition, but strike up a conversation with fellow Speakeasy goers and learn a thing or two about the other Slalomites!  All you have to do is mosey around this joint, find someone who fits the description on the card, and enter in his/her first name into the space provided.  Once you have completed all 12 cards, the status bar on the top of your screen will turn green.  Make sure to show your phone at the door to the Presidential Foyer at the Saturday night hop and win two extra raffle tickets (only raffle tickets – no dough!).  Now what are you waiting for? Scram beat it!</mutableString>
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
                     </subviews>
