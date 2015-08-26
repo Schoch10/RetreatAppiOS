@@ -88,6 +88,9 @@
 		8C1963E01B74239E00A2677A /* TrendingNowViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C1963DE1B74239E00A2677A /* TrendingNowViewController.xib */; };
 		8C1963E41B7426A200A2677A /* TrendingNowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C1963E21B7426A200A2677A /* TrendingNowTableViewCell.m */; };
 		8C1963E51B7426A200A2677A /* TrendingNowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C1963E31B7426A200A2677A /* TrendingNowTableViewCell.xib */; };
+		8C5AC7311B8D2BB000304220 /* UIImageView+Loading.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C5AC72D1B8D2BB000304220 /* UIImageView+Loading.m */; };
+		8C5AC7321B8D2BB000304220 /* UIImage+Loading.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C5AC72F1B8D2BB000304220 /* UIImage+Loading.m */; };
+		8C5AC7351B8D2BCE00304220 /* DownloadImageOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C5AC7331B8D2BCE00304220 /* DownloadImageOperation.m */; };
 		8CB96F6D1B44B11B00845975 /* SCInfiniteCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB96F6B1B44B11B00845975 /* SCInfiniteCollectionView.m */; };
 		8CB96F711B44BC2600845975 /* UIView+Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB96F701B44BC2600845975 /* UIView+Position.m */; };
 		8CB96F751B44C66C00845975 /* TrendingLocationCarouselCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CB96F731B44C66C00845975 /* TrendingLocationCarouselCell.m */; };
@@ -243,6 +246,12 @@
 		8C1963E11B7426A200A2677A /* TrendingNowTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrendingNowTableViewCell.h; sourceTree = "<group>"; };
 		8C1963E21B7426A200A2677A /* TrendingNowTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrendingNowTableViewCell.m; sourceTree = "<group>"; };
 		8C1963E31B7426A200A2677A /* TrendingNowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrendingNowTableViewCell.xib; sourceTree = "<group>"; };
+		8C5AC72D1B8D2BB000304220 /* UIImageView+Loading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Loading.m"; sourceTree = "<group>"; };
+		8C5AC72E1B8D2BB000304220 /* UIImageView+Loading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Loading.h"; sourceTree = "<group>"; };
+		8C5AC72F1B8D2BB000304220 /* UIImage+Loading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Loading.m"; sourceTree = "<group>"; };
+		8C5AC7301B8D2BB000304220 /* UIImage+Loading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Loading.h"; sourceTree = "<group>"; };
+		8C5AC7331B8D2BCE00304220 /* DownloadImageOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadImageOperation.m; sourceTree = "<group>"; };
+		8C5AC7341B8D2BCE00304220 /* DownloadImageOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadImageOperation.h; sourceTree = "<group>"; };
 		8CB96F6B1B44B11B00845975 /* SCInfiniteCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCInfiniteCollectionView.m; sourceTree = "<group>"; };
 		8CB96F6C1B44B11B00845975 /* SCInfiniteCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCInfiniteCollectionView.h; sourceTree = "<group>"; };
 		8CB96F6F1B44BC2600845975 /* UIView+Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Position.h"; sourceTree = "<group>"; };
@@ -495,6 +504,8 @@
 				56AC7CFA1B62C7CC00B4404E /* RetreatAppServiceConnectionOperation.m */,
 				56C5680F1B7539AF0073431C /* CheckinOperation.h */,
 				56C568101B7539AF0073431C /* CheckinOperation.m */,
+				8C5AC7341B8D2BCE00304220 /* DownloadImageOperation.h */,
+				8C5AC7331B8D2BCE00304220 /* DownloadImageOperation.m */,
 			);
 			name = "Network Operations";
 			sourceTree = "<group>";
@@ -548,6 +559,10 @@
 			children = (
 				8CB96F6F1B44BC2600845975 /* UIView+Position.h */,
 				8CB96F701B44BC2600845975 /* UIView+Position.m */,
+				8C5AC7301B8D2BB000304220 /* UIImage+Loading.h */,
+				8C5AC72F1B8D2BB000304220 /* UIImage+Loading.m */,
+				8C5AC72E1B8D2BB000304220 /* UIImageView+Loading.h */,
+				8C5AC72D1B8D2BB000304220 /* UIImageView+Loading.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -692,6 +707,7 @@
 				56A69F4D1B7A887400DE181A /* Location+Extensions.m in Sources */,
 				56A69F441B7A84F400DE181A /* Checkin.m in Sources */,
 				56B5E9661B1E0ED40041C48E /* Game+Extensions.m in Sources */,
+				8C5AC7351B8D2BCE00304220 /* DownloadImageOperation.m in Sources */,
 				56B7B4BA1B324F4B00615737 /* PostsTableViewCell.m in Sources */,
 				56AC7CFE1B62C98E00B4404E /* ServiceEndpoints.m in Sources */,
 				56A606A21B17543000F95006 /* RetreatApp.xcdatamodeld in Sources */,
@@ -699,7 +715,9 @@
 				8CB96F751B44C66C00845975 /* TrendingLocationCarouselCell.m in Sources */,
 				56B5E9521B1CD81B0041C48E /* CheckinViewController.m in Sources */,
 				56DC28181B17B83E009137E7 /* GameViewController.m in Sources */,
+				8C5AC7321B8D2BB000304220 /* UIImage+Loading.m in Sources */,
 				56A69F371B7A7D1800DE181A /* DoPostForLocation.m in Sources */,
+				8C5AC7311B8D2BB000304220 /* UIImageView+Loading.m in Sources */,
 				56B5E9751B1E3A710041C48E /* SaveQuizAnswerOperation.m in Sources */,
 				56A69F561B7D526E00DE181A /* GameInstructionsModalViewController.m in Sources */,
 				56572DE61B83D03100663221 /* ViewCheckinsTableViewController.m in Sources */,
