@@ -31,20 +31,25 @@
 -(void)serviceTaskDidReceiveResponseJSON:(id)responseJSON
 {
     NSNumber *userIdFromJSON = responseJSON;
-    CoreDataManager *coreData = [CoreDataManager sharedManager];
-    NSManagedObjectContext *context = coreData.operationContext;
-    User *user = [User userUpsertWithUserId:userIdFromJSON inManagedObjectContext:context];
-    user.name = self.username;
-    BOOL saved = [coreData saveContext:context];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (saved) {
-            [self.createUserOperationDelegate createUserNetworkOperationDidSucceedWithUserId:userIdFromJSON];
-        } else {
-            NSError *error;
-            error = [NSError errorWithDomain:ErrorCodeCoreDataFailedSave code:1 userInfo:@{@"createUser": @"Create User Failed"}];
-            [self.createUserOperationDelegate createUserNetworkOperationDidFail:error];
-        }
-    });
+    if ([responseJSON intValue] == -1) {
+        NSError *error = nil;
+        [self serviceTaskDidFailToCompleteRequest:error];
+    } else {
+        CoreDataManager *coreData = [CoreDataManager sharedManager];
+        NSManagedObjectContext *context = coreData.operationContext;
+        User *user = [User userUpsertWithUserId:userIdFromJSON inManagedObjectContext:context];
+        user.name = self.username;
+        BOOL saved = [coreData saveContext:context];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (saved) {
+                [self.createUserOperationDelegate createUserNetworkOperationDidSucceedWithUserId:userIdFromJSON];
+            } else {
+                NSError *error;
+                error = [NSError errorWithDomain:ErrorCodeCoreDataFailedSave code:1 userInfo:@{@"createUser": @"Create User Failed"}];
+                [self.createUserOperationDelegate createUserNetworkOperationDidFail:error];
+            }
+        });
+    }
 }
 
 - (void)serviceTaskDidFailToCompleteRequest:(NSError *)error {

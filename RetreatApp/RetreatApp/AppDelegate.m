@@ -39,8 +39,8 @@
     
     settings.lastLaunchedAppVersion = appVersionString;    
     SettingsManager *sharedManager = [SettingsManager sharedManager];
-    NSString *username = sharedManager.username;
-    if (username) {
+    NSNumber *userId = sharedManager.userId;
+    if (userId != nil && [userId intValue] != -1) {
         HomeViewController *homeViewController = [[HomeViewController alloc]initWithNibName:@"HomeViewController" bundle:nil];
         self.navigationController = [[UINavigationController alloc]initWithRootViewController:homeViewController];
     }
