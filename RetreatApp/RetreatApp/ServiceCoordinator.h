@@ -29,6 +29,4 @@ typedef NS_ENUM(NSInteger, CMTTaskPriority) {
 -(void)completeLocalOperation:(SCOperation *)operation;
 -(void)cancelAllOperations;
 
-+ (NSOperationQueue *)imageOperationQueue;
-
 @end

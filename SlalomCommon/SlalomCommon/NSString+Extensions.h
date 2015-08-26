@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-/** These categories extend NSString with commonly used functionality. */
+/** These categories extend NSString with commonly used functionality.  */
 @interface NSString (Extensions)
 
-/** Checks the passed string value to determine if it is nil or the empty string
+/** Checks the passed string value to determie if it is the null or empty string
  
  @param value The string to check.
  */
@@ -21,7 +21,7 @@
  @param value  The String to check.
  @param defaultValue The String to return if null or empty
  **/
-+ (NSString *)value:(NSString *)value orDefault:(NSString *)defaultValue;
++(NSString*) value:(NSString*)value orDefault:(NSString*)defaultValue;
 
 /** Removes any whitespace from the begining and end of this string. */
 - (NSString *)trim;
@@ -30,13 +30,13 @@
 - (NSString *)urlEncodedString;
 
 /**Properly encodes this string for inclusion in HTML post*/
-- (NSString *)htmlEncodedString;
+-(NSString*)htmlEncodedString;
 
 /** Properly url decodes this string */
 - (NSString *)urlDecodedString;
 
 /**Properly html decodes */
-- (NSString *)htmlDecodedString;
+-(NSString*)htmlDecodedString;
 
 /** Returns a string containing the numberic characters in this string instance */
 - (NSString *)stringOfNumericCharacters;
@@ -47,11 +47,9 @@
 /** Returns true if this string starts with the provided value, otherwise false. */
 - (BOOL)startsWith:(NSString *)aString options:(NSStringCompareOptions)mask;
 
-/** Gets the filename without any query string components or @2x modifiers */
-- (NSString *)cleanFilename;
 
-- (BOOL)containsString:(NSString *)string;
-- (BOOL)containsString:(NSString *)string options:(NSStringCompareOptions)options;
+- (BOOL) containsString:(NSString *) string;
+- (BOOL) containsString:(NSString *) string options:(NSStringCompareOptions) options;
 
 - (NSString *)stringByRemovingCharactersInSet:(NSCharacterSet *)characterSet;
 

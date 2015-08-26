@@ -140,23 +140,7 @@
     return ([self rangeOfString:aString options:mask].location == 0);
 }
 
-- (NSString *)cleanFilename
-{
-    NSString *result = self;
-    NSRange range = [self rangeOfString:@"?"];
-    
-    if (range.location != NSNotFound)
-    {
-        result = [self substringToIndex:range.location];
-    }
-  
-    result = [[result lastPathComponent] stringByReplacingOccurrencesOfString:@"@2x" withString:@""];
-    result = [result stringByReplacingOccurrencesOfString:@"%20" withString:@"_"];
-    result = [result stringByReplacingOccurrencesOfString:@"/" withString:@"-"];
-    result = [result stringByReplacingOccurrencesOfString:@":" withString:@"-"];
-    
-    return result;
-}
+
 
 - (BOOL) containsString:(NSString *) string options:(NSStringCompareOptions) options {
     NSRange rng = [self rangeOfString:string options:options];
