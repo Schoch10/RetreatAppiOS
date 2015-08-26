@@ -7,6 +7,14 @@
 //
 
 #import "PostsTableViewCell.h"
+#import "UIImage+Loading.h"
+#import "UIImageView+Loading.h"
+
+@interface PostsTableViewCell ()
+
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *zeroHeightImageConstraint; // Not hooked up at the moment because we're back to using iOS 7 style layout
+
+@end
 
 @implementation PostsTableViewCell
 
@@ -15,6 +23,42 @@
     // Workaround for iOS 8 behavior where table view separators don't start flush with the left margin
     self.layoutMargins = UIEdgeInsetsZero;
     self.preservesSuperviewLayoutMargins = NO;
+}
+
+- (void)prepareForReuse
+{
+    self.postImageView.image = nil;
+    self.downloadImageOperation.delegate = nil;
+}
+
+- (void)configureImageWithURL:(NSString *)imageURL
+{
+    self.postImageView.image = nil;
+    
+    if ([imageURL rangeOfString:@"http"].location == NSNotFound) {
+        self.zeroHeightImageConstraint.active = YES;
+    } else {
+        self.zeroHeightImageConstraint.active = NO;
+        [DownloadImageOperation asyncImageUri:imageURL delegate:self completion:^(UIImage *image) {
+            if (image) // If we have the image already cached, set it right away
+            {
+                [self.postImageView setImage:image];
+            }
+        }];
+    }
+}
+
+#pragma mark - DownloadImageOperationDelegate Methods
+
+- (void)downloadImageOperationDidSucceedWithUserInfo:(NSDictionary *)userInfo
+{
+    [UIImage asyncImageInCachesDirectory:[userInfo objectForKey:kImagePathKey] completion:^(UIImage *image) {
+        
+        if (image)
+        {
+            [self.postImageView setImageAnimated:image];
+        }
+    }];
 }
 
 @end

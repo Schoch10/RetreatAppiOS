@@ -180,7 +180,7 @@
     }
 }
 
-- (void)handleSucceeded:(NSDictionary *)jsonObject
+- (void)requestSucceeded
 {
     [self notifyOfSuccess:@{kImagePathKey: self.downloadPath}];
 }

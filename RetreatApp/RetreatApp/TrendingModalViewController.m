@@ -22,7 +22,6 @@
 #import "SVProgressHUD/SVProgressHUD.h"
 #import "ViewCheckinsTableViewController.h"
 #import "PollParticipantLocationsOperation.h"
-#import "SaveImageLocalOperation.h"
 
 static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
 
@@ -286,37 +285,18 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-        PostsTableViewCell *postsCell = [self.trendingTableView dequeueReusableCellWithIdentifier:SBRPOSTSCELL forIndexPath:indexPath];
-        
-        Post *post = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        
-        NSString *usernameString = [post.username stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
-        NSString *postDate = [self formatPostDateForPostDate:post.postDate];
-        postsCell.userLabel.text = usernameString;
-        postsCell.timeStampLabel.text = postDate;
-        postsCell.postTextLabel.text = [post.comment stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
-        if ([post.imageURL rangeOfString:@"http"].location == NSNotFound) {
-            postsCell.postImageView.image = nil;
-        } else {
-            if (post.imageCache != nil) {
-                postsCell.postImageView.image = [UIImage imageWithData:post.imageCache];
-            } else {
-                dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^(void) {
-                    NSURL *url = [NSURL URLWithString:post.imageURL];
-                    SCLogMessage(kLogLevelDebug, @"image url %@", post.imageURL);
-                    NSData *data = [NSData dataWithContentsOfURL:url];
-                    dispatch_sync(dispatch_get_main_queue(), ^(void) {
-                        postsCell.postImageView.image = [UIImage imageWithData:data];
-                    });
-                });
-            }
-        }
-        return postsCell;
-}
-
-- (void)saveImageToCacheForPost:(NSNumber *)postId withImageData:(NSData *)imageData {
-    SaveImageLocalOperation *saveImageOperation = [[SaveImageLocalOperation alloc]initWithPostId:postId withImage:imageData];
-    [ServiceCoordinator addLocalOperation:saveImageOperation completion:^(void){}];
+    PostsTableViewCell *postsCell = [self.trendingTableView dequeueReusableCellWithIdentifier:SBRPOSTSCELL forIndexPath:indexPath];
+    
+    Post *post = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    NSString *usernameString = [post.username stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
+    NSString *postDate = [self formatPostDateForPostDate:post.postDate];
+    postsCell.userLabel.text = usernameString;
+    postsCell.timeStampLabel.text = postDate;
+    postsCell.postTextLabel.text = [post.comment stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
+    [postsCell configureImageWithURL:post.imageURL];
+    
+    return postsCell;
 }
 
 - (NSString *)formatPostDateForPostDate:(NSDate *)postDate {
