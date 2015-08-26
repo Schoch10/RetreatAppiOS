@@ -115,6 +115,7 @@ static int const CMTServiceConnectionMaxAttempts = 5;
                SCLogMessage(kLogLevelDebug, @"Data %@", body);
                request.HTTPBody = body;
             } else {
+                [request setValue:@"application/json" forHTTPHeaderField:@"content-type"];
                 jsonData = [NSJSONSerialization dataWithJSONObject:normalizedParams
                                                        options:(NSJSONWritingOptions)0
                                                          error:&error];
