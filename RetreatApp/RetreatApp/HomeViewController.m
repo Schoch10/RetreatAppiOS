@@ -86,7 +86,8 @@ int secondsLeft;
         minutes = (secondsLeft % 3600) / 60;
         seconds = (secondsLeft % 3600) % 60;
         self.countdownLabel.text = [NSString stringWithFormat:@"%02d:%02d:%02d:%02.f", days, hours, minutes, seconds];
-        self.gameButton.enabled = YES;
+        self.gameButton.enabled = NO;
+        self.selectLocationButton.enabled = NO;
         self.gameButton.backgroundColor = [UIColor colorWithRed:0.0 green:0.447f blue:0.784f alpha:1.0f];
         [self.gameButton setTitle:@"FIND SOMEONE WHO..." forState:UIControlStateNormal];
     }
@@ -95,7 +96,7 @@ int secondsLeft;
         [timer invalidate];
         self.countdownView.hidden = YES;
         self.countdownLabel.hidden = YES;
-        
+        self.selectLocationButton.enabled = YES;
         self.countdownViewHeightConstraint.constant = 20;
         self.gameButton.enabled = YES;
         [self.gameButton setTitle:@"Game" forState:UIControlStateNormal];
@@ -110,6 +111,7 @@ int secondsLeft;
     [comps setMonth:8];
     [comps setYear:2015];
     [comps setHour:16];
+    [comps setMinute:00];
     //Add iOS 7 support
     NSCalendar *gregorian = [[NSCalendar alloc]
                              initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
