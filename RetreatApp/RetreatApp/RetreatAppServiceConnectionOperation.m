@@ -10,7 +10,7 @@
 #import "ServiceEndpoints.h"
 #import "SettingsManager.h"
 
-static int const CMTServiceConnectionMaxAttempts = 2;
+static int const CMTServiceConnectionMaxAttempts = 5;
 
 @interface RetreatAppServiceConnectionOperation()
 
@@ -159,6 +159,7 @@ static int const CMTServiceConnectionMaxAttempts = 2;
                     case NSURLErrorCannotFindHost:
                         errorDomain = kServiceErrorDomain;
                         codeToReport = ErrorCodeCannotFindHost;
+                        SCLogMessage(kLogLevelError, @"cannot find host");
                         break;
                     case NSURLErrorSecureConnectionFailed:
                         if (self.numberOfAttempts < CMTServiceConnectionMaxAttempts) {
@@ -169,6 +170,7 @@ static int const CMTServiceConnectionMaxAttempts = 2;
                             self.numberOfAttempts++;
                             [ServiceCoordinator addNetworkOperation:self priority:self.priority];
                             failedTask = nil;
+                            SCLogMessage(kLogLevelError, @"cannot secure connection");
                             return;
                         }
                         errorDomain = kServiceErrorDomain;
@@ -177,6 +179,7 @@ static int const CMTServiceConnectionMaxAttempts = 2;
                     case NSURLErrorTimedOut:
                         errorDomain = kServiceErrorDomain;
                         codeToReport = ErrorCodeTimedOut;
+                        SCLogMessage(kLogLevelError, @"timed out");
                         break;
                 }
             }
