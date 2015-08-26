@@ -159,6 +159,23 @@
     return _serialOperationQueue;
 }
 
++ (NSOperationQueue *)imageOperationQueue
+{
+    static NSOperationQueue *imageOperationQueue = nil;
+    
+    @synchronized(self)
+    {
+        if (!imageOperationQueue)
+        {
+            imageOperationQueue = [[NSOperationQueue alloc] init];
+            [imageOperationQueue setName:@"Image Operation Queue"];
+            [imageOperationQueue setMaxConcurrentOperationCount:3]; // Allow 3 image downloads at a time.
+        }
+    }
+    
+    return imageOperationQueue;
+}
+
 + (void)addLocalOperation:(SCOperation *)operation completion:(void (^)(void))completion
 {
     NSOperationQueue *serialQueue = [[ServiceCoordinator sharedCoordinator] serialOperationQueue];
