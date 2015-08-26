@@ -7,17 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DownloadImageOperation.h"
 
-@interface PostsTableViewCell : UITableViewCell <DownloadImageOperationDelegate>
+@interface PostsTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *userLabel;
 @property (weak, nonatomic) IBOutlet UILabel *postTextLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *postImageView;
 @property (weak, nonatomic) IBOutlet UILabel *timeStampLabel;
-
-@property (strong) DownloadImageOperation *downloadImageOperation;
-
-- (void)configureImageWithURL:(NSString *)imageURL;
 
 @end
