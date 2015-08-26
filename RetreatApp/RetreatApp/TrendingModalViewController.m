@@ -60,7 +60,6 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
 
     self.userImageView.image = [UIImage imageWithData:[SettingsManager sharedManager].userImage];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    [self getPostsForLocationForNumberOfPosts:@(50)];
 }
 
 - (void)refresh:(id)sender {
