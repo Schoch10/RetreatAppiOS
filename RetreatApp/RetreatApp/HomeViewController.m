@@ -86,20 +86,24 @@ int secondsLeft;
         minutes = (secondsLeft % 3600) / 60;
         seconds = (secondsLeft % 3600) % 60;
         self.countdownLabel.text = [NSString stringWithFormat:@"%02d:%02d:%02d:%02.f", days, hours, minutes, seconds];
-        self.gameButton.enabled = YES;
-        self.selectLocationButton.enabled = YES;
-        self.gameButton.backgroundColor = [UIColor colorWithRed:0.0 green:0.447f blue:0.784f alpha:1.0f];
-        [self.gameButton setTitle:@"FIND SOMEONE WHO..." forState:UIControlStateNormal];
+        self.gameButton.enabled = NO;
+        self.selectLocationButton.enabled = NO;
+        self.gameButton.backgroundColor = [UIColor colorWithRed:0.94 green:0.94f blue:0.94f alpha:1.0f];
+        [self.gameButton setTitleColor:[UIColor blackColor] forState:UIControlStateDisabled];
+        self.selectLocationButton.backgroundColor = [UIColor colorWithRed:0.94 green:0.94f blue:0.94f alpha:1.0f];
+        [self.gameButton setTitle:@"TOP SECRET" forState:UIControlStateNormal];
     }
     else
     {
         [timer invalidate];
         self.countdownView.hidden = YES;
         self.countdownLabel.hidden = YES;
+        self.selectLocationButton.backgroundColor = [UIColor colorWithRed:0.0 green:0.447f blue:0.784f alpha:1.0f];
+        self.gameButton.backgroundColor = [UIColor colorWithRed:0.0 green:0.447f blue:0.784f alpha:1.0f];
         self.selectLocationButton.enabled = YES;
         self.countdownViewHeightConstraint.constant = 20;
         self.gameButton.enabled = YES;
-        [self.gameButton setTitle:@"Game" forState:UIControlStateNormal];
+        [self.gameButton setTitle:@"FIND SOMEONE WHO..." forState:UIControlStateNormal];
         self.gameButton.titleLabel.textAlignment = NSTextAlignmentCenter;
         
     }
@@ -110,7 +114,7 @@ int secondsLeft;
     [comps setDay:28];
     [comps setMonth:8];
     [comps setYear:2015];
-    [comps setHour:16];
+    [comps setHour:15];
     [comps setMinute:00];
     //Add iOS 7 support
     NSCalendar *gregorian = [[NSCalendar alloc]
