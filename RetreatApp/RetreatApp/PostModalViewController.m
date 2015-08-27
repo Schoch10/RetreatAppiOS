@@ -63,8 +63,7 @@
 
 - (IBAction)postButtonSelected:(id)sender {
     NSString *nonAttributedString = self.commentTextView.text;
-    SCLogMessage(kLogLevelDebug, @"non attributed String %@", nonAttributedString);
-    NSString* encodedPost = [nonAttributedString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *encodedPost = [nonAttributedString urlEncodedString];
     NSString *cleanedEncodeForAttributedString = [encodedPost stringByReplacingOccurrencesOfString:@"%EF%BF%BC%0A" withString:@""];
     NSString *cleanedEncodeFoNoText = [cleanedEncodeForAttributedString stringByReplacingOccurrencesOfString:@"%EF%BF%BC" withString:@""];
     SettingsManager *sharedManager = [SettingsManager sharedManager];
@@ -113,7 +112,6 @@
 #pragma mark UIImagePickerDelegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    
     self.imageToPost = info[UIImagePickerControllerEditedImage];
     [picker dismissViewControllerAnimated:YES completion:NULL];
     NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
