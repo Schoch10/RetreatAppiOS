@@ -335,7 +335,13 @@ static  NSString * const SBRPOSTSCELL = @"PostsTableCell";
 - (void)configureImageCell:(PostsTableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     Post *post = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.userLabel.text = post.username;
+    cell.postTextLabel.numberOfLines = 0;
+    cell.postTextLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    cell.postTextLabel.preferredMaxLayoutWidth = self.view.frame.size.width;
+    SCLogMessage(kLogLevelDebug, @"long content %@", post.comment);
     cell.postTextLabel.text = post.comment;
+    [cell.postTextLabel setNeedsLayout];
+    [cell.postTextLabel layoutIfNeeded];
     SCLogMessage(kLogLevelDebug, @"image URL %@", post.imageURL);
     if ([post.imageURL rangeOfString:@"http"].location == NSNotFound) {
         cell.postImageView.image = nil;
